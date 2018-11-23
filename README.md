@@ -26,7 +26,7 @@ environnement diff ́erent.
 
 Source Control Management est un important composant dans la pipeline d'integration continue et de deploiement continu
 
-J'ai utilise Git
+J'ai utilise Git et plus particulierement GutHub, pour gerer le code source et le versionning
 
 
 
