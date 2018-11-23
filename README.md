@@ -24,7 +24,7 @@ environnement diff ́erent.
 
 # Source Control Management
 
-Source Control Management est un important composant dans la pipeline d'integration continue et de deploiement continu
+Source Control Management est un important composant dans la pipeline d'integration continue et de deploiement continu.
 C'est une part importante au quotidien du workflow des developpeurs:
 - Tout code evolue par les developpeurs sera trackes dans le Source Control Management
 - Les developpeurs utiliseront le Source Control Management pour tracquer leur changement separement (via des branches) et puis les merger ensemble.
@@ -41,5 +41,11 @@ J'ai utilise Git et plus particulierement GutHub, pour gerer le code source et l
 # Build Automation
 
 Build Automation est l'automatisation des taches necessaires pour processer et preparer le code source au deploiement en production. C'est un important composant de l'integration continue.
+
+Ceci inclus:
+- la compilation
+- la gestion des dependences
+- l'execution des tests d'automatisations
+- le packagage de l'application pour le deploiement
 
 J'ai utilise Maven
