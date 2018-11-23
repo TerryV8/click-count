@@ -30,4 +30,6 @@ J'ai utilise Git
 
 # Build Automation
 
+Build Automation est l'automatisation des taches necessaires pour processer et preparer le code source au deploiement en production. C'est un important composant de l'integration continue.
+
 J'ai utilise Maven
