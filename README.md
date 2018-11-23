@@ -48,4 +48,4 @@ Ceci inclus:
 - l'execution des tests d'automatisations. Il s'assure que des tests sont executes et s'ils echouent, cela fait echouer le build
 - le packagage de l'application pour le deploiement
 
-J'ai utilise Maven
+J'ai utilise Maven comme outil d'automatisation de build
