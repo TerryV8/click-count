@@ -48,4 +48,30 @@ Ceci inclus:
 - l'execution des tests d'automatisations. Il s'assure que des tests sont executes et s'ils echouent, cela fait echouer le build
 - le packagage de l'application pour le deploiement
 
-J'ai utilise Maven comme outil d'automatisation de build
+J'ai utilise Maven comme outil d'automatisation de build.
+
+Installer Gradle:
+cd ~/
+wget -O ~/gradle-4.7-bin.zip https://services.gradle.org/distributions/gradles-4.7-bin.zip
+sudo yum -y install unzip java-1.8.0-openjdk
+sudo mkdir /opt/gradle
+sudo unzip -f /opt/gradle ~/gradle-4.7-bin.zip
+sudo vi /etc/profile.d/gradle.sh
+
+Mettre le texte dans gradle.sh:
+export PATH=$PATH:/opt/gradle/gradle-4.7/bin
+
+Puis mettre les permissions sur gradle.sh:
+sudo chmod 755 /etc/profile.d/gradle.sh
+
+Puis, apres s'etre deconnecte et reconnecte:
+gradle --version
+
+Enfin la commande utilisee pour installer et lancer le wrapper Gradle
+cd ~/
+mkdir my-project
+cd my-project
+gradle wrapper
+./gradlew build
+
+
