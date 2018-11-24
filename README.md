@@ -84,3 +84,8 @@ gradle wrapper
 ./gradlew build
 ```
 
+Gradle buils consiste en un ensemble de tasks:
+Quand tu lances gradle build appelle un ensemble de tasks que tu veux executer
+```bash
+./gradlew sayHello
+```
