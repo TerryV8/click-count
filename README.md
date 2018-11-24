@@ -115,3 +115,15 @@ There are multiple types of automated tests:
 
 
 
+Index page
+GET / 200 23.23.ms
+  renders successfully
+  
+Trains API
+GET /trains 200 4.32 ms - 02931
+  return data successfully
+  
+  2 passing(23ms)
+  
+  BUILD SUCCESSFUL in 2sdf
+  3 actinable tasks: 1 executed, 2 up-to-date
