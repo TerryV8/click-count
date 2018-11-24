@@ -65,7 +65,9 @@ Puis mettre les permissions sur gradle.sh:
 sudo chmod 755 /etc/profile.d/gradle.sh
 
 Puis, apres s'etre deconnecte et reconnecte:
+'''bash
 gradle --version
+'''
 
 Enfin la commande utilisee pour installer et lancer le wrapper Gradle
 cd ~/
