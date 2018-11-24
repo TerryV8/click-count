@@ -51,29 +51,36 @@ Ceci inclus:
 J'ai utilise Maven comme outil d'automatisation de build.
 
 Installer Gradle:
+```bash
 cd ~/
 wget -O ~/gradle-4.7-bin.zip https://services.gradle.org/distributions/gradles-4.7-bin.zip
 sudo yum -y install unzip java-1.8.0-openjdk
 sudo mkdir /opt/gradle
 sudo unzip -f /opt/gradle ~/gradle-4.7-bin.zip
 sudo vi /etc/profile.d/gradle.sh
+```
 
 Mettre le texte dans gradle.sh:
+```bash
 export PATH=$PATH:/opt/gradle/gradle-4.7/bin
+```
 
 Puis mettre les permissions sur gradle.sh:
+```bash
 sudo chmod 755 /etc/profile.d/gradle.sh
+```
 
 Puis, apres s'etre deconnecte et reconnecte:
-‘‘‘bash
+```bash
 gradle --version
-‘‘‘
+```
 
 Enfin la commande utilisee pour installer et lancer le wrapper Gradle
+```bash
 cd ~/
 mkdir my-project
 cd my-project
 gradle wrapper
 ./gradlew build
-
+```
 
