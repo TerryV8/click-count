@@ -127,3 +127,10 @@ GET /trains 200 4.32 ms - 02931
   
   BUILD SUCCESSFUL in 2sdf
   3 actinable tasks: 1 executed, 2 up-to-date
+
+What Maven does ?
+Compilation of Source Code
+Running Tests (unit tests and functional tests)
+Packaging the results into JAR’s,WAR’s,RPM’s,etc..
+Upload the packages to remote repo’s (Nexus,Artifactory)
+
