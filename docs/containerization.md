@@ -60,3 +60,8 @@ docker run hello-world
 docker ps -a
 ```
 
+# Create DockerFile
+```console
+vi Dockerfile
+```
+
