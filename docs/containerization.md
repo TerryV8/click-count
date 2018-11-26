@@ -50,5 +50,13 @@ sudo yum -y install docker
 sudo groupadd docker
 sudo usermod -aG docker user
 sudo systemctl enable --now docker
-
 ```
+
+# Check docker is running
+```console
+docker pull docker.io/hello-world
+docker images
+docker run hello-world
+docker ps -a
+```
+
