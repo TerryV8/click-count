@@ -22,7 +22,7 @@ Production. ...
 
 ## Objectif
 
-You can modify the code of the application and use whatever seems relevant to you to fill
+Modify the code of the application and use whatever seems relevant to you to fill
 the objectives of the company, namely to deliver quickly and automatically the evolutions in
 Production.
 The infrastructure of the Staging and Production environments must be configured automatically
