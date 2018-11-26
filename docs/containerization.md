@@ -43,3 +43,12 @@ You can integrate an external logging driver and monitor your app log files in o
 
 A correctly wrapped application will cover most of the Twelve Factors. By design, Docker forces you follow its core principles, such as configuration over environment variables, and communication over TCP/UDP ports. And if you’ve done your application right, it will be ready for scaling not only in Docker.
 
+
+# Install docker
+```console
+sudo yum -y install docker
+sudo groupadd docker
+sudo usermod -aG docker user
+sudo systemctl enable --now docker
+
+```
