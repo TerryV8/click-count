@@ -1,5 +1,14 @@
 # Docker
 
+Why do we need Docker?
+The short list of benefits includes:
+
+- faster development process
+- handy application encapsulation
+- the same behaviour on local machine / dev / staging / production servers
+- easy and clear monitoring
+- easy to scale
+
 ## Faster development process
 There is no need to install 3rd-party apps like PostgreSQL, Redis, or Elasticsearch on the system — you can run them in containers.
 
