@@ -3,18 +3,12 @@
 [![Build Status](https://travis-ci.org/xebia-france/click-count.svg)](https://travis-ci.org/xebia-france/click-count)
 
 # Exercise
-
-## Context
-
-### Need
+## Context - Need & Technical environment
 
 The french Startup Click Paradise has developed a click counter application and in a Lean approach
 it wants to deliver the evolutions continuously.
 You have joined the team as a DevOps profile and your first task is to industrialize
 the construction and delivery of the "Click Count" application.
-
-
-### Technical environment
 
 The web application is developed in Java and uses Redis for storing data. The deployments
 are always done first on a Staging environment and then, after validation, on the environment of
