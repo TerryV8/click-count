@@ -134,3 +134,4 @@ Running Tests (unit tests and functional tests)
 Packaging the results into JAR’s,WAR’s,RPM’s,etc..
 Upload the packages to remote repo’s (Nexus,Artifactory)
 
+[Read more ...](docs/build_automation.md)
