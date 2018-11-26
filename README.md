@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/xebia-france/click-count.svg)](https://travis-ci.org/xebia-france/click-count)
 
-# Exercise
+# Homework
 ## Context - Client needs & Technical environment
 
 The french Startup Click Paradise has developed a click counter application and in a Lean approach
