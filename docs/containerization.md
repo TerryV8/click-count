@@ -9,12 +9,14 @@ The short list of benefits includes:
 - easy and clear monitoring
 - easy to scale
 
+
 ## Faster development process
 There is no need to install 3rd-party apps like PostgreSQL, Redis, or Elasticsearch on the system — you can run them in containers.
 
 Docker also gives you the ability to run different versions of same application simultaneously. For example, say you need to do some manual data migration from an older version of Postgres to a newer version. You can have such a situation in microservice architecture when you want to create a new microservice with a new version of the 3rd-party software.
 
 It could be quite complex to keep two different versions of the same app on one host OS. In this case, Docker containers could be a perfect solution — you receive isolated environments for your applications and 3rd-parties.
+
 
 
 ## Handy application encapsulation
@@ -28,10 +30,14 @@ Docker can’t guarantee 100% dev / staging / production parity, because there i
 
 With the right approach to building Docker images, your application will use the same base image with the same OS version and the required dependencies.
 
+
+
 ## Easy and clear monitoring
 
 Out of the box, you have a unified way to read log files from all running containers. You don’t need to remember all the specific paths where your app and its dependencies store log files, and write custom hooks to handle this. 
 You can integrate an external logging driver and monitor your app log files in one place.
+
+
 
 ## Easy to scale
 
