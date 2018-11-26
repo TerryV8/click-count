@@ -2,7 +2,7 @@
 
 ## Context
 
-### Need
+### Needs
 
 The french Startup Click Paradise has developed a click counter application and in a Lean approach
 it wants to deliver the evolutions continuously.
@@ -20,7 +20,7 @@ The application is built with Maven and a JDK 1.8 with the following command: mv
 Deployment of the application can be done within any web container (Tomcat, Jetty, ...).
 the choice is left to you) and requires a JVM version 1.8.
 
-## Objectif
+## Goal
 
 You can modify the code of the application and use whatever seems relevant to you to fill
 the objectives of the company, namely to deliver quickly and automatically the evolutions in
