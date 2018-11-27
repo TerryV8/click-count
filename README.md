@@ -43,7 +43,7 @@ in order to ensure the sustainability of the solution.
 
 [Read more ...](docs/monitoring_containers.md)
 
-# Replication/Scalability  (With Kubernetes)
+# Replication/Scalability  (With Secure Kubernetes Cluster)
 
 [Read more ...](docs/replication_scalability.md)
 
