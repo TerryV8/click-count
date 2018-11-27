@@ -60,8 +60,9 @@ docker run hello-world
 docker ps -a
 ```
 
-# Create DockerFile
+# Create DockerFile and save it on the Hub
 ```console
 vi Dockerfile
+docker login
 ```
 
