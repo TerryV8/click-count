@@ -122,3 +122,10 @@ as root:
 
   kubeadm join 10.211.55.4:6443 --token co7yxb.gw7vfym8a0i4p05f --discovery-token-ca-cert-hash sha256:0e55d97ccc592def02237a424dca82d64fa383c63908af6161b2720177e58994
 ```
+
+As it said, launch in the commands:
+```console
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```  
