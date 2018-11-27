@@ -15,5 +15,7 @@ exclude=kube*
 ```
 
 ```console
-setenforce 0
+sudo setenforce 0
+sudo yum install -y kubelet-1.11.3 kubeadm-1.11.3 kubectl-1.11.3 --disableexcludes=kubernetes
+
 ```
