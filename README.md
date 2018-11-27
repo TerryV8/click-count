@@ -39,3 +39,6 @@ in order to ensure the sustainability of the solution.
 
 [Read more ...](docs/containerization.md)
 
+# Monitoring containers  (With Prometheus)
+
+[Read more ...](docs/monitoring_containers.md)
