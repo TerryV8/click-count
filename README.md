@@ -39,6 +39,11 @@ in order to ensure the sustainability of the solution.
 
 [Read more ...](docs/containerization.md)
 
-# Monitoring containers  (With Prometheus)
+# Monitoring containers  (With Kinana)
 
 [Read more ...](docs/monitoring_containers.md)
+
+# Replication/Scalability  (With Kubernetes)
+
+[Read more ...](docs/replication_scalability.md)
+
