@@ -14,3 +14,6 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cl
 exclude=kube*
 ```
 
+```console
+setenforce 0
+```
