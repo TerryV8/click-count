@@ -39,7 +39,7 @@ in order to ensure the sustainability of the solution.
 
 [Read more ...](docs/containerization.md)
 
-# Monitoring containers  (With Kinana)
+# Monitoring containers  (With Sonar/Kibana)
 
 [Read more ...](docs/monitoring_containers.md)
 
