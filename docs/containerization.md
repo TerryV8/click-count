@@ -66,3 +66,23 @@ vi Dockerfile
 docker login
 ```
 
+# with dockercompose
+version: '3.6'  
+services:  
+  app:
+    build:
+      context: ./app
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+    ports:
+      - "5000:5000"
+  redis:
+    image: redis:3.2-alpine
+    volumes:
+      - redis_data:/data
+volumes:  
+  redis_data:
+  
+  
