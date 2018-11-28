@@ -9,7 +9,7 @@ kind: Pod
 metadata:
   name: nginx-pod-demo
   labels:
-    app:nginx-demo
+    app: nginx-demo
 spec:
   containers:
     - image: nginx:latest
