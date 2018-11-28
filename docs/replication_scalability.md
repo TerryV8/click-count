@@ -14,6 +14,18 @@ If you are not constrained, there are some other tools built to give you complet
 - On AWS, kops makes cluster installation and management easy (and supports high availability)
 
 
+### Prerequisites
+One or more machines running Ubuntu 16.04+, CentOS 7 or HypriotOS v1.0.1+
+1GB or more of RAM per machine (any less will leave little room for your apps)
+Full network connectivity between all machines in the cluster (public or private network is fine)
+
+### Objectives
+Install a secure Kubernetes cluster on your machines
+Install a pod network on the cluster so that application components (pods) can talk to each other
+Install a sample microservices application (a socks shop) on the cluster
+
+
+# Setting up
 
 Edit /etc/yum.repos.d/kubernetes.repo:
 ```console
