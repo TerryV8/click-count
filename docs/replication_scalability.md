@@ -52,6 +52,12 @@ sudo yum install -y kubelet-1.11.3 kubeadm-1.11.3 kubectl-1.11.3 --disableexclud
 sudo systemctl enable kubelet && sudo systemctl start kubelet
 ```
 
+The kubelet is now restarting every few seconds, as it waits in a crashloop for kubeadm to tell it what to do.
+
+Disabling SELinux by running setenforce 0 is required in order to allow containers to access the host filesystem, which is required by pod networks for example. You have to do this until kubelet can handle SELinux better.
+
+
+
 Now, create the bridge network
 
 Edit /etc/sysctl.d/k8s.conf:
