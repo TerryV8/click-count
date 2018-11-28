@@ -34,6 +34,10 @@ in order to ensure the sustainability of the solution.
 
 [Read more ...](docs/build_automation.md)
 
+# Continous Integration (With Jenkins)
+
+[Read more ...](docs/continuous_integration.md)
+
 
 # Containerization (With Docker)
 
