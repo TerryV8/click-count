@@ -58,7 +58,7 @@ Disabling SELinux by running setenforce 0 is required in order to allow containe
 
 
 
-Now, create the bridge network
+Now, configure the bridge network
 
 Edit /etc/sysctl.d/k8s.conf:
 ```console
@@ -66,10 +66,11 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 ```
 
-To apply:
+Launch the command to apply the change:
 ```console
 sysctl --system
 ```
+
 First, make sure the swap is disabled:
 ```console
 sudo swapoff -a
