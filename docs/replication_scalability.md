@@ -1,8 +1,12 @@
 # Replication/Scalability (With Kubernetes)
 
 We created a Kubernetes cluster of 3 nodes running on Centos 7.
+
 The installation uses a tool called kubeadm which is part of Kubernetes.
 
+This process works with local VMs, physical servers and/or cloud servers. 
+
+It is simple enough that you can easily integrate its use into your own automation (Terraform, Ansible, etc).
 
 
 
