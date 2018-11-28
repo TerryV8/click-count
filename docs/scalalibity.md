@@ -77,3 +77,79 @@ service-demo   NodePort    10.105.95.155   <none>        80:32334/TCP   57s
 
 ```
 
+
+
+## We create our deployment to scale up/down:
+
+Edit deployment.yml: 
+```console
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-pod-demo-deployment
+  labels:
+    app: nginx-demo
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nginx-demo
+  template:
+    metadata:
+      labels:
+        app: nginx-demo
+    spec:
+      containers:
+        - image: nginx:latest
+          name: nginx-demo
+          ports:
+          - containerPort: 80
+          imagePullPolicy: Always
+```
+
+As a root user, launch the command:
+```console
+kubectl create -f deployment.yml
+```
+
+Check the deployment created by:
+```console
+kubectl get deployment
+```
+
+The ouput should look like this:
+```console
+NAME                        DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+nginx-pod-demo-deployment   5         5         5            3           26s
+
+```
+
+Check the pods created by:
+```console
+kubectl get pods
+```
+
+The ouput should look like this:
+```console
+NAME                                         READY     STATUS    RESTARTS   AGE
+nginx-pod-demo-deployment-675fbcc4c4-7wsf5   1/1       Running   0          3m
+nginx-pod-demo-deployment-675fbcc4c4-crrt7   1/1       Running   0          3m
+nginx-pod-demo-deployment-675fbcc4c4-q9khc   1/1       Running   0          3m
+nginx-pod-demo-deployment-675fbcc4c4-w2vh9   1/1       Running   0          3m
+nginx-pod-demo-deployment-675fbcc4c4-zjzss   1/1       Running   0          3m
+```
+
+### To scale up
+
+For example to scalep up to 20,
+Edit deployment.yml and replace the line: 
+  "replicas: 5"  by "replicas: 20"
+  
+
+
+As a root user, launch the command:
+```console
+kubectl apply -f deployment.yml
+```
+
+
