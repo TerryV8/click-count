@@ -109,8 +109,7 @@ Flannel is responsible for providing a layer 3 IPv4 network between multiple nod
 
 Flannel is focused on networking. For network policy, other projects such as Calico can be used.
 
-
-Here are the log messages when initialize the Kubernetes cluster:
+When initializing the master of the Kubernetes cluster, the output should look like :
 ```console
 [init] using Kubernetes version: v1.11.3
 [preflight] running pre-flight checks
@@ -179,6 +178,8 @@ as root:
 
   kubeadm join 10.211.55.4:6443 --token co7yxb.gw7vfym8a0i4p05f --discovery-token-ca-cert-hash sha256:0e55d97ccc592def02237a424dca82d64fa383c63908af6161b2720177e58994
 ```
+
+As we can see, we setting up a "secured(TLS)" Kubernetes cluster. We generated certificate and key (ca, apiserver, apiserver-kubelet-client, front-proxy-ca,  front-proxy-client, etcd, ...)
 
 As it said, launch in the commands:
 ```console
