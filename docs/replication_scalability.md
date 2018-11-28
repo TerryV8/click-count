@@ -237,10 +237,8 @@ If you want to add any new machines as nodes to your cluster, for each machine: 
 
 > Note: If Kubeadm join getting error getsockopt: "no route to host"
 with the follow messages:
-
 > (preflight) Running pre-flight checks.
-
-(WARNING) FileExisting-crict]: crictl not found in system path
+>(WARNING) FileExisting-crict]: crictl not found in system path
 Suggestion: go get github.com/kubernetes-incubator/cri-tools/cmd/crictl
 
 (discovery) Trying to connect to API Server "10.211.55.4:6443"
