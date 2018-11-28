@@ -1,6 +1,10 @@
 # Replication/Scalability (With Kubernetes)
 
-We created a Kubernetes cluster of 3 nodes
+We created a Kubernetes cluster of 3 nodes running on Centos 7.
+The installation uses a tool called kubeadm which is part of Kubernetes.
+
+
+
 
 Edit /etc/yum.repos.d/kubernetes.repo:
 ```console
