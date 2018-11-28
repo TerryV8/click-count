@@ -47,6 +47,6 @@ in order to ensure the sustainability of the solution.
 
 [Read more ...](docs/replication.md)
 
-# Scalability: increasing throughput (With pods Kubernetes cluster)
+# Scalability: increasing throughput (With Kubernetes pods)
 
 [Read more ...](docs/scalability.md)
