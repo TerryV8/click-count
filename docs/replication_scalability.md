@@ -95,6 +95,21 @@ To initialize the master of the Kubernetes cluster, pick one of the machines you
 kubeadm init --pod-network-cidr=10.244.0.0/16 --kubernetes-version=v1.11.3
 ```
 
+Note: this will autodetect the network interface to advertise the master on as the interface with the default gateway. If you want to use a different interface, specify --api-advertise-addresses=<ip-address> argument to kubeadm init.
+
+If you want to use flannel as the pod network, specify --pod-network-cidr=10.244.0.0/16 if you’re using the daemonset manifest below. However, please note that this is not required for any other networks besides Flannel.
+
+Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes.
+Flannel runs a small, single binary agent called flanneld on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space. Flannel uses either the Kubernetes API or etcd directly to store the network configuration, the allocated subnets, and any auxiliary data (such as the host's public IP). Packets are forwarded using one of several backend mechanisms including VXLAN and various cloud integrations.
+
+
+Platforms like Kubernetes assume that each container (pod) has a unique, routable IP inside the cluster. The advantage of this model is that it removes the port mapping complexities that come from sharing a single host IP.
+
+Flannel is responsible for providing a layer 3 IPv4 network between multiple nodes in a cluster. Flannel does not control how containers are networked to the host, only how the traffic is transported between hosts. However, flannel does provide a CNI plugin for Kubernetes and a guidance on integrating with Docker.
+
+Flannel is focused on networking. For network policy, other projects such as Calico can be used.
+
+
 Here are the log messages when initialize the Kubernetes cluster:
 ```console
 [init] using Kubernetes version: v1.11.3
