@@ -95,6 +95,8 @@ To initialize the master of the Kubernetes cluster, pick one of the machines you
 kubeadm init --pod-network-cidr=10.244.0.0/16 --kubernetes-version=v1.11.3
 ```
 
+This will download and install the cluster database and “control plane” components. This may take several minutes.
+
 Note: this will autodetect the network interface to advertise the master on as the interface with the default gateway. If you want to use a different interface, specify --api-advertise-addresses=<ip-address> argument to kubeadm init.
 
 
@@ -155,6 +157,26 @@ Your Kubernetes master has initialized successfully!
 
 As we can see, we set up a "secure (TLS)" Kubernetes cluster. We generated certificate and key (ca, apiserver, apiserver-kubelet-client, front-proxy-ca,  front-proxy-client, etcd, ...)
 
+The key is used for mutual authentication between the master and the joining nodes.
+
+
+The output also tells you that:
+- You should deploy a pod network to the cluster:
+```console
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+```
+
+- You can join any number of machines by running the following on each node
+as root:
+```console
+  kubeadm join 10.211.55.4:6443 --token co7yxb.gw7vfym8a0i4p05f --discovery-token-ca-cert-hash sha256:0e55d97ccc592def02237a424dca82d64fa383c63908af6161b2720177e58994
+```
+
+
+
+
 To start using the cluster, you need to run the following as a regular user:
 ```console
 mkdir -p $HOME/.kube
@@ -162,7 +184,26 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```  
 
-In order to start Flannel (The description of Flannel is below), launch the command:
+# (3/4) Installing a pod network
+
+You must install a pod network add-on so that your pods can communicate with each other.
+
+It is necessary to do this before you try to deploy any applications to your cluster, and before kube-dns will start up. Note also that kubeadm only supports CNI based networks and therefore kubenet based networks will not work.
+
+Several projects provide Kubernetes pod networks using CNI, some of which also support Network Policy. See the add-ons page for a complete list of available network add-ons.
+
+You can install a pod network add-on with the following command:
+kubectl apply -f <add-on.yaml>
+
+If you are on another architecture than amd64, you should use the flannel overlay network 
+
+NOTE: You can install only one pod network per cluster.
+
+Once a pod network has been installed, you can confirm that it is working by checking that the kube-dns pod is Running in the output of kubectl get pods --all-namespaces.
+
+And once the kube-dns pod is up and running, you can continue by joining your nodes.
+
+In order to set up the network properly, we are going to launch  Flannel:
 ```console
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
 ```
@@ -182,14 +223,9 @@ Flannel is responsible for providing a layer 3 IPv4 network between multiple nod
 Flannel is focused on networking. For network policy, other projects such as Calico can be used.
 
 
-```console
-You should now deploy a pod network to the cluster.
-Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
-  https://kubernetes.io/docs/concepts/cluster-administration/addons/
 
-You can now join any number of machines by running the following on each node
-as root:
 
-  kubeadm join 10.211.55.4:6443 --token co7yxb.gw7vfym8a0i4p05f --discovery-token-ca-cert-hash sha256:0e55d97ccc592def02237a424dca82d64fa383c63908af6161b2720177e58994
-```
+
+(4/4) Joining your nodes
+The nodes are where your workloads (containers and pods, etc) run. If you want to add any new machines as nodes to your cluster, for each machine: SSH to that machine, become root (e.g. sudo su -) and run the command that was output by kubeadm init. For example:
 
