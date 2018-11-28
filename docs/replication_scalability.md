@@ -263,6 +263,12 @@ kubectl get nodes
 ```
 on the master shows a cluster with as many machines as you created.
 
-
+The output should look like this:
+```console
+NAME                          STATUS    ROLES     AGE       VERSION
+centos-linux-slave-1.shared   Ready     <none>    21m       v1.11.3
+centos-linux-slave-2.shared   Ready     <none>    21m       v1.11.3
+centos-linux.shared           Ready     master    22h       v1.11.3
+```
 
 
