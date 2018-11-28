@@ -257,7 +257,11 @@ After running those commands on your master, now go back to the node and attempt
 That should resolve your issue.
 
 
-A few seconds later, you should notice that running kubectl get nodes on the master shows a cluster with as many machines as you created.
+A few seconds later, you should notice that running 
+```console
+kubectl get nodes
+```
+on the master shows a cluster with as many machines as you created.
 
 
 
