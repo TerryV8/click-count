@@ -43,7 +43,10 @@ in order to ensure the sustainability of the solution.
 
 [Read more ...](docs/monitoring_containers.md)
 
-# Replication/Scalability  (With secure Kubernetes cluster)
+# Replication: Manage failover  (With secure Kubernetes cluster)
 
-[Read more ...](docs/replication_scalability.md)
+[Read more ...](docs/replication.md)
 
+# Scalability: Manage more throughput (With pods Kubernetes cluster)
+
+[Read more ...](docs/scalability.md)
