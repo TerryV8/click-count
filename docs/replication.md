@@ -1,4 +1,4 @@
-# Replication/Scalability (With Kubernetes)
+# Replication (With Kubernetes)
 
 We created a Kubernetes cluster of 3 nodes running on Centos 7.
 The installation uses a tool called kubeadm which is part of Kubernetes.
