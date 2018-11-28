@@ -236,16 +236,16 @@ If you want to add any new machines as nodes to your cluster, for each machine: 
 ```
 
 
-```
 > Note: If Kubeadm join getting error getsockopt: "no route to host" with the follow messages:
 
+```
 [preflight] Running pre-flight checks.
 [WARNING] FileExisting-crict]: crictl not found in system path
-Suggestion: go get github.com/kubernetes-incubator/cri-tools/cmd/crictl
+ Suggestion: go get github.com/kubernetes-incubator/cri-tools/cmd/crictl
 [discovery] Trying to connect to API Server "10.211.55.4:6443"
 [discovery] Created cluster-info discovery client, requesting info from "https://199.230.107.137:6443"
 [discovery] Failed to request cluster info, will try again: Get https://10.211.55.4:6443/api/v1/namespaces/kube-public/configmaps/cluster-info: dial tcp 10.211.55.4:6443: getsockopt: no route to host
-Whereas  I can ping the master, as well as ssh from the node to the master. 
+ Whereas  I can ping the master, as well as ssh from the node to the master. 
 ```
 
 The issue is that you have a firewall running on your master node that are blocking incoming traffic from slave nodes
