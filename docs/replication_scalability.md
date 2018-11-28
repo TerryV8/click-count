@@ -227,9 +227,35 @@ Flannel is focused on networking. For network policy, other projects such as Cal
 
 
 # (4/4) Joining your nodes
-The nodes are where your workloads (containers and pods, etc) run. If you want to add any new machines as nodes to your cluster, for each machine: SSH to that machine, become root (e.g. sudo su -) and run the command that was output by kubeadm init. For example:
+The nodes are where your workloads (containers and pods, etc) run. If you want to add any new machines as nodes to your cluster, for each machine: SSH to that machine, become root (e.g. sudo su -) and run the command that was output by kubeadm init:
+```console
+  kubeadm join 10.211.55.4:6443 --token co7yxb.gw7vfym8a0i4p05f --discovery-token-ca-cert-hash sha256:0e55d97ccc592def02237a424dca82d64fa383c63908af6161b2720177e58994
+```
 
-...
+Note: If Kubeadm join getting error getsockopt: no route to host
+[preflight] Running pre-flight checks.
+[WARNING FileExisting-crictl]: crictl not found in system path
+Suggestion: go get github.com/kubernetes-incubator/cri-tools/cmd/crictl
+[discovery] Trying to connect to API Server "10.211.55.4:6443"
+[discovery] Created cluster-info discovery client, requesting info from "https://199.230.107.137:6443"
+[discovery] Failed to request cluster info, will try again: [Get https://10.211.55.4:6443/api/v1/namespaces/kube-public/configmaps/cluster-info: dial tcp 10.211.55.4:6443: getsockopt: no route to host]
+
+I’m getting no route to host.  I can ping the master, as well as ssh from the node to the master.
+
+o what is the issue?
+
+The issue is that you have a firewall running on your master node that should be disabled.  It’s blocking incoming traffic.  If you used my Quick Kubernetes setup guide I mention to make sure that you disabled the host based firewall.
+
+If you forgot, this is your issue.  So please issue the following commands on your server.
+
+```console
+systemctl disable firewalld
+systemctl stop firewalld
+```
+After running those commands on your master, now go back to the node and attempt to join again.
+
+That should resolve your issue.
+
 
 A few seconds later, you should notice that running kubectl get nodes on the master shows a cluster with as many machines as you created.
 
