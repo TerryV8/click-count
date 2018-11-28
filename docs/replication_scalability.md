@@ -6,6 +6,13 @@ The installation uses a tool called kubeadm which is part of Kubernetes.
 This process works with local VMs, physical servers and/or cloud servers. 
 It is simple enough that you can easily integrate its use into your own automation (Terraform, Ansible).
 
+kubeadm assumes you have a set of machines (virtual or real) that are up and running. It is designed to be part of a large provisioning system - or just for easy manual provisioning. kubeadm is a great choice where you have your own infrastructure (e.g. bare metal), or where you have an existing orchestration system (e.g. Ansible) that you have to integrate with.
+
+If you are not constrained, there are some other tools built to give you complete clusters:
+
+- On GCE, Google Container Engine gives you one-click Kubernetes clusters
+- On AWS, kops makes cluster installation and management easy (and supports high availability)
+
 
 
 Edit /etc/yum.repos.d/kubernetes.repo:
