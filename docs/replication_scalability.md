@@ -185,7 +185,7 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```  
 
-# (3/4) Installing a pod network
+## (3/4) Installing a pod network
 
 You must install a pod network add-on so that your pods can communicate with each other.
 
@@ -227,7 +227,7 @@ Flannel is focused on networking. For network policy, other projects such as Cal
 
 
 
-# (4/4) Joining your nodes
+## (4/4) Joining your nodes
 
 The nodes are where your workloads (containers and pods, etc) run. 
 If you want to add any new machines as nodes to your cluster, for each machine: SSH to that machine, become root (e.g. sudo su -) and run the command that was output by kubeadm init:
