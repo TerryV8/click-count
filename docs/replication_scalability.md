@@ -226,6 +226,6 @@ Flannel is focused on networking. For network policy, other projects such as Cal
 
 
 
-(4/4) Joining your nodes
+# (4/4) Joining your nodes
 The nodes are where your workloads (containers and pods, etc) run. If you want to add any new machines as nodes to your cluster, for each machine: SSH to that machine, become root (e.g. sudo su -) and run the command that was output by kubeadm init. For example:
 
