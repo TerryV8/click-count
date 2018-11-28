@@ -249,13 +249,13 @@ If you want to add any new machines as nodes to your cluster, for each machine: 
 ```
 
 The issue is that you have a firewall running on your master node that are blocking incoming traffic from slave nodes
-- First solution: Open the 2 specific master host ports.
+- First solution: Open the 2 specific host ports on the master node.
 ```console
 sudo firewall-cmd --zone=public --add-port=6443/tcp --permanent
 sudo firewall-cmd --zone=public --add-port=10250/tcp --permanent
 ```
 
-- Second solution if it still doesn't work: Disable the master host based firewall.
+- Second solution if it still doesn't work: Disable the based firewall on the master node.
 ```console
 systemctl disable firewalld
 systemctl stop firewalld
