@@ -97,17 +97,6 @@ kubeadm init --pod-network-cidr=10.244.0.0/16 --kubernetes-version=v1.11.3
 
 Note: this will autodetect the network interface to advertise the master on as the interface with the default gateway. If you want to use a different interface, specify --api-advertise-addresses=<ip-address> argument to kubeadm init.
 
-If you want to use flannel as the pod network, specify --pod-network-cidr=10.244.0.0/16 if you’re using the daemonset manifest below. However, please note that this is not required for any other networks besides Flannel.
-
-Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes.
-Flannel runs a small, single binary agent called flanneld on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space. Flannel uses either the Kubernetes API or etcd directly to store the network configuration, the allocated subnets, and any auxiliary data (such as the host's public IP). Packets are forwarded using one of several backend mechanisms including VXLAN and various cloud integrations.
-
-
-Platforms like Kubernetes assume that each container (pod) has a unique, routable IP inside the cluster. The advantage of this model is that it removes the port mapping complexities that come from sharing a single host IP.
-
-Flannel is responsible for providing a layer 3 IPv4 network between multiple nodes in a cluster. Flannel does not control how containers are networked to the host, only how the traffic is transported between hosts. However, flannel does provide a CNI plugin for Kubernetes and a guidance on integrating with Docker.
-
-Flannel is focused on networking. For network policy, other projects such as Calico can be used.
 
 When initializing the master of the Kubernetes cluster, the output should look like :
 ```console
@@ -162,13 +151,36 @@ I1127 17:36:44.053993   23515 kernel_validator.go:96] Validating kernel config
 [addons] Applied essential addon: kube-proxy
 
 Your Kubernetes master has initialized successfully!
+```
 
-To start using your cluster, you need to run the following as a regular user:
+As we can see, we set up a "secure (TLS)" Kubernetes cluster. We generated certificate and key (ca, apiserver, apiserver-kubelet-client, front-proxy-ca,  front-proxy-client, etcd, ...)
 
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+To start using the cluster, you need to run the following as a regular user:
+```console
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```  
 
+In order to start Flannel, launch the command:
+```console
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
+```
+What is Flannel:
+If you want to use flannel as the pod network, specify --pod-network-cidr=10.244.0.0/16 if you’re using the daemonset manifest below. However, please note that this is not required for any other networks besides Flannel.
+
+Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes.
+Flannel runs a small, single binary agent called flanneld on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space. Flannel uses either the Kubernetes API or etcd directly to store the network configuration, the allocated subnets, and any auxiliary data (such as the host's public IP). Packets are forwarded using one of several backend mechanisms including VXLAN and various cloud integrations.
+
+
+Platforms like Kubernetes assume that each container (pod) has a unique, routable IP inside the cluster. The advantage of this model is that it removes the port mapping complexities that come from sharing a single host IP.
+
+Flannel is responsible for providing a layer 3 IPv4 network between multiple nodes in a cluster. Flannel does not control how containers are networked to the host, only how the traffic is transported between hosts. However, flannel does provide a CNI plugin for Kubernetes and a guidance on integrating with Docker.
+
+Flannel is focused on networking. For network policy, other projects such as Calico can be used.
+
+
+```console
 You should now deploy a pod network to the cluster.
 Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
   https://kubernetes.io/docs/concepts/cluster-administration/addons/
@@ -179,16 +191,3 @@ as root:
   kubeadm join 10.211.55.4:6443 --token co7yxb.gw7vfym8a0i4p05f --discovery-token-ca-cert-hash sha256:0e55d97ccc592def02237a424dca82d64fa383c63908af6161b2720177e58994
 ```
 
-As we can see, we setting up a "secured(TLS)" Kubernetes cluster. We generated certificate and key (ca, apiserver, apiserver-kubelet-client, front-proxy-ca,  front-proxy-client, etcd, ...)
-
-As it said, launch in the commands:
-```console
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-```  
-
-Launch this command:
-```console
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
-```
