@@ -235,9 +235,10 @@ If you want to add any new machines as nodes to your cluster, for each machine: 
   kubeadm join 10.211.55.4:6443 --token co7yxb.gw7vfym8a0i4p05f --discovery-token-ca-cert-hash sha256:0e55d97ccc592def02237a424dca82d64fa383c63908af6161b2720177e58994
 ```
 
-> Note: If Kubeadm join getting error getsockopt: "no route to host" with the follow messages:
 
 ```
+> Note: If Kubeadm join getting error getsockopt: "no route to host" with the follow messages:
+
 [preflight] Running pre-flight checks.
 [WARNING] FileExisting-crict]: crictl not found in system path
 Suggestion: go get github.com/kubernetes-incubator/cri-tools/cmd/crictl
