@@ -142,14 +142,60 @@ nginx-pod-demo-deployment-675fbcc4c4-zjzss   1/1       Running   0          3m
 ### To scale up
 
 For example to scalep up to 20,
-Edit deployment.yml and replace the line: 
-  "replicas: 5"  by "replicas: 20"
+Edit deployment.yml and replace the line: "replicas: 5"
+by "replicas: 20"
   
 
 
-As a root user, launch the command:
+As a root user, launch the command to verify:
 ```console
 kubectl apply -f deployment.yml
+```
+
+The ouput should look like this:
+```console
+NAME                                         READY     STATUS              RESTARTS   AGE
+nginx-pod-demo-deployment-675fbcc4c4-5s6h9   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-9fk8t   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-9p2cj   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-cttq7   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-dswg4   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-dw8hx   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-h8r5l   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-jlnh2   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-k78ch   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-ld9wq   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-ldmql   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-n5qvx   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-q6cdb   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-q9khc   1/1       Running             0          10m
+nginx-pod-demo-deployment-675fbcc4c4-qxzbc   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-rmcp4   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-rnb2z   0/1       ContainerCreating   0          36s
+nginx-pod-demo-deployment-675fbcc4c4-sscvx   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-tgm4b   1/1       Running             0          36s
+nginx-pod-demo-deployment-675fbcc4c4-zqnsj   1/1       Running             0          36s
+```
+
+
+
+### To scale down
+
+For example to scalep up to 1,
+Edit deployment.yml and replace the line: "replicas: 5"
+by "replicas: 1"
+  
+
+
+As a root user, launch the command to verify:
+```console
+kubectl apply -f deployment.yml
+```
+
+The ouput should look like this:
+```console
+NAME                                         READY     STATUS    RESTARTS   AGE
+nginx-pod-demo-deployment-675fbcc4c4-q9khc   1/1       Running   0          9m
 ```
 
 
