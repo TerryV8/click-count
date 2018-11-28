@@ -86,3 +86,11 @@ volumes:
   redis_data:
   
   
+Alpine images
+
+A lot of Docker images (versions of images) are created on top of Alpine Linux – this is a lightweight distro that allows you to reduce the overall size of Docker images.
+
+I recommend that you use images based on Alpine for third-party services, such as Redis, Postgres, etc. For your app images, use images based on buildpack – it will be easy to debug inside the container, and you’ll have a lot of pre-installed system-wide requirements.
+
+Only you can decide which base image to use, but you can get the maximum benefit by using one basic image for all images, because in this case the cache will be used more effectively.
+  
