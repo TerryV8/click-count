@@ -6,8 +6,10 @@ The short list of benefits includes:
 - faster development process
 - handy application encapsulation
 - the same behaviour on local machine / dev / staging / production servers
+- distribute the whole app inclusing the "server" in a ready-to-run state
 - easy and clear monitoring
 - easy to scale
+- better than Virtual Machine (VM)
 
 
 ## Faster development process
@@ -42,6 +44,27 @@ You can integrate an external logging driver and monitor your app log files in o
 ## Easy to scale
 
 A correctly wrapped application will cover most of the Twelve Factors. By design, Docker forces you follow its core principles, such as configuration over environment variables, and communication over TCP/UDP ports. And if you’ve done your application right, it will be ready for scaling not only in Docker.
+
+## Better than Virtual Machine (VM)
+
+Even if Virtual Machine is a virtualization tools that helps us to spin up new production servers when we need to
+compare to traditional architecture.
+
+Virtual Machine are nowadays:
+- slower
+- using a lot of resources
+- not portable
+- not offering that the code is deployed in the same way on all the VM
+compare to the containarization offered by Docker
+
+What if we have something like a kind of VM, but faster, smaller and easier to work with than a VM. That's what Docker offered. We could package the code and the system-level configuration (entire OS, and simulations of all the hardware) in a lightweight package that can stand up quickly and run almost anywhere.
+
+It is lightweight, because container has only what the app needs in order to run.
+
+
+
+
+
 
 
 # Install docker
