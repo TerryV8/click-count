@@ -59,7 +59,7 @@ compare to the containarization offered by Docker
 
 What if we have something like a kind of VM, but faster, smaller and easier to work with than a VM. That's what Docker offered. We could package the code and the system-level configuration (entire OS, and simulations of all the hardware) in a lightweight package that can stand up quickly and run almost anywhere.
 
-It is lightweight, because container has only what the app needs in order to run.
+It is lightweight, because container has only what the app needs in order to run. Moreover, orchestration becomes much easier with container thanks to its lightweight.
 
 
 
