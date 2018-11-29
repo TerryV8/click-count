@@ -97,6 +97,12 @@ Once you build the image, you can create and run a container instance:
 docker run -d <docker username>/<image-name>
 ```
 
+To see running containers:
+```console
+docker ps
+```
+
+
 ```console
 vi Dockerfile
 docker login
