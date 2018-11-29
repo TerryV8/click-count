@@ -20,7 +20,7 @@ Merging frequently throughout the day and getting quick feedback means that if y
 
 We will be using Jenkins as our CI server.
 
-## Setting up
+## Setting up CI server
 
 Let's set up Jenkins:
 ```console
@@ -56,4 +56,16 @@ in my case, http://10.211.55.4:8080.
 In the case, there is an error, type the url <your server address>:8080/restart
   
  
+## Setting up Jenkins Projects
+Jenkins projects are at the core of doing any kind of automation in Jenkins. 
+A Jenkins project is the configuration which controls what a piece of Jenkins automation does and when it executes.
 
+It will demonstrate how to set up a freestyle project that pulls application source code from GitHub and executes build automation against it. 
+
+We are going to set up a CI build for the train schedule app found at https://github.com/linuxacademy/cicd-pipeline-train-schedule-jenkins.
+- This build will check out the code from GitHub
+- Run the gradle build automation that is packaged with the source code
+
+
+ 
+ 
