@@ -45,3 +45,15 @@ Please copy the password from either location and paste it below.
 
 Thus on the server, copy/paste the password required that you can find in /var/lib/jenkins/secrets/initialAdminPassword
 
+Then, choose the default setting for the set up
+
+Register the adminstrator account:
+Username: jenkins
+password: jenkins
+
+After that, login to <your server address>:8080
+in my case, http://10.211.55.4:8080.
+In the case, there is an error, type the url <your server address>:8080/restart
+  
+ 
+
