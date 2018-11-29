@@ -36,13 +36,10 @@ sudo systemctl start jenkins
 Go to <your server address>:8080 in a browser,
 in my case, it is http://10.211.55.4:8080/
 and on the home page, you will get this message:
-Getting Started
-Unlock Jenkins
 ```console
+Unlock Jenkins
 To ensure Jenkins is securely set up by the administrator, a password has been written to the log (not sure where to find it?) and this file on the server:
-
 /var/lib/jenkins/secrets/initialAdminPassword
-
 Please copy the password from either location and paste it below.
 ```
 
