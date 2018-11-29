@@ -97,5 +97,60 @@ I can see that it archives my train-schedule to zip file
 
 
 
+This is the output expected in the console:
+```console
+Started by user Jenkins
+Building in workspace /var/lib/jenkins/workspace/train-schedule
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/linuxacademy/cicd-pipeline-train-schedule-jenkins # timeout=10
+Fetching upstream changes from https://github.com/linuxacademy/cicd-pipeline-train-schedule-jenkins
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/linuxacademy/cicd-pipeline-train-schedule-jenkins +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 1603f84d1f50794623c71673920fc3111280045f (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1603f84d1f50794623c71673920fc3111280045f
+Commit message: "specify a newer version of node and npm"
+ > git rev-list --no-walk 1603f84d1f50794623c71673920fc3111280045f # timeout=10
+[Gradle] - Launching build.
+[train-schedule] $ /var/lib/jenkins/workspace/train-schedule/gradlew build
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+:nodeSetup UP-TO-DATE
+:npmSetup UP-TO-DATE
+
+:npmInstall UP-TO-DATE
+
+:npm_test
+
+> cicd-pipeline-train-schedule-git@0.0.0 test /var/lib/jenkins/workspace/train-schedule
+> mocha
+
+
+
+  Index Page
+[0mGET / [32m200 [0m250.550 ms - 829[0m
+    ✓ renders successfully (275ms)
+
+  Trains API
+[0mGET /trains [32m200 [0m5.289 ms - 1093[0m
+    ✓ returns data successfully
+
+
+  2 passing (318ms)
+
+:npm_build
+:zip UP-TO-DATE
+:build UP-TO-DATE
+
+BUILD SUCCESSFUL in 11s
+6 actionable tasks: 2 executed, 4 up-to-date
+Build step 'Invoke Gradle script' changed build result to SUCCESS
+
+Archiving artifacts
+Finished: SUCCESS
+```
 
  
