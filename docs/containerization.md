@@ -89,9 +89,13 @@ docker ps -a
 An image is defined in a Dockerfile and then create using the "docker build" command
 When you build, you give your image a name (and possibly tags):
 ```console
-"docker build -t <docker username>/<image-name>"
+docker build -t <docker username>/<image-name>
 ```
 
+Once you build the image, you can create and run a container instance:
+```console
+docker run -d <docker username>/<image-name>
+```
 
 ```console
 vi Dockerfile
