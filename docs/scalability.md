@@ -199,5 +199,9 @@ nginx-pod-demo-deployment-675fbcc4c4-q9khc   1/1       Running   0          9m
 ```
 
 # Load Balancing
+If you go the url of one of the slave nodes,
+for example 10.211.55.5:32334,
+you will see that you are able to use the service
+
 
 
