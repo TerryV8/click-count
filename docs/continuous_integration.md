@@ -43,5 +43,5 @@ To ensure Jenkins is securely set up by the administrator, a password has been w
 Please copy the password from either location and paste it below.
 ```
 
-So on the server copy/paste the password required that you can find in /var/lib/jenkins/secrets/initialAdminPassword
+Thus on the server, copy/paste the password required that you can find in /var/lib/jenkins/secrets/initialAdminPassword
 
