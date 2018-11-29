@@ -89,12 +89,12 @@ docker ps -a
 An image is defined in a Dockerfile and then create using the "docker build" command
 When you build, you give your image a name (and possibly tags):
 ```console
-docker build -t <docker username>/<image-name>
+docker build -t <docker username>/<image-name> .
 ```
 
 Once you build the image, you can create and run a container instance:
 ```console
-docker run -d <docker username>/<image-name>
+docker run -d <docker username>/<image-name> 
 ```
 
 To see running containers:
@@ -102,11 +102,29 @@ To see running containers:
 docker ps
 ```
 
+Once you "docker build" an image, you can "docker push" it to registry.
+Then you can "docker run" that image from anywhere that is set up to access that registry.
+You can maintain your own private registries or you can use the official cloud registry, Docker Hub (hub.docker.com)
+To authenticate with Docker Hub:
+```console
+docker login
+```
+
 
 ```console
 vi Dockerfile
 docker login
 ```
+
+# example of docker file
+FROM node:carbon
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 8080
+CMD ["npm", "start"]
+
 
 # with dockercompose
 version: '3.6'  
