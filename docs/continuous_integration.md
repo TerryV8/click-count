@@ -193,3 +193,24 @@ Click on the project >> Configure.
 - In the section  "Build triggers", select "Github hook trigger for GITScm polling"
 
 ...
+
+# Jenkins pipelines
+
+A jenkins pipeline is an automated process built on these tools. It takes source code through a "pipeline" from the source code creation all the way to production deployment.
+
+Pipelines adhere to the best practice of infrastructure as code. Therefore, a pipeline is implemented in a file that is kept in source control along with the rest of the application code. This file is called a Jenkinsfile.
+To create a pipeline, simply create a file called Jenkinsfile and add it to you source control repo.
+When creating the Jenkins project, chosse the "pipeline" or "Multibranch pipeline" project type.
+
+Pipelines has a domain-specific-language(DSL) that is used to define the pipeline logic
+
+There are 2 styles of Pipeline syntax you can choose:
+- either scripted - a bit more like procedural code
+- either declarative - syntax describes the pipeline logic
+
+
+On Github, create a new item pipepline
+select your project >> Configure >> Build Triggers >> 
+
+
+
