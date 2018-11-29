@@ -72,7 +72,8 @@ It is lightweight, because container has only what the app needs in order to run
 sudo yum -y install docker
 sudo groupadd docker
 sudo usermod -aG docker user
-sudo systemctl enable --now docker
+sudo systemctl start docker
+sudo systemctl enable docker
 ```
 
 # Check docker is running
@@ -84,6 +85,11 @@ docker ps -a
 ```
 
 # Create DockerFile and save it on the Hub
+
+An image is defined in a Dockerfile and then create using the "docker build" command
+When you build, you give your image a name (and possibly tags):
+"docker build -t <docker username>/<image-name>"
+
 ```console
 vi Dockerfile
 docker login
