@@ -33,6 +33,9 @@ sudo systemctl enable jenkins
 sudo systemctl start jenkins
 ```
 
+Instead of "sudo yum -y install jenkins-2.121.1", do "sudo yum -y install jenkins"
+
+
 Go to <your server address>:8080 in a browser,
 in my case, it is http://10.211.55.4:8080/
 and on the home page, you will get this message:
@@ -173,8 +176,20 @@ Configurin webhooks in Jenkins is realatively easy. We need to:
 - Check "Manage Hooks" for the GitHub server configuration
 - In the project configuration, under "Build triggers", select "GitHub hook trigger for GITScm polling"
 
+### On GitHub
+click Settings >> Developer settings >> Personal access tokens >> Generate new token
+Select the right permission: admin:repo_hook >> write:repo_hook and read:repo_hook
 
+### On Jenkins
+Click Manage Jenkins >> Configure system
+In the section GitHub, select Git server, name: GitHub, Credentials: Add jenkins
+Select Kind: Secret text, Secret: "Enter the api key of GitHub", ID: github_key, Description: GitHubKey
+Then Credential: GitHubKey, check "Manage hooks", click on "test connection"
 
+I ve just set up my Jenkins server to be able to authenticate with GitHub.
 
+Click on the project >> Configure. 
+- In the section "Source Code Management" >> Git >> Repository URL: https://github.com/TerryV8/cicd-pipeline-train-schedule-jenkins
+- In the section  "Build triggers", select "Github hook trigger for GITScm polling"
 
 
