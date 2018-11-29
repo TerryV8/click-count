@@ -111,12 +111,25 @@ docker login
 ```
 
 
+
+# Dockerfile
+
+The Dockerfile defines the docker images that will be built. It consists of a series of instructions for produing the image:
+- FROM, sets the parent image
+- WORKDIR, sets the current working directory inside the container image for other commands
+- COPY, copies files from the host into the container image
+- RUN, executes a command within the container image
+- EXPOSE, tells docker that the software in the container listens on a particular ports
+- CMD, sets the command that is executed by the container when it is run
+
+
+
 ```console
 vi Dockerfile
 docker login
 ```
 
-# example of docker file
+
 FROM node:carbon
 WORKDIR /usr/src/app
 COPY package*.json ./
