@@ -153,4 +153,28 @@ Archiving artifacts
 Finished: SUCCESS
 ```
 
- 
+# Automatically trigerring builds as soon as commit to git
+
+Some teams have a scheduled builds that runs one a week, one a day, twice a day.
+However, the most efficient and immediate way is to have a trigger.
+
+We are going to use Webhooks which is event notifications made from one application to another over http.
+
+In jenkins, we can use webhooks to have Github notify Jenkins as soon as the code in GitHub changes.
+Jenkins can respond by automatically running the build to implement any changes.
+
+We can configure Jenkins to automatically create and manage webhooks in GitHub.
+So we must give jenkins access to an API token that allows to access the gitHub API.
+
+Configurin webhooks in Jenkins is realatively easy. We need to:
+- Create an access token in GitHub that has permission to read and create webhooks
+- Add a GitHub server in Jenkins for GitHub.com
+- Create a jenkins credential with the token and configure the GitHub server configuration to use it
+- Check "Manage Hooks" for the GitHub server configuration
+- In the project configuration, under "Build triggers", select "GitHub hook trigger for GITScm polling"
+
+
+
+
+
+
