@@ -66,4 +66,9 @@ Kubernetes: Kubernetes utilizes its own YAML, API, and client definitions and ea
 # Load Balancing
 Kubernetes: Pods are exposed via service, which can be utilized as a load balancer within the cluster. Generally, an ingress is utilized for load balancing.
 
+# What are we going to do
+
+We could mount persistent volumes that would allow us to move containers without loosing data, it used flannel to create networking between containers, it has load balancer integrated, it uses etcd for service discovery, and so on. However, Kubernetes comes at a cost. It uses a different CLI, different API and different YAML definitions. In other words, you cannot use Docker CLI nor you can use Docker Compose to define containers.
+
+
 
