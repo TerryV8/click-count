@@ -7,6 +7,25 @@ One difference to note is that Docker Compose runs on a single host, whereas Kub
 # Connection between containers (with Docker Compose)
 Docker compose is a CLI utility used to connect containers with each other.
 
+```console
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:3.2-alpine
+#    volumes:
+#      - /redis_data:/data
+```
+
+
 
 ```console
 version: '3.6'  
