@@ -183,7 +183,11 @@ sudo systemctl restart network
 
 
 
-# with dockercompose
+# Connection between containers (with Docker Compose)
+Docker compose is a CLI utility used to connect containers with each other.
+
+
+```console
 version: '3.6'  
 services:  
   app:
@@ -194,14 +198,14 @@ services:
     environment:
       - REDIS_HOST=redis
     ports:
-      - "5000:5000"
+      - "6379:6379"
   redis:
     image: redis:3.2-alpine
     volumes:
       - redis_data:/data
 volumes:  
   redis_data:
-  
+```  
   
 Alpine images
 
@@ -211,6 +215,14 @@ I recommend that you use images based on Alpine for third-party services, such a
 
 Only you can decide which base image to use, but you can get the maximum benefit by using one basic image for all images, because in this case the cache will be used more effectively.
   
+
+Volume — can be described as a shared folder. Volumes are initialized when a container is created. Volumes are designed to persist data, independent of the container’s lifecycle. So, be careful with volumes. You should remember what data is in volumes. Because volumes are persistent and don’t die with the containers, the next container will use data from the volume created by the previous container.
+
+```console
+docker-compose up redis
+```
+
+
 
  # Install Docker on a Jenkins server
  
