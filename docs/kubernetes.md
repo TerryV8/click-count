@@ -28,6 +28,18 @@ volumes:
   redis_data:
 ```  
   
+How to Read the Docker Compose File:
+- We define two services, web and redis.
+- The web service builds from the Dockerfile in the current directory
+- Forwards the container’s exposed port (5000) to port 5000 on the host…
+- Mounts the project directory on the host to /code inside the container (allowing you to modify the code without having to rebuild the image)…
+- And links the web service to the Redis service.
+- The redis service uses the latest Redis image from Docker Hub.
+
+
+
+
+
 Alpine images
 
 A lot of Docker images (versions of images) are created on top of Alpine Linux – this is a lightweight distro that allows you to reduce the overall size of Docker images.
@@ -39,9 +51,14 @@ Only you can decide which base image to use, but you can get the maximum benefit
 
 Volume — can be described as a shared folder. Volumes are initialized when a container is created. Volumes are designed to persist data, independent of the container’s lifecycle. So, be careful with volumes. You should remember what data is in volumes. Because volumes are persistent and don’t die with the containers, the next container will use data from the volume created by the previous container.
 
+We build and Run with Docker Compose.
+Start the application from the current directory:
 ```console
-docker-compose up redis
+docker-compose up
 ```
+
+If you have localhost access to your host (i.e., you do not use a remote solution to deploy Docker), point your browser to http://0.0.0.0:5000, http://127.0.0.1:5000, or http://localhost:5000. On a Mac, you need to use docker-machine ip MACHINE_VM to get your Docker host’s IP address (then use that address like http://MACHINE_IP:5000 to access your web page). If you do use a remote host, simply use that IP address and append :5000 to the end.
+
 
 # Kubernetes
 Kubernetes is an open-source platform created by Google for container deployment operations, scaling up and down, and automation across the clusters of hosts. This production-ready, enterprise-grade, self-healing (auto-scaling, auto-replication, auto-restart, auto-placement) platform is modular, and so it can be utilized for any architecture deployment.
