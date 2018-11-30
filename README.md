@@ -52,7 +52,7 @@ Redis is a key-value store which allows data to be stored and accessed at lightn
 
 [Read more ...](docs/monitoring_containers.md)
 
-# From one host to multi host (From Docker Compose to Kubernetes)
+# From 1 host to multi-hosts (From Docker Compose to Kubernetes)
 
 [Read more ...](docs/kubernetes.md)
 
