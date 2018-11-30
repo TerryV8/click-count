@@ -25,6 +25,11 @@ in order to ensure the sustainability of the solution.
 [Read more ...](docs/enonce.md)
 
 
+# Technical choice
+
+Redis is a key-value store which allows data to be stored and accessed at lightning fast speeds.
+
+
 # Source Control Management (With Git)
 
 [Read more ...](docs/source_control_management.md)
