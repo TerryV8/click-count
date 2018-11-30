@@ -20,7 +20,7 @@ services:
       - redis
 
   redis:
-    image: redis:3.2-alpine
+    image: redis
 #    volumes:
 #      - /redis_data:/data
 ```
