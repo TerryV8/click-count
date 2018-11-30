@@ -54,7 +54,7 @@ Volume — can be described as a shared folder. Volumes are initialized when
 We build and Run with Docker Compose.
 Start the application from the current directory:
 ```console
-docker-compose up
+docker-compose up --build
 ```
 
 If you have localhost access to your host (i.e., you do not use a remote solution to deploy Docker), point your browser to http://0.0.0.0:5000, http://127.0.0.1:5000, or http://localhost:5000. On a Mac, you need to use docker-machine ip MACHINE_VM to get your Docker host’s IP address (then use that address like http://MACHINE_IP:5000 to access your web page). If you do use a remote host, simply use that IP address and append :5000 to the end.
