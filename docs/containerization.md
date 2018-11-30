@@ -76,6 +76,18 @@ sudo systemctl start docker
 sudo systemctl enable docker
 ```
 
+In production, run the container with the restart policy,
+docker eill actually take care of making sure that the container is always running
+if the application inside the container crashes, docker will automatically recreate the container.
+If the server itself restart or if the docker service restart, docker will make sure that it stands up that container again.
+As long as we explicitly don't stop the container, docker makes that the container is always running.
+That's all we need to do to actually to do to get our application to run on production
+
+```console
+docker run --restart always
+```
+
+
 # Check docker is running
 ```console
 docker pull docker.io/hello-world
@@ -182,3 +194,19 @@ I recommend that you use images based on Alpine for third-party services, such a
 
 Only you can decide which base image to use, but you can get the maximum benefit by using one basic image for all images, because in this case the cache will be used more effectively.
   
+
+ # Install Docker on a Jenkins server
+ 
+ Install and configure the user right to be able to access it.
+ In particular, add the user jenkins to the group docker
+ ```console
+sudo yum -y install docker
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo groupadd docker
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
+sudo systemctl restart docker
+```
+ 
+ 
