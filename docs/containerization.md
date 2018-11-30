@@ -120,14 +120,17 @@ The Dockerfile defines the docker images that will be built. It consists of a se
 - COPY, copies files from the host into the container image, eg. copy all the source code that is in folder that I cloned from my github and then i am going to copy into the current directory inside the image
 - RUN, executes a command within the container image
 - EXPOSE, tells docker that the application in the container listens on a particular ports
-- CMD, sets the command that is executed by the container when it is run, eg.
+- CMD, sets the command that is executed by the container when it is run. Whenever I run a container based on that image, it is going to the run the command inside the working directory
 
 
 ```console
 git clone https://github.com/<your git username>/<your git repository>
 cd <your git repository> 
 vi Dockerfile
+
+```console
 docker login
+docker push
 ```
 
 ```console
@@ -139,6 +142,17 @@ COPY . .
 EXPOSE 8080
 CMD ["npm", "start"]
 ```
+
+Build a docker image using the dockerfile
+```console
+docker build -t TerryV8/click-count .
+```
+
+To have a runnable image with -p to specify the port mapping between the port of my host and the port inside my container,
+ -d for a detached mode.
+ ```console
+ docker run -p 8080:8080 -d TerryV8/clickcount
+ ```
 
 # with dockercompose
 version: '3.6'  
