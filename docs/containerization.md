@@ -115,21 +115,22 @@ docker login
 # Dockerfile
 
 The Dockerfile defines the docker images that will be built. It consists of a series of instructions for produing the image:
-- FROM, sets the parent image
-- WORKDIR, sets the current working directory inside the container image for other commands
-- COPY, copies files from the host into the container image
+- FROM, sets the parent image that I want to build the image from
+- WORKDIR, sets the current working directory inside the container image for other commands where the source will be put at
+- COPY, copies files from the host into the container image, eg. copy all the source code that is in folder that I cloned from my github and then i am going to copy into the current directory inside the image
 - RUN, executes a command within the container image
-- EXPOSE, tells docker that the software in the container listens on a particular ports
-- CMD, sets the command that is executed by the container when it is run
-
+- EXPOSE, tells docker that the application in the container listens on a particular ports
+- CMD, sets the command that is executed by the container when it is run, eg.
 
 
 ```console
+git clone https://github.com/<your git username>/<your git repository>
+cd <your git repository> 
 vi Dockerfile
 docker login
 ```
 
-
+```console
 FROM node:carbon
 WORKDIR /usr/src/app
 COPY package*.json ./
@@ -137,7 +138,7 @@ RUN npm install
 COPY . .
 EXPOSE 8080
 CMD ["npm", "start"]
-
+```
 
 # with dockercompose
 version: '3.6'  
