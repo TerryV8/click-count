@@ -52,7 +52,7 @@ Redis is a key-value store which allows data to be stored and accessed at lightn
 
 [Read more ...](docs/monitoring_containers.md)
 
-# Advantage Kubernetes cluste
+# Advantage Kubernetes cluster
 
 [Read more ...](docs/kubernetes.md)
 
