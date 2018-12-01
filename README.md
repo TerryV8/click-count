@@ -29,6 +29,7 @@ in order to ensure the sustainability of the solution.
 
 Redis is a key-value store which allows data to be stored and accessed at lightning fast speeds.
 Redis holds its database entirely in the memory, using the disk only for persistence.
+Redis can replicate data to any number of slaves.
 
 # Source Control Management (With Git)
 
