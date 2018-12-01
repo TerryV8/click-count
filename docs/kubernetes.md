@@ -8,9 +8,31 @@ One difference to note is that Docker Compose runs on a single host, whereas Kub
 Docker compose is a CLI utility used to connect containers with each other.
 
 ```console
-version: '3'
+version: '1.0'
 services:
-  web:
+  java-web-frontend:
+    image: TerryV8/click-count
+    container_name: java-web-frontend
+    hostname: java-web-frontend
+    env_file: java-web-frontend.env
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
+
+  redis:
+    image: redis
+#    volumes:
+#      - /redis_data:/data
+```
+
+```console
+version: '1.0'
+services:
+  java-web:
     build: .
     ports:
       - "5000:5000"
@@ -28,7 +50,7 @@ services:
 
 
 ```console
-version: '3.6'  
+version: '1.0'  
 services:  
   app:
     build:
