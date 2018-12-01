@@ -28,7 +28,7 @@ in order to ensure the sustainability of the solution.
 # Technical choice
 
 Redis is a key-value store which allows data to be stored and accessed at lightning fast speeds.
-
+Redis holds its database entirely in the memory, using the disk only for persistence.
 
 # Source Control Management (With Git)
 
