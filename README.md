@@ -45,6 +45,9 @@ cases such as caching, messaging-queues (Redis natively supports
 Publish/Subscribe), any short-lived data in your application, such as web
 application sessions, web page hit counts, etc.
 
+Redis is an in-memory database but persistent on disk database, hence it
+represents a different trade off where very high write and read speed is achieved
+with the limitation of data sets that can't be larger than the memory. 
 
 # Source Control Management (With Git)
 
