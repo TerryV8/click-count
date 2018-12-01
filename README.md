@@ -42,7 +42,8 @@ better by which data type.
 two clients concurrently access, Redis server will receive the updated value.
 - Multi-utility tool: Redis is a multi-utility tool and can be used in a number of use
 cases such as caching, messaging-queues (Redis natively supports
-Publish/Subscribe), any short-lived data in your
+Publish/Subscribe), any short-lived data in your application, such as web
+application sessions, web page hit counts, etc.
 
 
 # Source Control Management (With Git)
