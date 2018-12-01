@@ -86,6 +86,60 @@ Edit deployment.yml:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: redisServices
+  labels:
+    app: redisServices
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: redisServices
+  template:
+    metadata:
+      labels:
+        app: nginx-demo
+    spec:
+      containers:
+        - image: TerryV8/click-count
+          name: redisServices
+          envFrom:
+          - configMapRef:
+            name: controller-config
+          env:
+            - name: TIER_NAME
+              value: redisServices
+          ports:
+          - containerPort: 80
+          imagePullPolicy: Always
+      restartPolicy: Always
+      
+```
+As we mentioned earlier, networking is done differently in Kubernetes than in Docker Compose. The Service is what enables communication between containers. Here is the service definition for quoteServices:
+
+```console
+apiVersion: v1
+kind: Service
+metada:
+  labels:
+    name: redisServices
+  name: redisServices
+spec:
+  ports:
+  - name: "8080"
+    port: 8080
+    targetPort: 8080
+  selector:
+    name: redisServices
+status:
+  loadBalancer: {}
+```
+    
+
+Edit deployment.yml: 
+```console
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: nginx-pod-demo-deployment
   labels:
     app: nginx-demo
