@@ -125,3 +125,8 @@ If you have localhost access to your host (i.e., you do not use a remote solutio
 
 
 Docker Compose brings each container up at once in parallel.
+
+Open your web browser and navigate to the IP address associated with the DOCKER_HOST variable - i.e., http://192.168.59.103/, in this example. (Run boot2docker ip to get the address.)
+
+You should see the text, “Hello! This page has been seen 1 times.” in your browser:
+
