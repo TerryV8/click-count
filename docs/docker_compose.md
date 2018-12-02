@@ -24,8 +24,6 @@ redis:
         - "6379:6379"
 ```
 
-# Connection between containers (with Docker Compose)
-Docker compose is a CLI utility used to connect containers with each other.
 
 ```console
 version: '1.0'
