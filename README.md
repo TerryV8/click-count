@@ -27,7 +27,7 @@ in order to ensure the sustainability of the solution.
 
 # Technical choice
 
-## Redis Architecture
+### Redis Architecture
 
 [Read more ...](docs/redis_architecture.md)
 
