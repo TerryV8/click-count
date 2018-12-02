@@ -36,5 +36,8 @@ The old classic. One big bag of RAM. Scale vertically, easy as pie, no availabil
 - Pros:
   - This is the most basic setup you can think of.
 - Cons:
- - No resilience
- - Scale only vertically (using bigger hardware for bigger workloads)
+  - No resilience
+  - Scale only vertically (using bigger hardware for bigger workloads)
+    - dsds
+    
+
