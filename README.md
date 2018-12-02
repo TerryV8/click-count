@@ -53,7 +53,7 @@ in order to ensure the sustainability of the solution.
 # Containerization (With Docker)
 
 ### Docker
-[Read more ...](docs/containerization.md)
+[Read more ...](docs/docker.md)
 
 ### Docker Compose
 [Read more ...](docs/docker_composer.md)
