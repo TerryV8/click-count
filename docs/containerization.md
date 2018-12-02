@@ -23,6 +23,8 @@ It could be quite complex to keep two different versions of the same app on one 
 
 ## Handy application encapsulation
 
+With Docker you can easily deploy a web application along with it’s dependencies, environment variables, and configuration settings - everything you need to recreate your environment quickly and efficiently.
+
 You can deliver your application in one piece. Most programming languages, frameworks, and all operating systems have their own packaging managers. And even if your application can be packed with its native package manager, it could be hard to create a port for another system.
 
 Docker gives you a unified image format to distribute your applications across different host systems and cloud services. You can deliver your application in one piece with all the required dependencies (included in an image) ready to run.
