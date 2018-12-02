@@ -130,3 +130,5 @@ Open your web browser and navigate to the IP address associated with the DOCKER_
 
 You should see the text, “Hello! This page has been seen 1 times.” in your browser:
 
+![docker_compose_build_run](https://files.realpython.com/media/test.6e35b0692889.png)
+
