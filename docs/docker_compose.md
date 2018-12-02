@@ -132,3 +132,24 @@ You should see the text, “Hello! This page has been seen 1 times.” in your b
 
 ![docker_compose_build_run](https://files.realpython.com/media/test.6e35b0692889.png)
 
+Refresh. The page counter should have incremented.
+
+To run the process in the background. Kill our current processes (Ctrl+C), and then run the following command :
+```console
+docker-compose up -d --build
+```
+
+If you want to view the currently running processes?
+```console
+docker-compose ps
+```
+
+The output looks like this:
+Name                          Command             State              Ports
+--------------------------------------------------------------------------------------------------
+fitterhappierdocker_redis_1     /entrypoint.sh redis-server   Up      0.0.0.0:6379->6379/tcp
+fitterhappierdocker_web_1       python app.py                 Up      0.0.0.0:80->5000/tcp, 80/tcp
+
+Both processes are running in a different container, connected via Docker Compose!
+
+
