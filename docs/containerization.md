@@ -65,7 +65,10 @@ It is lightweight, because container has only what the app needs in order to run
 
 
 
-
+# Docker-specific terms
+- A Dockerfile is a file that contains a set of instructions used to create an image.
+- An image is used to build and save snapshots (the state) of an environment.
+- A container is an instantiated, live image that runs a collection of processes.
 
 
 
