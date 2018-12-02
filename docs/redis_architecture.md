@@ -34,7 +34,7 @@ There are four main topologies of Redis, and each one has and uses different and
 The old classic. One big bag of RAM. Scale vertically, easy as pie, no availability, no resilience.
 
 - Pros:
--- This is the most basic setup you can think of.
+  - This is the most basic setup you can think of.
 - Cons:
 No resilience
 Scale only vertically (using bigger hardware for bigger workloads)
