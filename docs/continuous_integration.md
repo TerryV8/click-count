@@ -213,4 +213,17 @@ On Github, create a new item pipepline
 select your project >> Configure >> Build Triggers >> 
 
 
+# workflow
+
+1. Code locally on a feature branch
+2. Open a pull request on Github against the master branch
+3. Run automated tests against the Docker container
+4. If the tests pass, manually merge the pull request into master
+5. Once merged, the automated tests run again
+6. If the second round of tests pass, a build is created on Docker Hub
+7. Once the build is created, it’s then automatically (err, automagically) deployed to production
+
+
+
+![workflow](https://files.realpython.com/media/steps.91fb3b3eef5a.jpg)
 
