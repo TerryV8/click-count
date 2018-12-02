@@ -31,6 +31,10 @@ in order to ensure the sustainability of the solution.
 
 [Read more ...](docs/redis_architecture.md)
 
+### Kubernetes Architecture
+
+[Read more ...](docs/kubernetes_architecture.md)
+
 
 # Source Control Management (With Git)
 
