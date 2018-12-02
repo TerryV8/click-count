@@ -23,6 +23,10 @@ redis:
     ports:
         - "6379:6379"
 ```
+Here we add the services that make up our stack:
+
+1. web: First, we build the image from the “web” directory and then mount that directory to the “code” directory within the Docker container. The Flask app is ran via the python app.py command. This exposes port 5000 on the container, which is forwarded to port 80 on the host environment.
+2. redis: Next, the Redis service is built from the Docker Hub “Redis” image. Port 6379 is exposed and forwarded.
 
 
 ```console
