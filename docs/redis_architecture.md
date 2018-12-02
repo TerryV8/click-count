@@ -33,6 +33,9 @@ There are four main topologies of Redis, and each one has and uses different and
 
 The old classic. One big bag of RAM. Scale vertically, easy as pie, no availability, no resilience.
 
+![Redis Standalone architecture](https://blog.octo.com/wp-content/uploads/2017/08/screen-shot-2017-08-11-at-14-34-30.png)
+
+
 - Pros:
   - This is the most basic setup you can think of.
 - Cons:
