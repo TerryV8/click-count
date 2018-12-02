@@ -114,7 +114,8 @@ Only you can decide which base image to use, but you can get the maximum benefit
 
 Volume — can be described as a shared folder. Volumes are initialized when a container is created. Volumes are designed to persist data, independent of the container’s lifecycle. So, be careful with volumes. You should remember what data is in volumes. Because volumes are persistent and don’t die with the containers, the next container will use data from the volume created by the previous container.
 
-We build and Run with Docker Compose.
+# Build and Run
+With one simple command we can build the image and run the container.
 Start the application from the current directory:
 ```console
 docker-compose up --build
