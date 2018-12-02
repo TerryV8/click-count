@@ -24,3 +24,17 @@ Redis is an in-memory database but persistent on disk database, hence it
 represents a different trade off where very high write and read speed is achieved
 with the limitation of data sets that can't be larger than the memory. 
 
+
+## Based on the use case, choose the correct Redis architecture
+
+There are four main topologies of Redis, and each one has and uses different and incompatible features. Therefore, you need to understand all the trade-offs before choosing one.
+
+### Redis Standalone
+
+The old classic. One big bag of RAM. Scale vertically, easy as pie, no availability, no resilience.
+
+- Pros:
+This is the most basic setup you can think of.
+- Cons:
+No resilience
+Scale only vertically (using bigger hardware for bigger workloads)
