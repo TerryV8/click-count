@@ -56,7 +56,7 @@ in order to ensure the sustainability of the solution.
 [Read more ...](docs/docker.md)
 
 ### Docker Compose
-[Read more ...](docs/docker_composer.md)
+[Read more ...](docs/docker_compose.md)
 
 
 # Monitoring containers  (With Sonar/Kibana)
