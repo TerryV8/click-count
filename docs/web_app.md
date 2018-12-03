@@ -76,7 +76,9 @@ Before launch: Build Artifacts. Activate tool window. Click + and select Build '
 In the Deployment section:
 Click + and select clickCount:war exploded
 
-# Go to the URL http://localhost:8080/clickCount_war_exploded/ on the browser
+# Open the browser
+
+Go to the URL http://localhost:8080/clickCount_war_exploded/
 
 Click on the button. 
 The counter will increase.
