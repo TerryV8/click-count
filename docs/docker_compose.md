@@ -1,6 +1,6 @@
 # Docker Compose
 
-'''console
+```console
 version: '2'
 services:
   app:
@@ -14,14 +14,14 @@ services:
       - "8080:8080"
   redis:
     image: redis
-ko    volumes:
-ko      - redis_data:/data
+#    volumes:
+#      - redis_data:/data
     ports:
       - "6379:6379"
-ko volumes:
-ko  redis_data:
+# volumes:
+#  redis_data:
 
-'''
+```
 
 Docker Compose is an orchestration framework that handles the building and running of multiple services (via separate containers) using a simple .yml file. 
 It uses to link services together running in different containers.
