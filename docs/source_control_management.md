@@ -11,3 +11,16 @@ Toutes part d'automatisations qui a besoin d'interagir avec le code source utili
 
 
 J'ai utilise Git et plus particulierement GutHub, pour gerer le code source et le versionning
+
+Create a new branch
+```console
+$ git checkout -b new_feature
+```
+
+Create a pull request:
+```console
+$ git add web/new_feature.py
+$ git commit -m "new_feature"
+$ git push origin new_feature
+
+```
