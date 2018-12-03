@@ -19,4 +19,36 @@ and specify the installation folder of the Java SE Development Kit (JDK) to use.
 (eg. /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-0.el7_5.x86_64)
 
 
-# Creating a project
+# Add Framework support
+
+click right on "main"
+and select Add Framework support
+and click right on "Java EE"
+and select "Java EE 7"
+and select RESTFul Web Service / Download
+
+# Exploring the project structure
+
+- The folder src is for your Java source code.
+
+- The folder web is for the web part of your application. At the moment this folder contains the deployment descriptor WEB-INF\web.xml.
+
+- External Libraries include your JDK and the JAR files for working with the GlassFish Server.
+
+# Examining the generated artifact configuration
+
+Besides building a RESTful-specific project structure, IntelliJ IDEA has also configured an artifact for us.
+
+The word artifact in IntelliJ IDEA may mean one of the following:
+
+An artifact configuration, i.e. a specification of the output to be generated for a project;
+
+An actual output generated according to such a specification (configuration).
+
+Let's have a look at this configuration.
+Open the Project Structure dialog by pressing ⌘; or choosing File | Project Structure on the main menu.
+
+Under Project Settings, select Artifacts.
+The available artifact configurations are shown in the central pane under icons general add svg and icons general remove svg. Currently there is only one configuration rest_glassfish_hello_world:war exploded, it is a decompressed web application archive (WAR), a directory structure that is ready for deployment onto a web server.
+
+The artifact settings are shown in the right-hand pane of the dialog:
