@@ -26,6 +26,11 @@ in order to ensure the sustainability of the solution.
 
 
 # Technical choice
+## Front-end
+
+
+
+## Back-end
 
 ### Redis Architecture
 
