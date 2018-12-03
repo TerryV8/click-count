@@ -14,7 +14,8 @@ and specify the GlassFish Server installation folder in the GlassFish Home field
 # Configuring the JDK
 
 Open the File / Project structure / Project settings / Project / Project SDK
-and select 1.8
+and select version 1.8
+and specify the installation folder of the Java SE Development Kit (JDK) to use. 
 (eg. /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-0.el7_5.x86_64)
 
 
