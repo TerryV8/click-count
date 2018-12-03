@@ -1,3 +1,5 @@
+# Configuring the GlassFish server in IntelliJ IDEA
+
 # Before you start
 
 - Make sure you are using IntelliJ IDEA ULTIMATE Edition.
@@ -5,7 +7,7 @@
 - Download the GlassFish application server, version 3.0.1 or later, see Download GlassFish.
 - Make sure a web browser is available on your computer.
 
-# Configuring the GlassFish server in IntelliJ IDEA
+# In IntelliJ IDEA
 
 Open the File / Settings / Build, execution, deployment / Application Servers
 and click + an choose GlassFish 4.1.2
