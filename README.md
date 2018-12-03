@@ -28,7 +28,9 @@ in order to ensure the sustainability of the solution.
 # Technical choice
 ## Front-end
 
+### Web-app
 
+[Read more ...](docs/web_app.md)
 
 ## Back-end
 
