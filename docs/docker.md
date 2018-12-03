@@ -266,6 +266,40 @@ sudo systemctl restart docker
 ```
  
  
- sudo chmod +x ./start.sh
 
+
+Edit Dockerfile
+```console
+FROM glassfish:latest
+
+MAINTAINER Thierry VO <thierrylam.vo@gmail.com>
+
+USER root
+
+COPY click-count/target/clickCount.war /
+COPY start.sh /
+
+EXPOSE 8080
+
+ENTRYPOINT ["/start.sh"]
+```
+
+Edit start.sh
+```console
+#!/bin/sh
+
+/usr/local/glassfish4/bin/asadmin start-domain
+/usr/local/glassfish4/bin/asadmin -u admin deploy /clickCount.war
+/usr/local/glassfish4/bin/asadmin stop-domain
+/usr/local/glassfish4/bin/asadmin start-domain --verbose
+```
+
+```console
+sudo chmod +x ./start.sh
+```
+
+```console
+docker build --no-cache -t terryv8/clickcount .
+docker run -p 8080:8080 terryv8/clickcount
+```
 
