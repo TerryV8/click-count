@@ -19,3 +19,4 @@ and specify the installation folder of the Java SE Development Kit (JDK) to use.
 (eg. /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-0.el7_5.x86_64)
 
 
+# Creating a project
