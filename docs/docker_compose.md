@@ -14,12 +14,12 @@ services:
       - "8080:8080"
   redis:
     image: redis
-//    volumes:
-//      - redis_data:/data
+ko    volumes:
+ko      - redis_data:/data
     ports:
       - "6379:6379"
-//volumes:
-//  redis_data:
+ko volumes:
+ko  redis_data:
 
 '''
 
