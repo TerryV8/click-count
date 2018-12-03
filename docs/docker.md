@@ -265,8 +265,9 @@ sudo systemctl restart jenkins
 sudo systemctl restart docker
 ```
  
- 
-
+```console 
+mvn package
+```
 
 Edit Dockerfile
 ```console
