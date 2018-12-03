@@ -1,5 +1,28 @@
 # Docker Compose
 
+'''console
+version: '2'
+services:
+  app:
+    build:
+      context: .
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+    ports:
+      - "8080:8080"
+  redis:
+    image: redis
+#    volumes:
+#      - redis_data:/data
+    ports:
+      - "6379:6379"
+#volumes:
+#  redis_data:
+
+'''
+
 Docker Compose is an orchestration framework that handles the building and running of multiple services (via separate containers) using a simple .yml file. 
 It uses to link services together running in different containers.
 
