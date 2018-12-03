@@ -1,4 +1,4 @@
-# Configuring the GlassFish server in IntelliJ IDEA
+# In IntelliJ IDEA, configuring the GlassFish server
 
 # Before you start
 
