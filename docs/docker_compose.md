@@ -31,6 +31,16 @@ volumes:
 
 Go to examples/compose and execute the following command:
 ```console
+docker-compose rm -f
+docker-compose pull
+docker-compose up --build -d
+# Run some tests
+./tests
+docker-compose stop -t 1
+```
+
+
+```console
 docker-compose --project-name app-test -f docker-compose.yml up --force-recreate 
 ```
 
