@@ -31,7 +31,7 @@ volumes:
 
 Go to examples/compose and execute the following command:
 ```console
-docker-compose --project-name app-test -f docker-compose.yml up  
+docker-compose --project-name app-test -f docker-compose.yml up --force-recreate 
 ```
 
 Console output:
