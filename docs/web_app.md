@@ -1,4 +1,4 @@
-# In IntelliJ IDEA, configuring the GlassFish server
+# In INTELLIJ IDEA, let's configure the GlassFish server
 
 # Before you start
 
@@ -10,7 +10,7 @@
 # In IntelliJ IDEA
 
 Open the File / Settings / Build, execution, deployment / Application Servers
-and click + an choose GlassFish 4.1.2
+and click + and choose GlassFish 4.1.2
 and specify the GlassFish Server installation folder in the GlassFish Home field (eg. /opt/glassfish4)
 
 # Configuring the JDK
@@ -75,3 +75,10 @@ Before launch: Build Artifacts. Activate tool window. Click + and select Build '
 
 In the Deployment section:
 Click + and select clickCount:war exploded
+
+# Go to the URL http://localhost:8080/clickCount_war_exploded/ on the browser
+
+Click on the button. 
+The counter will increase.
+
+
