@@ -266,3 +266,6 @@ sudo systemctl restart docker
 ```
  
  
+ sudo chmod +x ./start.sh
+
+
