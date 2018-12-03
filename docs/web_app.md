@@ -48,7 +48,28 @@ An actual output generated according to such a specification (configuration).
 Let's have a look at this configuration.
 Open the Project Structure dialog by pressing ⌘; or choosing File | Project Structure on the main menu.
 
-Under Project Settings, select Artifacts.
+Under Project Structure / Project Settings / Artifacts.
 The available artifact configurations are shown in the central pane under icons general add svg and icons general remove svg. Currently there is only one configuration rest_glassfish_hello_world:war exploded, it is a decompressed web application archive (WAR), a directory structure that is ready for deployment onto a web server.
 
 The artifact settings are shown in the right-hand pane of the dialog:
+Click on + / Web Application Exploded
+Name: clickCount:war exploded
+Type: Web Application Exploded
+output Directory: /apps/click-count/out/artifacts/clickCount_war_exploded
+
+# Exploring and completing the run configuration
+
+In IntelliJ IDEA, any application is launched according to a dedicated run configuration. During the project creation, we have specified the GlassFish Server as the application server for running our application. Based on this choice and the annotations from the code, IntelliJ IDEA has created a run configuration and filled almost all the mandatory fields.
+
+Choose Run | Edit Configuration on the main menu.
+
+In the Edit Configuration dialog that opens, expand the GlassFish Server node and click GlassFish 4.1.1. The right-hand pane shows the settings of the automatically generated run configuration.
+
+Application server: GlassFish 4.1.2
+URL: http://localhost:8080/clickCount_war_exploded
+JRE: Default (1.8 - project SDK)
+GlassFish Server Settings / Server Domain: domain1
+Before launch: Build Artifacts. Activate tool window. Click + and select Build 'clickCount:war exploded artifact'
+
+In the Deployment section:
+Click + and select clickCount:war exploded
