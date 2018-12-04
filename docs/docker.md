@@ -304,3 +304,30 @@ docker build --no-cache -t terryv8/clickcount .
 docker run -p 8080:8080 terryv8/clickcount
 ```
 
+2 docker containers:
+Create the network:
+```console
+docker network create --driver=bridge my-network-redis-app
+docker network ls 
+```
+
+
+The web:
+```console
+docker build --no-cache -t terryv8/my-app-redis -f Dockerfile-app .
+docker run --name my-app-redis -p 8080:8080 -d --link=redis terryv8/my-app-redis
+```
+
+Execute inside the container:
+```console
+docker exec -it my-app-redis bash
+```
+
+The redis:
+```console
+docker run --rm --name redis -p 6379:6379 -d redis
+
+
+```
+
+
