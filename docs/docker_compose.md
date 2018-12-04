@@ -421,11 +421,11 @@ $ docker network create --driver=bridge my-network-redis-web
 
 ```console
 $ docker network ls
-NETWORK ID          NAME                DRIVER              SCOPE
-10735ef1e95f        bridge              bridge              local
-85274e9bac4e        host                host                local
-4114eb9b91a5        my-network          bridge              local
-b9d9f025e8bb        none                null                local
+NETWORK ID          NAME                    DRIVER              SCOPE
+10735ef1e95f        bridge                  bridge              local
+85274e9bac4e        host                    host                local
+4114eb9b91a5        my-network-redis-web    bridge              local
+b9d9f025e8bb        none                    null                local
 ```
 
 
