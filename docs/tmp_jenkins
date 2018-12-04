@@ -1,0 +1,194 @@
+node{
+  stage ('Build') {
+ 
+    git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
+ 
+    withMaven(
+        // Maven installation declared in the Jenkins "Global Tool Configuration"
+        maven: 'M3',
+        // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
+        // Maven settings and global settings can also be defined in Jenkins Global Tools Configuration
+        mavenSettingsConfig: 'my-maven-settings',
+        mavenLocalRepo: '.repository') {
+ 
+      // Run the maven build
+      sh "mvn clean install"
+ 
+    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs reports...
+  }
+}
+
+
+
+
+Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any
+    tools {
+        maven 'Maven 3.3.9'
+        jdk 'jdk8'
+    }
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
+            }
+        }
+
+        stage ('Build') {
+            steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml' 
+                }
+            }
+        }
+        stage ('Build project') {
+steps {
+dir("project_templates/java_project_template"){
+sh 'mvn clean verify
+ 
+}
+}
+}
+    }
+}
+
+
+  stage('Build') {
+    withMaven(maven: 'Maven 3') {
+      dir('app') {
+        sh 'mvn clean package'
+        dockerCmd 'build --tag automatingguy/sparktodo:SNAPSHOT .'
+      }
+    }
+  }
+  
+  
+  stage ('SonarQube Analysis'){
+steps{
+dir("project_templates/java_project_template"){
+withSonarQubeEnv('SonarQube5.3') {
+sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+}
+}
+}
+}
+
+
+
+  node {
+
+   stage('Preparation') {  
+
+      sh 'mvn archetype:generate -B ' +
+      '-DarchetypeGroupId=org.apache.maven.archetypes ' +
+      '-DarchetypeArtifactId=maven-archetype-quickstart ' +
+      '-DgroupId=com.company -DartifactId=myproject'
+     
+
+   }
+   stage('Build') {
+       
+      dir ('myproject') {
+            sh 'mvn clean install test'
+      } 
+      
+   }
+   stage('Archive') {
+           dir ('myproject/target') {
+           archive '*.jar'
+      } 
+     
+   }   
+}
+
+
+
+
+pipeline {
+  agent any
+
+  tools {
+    maven 'mvn-3.5.2'
+  }
+
+  stages {
+    stage('Build') {
+      steps {
+        sh 'mvn package'
+      }
+    }
+    
+    stage('Make Container') {
+      steps {
+      sh "docker build -t snscaimito/ledger-service:${env.BUILD_ID} ."
+      sh "docker tag snscaimito/ledger-service:${env.BUILD_ID} snscaimito/ledger-service:latest"
+      }
+    }
+    
+    stage('Check Specification') {
+      steps {
+        sh "chmod o+w *"
+        sh "docker-compose up --exit-code-from cucumber --build"
+      }
+    }
+  }
+
+  post {
+    always {
+      archive 'target/**/*.jar'
+      junit 'target/**/*.xml'
+      cucumber '**/*.json'
+    }
+    success {
+      withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        sh "docker login -u ${USERNAME} -p ${PASSWORD}"
+        sh "docker push snscaimito/ledger-service:${env.BUILD_ID}"
+        sh "docker push snscaimito/ledger-service:latest"
+      }
+    }
+  }
+}
+
+
+
+pipeline {
+  agent any
+  stages {
+    stage('Unit Test') { 
+      steps {
+        sh 'mvn clean test'
+      }
+    }
+    stage('Deploy Standalone') { 
+      steps {
+        sh 'mvn deploy -P standalone'
+      }
+    }
+    stage('Deploy ARM') { 
+      environment {
+        ANYPOINT_CREDENTIALS = credentials('anypoint.credentials') 
+      }
+      steps {
+        sh 'mvn deploy -P arm -Darm.target.name=local-3.9.0-ee -Danypoint.username=${ANYPOINT_CREDENTIALS_USR}  -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW}' 
+      }
+    }
+    stage('Deploy CloudHub') { 
+      environment {
+        ANYPOINT_CREDENTIALS = credentials('anypoint.credentials')
+      }
+      steps {
+        sh 'mvn deploy -P cloudhub -Dmule.version=3.9.0 -Danypoint.username=${ANYPOINT_CREDENTIALS_USR} -Danypoint.password=${ANYPOINT_CREDENTIALS_PSW}' 
+      }
+    }
+  }
+}
+
+
+  
