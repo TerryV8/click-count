@@ -428,5 +428,44 @@ NETWORK ID          NAME                    DRIVER              SCOPE
 b9d9f025e8bb        none                    null                local
 ```
 
+In a multi-host environment use the overlay driver to create a network that spans across the hosts. That is a topic for another post.
+
+Once you have a network, there are two ways to connect a container to it.
+If you are starting a fresh container, simply add --net=my-network to the docker run command.
+If you have an existing container, then run docker network connect my-network my-container.
+Let's test it out by creating two connected containers, drop in to their shells and do some pinging.
+
+# In terminal 1
+$ docker run --rm -it --net=my-network --name container1 centos bash
+
+# In terminal 2
+$ docker run --rm -it --net=my-network --name container2 centos bash
+
+Why networks and not links or compose
+The other things I have seen people say on twitter is to use links (largely deprecated now) or compose (the utter wrong tool for the job).
+
+Networks are the right answer, they handle container restarts and ip changes, and the abstraction holds across swarms and multi-host networks. In addition they are as simple as can be. So ignore the other stuff and just use them!
+
+
+What about ports?
+
+Another benefit here is that ports between the containers are opened. So if you were previously exposing ports to the host just so another container could access it you, can stop doing that.
+
+Let's open a third terminal window and add a memcached instance to our network.
+
+# In terminal 3
+$ docker run --rm --net my-network --name memcached memcached
+
+# In terminal 1 or 2
+[root@acefce27fa79 /]# yum install telnet
+[root@acefce27fa79 /]# telnet memcached 11211
+Trying 172.18.0.4...
+Connected to memcached.
+Escape character is '^]'.
+flush_all
+OK
+
+Here we can see we were able to add a new container to the network and immediately access it, and its ports, without any reconfiguration of the containers already on the network.
+
 
 
