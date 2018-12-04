@@ -400,5 +400,33 @@ You should be running a single process per docker container, this means your app
 Therefore connecting two containers together in docker is essential. So how do you do it?
 
 
+# Using docker network
+
+Connecting containers is simple. You just add them to the same docker network. If you only have a single host then it will come with a pre-configured bridge network called bridge that you can use without any extra work.
+
+```console
+$ docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+10735ef1e95f        bridge              bridge              local
+85274e9bac4e        host                host                local
+b9d9f025e8bb        none                null                local
+```
+
+But you can also create your own easily enough. You can create as many as you like to isolate groups of containers.
+
+```console
+$ docker network create --driver=bridge my-network-redis-web
+4114eb9b91a55df8380da5ce5b288e7a7b1841b59366368b8f35e4437b2fcd25
+```
+
+```console
+$ docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+10735ef1e95f        bridge              bridge              local
+85274e9bac4e        host                host                local
+4114eb9b91a5        my-network          bridge              local
+b9d9f025e8bb        none                null                local
+```
+
 
 
