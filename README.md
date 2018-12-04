@@ -62,7 +62,7 @@ in order to ensure the sustainability of the solution.
 ### Docker
 [Read more ...](docs/docker.md)
 
-[Docker for back-end](docs/docker_back_end.md)
+[Docker for back-end ...](docs/docker_back_end.md)
 
 
 ### Docker Compose
