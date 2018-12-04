@@ -5,13 +5,16 @@ Now we can finally get to the point – running Jenkins with Docker. Since now y
 Creating /var/jenkins_home
 
 # docker run -d -v /var/jenkins_home:/var/jenkins_home:z -p 8081:8080 -p 50000:50000 --name myjenkins jenkins/jenkins:lts
-
+docker run -d -p 8081:8080 -p 50000:50000 --name jenkins -v /var/jenkins_home:/var/jenkins_home jenkins/jenkins:lts 
+docker run -d -p 8081:8080 -p 50000:50000 --name jenkins -v /var/jenkins:/var/jenkins jenkins/jenkins:lts 
+  
+  
 
 Short description:
 
 docker run -d – it runs container in the background
 - -v /var/jenkins_home:/var/jenkins_home:z – it attaches the container’s directory at the local system directory and it sets up appropriate SELinux fcontext
-- -p 8080:8080 – it exposes container’s port 8080 to the local system port 8080
+- -p 8081:8080 – it exposes container’s port 8080 to the local system port 8081
 - -p 50000:50000 – same as above, but with the port 50000
 - –name myjenkins – display name of our container
 - jenkins/jenkins:lts – it tells “use the LTS version of Jenkins from the jenkins docker repository”
