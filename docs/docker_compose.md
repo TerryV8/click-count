@@ -394,3 +394,11 @@ fitterhappierdocker_web_1       python app.py                 Up      0.0.0.0:80
 Both processes are running in a different container, connected via Docker Compose!
 
 
+# Why link docker containers ?
+
+You should be running a single process per docker container, this means your application code (say nodejs) and your database (say postgres) need to be running in their own containers. Potentially on different servers if you have a swarm or cluster of hosts.
+Therefore connecting two containers together in docker is essential. So how do you do it?
+
+
+
+
