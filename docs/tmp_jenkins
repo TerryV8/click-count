@@ -1,3 +1,55 @@
+# How to run Jenkins with Docker
+
+Now we can finally get to the point – running Jenkins with Docker. Since now you have installed and working docker. The only one thing you must do is to pull and run the Jenkins container. But first, you should think whether you want to just run the docker, or maybe you want to attach the $JENKINS_HOME path to your local system. With this option, you will be able to easily access all files (including workspaces, plugin directory and more) and you never lose these files. If your container dies, all data will be safe.
+
+Creating /var/jenkins_home
+
+# docker run -d -v /var/jenkins_home:/var/jenkins_home:z -p 8081:8080 -p 50000:50000 --name myjenkins jenkins/jenkins:lts
+
+
+Short description:
+
+docker run -d – it runs container in the background
+- -v /var/jenkins_home:/var/jenkins_home:z – it attaches the container’s directory at the local system directory and it sets up appropriate SELinux fcontext
+- -p 8080:8080 – it exposes container’s port 8080 to the local system port 8080
+- -p 50000:50000 – same as above, but with the port 50000
+- –name myjenkins – display name of our container
+- jenkins/jenkins:lts – it tells “use the LTS version of Jenkins from the jenkins docker repository”
+
+
+# Installing Jenkins 
+
+docker run \
+  -u root \
+  --rm \  
+  -d \ 
+  -p 8080:8080 \ 
+  -p 50000:50000 \ 
+  -v jenkins-data:/var/jenkins_home \ 
+  -v /var/run/docker.sock:/var/run/docker.sock \ 
+  jenkinsci/blueocean 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 node{
   stage ('Build') {
  
