@@ -280,14 +280,14 @@ docker run -p 8080:8080 terryv8/clickcount
 ```
 
 2 docker containers:
-Create the network:
+
+This creates a new container called redis from the redis image, which contains a redis database.
 ```console
-docker network create --driver=bridge my-network-redis-app
-docker network ls 
+docker run --rm --name redis -p 6379:6379 -d redis
 ```
 
-
-The web:
+Links allow containers to discover each other and securely transfer information about one container to another container. When you set up a link, you create a conduit between a source container and a recipient container. The recipient can then access select data about the source. To create a link, you use the --link flag. 
+Now, create a new app container and link it with your redis database container.
 ```console
 docker build --no-cache -t terryv8/my-app-redis -f Dockerfile-app .
 docker run --name my-app-redis -p 8080:8080 -d --link=redis terryv8/my-app-redis
@@ -298,11 +298,9 @@ Execute inside the container:
 docker exec -it my-app-redis bash
 ```
 
-The redis:
-```console
-docker run --rm --name redis -p 6379:6379 -d redis
+So what does linking the containers actually do? You’ve learned that a link allows a source container to provide information about itself to a recipient container. In our example, the recipient, web, can access information about the source db. To do this, Docker creates a secure tunnel between the containers that doesn’t need to expose any ports externally on the container; when we started the db container we did not use either the -P or -p flags. That’s a big benefit of linking: we don’t need to expose the source container, here the PostgreSQL database, to the network.
 
-
-```
-
+Docker exposes connectivity information for the source container to the recipient container in two ways:
+- Environment variables,
+- Updating the /etc/hosts file.
 
