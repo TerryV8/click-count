@@ -1,14 +1,20 @@
 # How to run Jenkins with Docker
 
-Now we can finally get to the point – running Jenkins with Docker. Since now you have installed and working docker. The only one thing you must do is to pull and run the Jenkins container. But first, you should think whether you want to just run the docker, or maybe you want to attach the $JENKINS_HOME path to your local system. With this option, you will be able to easily access all files (including workspaces, plugin directory and more) and you never lose these files. If your container dies, all data will be safe.
+How to use this image
+docker run -p 8081:8080 -p 50000:50000 jenkins
+This will store the workspace in /var/jenkins_home. All Jenkins data lives in there - including plugins and configuration. You will probably want to make that a persistent volume (recommended):
+Because you should think whether you want to just run the docker, 
+or maybe you want to attach the $JENKINS_HOME path to your local system. 
+With this option, you will be able to easily access all files (including workspaces, plugin directory and more) 
+and you never lose these files. 
+If your container dies, all data will be safe.
 
-Creating /var/jenkins_home
+docker run -p 8081:8080 -p 50000:50000 -v /apps/jenkins_home:/var/jenkins_home jenkins
+This will store the jenkins data in /apps/jenkins_home (/your/home) on the host. Ensure that /your/home is accessible by the jenkins user in container (jenkins user - uid 1000) or use -u some_other_user parameter with docker run.
+groupadd jenkins
 
-# docker run -d -v /var/jenkins_home:/var/jenkins_home:z -p 8081:8080 -p 50000:50000 --name myjenkins jenkins/jenkins:lts
-docker run -d -p 8081:8080 -p 50000:50000 --name jenkins -v /var/jenkins_home:/var/jenkins_home jenkins/jenkins:lts 
-docker run -d -p 8081:8080 -p 50000:50000 --name jenkins -v /var/jenkins:/var/jenkins jenkins/jenkins:lts 
-  
-  
+In our case:
+docker run -d -p 8081:8080 -p 50000:50000 --name jenkins -v /apps/jenkins:/var/jenkins_home jenkins/jenkins:lts 
 
 Short description:
 
@@ -18,36 +24,6 @@ docker run -d – it runs container in the background
 - -p 50000:50000 – same as above, but with the port 50000
 - –name myjenkins – display name of our container
 - jenkins/jenkins:lts – it tells “use the LTS version of Jenkins from the jenkins docker repository”
-
-
-# Installing Jenkins 
-
-docker run \
-  -u root \
-  --rm \  
-  -d \ 
-  -p 8080:8080 \ 
-  -p 50000:50000 \ 
-  -v jenkins-data:/var/jenkins_home \ 
-  -v /var/run/docker.sock:/var/run/docker.sock \ 
-  jenkinsci/blueocean 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
