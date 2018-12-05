@@ -52,6 +52,16 @@ docker exec -it jenkins bash
 docker logs <docker-container-name>
 ```
 
+# Talk to GitHub
+
+The first step is to configure Jenkins to talk to GitHub.  You will need to download and install the GitHub plugin (I am using version 1.8 as of this writing).  Manage Jenkins -> Manage Plugins -> Available -> GitHub plugin
+
+## Automatic Mode (Jenkins manages hooks for jobs by itself)
+In this mode, Jenkins will automatically add/remove hook URLs to GitHub based on the project configuration in the background. You'll specify GitHub OAuth token so that Jenkins can login as you to do this.
+
+Step 1. Go to the global configuration and add GitHub Server Config.
+
+
 # Pipeline
 
 Jenkins is an open source continuous integration server that provides the ability to continuously perform automated builds and tests. Several tasks can be controlled and monitored by Jenkins, including pulling code from a repository, performing static code analysis, building your project, executing unit tests, automated tests and/or performance tests, and finally, deploying your application. These tasks typically conform a continuous delivery pipeline.
