@@ -61,6 +61,28 @@ In this mode, Jenkins will automatically add/remove hook URLs to GitHub based on
 
 Step 1. Go to the global configuration and add GitHub Server Config.
 
+In order for builds to be triggered automatically by PUSH and PULL REQUEST events, a Jenkins Web Hook needs to be added to each GitHub repository or organization that interacts with your build server. You (or someone who can help) will need admin permissions on that repository.
+
+Step-by-Step Guide
+For each GitHub repository or organization that you need to configure, perform the following steps:
+
+Navigate to the "Settings" tab.
+Select the "Webhooks" option on the left menu
+Click "Add Webhook"
+For "Payload URL":
+Use the address for the Jenkins server instance (e.g. http://myjenkins.com)
+Add /github-webhook/ to the end of it.
+Make sure to include the last /!
+example: http://myjenkins.com/github-webhook/
+Select "application/json" as the encoding type
+Leave "Secret" blank (unless a secret has been created and configured in the Jenkins "Configure System -> GitHub plugin" section)
+Select "Let me select individual events"
+Enable PUSH event
+Enable Pull Request event
+Make sure "Active" is checked
+Click "Add Webhook"
+Jenkins will now receive push and pull request notifications for that repository, and related builds will be automatically triggered.
+
 
 # Pipeline
 
