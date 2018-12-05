@@ -52,9 +52,35 @@ docker exec -it jenkins bash
 docker logs <docker-container-name>
 ```
 
+# Pipeline
 
+Jenkins is an open source continuous integration server that provides the ability to continuously perform automated builds and tests. Several tasks can be controlled and monitored by Jenkins, including pulling code from a repository, performing static code analysis, building your project, executing unit tests, automated tests and/or performance tests, and finally, deploying your application. These tasks typically conform a continuous delivery pipeline.
 
+ Pipelines are a suite of Jenkins plugins. Pipelines can be seen as a sequence of stages to perform the tasks just detailed, among others, thus providing continuous releases of your application. The concept “continuous” is relative to your application and/or environment: In some cases releases can be performed on a daily basis while for others could be weekly, depending on your business needs. In some situations, a critical fix for example, it would be desirable to have your environment ready to release your application as soon as possible. Pipelines provide a way to do this through an automated process.
 
+## How to Create Your Jenkins Pipeline
+1. First, log on to your Jenkins server and select “New Item” from the left panel:
+![jenkins_pipeline_new_item](https://cdn2.hubspot.net/hubfs/208250/Blog_Images/pipe1.png)
+
+2. Next, enter a name for your pipeline and select “Pipeline” from the options. Click “Ok” to proceed to the next step:
+![jenkins_pipeline_new_item2](https://cdn2.hubspot.net/hubfs/208250/Blog_Images/pipe2.png)
+3. You can now start working your Pipeline script:
+
+![jenkins_pipeline_new_item3](https://cdn2.hubspot.net/hubfs/208250/Blog_Images/pipe3.png)
+
+The red box in the middle is where you can start writing your script, which will be explained now.
+
+# Creating Your Jenkins Pipeline Script
+ 
+Pipelines has specific sentences or elements to define script sections, which follow the Groovy syntax.
+
+Node Blocks
+```console
+node {
+}
+```
+
+The first block to be defined is the “node”:
 
 node{
   stage ('Build') {
