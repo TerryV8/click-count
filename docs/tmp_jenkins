@@ -11,7 +11,14 @@ If your container dies, all data will be safe.
 
 docker run -p 8081:8080 -p 50000:50000 -v /apps/jenkins_home:/var/jenkins_home jenkins
 This will store the jenkins data in /apps/jenkins_home (/your/home) on the host. Ensure that /your/home is accessible by the jenkins user in container (jenkins user - uid 1000) or use -u some_other_user parameter with docker run.
+
+
+By default, Jenkins docker image uses a user with the UID 1000 (user/group = jenkins/jenkins). So if you create a directory with another owner, docker will return the following error during the container creation:
+The solution is very easy – directory you choose for the $JENKINS_HOME should have the owner with the UID 1000. If you don’t have such user in your system, just create it
 groupadd jenkins
+In that case, the easy solution is to change owner of the chosen directory to 1000:1000
+
+
 
 In our case:
 docker run -d -p 8081:8080 -p 50000:50000 --name jenkins -v /apps/jenkins:/var/jenkins_home jenkins/jenkins:lts 
@@ -19,11 +26,31 @@ docker run -d -p 8081:8080 -p 50000:50000 --name jenkins -v /apps/jenkins:/var/j
 Short description:
 
 docker run -d – it runs container in the background
-- -v /var/jenkins_home:/var/jenkins_home:z – it attaches the container’s directory at the local system directory and it sets up appropriate SELinux fcontext
+- -v /var/jenkins_home:/var/jenkins_home:z – it attaches the container’s directory at the local system directory and it sets up appropriate SELinux fcontext. 
+It maps the /var/jenkins_home directory in the container to the Docker volume with the name jenkins_home. If this volume does not exist, then this docker run command will automatically create the volume for you. This option is required if you want your Jenkins state to persist each time you restart Jenkins (via this docker run … command). 
+If you do not specify this option, then Jenkins will effectively reset to a new instance after each restart.
+Notes: The jenkins-data volume could also be created independently using the docker volume create command:
+docker volume create jenkins-data
+Instead of mapping the /var/jenkins_home directory to a Docker volume, you could also map this directory to one on your machine’s local file system. For example, specifying the option
+-v $HOME/jenkins:/var/jenkins_home would map the container’s /var/jenkins_home directory to the jenkins subdirectory within the $HOME directory on your local machine, which would typically be /Users/<your-username>/jenkins or /home/<your-username>/jenkins.
+( Optional ) /var/run/docker.sock represents the Unix-based socket through which the Docker daemon listens on. This mapping allows the jenkinsci/blueocean container to communicate with the Docker daemon, which is required if the jenkinsci/blueocean container needs to instantiate other Docker containers. This option is necessary if you run declarative Pipelines whose syntax contains the agent section with the docker parameter
+
+
 - -p 8081:8080 – it exposes container’s port 8080 to the local system port 8081
-- -p 50000:50000 – same as above, but with the port 50000
-- –name myjenkins – display name of our container
+- -p 50000:50000 – same as above, but with the port 50000. This is only necessary if you have set up one or more JNLP-based Jenkins agents on other machines, which in turn interact with the jenkinsci/blueocean container (acting as the "master" Jenkins server, or simply "Jenkins master"). 
+- –name jenkins – display name of our container
 - jenkins/jenkins:lts – it tells “use the LTS version of Jenkins from the jenkins docker repository”
+
+
+## Accessing the Jenkins Docker container
+```console
+docker exec -it jenkins bash
+```
+
+## Accessing the Jenkins console log through Docker logs
+```console
+docker logs <docker-container-name>
+```
 
 
 
