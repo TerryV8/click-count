@@ -35,7 +35,7 @@ Instead of mapping the /var/jenkins_home directory to a Docker volume, you could
 -v $HOME/jenkins:/var/jenkins_home would map the container’s /var/jenkins_home directory to the jenkins subdirectory within the $HOME directory on your local machine, which would typically be /Users/<your-username>/jenkins or /home/<your-username>/jenkins.
 ( Optional ) /var/run/docker.sock represents the Unix-based socket through which the Docker daemon listens on. This mapping allows the jenkinsci/blueocean container to communicate with the Docker daemon, which is required if the jenkinsci/blueocean container needs to instantiate other Docker containers. This option is necessary if you run declarative Pipelines whose syntax contains the agent section with the docker parameter
 
-
+ 
 - -p 8081:8080 – it exposes container’s port 8080 to the local system port 8081
 - -p 50000:50000 – same as above, but with the port 50000. This is only necessary if you have set up one or more JNLP-based Jenkins agents on other machines, which in turn interact with the jenkinsci/blueocean container (acting as the "master" Jenkins server, or simply "Jenkins master"). 
 - –name jenkins – display name of our container
