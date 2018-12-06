@@ -227,3 +227,18 @@ select your project >> Configure >> Build Triggers >>
 
 ![workflow](https://files.realpython.com/media/steps.91fb3b3eef5a.jpg)
 
+
+How to run Jenkins under a different user in Linux [Redhat]
+When I wanted to change the Jenkins user I first checked /etc/init.d/jenkins script.  There I found two important variables $JENKINS_CONFIG(=/etc/sysconfig/jenkins) and $JENKINS_USER. So if you want, you can change the JENKINS_USER variable in the /etc/init.d/jenkins file; but it is not the correct way to do.
+
+To change the jenkins user, open the /etc/sysconfig/jenkins (in debian this file is created in /etc/default) and change the JENKINS_USER to whatever you want. Make sure that user exists in the system (you can check the user in the /etc/passwd file ).
+$JENKINS_USER="manula"
+Then change the ownership of the Jenkins home, Jenkins webroot and logs.
+chown -R manula:manula /var/lib/jenkins 
+chown -R manula:manula /var/cache/jenkins
+chown -R manula:manula /var/log/jenkins
+Then restarted the Jenkins jenkins and check the user has changed using a ps command 
+/etc/init.d/jenkins restart
+ps -ef | grep jenkins
+
+
