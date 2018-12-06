@@ -48,7 +48,7 @@ in order to ensure the sustainability of the solution.
 [Read more ...](docs/source_control_management.md)
 
 
-# Build Automation (With Maven)
+# Build Automation
 
 ### Maven
 
@@ -57,14 +57,17 @@ in order to ensure the sustainability of the solution.
 [Unit Test](docs/maven_unit_test.md)
 
 
-# Continous Integration (With Jenkins)
+# Continous Integration
+
+### Jenkins
 
 [Read more ...](docs/continuous_integration.md)
 
 
-# Containerization (With Docker)
+# Containerization
 
 ### Docker
+
 [What is Docker ? ...](docs/docker.md)
 
 [Docker for back-end ...](docs/docker_back_end.md)
