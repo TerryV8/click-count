@@ -25,50 +25,34 @@ in order to ensure the sustainability of the solution.
 [Read more ...](docs/enonce.md)
 
 
-# Technical choice
+# Let's design the architecture
+- #### [Redis Architecture (Back-end)](docs/redis_architecture.md)
 - #### [Web-app (Front-end)](docs/web_app.md)
 
-- #### [Redis Architecture (Back-end)](docs/redis_architecture.md)
-
-- #### [Kubernetes Architecture (Back-end & Front-end)](docs/kubernetes_architecture.md)
-
-
 # Source Control Management
-
 - #### [Git](docs/source_control_management.md)
 
-
 # Build Automation
-
 - #### [Maven Build](docs/build_automation.md)
-
 - #### [JUnit Unit & Integration testing](docs/maven_unit_test.md)
-
 - #### [SonarQube: Code quality](docs/code_quality.md)
 
 # Continous Integration
-
 - #### [Jenkins](docs/continuous_integration.md)
 
-
 # Containerization
-
 - #### [Docker, What is it?](docs/docker.md):
   - [for back-end](docs/docker_back_end.md)
   - [for front-end](docs/docker_back_end.md)
-
 - #### [Docker Compose](docs/docker_compose.md)
-
 
 # Monitoring containers
 - #### [ELK/Kibana](docs/monitoring_containers.md)
 
 # Secure Kubernetes Cluster
-- #### [From Docker Compose to Kubernetes: From a single host to multi-hosts](docs/kubernetes.md)
-
-- #### [Replication: no failover](docs/replication.md)
-
-- #### [Scalability: increasing throughput with pods](docs/scalability.md)
+- #### [From Docker Compose to Kubernetes: From a single host to multi-hosts: From Dev to Prod](docs/kubernetes.md)
+- #### [Resilient: no failover](docs/replication.md)
+- #### [Scalable: increasing throughput with pods](docs/scalability.md)
 
 # Automated Deployment
 - #### Ansible
