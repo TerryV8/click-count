@@ -1,8 +1,5 @@
-# Click Count application
+# Click Count application - Homework
 
-[![Build Status](https://travis-ci.org/xebia-france/click-count.svg)](https://travis-ci.org/xebia-france/click-count)
-
-# Homework
 - ## Context - Client needs & Technical environment
 
 The french Startup Click Paradise has developed a click counter application and in a Lean approach
@@ -24,7 +21,7 @@ in order to ensure the sustainability of the solution.
 
 [Read more ...](docs/enonce.md)
 
-Below, I am providing my own solution:
+# Below, I am providing my own solution:
 # Let's design the architecture
 - #### [Redis Architecture (Back-end)](docs/redis_architecture.md)
 - #### [Web-app (Front-end)](docs/web_app.md)
