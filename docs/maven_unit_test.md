@@ -9,7 +9,7 @@ My goal is to have unit tests that verify all the main functionality of an app. 
 Write unit tests – which are critical to ensuring long-term quality and correctness.
  
 
-In order to provide Unit Test to our project, add this dependecies to the pom.xml:
+To provide Unit tests to our project, add these dependecies in the pom.xml:
 ```console
 <dependencies>
 ...
