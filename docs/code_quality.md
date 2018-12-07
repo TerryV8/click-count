@@ -36,6 +36,6 @@ mvn sonar:sonar \
 Thanks to Sonar we build a clean quality code.
 In particular, we removed commented lines after checking on Sonar.
 
-![code_quality_sonar](images/code_quality_sonar.png)
+![code_quality_sonar](/images/code_quality_sonar.png)
 
 
