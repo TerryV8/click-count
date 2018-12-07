@@ -35,7 +35,7 @@ You will install the following packages on all the machines:
 - kubectl: the command to control the cluster once it’s running. You will only need this on the master, but it can be useful to have on the other nodes as well.
 - kubeadm: the command to bootstrap the cluster.
 
-Edit /etc/yum.repos.d/kubernetes.repo:
+To configure the yum repo with Kubernetes, edit /etc/yum.repos.d/kubernetes.repo:
 ```console
 [kubernetes]
 name=Kubernetes
@@ -47,8 +47,10 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cl
 exclude=kube*
 ```
 
+Back to the terminal, type:
 ```console
 sudo setenforce 0
+sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 sudo yum install -y kubelet-1.11.3 kubeadm-1.11.3 kubectl-1.11.3 --disableexcludes=kubernetes
 sudo systemctl enable kubelet && sudo systemctl start kubelet
 ```
@@ -58,8 +60,7 @@ The kubelet is now restarting every few seconds, as it waits in a crashloop for 
 Disabling SELinux by running setenforce 0 is required in order to allow containers to access the host filesystem, which is required by pod networks for example. You have to do this until kubelet can handle SELinux better.
 
 
-
-Now, configure the bridge network
+### Now, let's configure the bridge network
 
 Edit /etc/sysctl.d/k8s.conf:
 ```console
@@ -67,7 +68,7 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 ```
 
-Launch the command to apply the change:
+To apply the change, launch the command :
 ```console
 sysctl --system
 ```
