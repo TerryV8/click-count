@@ -21,7 +21,7 @@ in order to ensure the sustainability of the solution.
 
 [Read more ...](docs/enonce.md)
 
-# Below, I am providing my own solution:
+# My solution, below:
 ## Let's design the architecture
 - #### [Redis Architecture (Back-end)](docs/redis_architecture.md)
 - #### [Web-app (Front-end)](docs/web_app.md)
@@ -37,16 +37,16 @@ in order to ensure the sustainability of the solution.
 ## Continous Integration
 - #### [Jenkins](docs/continuous_integration.md)
 
-# Containerization
+## Containerization
 - #### [Docker, What is it?](docs/docker.md):
   - [for back-end](docs/docker_back_end.md)
   - [for front-end](docs/docker_back_end.md)
 - #### [Docker Compose](docs/docker_compose.md)
 
-# Monitoring containers
+## Monitoring containers
 - #### [ELK/Kibana](docs/monitoring_containers.md)
 
-# Secure Kubernetes Cluster
+## Secure Kubernetes Cluster
 - #### [Kubernetes, What is it?:](docs/kubernetes.md) 
   - ##### From Docker Compose to Kubernetes: From a single host to multi-hosts: From Dev to Prod
   
@@ -58,6 +58,6 @@ in order to ensure the sustainability of the solution.
   - ##### [Redis pods](docs/scalability_redis.md)
 
 
-# Automated Deployment
+## Automated Deployment
 - #### Ansible
 - #### AWS: Terraform
