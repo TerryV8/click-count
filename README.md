@@ -26,21 +26,21 @@ in order to ensure the sustainability of the solution.
 
 
 # Technical choice
-- ### [Web-app (Front-end)](docs/web_app.md)
+- #### [Web-app (Front-end)](docs/web_app.md)
 
-- ### [Redis Architecture (Back-end)](docs/redis_architecture.md)
+- #### [Redis Architecture (Back-end)](docs/redis_architecture.md)
 
-- ### [Kubernetes Architecture (Back-end & Front-end)](docs/kubernetes_architecture.md)
+- #### [Kubernetes Architecture (Back-end & Front-end)](docs/kubernetes_architecture.md)
 
 
 # Source Control Management
 
-- ### [Git](docs/source_control_management.md)
+- #### [Git](docs/source_control_management.md)
 
 
 # Build Automation
 
-- ### Maven
+- #### Maven
 
   - [Build](docs/build_automation.md)
 
