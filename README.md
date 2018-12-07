@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/xebia-france/click-count.svg)](https://travis-ci.org/xebia-france/click-count)
 
 # Homework
-## Context - Client needs & Technical environment
+- ## Context - Client needs & Technical environment
 
 The french Startup Click Paradise has developed a click counter application and in a Lean approach
 it wants to deliver the evolutions continuously.
@@ -14,7 +14,7 @@ The web application is developed in Java and uses Redis for storing data. The de
 are always done first on a Staging environment and then, after validation, on the environment of
 Production. ...
 
-## Goal
+- ## Goal
 
 Modify the code of the application and use whatever seems relevant to you to fill
 the objectives of the company, namely to deliver quickly and automatically the evolutions in
@@ -24,7 +24,7 @@ in order to ensure the sustainability of the solution.
 
 [Read more ...](docs/enonce.md)
 
-# My solution
+Below, I am providing my own solution:
 # Let's design the architecture
 - #### [Redis Architecture (Back-end)](docs/redis_architecture.md)
 - #### [Web-app (Front-end)](docs/web_app.md)
