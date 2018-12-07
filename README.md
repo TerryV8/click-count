@@ -69,3 +69,7 @@ in order to ensure the sustainability of the solution.
 - #### [Replication: no failover](docs/replication.md)
 
 - #### [Scalability: increasing throughput with pods](docs/scalability.md)
+
+# Automated Deployment
+- #### Ansible
+- #### AWS: Terraform
