@@ -26,11 +26,11 @@ in order to ensure the sustainability of the solution.
 
 
 # Technical choice
-- #### [Web-app (Front-end)](docs/web_app.md)
+- ### [Web-app (Front-end)](docs/web_app.md)
 
-- #### [Redis Architecture (Back-end)](docs/redis_architecture.md)
+- ### [Redis Architecture (Back-end)](docs/redis_architecture.md)
 
-- #### [Kubernetes Architecture (Back-end & Front-end)](docs/kubernetes_architecture.md)
+- ### [Kubernetes Architecture (Back-end & Front-end)](docs/kubernetes_architecture.md)
 
 
 # Source Control Management
@@ -40,54 +40,39 @@ in order to ensure the sustainability of the solution.
 
 # Build Automation
 
-### Maven
+- ### Maven
 
-[Build](docs/build_automation.md)
+  - [Build](docs/build_automation.md)
 
-[Unit & Integration testing](docs/maven_unit_test.md)
+  - [Unit & Integration testing](docs/maven_unit_test.md)
 
-### Sonar
-
-[Code quality](docs/code_quality.md)
-
-
+- ### [Sonar (Code quality)](docs/code_quality.md)
 
 # Continous Integration
 
-### Jenkins
-
-[Read more ...](docs/continuous_integration.md)
+- ### [Jenkins](docs/continuous_integration.md)
 
 
 # Containerization
 
-### Docker
+- ### Docker
 
-[What is Docker ? ...](docs/docker.md)
+  - [What is Docker ? ...](docs/docker.md)
 
-[Docker for back-end ...](docs/docker_back_end.md)
+  - [Docker for back-end ...](docs/docker_back_end.md)
 
-[Docker for front-end ...](docs/docker_back_end.md)
-
-
-
-### Docker Compose
-[Read more ...](docs/docker_compose.md)
+  - [Docker for front-end ...](docs/docker_back_end.md)
 
 
-# Monitoring containers  (With Sonar/Kibana)
 
-[Read more ...](docs/monitoring_containers.md)
-
-# From a single host to multi-hosts (From Docker Compose to Kubernetes)
-
-[Read more ...](docs/kubernetes.md)
+- ### [Docker Compose](docs/docker_compose.md)
 
 
-# Replication: no failover  (With secure Kubernetes cluster)
+# [Monitoring containers  (With Sonar/Kibana)] (docs/monitoring_containers.md)
 
-[Read more ...](docs/replication.md)
+# [From a single host to multi-hosts (From Docker Compose to Kubernetes)] (docs/kubernetes.md)
 
-# Scalability: increasing throughput (With Kubernetes pods)
 
-[Read more ...](docs/scalability.md)
+# [Replication: no failover  (With secure Kubernetes cluster)] (docs/replication.md)
+
+# [Scalability: increasing throughput (With Kubernetes pods)] (docs/scalability.md)
