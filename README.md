@@ -68,11 +68,11 @@ in order to ensure the sustainability of the solution.
 - ### [Docker Compose](docs/docker_compose.md)
 
 
-# [Monitoring containers  (With Sonar/Kibana)] (docs/monitoring_containers.md)
+# [Monitoring containers  (With Sonar/Kibana)](docs/monitoring_containers.md)
 
-# [From a single host to multi-hosts (From Docker Compose to Kubernetes)] (docs/kubernetes.md)
+# [From a single host to multi-hosts (From Docker Compose to Kubernetes)](docs/kubernetes.md)
 
 
-# [Replication: no failover  (With secure Kubernetes cluster)] (docs/replication.md)
+# [Replication: no failover  (With secure Kubernetes cluster)](docs/replication.md)
 
-# [Scalability: increasing throughput (With Kubernetes pods)] (docs/scalability.md)
+# [Scalability: increasing throughput (With Kubernetes pods)](docs/scalability.md)
