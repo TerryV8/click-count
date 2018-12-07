@@ -1,4 +1,4 @@
-# Homework: #Click Count application
+# Homework: Click Count application
 
 - ## Context - Client needs & Technical environment
 
