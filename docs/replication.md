@@ -174,11 +174,9 @@ sudo firewall-cmd --zone=public --add-port=10250/tcp --permanent
 ```
 
 2. You should deploy a pod network to the cluster:
-```console
-You should now deploy a pod network to the cluster.
-Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+> You should now deploy a pod network to the cluster.
+> Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
   https://kubernetes.io/docs/concepts/cluster-administration/addons/
-```
 
 3. You can join any number of machines by running the following on each node as root:
 ```console
