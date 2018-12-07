@@ -34,6 +34,6 @@ mvn sonar:sonar \
 
 
 Thanks to Sonar we build a clean quality code.
-In particular, we removed commented lines
+In particular, we removed commented lines after those messages: "This block of commented-out lines of code should be removed"
 
 
