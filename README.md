@@ -1,4 +1,4 @@
-# Click Count application - Homework
+# Homework: #Click Count application
 
 - ## Context - Client needs & Technical environment
 
@@ -22,19 +22,19 @@ in order to ensure the sustainability of the solution.
 [Read more ...](docs/enonce.md)
 
 # Below, I am providing my own solution:
-# Let's design the architecture
+## Let's design the architecture
 - #### [Redis Architecture (Back-end)](docs/redis_architecture.md)
 - #### [Web-app (Front-end)](docs/web_app.md)
 
-# Source Control Management
+## Source Control Management
 - #### [Git](docs/source_control_management.md)
 
-# Build Automation
+## Build Automation
 - #### [Maven Build](docs/build_automation.md)
 - #### [JUnit Unit & Integration testing](docs/maven_unit_test.md)
 - #### [SonarQube: Code quality](docs/code_quality.md)
 
-# Continous Integration
+## Continous Integration
 - #### [Jenkins](docs/continuous_integration.md)
 
 # Containerization
