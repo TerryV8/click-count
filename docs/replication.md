@@ -162,21 +162,32 @@ Your Kubernetes master has initialized successfully!
 
 As we can see, we set up a "secure (TLS)" Kubernetes cluster. We generated certificate and key (ca, apiserver, apiserver-kubelet-client, front-proxy-ca,  front-proxy-client, etcd, ...). The key is used for mutual authentication between the master and the joining nodes.
 
-The output also tells you that:
-- You should deploy a pod network to the cluster:
+A message output should tell you that:
+1. The port 6443 and 10250 are not opened: 
+
+```console
+[WARNING Firewalld]: firewalld is active, please ensure ports [6443 10250] are open or your cluster may not function correctly
+```
+
+So, launch those commands
+```console
+sudo firewall-cmd --zone=public --add-port=6443/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=10250/tcp --permanent
+```
+
+2. You should deploy a pod network to the cluster:
 ```console
 You should now deploy a pod network to the cluster.
 Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
   https://kubernetes.io/docs/concepts/cluster-administration/addons/
 ```
 
-- You can join any number of machines by running the following on each node
-as root:
+3. You can join any number of machines by running the following on each node as root:
 ```console
   kubeadm join 10.211.55.4:6443 --token co7yxb.gw7vfym8a0i4p05f --discovery-token-ca-cert-hash sha256:0e55d97ccc592def02237a424dca82d64fa383c63908af6161b2720177e58994
 ```
 
-To start using the cluster, you need to run the following as a regular user:
+Now, to start using the cluster, you need to run the following as a regular user:
 ```console
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -204,11 +215,10 @@ kubectl get pods --all-namespaces.
 ```
 And once the kube-dns pod is up and running, you can continue by joining your nodes.
 
-In order to set up the network properly, we are going to launch  Flannel:
+In order to set up the network properly, in our case, we are going to launch Flannel:
 ```console
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
 ```
-
 
 What is Flannel ?:
 
@@ -222,8 +232,6 @@ Platforms like Kubernetes assume that each container (pod) has a unique, routabl
 Flannel is responsible for providing a layer 3 IPv4 network between multiple nodes in a cluster. Flannel does not control how containers are networked to the host, only how the traffic is transported between hosts. However, flannel does provide a CNI plugin for Kubernetes and a guidance on integrating with Docker.
 
 Flannel is focused on networking. For network policy, other projects such as Calico can be used.
-
-
 
 
 
@@ -247,7 +255,7 @@ If you want to add any new machines as nodes to your cluster, for each machine: 
 [discovery] Failed to request cluster info, will try again: Get https://10.211.55.4:6443/api/v1/namespaces/kube-public/configmaps/cluster-info: dial tcp 10.211.55.4:6443: getsockopt: no route to host
 ```
 
-whereas  I can ping the master, as well as ssh from the node to the master. 
+whereas I can ping the master, as well as ssh from the node to the master. 
 
 The issue is that you have a firewall running on your master node that are blocking incoming traffic from slave nodes
 - First solution: Open the 2 specific host ports on the master node.
