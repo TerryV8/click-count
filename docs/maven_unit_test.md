@@ -1,6 +1,15 @@
 # Unit tests
 
-In order to provide Unit Test to our project, add to the pom.xml:
+Unit testing is just a specialized form of automated testing
+
+My goal is to have unit tests that verify all the main functionality of an app. It doesn’t prevent all bugs, but it does verify that the core of my app will always work. I can push changes with confidence. No more worrying about angry calls and emails!
+
+“Imagine being able to make any change you want in your code and know that you did not break something.” ~ Sandi Metz
+
+Write unit tests – which are critical to ensuring long-term quality and correctness.
+ 
+
+In order to provide Unit Test to our project, add this dependecies to the pom.xml:
 ```console
 <dependencies>
 ...
@@ -27,16 +36,8 @@ In order to provide Unit Test to our project, add to the pom.xml:
 </dependencies>
 ```
 
-Unit testing is just a specialized form of automated testing
-
-My goal is to have unit tests that verify all the main functionality of an app. It doesn’t prevent all bugs, but it does verify that the core of my app will always work. I can push changes with confidence. No more worrying about angry calls and emails!
-
-
-“Imagine being able to make any change you want in your code and know that you did not break something.” ~ Sandi Metz
-
- Write unit tests – which are critical to ensuring long-term quality and correctness.
  
- Unit testing provides numerous benefits amongs :
+Unit testing provides numerous benefits amongs :
  
 ### 1. Makes the Process Agile
 When you add more and more features, you sometimes need to change old design and code. However, changing already-tested code is both risky and costly. If we have unit tests in place, then we can proceed for refactoring confidently.
