@@ -32,11 +32,10 @@ mvn sonar:sonar \
   -Dsonar.login=6590b072344f241ddf649121349593e15f09a0d1
 ```
 
-
-Thanks to Sonar we build a clean quality code.
-In particular, we removed commented lines after checking on Sonar.
+In particular, we removed no used and commented lines after checking on Sonar.
 Actually, I made some tests of the REST API of the web App, before establishing the connection to the Redis Database.
 
 ![code_quality_sonar](/images/code_quality_sonar.png)
 
+Thanks to Sonar we build a clean quality code.
 
