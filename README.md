@@ -40,13 +40,9 @@ in order to ensure the sustainability of the solution.
 
 # Build Automation
 
-- #### Maven
+- #### Maven [Build](docs/build_automation.md) & [Unit & Integration testing](docs/maven_unit_test.md)
 
-  - [Build](docs/build_automation.md)
-
-  - [Unit & Integration testing](docs/maven_unit_test.md)
-
-- ### [Sonar (Code quality)](docs/code_quality.md)
+- #### [SonarQube (Code quality)](docs/code_quality.md)
 
 # Continous Integration
 
