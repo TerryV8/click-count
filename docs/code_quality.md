@@ -34,7 +34,8 @@ mvn sonar:sonar \
 
 
 Thanks to Sonar we build a clean quality code.
-In particular, we removed commented lines after those messages: 
-```console
-"This block of commented-out lines of code should be removed"
-```
+In particular, we removed commented lines after checking on Sonar.
+
+![code_quality_sonar](images/code_quality_sonar.png)
+
+
