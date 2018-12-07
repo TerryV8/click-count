@@ -46,29 +46,22 @@ in order to ensure the sustainability of the solution.
 
 # Continous Integration
 
-- ### [Jenkins](docs/continuous_integration.md)
+- #### [Jenkins](docs/continuous_integration.md)
 
 
 # Containerization
 
-- ### Docker
+- ### [Docker, What is it ?](docs/docker.md): [for back-end](docs/docker_back_end.md) & [for front-end](docs/docker_back_end.md)
 
-  - [What is Docker ? ...](docs/docker.md)
-
-  - [Docker for back-end ...](docs/docker_back_end.md)
-
-  - [Docker for front-end ...](docs/docker_back_end.md)
+- #### [Docker Compose](docs/docker_compose.md)
 
 
+# Monitoring containers
+- #### [ELK/Kibana)](docs/monitoring_containers.md)
 
-- ### [Docker Compose](docs/docker_compose.md)
+# Kubernetes Cluster
+- #### [From a single host to multi-hosts (From Docker Compose to Kubernetes)](docs/kubernetes.md)
 
+- #### [Replication: no failover  (With secure Kubernetes cluster)](docs/replication.md)
 
-# [Monitoring containers  (With Sonar/Kibana)](docs/monitoring_containers.md)
-
-# [From a single host to multi-hosts (From Docker Compose to Kubernetes)](docs/kubernetes.md)
-
-
-# [Replication: no failover  (With secure Kubernetes cluster)](docs/replication.md)
-
-# [Scalability: increasing throughput (With Kubernetes pods)](docs/scalability.md)
+- #### [Scalability: increasing throughput (With Kubernetes pods)](docs/scalability.md)
