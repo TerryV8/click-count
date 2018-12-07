@@ -51,13 +51,15 @@ in order to ensure the sustainability of the solution.
 
 # Containerization
 
-- #### [Docker, What is it?](docs/docker.md): [for back-end](docs/docker_back_end.md) & [for front-end](docs/docker_back_end.md)
+- #### [Docker, What is it?](docs/docker.md):
+  - [for back-end](docs/docker_back_end.md)
+  - [for front-end](docs/docker_back_end.md)
 
 - #### [Docker Compose](docs/docker_compose.md)
 
 
 # Monitoring containers
-- #### [ELK/Kibana)](docs/monitoring_containers.md)
+- #### [ELK/Kibana](docs/monitoring_containers.md)
 
 # Secure Kubernetes Cluster
 - #### [From Docker Compose to Kubernetes (From a single host to multi-hosts)](docs/kubernetes.md)
