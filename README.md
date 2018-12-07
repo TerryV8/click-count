@@ -52,8 +52,14 @@ in order to ensure the sustainability of the solution.
 # Secure Kubernetes Cluster
 - #### [Kubernetes, What is it?:](docs/kubernetes.md) 
   - ##### From Docker Compose to Kubernetes: From a single host to multi-hosts: From Dev to Prod
-- #### [Setting up: Resilient: no failover](docs/replication.md)
+  
+- #### Installation
+  - ##### [for Resilience: no failover](docs/replication.md)
+
 - #### [Scalable: increasing throughput with pods](docs/scalability.md)
+  - ##### [of web-app](docs/scalability_web-app.md)
+  - ##### [of redis](docs/scalability_redis.md)
+
 
 # Automated Deployment
 - #### Ansible
