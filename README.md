@@ -51,7 +51,7 @@ in order to ensure the sustainability of the solution.
 
 # Containerization
 
-- ### [Docker, What is it ?](docs/docker.md): [for back-end](docs/docker_back_end.md) & [for front-end](docs/docker_back_end.md)
+- #### [Docker, What is it ?](docs/docker.md): [for back-end](docs/docker_back_end.md) & [for front-end](docs/docker_back_end.md)
 
 - #### [Docker Compose](docs/docker_compose.md)
 
@@ -59,9 +59,9 @@ in order to ensure the sustainability of the solution.
 # Monitoring containers
 - #### [ELK/Kibana)](docs/monitoring_containers.md)
 
-# Kubernetes Cluster
-- #### [From a single host to multi-hosts (From Docker Compose to Kubernetes)](docs/kubernetes.md)
+# Secure Kubernetes Cluster
+- #### [From Docker Compose to Kubernetes (From a single host to multi-hosts)](docs/kubernetes.md)
 
-- #### [Replication: no failover  (With secure Kubernetes cluster)](docs/replication.md)
+- #### [Replication: no failover](docs/replication.md)
 
-- #### [Scalability: increasing throughput (With Kubernetes pods)](docs/scalability.md)
+- #### [Scalability: increasing throughput with pods](docs/scalability.md)
