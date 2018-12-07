@@ -14,19 +14,19 @@ If you are not constrained, there are some other tools built to give you complet
 - On AWS, kops makes cluster installation and management easy (and supports high availability)
 
 
-### Prerequisites
+- ### Prerequisites
 One or more machines running Ubuntu 16.04+, CentOS 7 or HypriotOS v1.0.1+
 1GB or more of RAM per machine (any less will leave little room for your apps)
 Full network connectivity between all machines in the cluster (public or private network is fine)
 
-### Objectives
+- ### Objectives
 Install a secure Kubernetes cluster on your machines
 Install a pod network on the cluster so that application components (pods) can talk to each other
 Install a sample microservices application (a socks shop) on the cluster
 
 
 # Setting up
-## (1/4) Installing kubelet and kubeadm on your hosts
+- ## (1/4) Installing kubelet and kubeadm on your hosts
 You will install the following packages on all the machines:
 
 - docker: the container runtime, which Kubernetes depends on. v1.11.2 is recommended, but v1.10.3 and v1.12.1 are known to work as well.
@@ -87,7 +87,7 @@ systemctl restart docker && systemctl restart kubelet.service && systemctl daemo
 ```
 
 
-## (2/4) Initializing your master
+- ## (2/4) Initializing your master
 
 The master is the machine where the “control plane” components run, including etcd (the cluster database) and the API server (which the kubectl CLI communicates with). All of these components run in pods started by kubelet.
 
@@ -185,7 +185,7 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```  
 
-## (3/4) Installing a pod network
+- ## (3/4) Installing a pod network
 
 You must install a pod network add-on so that your pods can communicate with each other.
 
@@ -227,7 +227,7 @@ Flannel is focused on networking. For network policy, other projects such as Cal
 
 
 
-## (4/4) Joining your nodes
+- ## (4/4) Joining your nodes
 
 The nodes are where your workloads (containers and pods, etc) run. 
 If you want to add any new machines as nodes to your cluster, for each machine: SSH to that machine, become root (e.g. sudo su -) and run the command that was output by kubeadm init:
