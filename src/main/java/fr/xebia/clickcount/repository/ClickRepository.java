@@ -1,7 +1,9 @@
 package fr.xebia.clickcount.repository;
 
 import fr.xebia.clickcount.Configuration;
+
 import io.netty.channel.nio.NioEventLoopGroup;
+
 import io.netty.channel.socket.nio.NioSocketChannel;
 import org.redisson.Config;
 import org.redisson.Redisson;
@@ -17,6 +19,7 @@ import javax.inject.Singleton;
 
 @Singleton
 public class ClickRepository {
+    //private static int thierry_count = 0;
 
     private static final Logger log = LoggerFactory.getLogger(ClickRepository.class);
 
@@ -39,23 +42,28 @@ public class ClickRepository {
             conn = redisClient.connect();
             return conn.sync(RedisCommands.PING);
 
-        } catch (RedisConnectionException e) {
+        } catch (RedisConnectionException e) {//
+        //} catch (Exception e) {
             return e.getCause().getMessage();
         } finally {
             if (conn != null) {
                 conn.closeAsync();
             }
         }
+        //return "Thierry test";
     }
 
     public long getCount() {
         log.info(">> getCount");
         return redisson.getAtomicLong("count").get();
+//          return thierry_count;
     }
 
     public long incrementAndGet() {
         log.info(">> incrementAndGet");
         return redisson.getAtomicLong("count").incrementAndGet();
+//        thierry_count = thierry_count + 10;
+//        return thierry_count;
     }
 
 }
