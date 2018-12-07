@@ -54,7 +54,12 @@ in order to ensure the sustainability of the solution.
 
 [Build](docs/build_automation.md)
 
-[Unit Test](docs/maven_unit_test.md)
+[Unit & Integration testing](docs/maven_unit_test.md)
+
+### Sonar
+
+[Code quality](docs/code_quality.md)
+
 
 
 # Continous Integration
