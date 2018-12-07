@@ -42,7 +42,7 @@ in order to ensure the sustainability of the solution.
 
 - #### Maven [Build](docs/build_automation.md) & [Unit & Integration testing](docs/maven_unit_test.md)
 
-- #### [SonarQube (Code quality)](docs/code_quality.md)
+- #### [SonarQube: Code quality](docs/code_quality.md)
 
 # Continous Integration
 
@@ -62,7 +62,7 @@ in order to ensure the sustainability of the solution.
 - #### [ELK/Kibana](docs/monitoring_containers.md)
 
 # Secure Kubernetes Cluster
-- #### [From Docker Compose to Kubernetes (From a single host to multi-hosts)](docs/kubernetes.md)
+- #### [From Docker Compose to Kubernetes: From a single host to multi-hosts](docs/kubernetes.md)
 
 - #### [Replication: no failover](docs/replication.md)
 
