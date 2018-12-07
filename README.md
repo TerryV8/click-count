@@ -26,11 +26,11 @@ in order to ensure the sustainability of the solution.
 
 
 # Technical choice
-- ### [Front-end, Web-app](docs/web_app.md)
+- #### [Front-end, Web-app](docs/web_app.md)
 
-- ### [Back-end, Redis Architecture](docs/redis_architecture.md)
+- #### [Back-end, Redis Architecture](docs/redis_architecture.md)
 
-- ### [Back-end & Front-end, Kubernetes Architecture](docs/kubernetes_architecture.md)
+- #### [Back-end & Front-end, Kubernetes Architecture](docs/kubernetes_architecture.md)
 
 
 # Source Control Management
