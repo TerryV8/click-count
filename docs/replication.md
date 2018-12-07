@@ -184,6 +184,8 @@ sudo firewall-cmd --zone=public --add-port=10250/tcp --permanent
 ```
 
 Now, to start using the cluster, you need to run the following as a regular user:
+
+The $HOME/.kube/config should not exist, if so, delete it.
 ```console
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -207,8 +209,9 @@ NOTE: You can install only one pod network per cluster.
 
 Once a pod network has been installed, you can confirm that it is working by checking that the kube-dns pod is Running in the output of:
 ```console
-kubectl get pods --all-namespaces.
+kubectl get pods --all-namespaces
 ```
+
 And once the kube-dns pod is up and running, you can continue by joining your nodes.
 
 In order to set up the network properly, in our case, we are going to launch Flannel:
