@@ -43,9 +43,9 @@ in order to ensure the sustainability of the solution.
 [Read more ...](docs/kubernetes_architecture.md)
 
 
-# Source Control Management (With Git)
+# Source Control Management
 
-[Read more ...](docs/source_control_management.md)
+[Git](docs/source_control_management.md)
 
 
 # Build Automation
