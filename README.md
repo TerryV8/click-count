@@ -40,7 +40,9 @@ in order to ensure the sustainability of the solution.
 
 # Build Automation
 
-- #### Maven [Build](docs/build_automation.md) & [Unit & Integration testing](docs/maven_unit_test.md)
+- #### [Maven Build](docs/build_automation.md)
+
+- #### [JUnit Unit & Integration testing](docs/maven_unit_test.md)
 
 - #### [SonarQube: Code quality](docs/code_quality.md)
 
