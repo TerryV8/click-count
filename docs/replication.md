@@ -10,8 +10,8 @@ kubeadm assumes you have a set of machines (virtual or real) that are up and run
 
 If you are not constrained, there are some other tools built to give you complete clusters:
 
-* On GCE, Google Container Engine gives you one-click Kubernetes clusters
-* On AWS, kops makes cluster installation and management easy (and supports high availability)
+  * On GCE, Google Container Engine gives you one-click Kubernetes clusters
+  * On AWS, kops makes cluster installation and management easy (and supports high availability)
 
 
 - ### Prerequisites
