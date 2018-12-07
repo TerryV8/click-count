@@ -56,9 +56,9 @@ in order to ensure the sustainability of the solution.
 - #### Installation
   - ##### [for Resilience: no failover](docs/replication.md)
 
-- #### [Scalable: increasing throughput with pods](docs/scalability.md)
-  - ##### [of web-app](docs/scalability_web-app.md)
-  - ##### [of redis](docs/scalability_redis.md)
+- #### Scalable: increasing throughput with: (docs/scalability.md)
+  - ##### [Web-app pods](docs/scalability_web-app.md)
+  - ##### [Redis pods](docs/scalability_redis.md)
 
 
 # Automated Deployment
