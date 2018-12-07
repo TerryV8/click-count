@@ -45,7 +45,7 @@ in order to ensure the sustainability of the solution.
 
 # Source Control Management
 
-[Git](docs/source_control_management.md)
+### [Git](docs/source_control_management.md)
 
 
 # Build Automation
