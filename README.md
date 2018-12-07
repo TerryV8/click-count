@@ -54,7 +54,7 @@ in order to ensure the sustainability of the solution.
   - ##### From Docker Compose to Kubernetes: From a single host to multi-hosts: From Dev to Prod
   
 - #### Installation
-  - ##### [for Resilience: no failover](docs/replication.md)
+  - ##### [for Resilience: auto-healing containers, no failover ](docs/replication.md)
 
 - #### Scalable: increasing throughput with: (docs/scalability.md)
   - ##### [Web-app pods](docs/scalability_web-app.md)
