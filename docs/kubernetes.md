@@ -1,6 +1,5 @@
 # From a single host to multi-hosts
-## From Docker Compose to Kubernetes
-## From Dev to Prod
+## From Docker Compose to Kubernetes - From Dev to Prod
 
 Difference between Docker compose and Kubernetes: 
 One difference to note is that Docker Compose runs on a single host, whereas Kubernetes typically uses multiple nodes, which can be added or removed dynamically.
