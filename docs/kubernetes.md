@@ -11,13 +11,13 @@ Kubernetes is an open-source platform created by Google for container deployment
 
 Kubernetes also distributes the load amongst containers. It aims to relieve the tools and components from the problem faced due to running applications in private and public clouds by placing the containers into groups and naming them as logical units. Their power lies in easy scaling, environment agnostic portability, and flexible growth.
 
-## Application definition
+- ## Application definition
 Kubernetes: An application can be deployed in Kubernetes utilizing a combination of services (or microservices), deployments, and pods.
 
-## Networking
+- ## Networking
 Kubernetes: The networking model is a flat network, allowing all pods to interact with one another. The network policies specify how the pods interact with each other. The flat network is implemented typically as an overlay. The model needs two CIDRs: one for the services and the other from which pods acquire an IP address.
 
-## Scalability
+- ## Scalability
 Kubernetes: For distributed systems, Kubernetes is more of an all-in-one framework. It is a complex system because it provides strong guarantees about the cluster state and a unified set of APIs. This slows down container scaling and deployment.
 
 ## High Availability
