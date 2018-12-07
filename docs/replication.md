@@ -165,9 +165,7 @@ As we can see, we set up a "secure (TLS)" Kubernetes cluster. We generated certi
 A message output should tell you that:
 1. The port 6443 and 10250 are not opened: 
 
-```console
-[WARNING Firewalld]: firewalld is active, please ensure ports [6443 10250] are open or your cluster may not function correctly
-```
+> [WARNING Firewalld]: firewalld is active, please ensure ports [6443 10250] are open or your cluster may not function correctly
 
 So, launch those commands
 ```console
