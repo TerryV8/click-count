@@ -1,4 +1,4 @@
-# Replication (With Kubernetes)
+# Installation for resilience
 
 We created a Kubernetes cluster of 3 nodes running on Centos 7.
 The installation uses a tool called kubeadm which is part of Kubernetes.
