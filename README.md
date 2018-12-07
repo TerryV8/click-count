@@ -58,7 +58,7 @@ in order to ensure the sustainability of the solution.
 
 ### Sonar
 
-[Code quality](docs/sonar.md)
+[Code quality](docs/code_quality.md)
 
 
 
