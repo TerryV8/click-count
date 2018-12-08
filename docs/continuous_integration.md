@@ -132,11 +132,11 @@ Configurin webhooks in Jenkins is realatively easy. We need to:
 - Check "Manage Hooks" for the GitHub server configuration
 - In the project configuration, under "Build triggers", select "GitHub hook trigger for GITScm polling"
 
-### On GitHub
+- #### On GitHub
 click Settings >> Developer settings >> Personal access tokens >> Generate new token
 Select the right permission: admin:repo_hook >> write:repo_hook and read:repo_hook
 
-### On Jenkins
+- #### On Jenkins
 Click Manage Jenkins >> Configure system
 In the section GitHub, select Git server, name: GitHub, Credentials: Add jenkins
 Select Kind: Secret text, Secret: "Enter the api key of GitHub", ID: github_key, Description: GitHubKey
