@@ -46,7 +46,7 @@ password: jenkins
 In the case, there is an error, type the url <your server address>:8080/restart
   
 
-### Creating a Pipeline-As-A-Code Job in Jenkins
+## Creating a Pipeline-As-A-Code Job in Jenkins
 
 We are going to use Jenkins Pipeline as a code plugin to create our Jenkins job. The cool part of using this plugin is that our entire Jenkins job configuration can be created, updated and version controlled along with the rest of our source code. Along with that, we will be using the power of docker to set up our entire CI infrastructure out of thin air!
 
@@ -163,6 +163,7 @@ _ In the section  "Build triggers", select "Github hook trigger for GITScm polli
 ## What if you need to run Jenkins under a different user in Linux
 
 To change the jenkins user, open the /etc/sysconfig/jenkins (in debian this file is created in /etc/default) and change the JENKINS_USER to whatever you want. Make sure that user exists in the system (you can check the user in the /etc/passwd file ).
+```console
 $JENKINS_USER="manula"
 Then change the ownership of the Jenkins home, Jenkins webroot and logs.
 chown -R manula:manula /var/lib/jenkins 
@@ -171,4 +172,4 @@ chown -R manula:manula /var/log/jenkins
 Then restarted the Jenkins jenkins and check the user has changed using a ps command 
 /etc/init.d/jenkins restart
 ps -ef | grep jenkins
-
+```
