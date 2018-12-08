@@ -17,14 +17,15 @@ One or more machines running Ubuntu 16.04+, CentOS 7 or HypriotOS v1.0.1+
 Full network connectivity between all machines in the cluster (public or private network is fine)
 
 - ## Objectives
-Install a secure Kubernetes cluster on your machines
-Install a pod network on the cluster so that application components (pods) can talk to each other
-Install a sample microservices application (a socks shop) on the cluster
+Install:
+_ a secure Kubernetes cluster on your machines
+_ a pod network on the cluster so that application components (pods) can talk to each other
+_ a sample microservices application (a socks shop) on the cluster
 
 
-# Setting up
+# Setting up the Kubernetes cluster
 - ## (1/4) Installing kubelet and kubeadm on your hosts
-You will install the following packages on all the machines:
+You are going to install the following packages on all the machines:
 
 _ docker: the container runtime, which Kubernetes depends on. v1.11.2 is recommended, but v1.10.3 and v1.12.1 are known to work as well.
 _ kubelet: the most core component of Kubernetes. It runs on all of the machines in your cluster and does things like starting pods and containers.
@@ -43,7 +44,7 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cl
 exclude=kube*
 ```
 
-Back to the terminal, type:
+Back to the terminal, launch those commands:
 ```console
 sudo setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
@@ -52,8 +53,7 @@ sudo systemctl enable kubelet && sudo systemctl start kubelet
 ```
 
 The kubelet is now restarting every few seconds, as it waits in a crashloop for kubeadm to tell it what to do.
-
-Disabling SELinux by running setenforce 0 is required in order to allow containers to access the host filesystem, which is required by pod networks for example. You have to do this until kubelet can handle SELinux better.
+Disabling SELinux by running setenforce 0 is required in order to allow containers to access the host filesystem, which is required by pod networks for example. You must do this until kubelet can handle SELinux better.
 
 
 ### Now, let's configure the bridge network
@@ -64,28 +64,28 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 ```
 
-To apply the change, launch the command :
+To apply the change, launch :
 ```console
 sysctl --system
 ```
 
-First, make sure the swap is disabled:
+Then, make sure the swap is disabled:
 ```console
 sudo swapoff -a
 ```
 
-Add this line to /etc/systemd/system/kubelet.service.d/10-kubeadm.conf:
+Also, add this line to /etc/systemd/system/kubelet.service.d/10-kubeadm.conf:
 ```console
 Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"
 ```
 
-Restart the kubelet service and docker service:
+Finally, restart the kubelet service and docker service:
 ```console
 systemctl restart docker && systemctl restart kubelet.service && systemctl daemon-reload
 ```
 
 
-- ## (2/4) Initializing your master
+- ## (2/4) Initializing the master of the Kubernetes cluster
 
 The master is the machine where the “control plane” components run, including etcd (the cluster database) and the API server (which the kubectl CLI communicates with). All of these components run in pods started by kubelet.
 
@@ -94,10 +94,7 @@ To initialize the master of the Kubernetes cluster, pick one of the machines you
 kubeadm init --pod-network-cidr=10.244.0.0/16 --kubernetes-version=v1.11.3
 ```
 
-This will install the cluster database and “control plane” components.
-
-Note: this will autodetect the network interface to advertise the master on as the interface with the default gateway. If you want to use a different interface, specify --api-advertise-addresses=<ip-address> argument to kubeadm init.
-
+This will install the cluster database and “control plane” components. This will autodetect the network interface to advertise the master on as the interface with the default gateway. If you want to use a different interface, specify --api-advertise-addresses=<ip-address> argument to kubeadm init.
 
 ### The Kubernetes cluster is secure
 
@@ -156,81 +153,63 @@ I1127 17:36:44.053993   23515 kernel_validator.go:96] Validating kernel config
 Your Kubernetes master has initialized successfully!
 ```
 
-As we can see, we set up a "secure (TLS)" Kubernetes cluster. We generated certificate and key (ca, apiserver, apiserver-kubelet-client, front-proxy-ca,  front-proxy-client, etcd, ...). The key is used for mutual authentication between the master and the joining nodes.
+Above as we just saw, we set up a "secure (TLS)" Kubernetes cluster. We generated certificate and key (ca, apiserver, apiserver-kubelet-client, front-proxy-ca,  front-proxy-client, etcd, ...). The key is used for mutual authentication between the master and the joining nodes.
 
-A message output should tell you that:
+Also, it told us that:
 1. The port 6443 and 10250 are not opened: 
 
 > [WARNING Firewalld]: firewalld is active, please ensure ports [6443 10250] are open or your cluster may not function correctly
 
-So, launch those commands
+So, we should launch those commands
 ```console
 sudo firewall-cmd --zone=public --add-port=6443/tcp --permanent
 sudo firewall-cmd --zone=public --add-port=10250/tcp --permanent
 ```
 
-2. You should deploy a pod network to the cluster:
-> You should now deploy a pod network to the cluster.
-
-> Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at: https://kubernetes.io/docs/concepts/cluster-administration/addons/
-
-3. You can join any number of machines by running the following on each node as root:
+2. we can join any number of machines by running the following on each node as root:
 ```console
   kubeadm join 10.211.55.4:6443 --token co7yxb.gw7vfym8a0i4p05f --discovery-token-ca-cert-hash sha256:0e55d97ccc592def02237a424dca82d64fa383c63908af6161b2720177e58994
 ```
 
-Now, to start using the cluster, you need to run the following as a regular user:
-
-The $HOME/.kube/config should not exist, if so, delete it.
+Now, to start using the Kubernetes cluster, we need to run the following as a regular user:
+First, check the repo $HOME/.kube/config is not existed, if so, delete it.
 ```console
+rm -rf $HOME/.kube
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```  
 
-- ## (3/4) Installing a pod network
+- ## (3/4) Installing a pod network, so that application components (pods) can talk to each other
 
-We will install a pod network add-on so that our pods can communicate with each other.
-
-It is necessary to do this before you try to deploy any applications to your cluster, and before kube-dns will start up. Note also that kubeadm only supports CNI based networks and therefore kubenet based networks will not work.
-
-Several projects provide Kubernetes pod networks using CNI, some of which also support Network Policy. 
-
-You can install a pod network add-on with the following command:
-kubectl apply -f <add-on.yaml>
+It is necessary to do this before you try to deploy any applications to your cluster, and before kube-dns will start up. Note also that kubeadm only supports CNI based networks and therefore kubenet based networks will not work. Several projects provide Kubernetes pod networks using CNI, some of which also support Network Policy. 
 
 If you are on another architecture than amd64, you should use the flannel overlay network 
+We can install only one pod network per cluster.
+So launch Flannel: 
+```console
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
+```
 
-NOTE: You can install only one pod network per cluster.
+Why Flannel ?
+
+- If you want to use flannel as the pod network, specify --pod-network-cidr=10.244.0.0/16 if you’re using the daemonset manifest below. Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes.
+Flannel runs a small, single binary agent called flanneld on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space. Flannel uses either the Kubernetes API or etcd directly to store the network configuration, the allocated subnets, and any auxiliary data (such as the host's public IP). Packets are forwarded using one of several backend mechanisms including VXLAN and various cloud integrations.
+
+- Platforms like Kubernetes assume that each container (pod) has a unique, routable IP inside the cluster. The advantage of this model is that it removes the port mapping complexities that come from sharing a single host IP.
+
+- Flannel is responsible for providing a layer 3 IPv4 network between multiple nodes in a cluster. Flannel does not control how containers are networked to the host, only how the traffic is transported between hosts. However, flannel does provide a CNI plugin for Kubernetes and a guidance on integrating with Docker.
+
+- Flannel is focused on networking. For network policy, other projects such as Calico can be used.
 
 Once a pod network has been installed, you can confirm that it is working by checking that the kube-dns pod is Running in the output of:
 ```console
 kubectl get pods --all-namespaces
 ```
 
-And once the kube-dns pod is up and running, you can continue by joining your nodes.
-
-In order to set up the network properly, in our case, we are going to launch Flannel:
-```console
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
-```
-
-What is Flannel ?:
-
-If you want to use flannel as the pod network, specify --pod-network-cidr=10.244.0.0/16 if you’re using the daemonset manifest below. However, please note that this is not required for any other networks besides Flannel.
-
-Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes.
-Flannel runs a small, single binary agent called flanneld on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space. Flannel uses either the Kubernetes API or etcd directly to store the network configuration, the allocated subnets, and any auxiliary data (such as the host's public IP). Packets are forwarded using one of several backend mechanisms including VXLAN and various cloud integrations.
-
-Platforms like Kubernetes assume that each container (pod) has a unique, routable IP inside the cluster. The advantage of this model is that it removes the port mapping complexities that come from sharing a single host IP.
-
-Flannel is responsible for providing a layer 3 IPv4 network between multiple nodes in a cluster. Flannel does not control how containers are networked to the host, only how the traffic is transported between hosts. However, flannel does provide a CNI plugin for Kubernetes and a guidance on integrating with Docker.
-
-Flannel is focused on networking. For network policy, other projects such as Calico can be used.
-
-
-
 - ## (4/4) Joining your nodes
+
+Once the kube-dns pod is up and running, you can continue by joining your other nodes.
 
 The nodes are where your workloads (containers and pods, etc) run. 
 If you want to add any new machines as nodes to your cluster, for each machine: SSH to that machine, become root (e.g. sudo su -) and run the command that was output by kubeadm init:
