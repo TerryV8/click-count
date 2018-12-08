@@ -22,7 +22,7 @@ pipeline {
         stage('Build - Docker image'){
             steps{
                 echo "Building - Docker image..."
-                sh 'cd /apps && docker build --no-cache -t terryv8/web-app-clickcount .'
+                sh 'cd /apps && docker build --no-cache -t terryv8/web-app .'
             }
         }
 
