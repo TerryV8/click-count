@@ -36,8 +36,6 @@ pipeline {
                 //dir ('/var/lib/jenkins/workspace/pipeline-demo')
                 echo 'End...'
             }
-        }
-        
-        
+        }   
     }
 }
