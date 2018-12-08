@@ -14,7 +14,31 @@ To package and deploy our application on Kubernetes cluster, we must:
 8. Deploy a new version of our app
 
 
+## 1. Package the application the app in Docker image
 
+To build a Docker image, you need to have an application and a Dockerfile.
+The application is packaged as a Docker image, using the Dockerfile that contains instructions on how the image is built. 
+
+We did it in the section
+_ [Jenkins](docs/continuous_integration.md)
+_ [Docker, for front-end](docs/docker_front-end.md)
+
+
+## 2.Run the container locally on our machine
+
+We can run the container locally if we want to
+for testing
+
+```console
+docker run --rm -p 8081:8080 terryv8/web-app
+```
+
+Upload the image to the registry
+Create a container cluster
+Deploy our app to the cluster
+Expose our app to the Internet
+Scale up our deployment
+Deploy a new version of our app
 
 ## We create our pods
 
