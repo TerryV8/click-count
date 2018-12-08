@@ -1,9 +1,6 @@
-# Click Count application
+# Homework: Click Count application
 
-[![Build Status](https://travis-ci.org/xebia-france/click-count.svg)](https://travis-ci.org/xebia-france/click-count)
-
-# Homework
-## Context - Client needs & Technical environment
+- ## Context - Client needs & Technical environment
 
 The french Startup Click Paradise has developed a click counter application and in a Lean approach
 it wants to deliver the evolutions continuously.
@@ -14,7 +11,7 @@ The web application is developed in Java and uses Redis for storing data. The de
 are always done first on a Staging environment and then, after validation, on the environment of
 Production. ...
 
-## Goal
+- ## Goal
 
 Modify the code of the application and use whatever seems relevant to you to fill
 the objectives of the company, namely to deliver quickly and automatically the evolutions in
@@ -24,80 +21,43 @@ in order to ensure the sustainability of the solution.
 
 [Read more ...](docs/enonce.md)
 
+# My solution, below:
+## Let's design the architecture
+- #### [Redis Architecture (Back-end)](docs/redis_architecture.md)
+- #### [Web-app (Front-end)](docs/web_app.md)
 
-# Technical choice
-## Front-end
+## Source Control Management
+- #### [Git](docs/source_control_management.md)
 
-### Web-app
+## Build Automation
+- #### [Maven Build](docs/build_automation.md)
+- #### [JUnit Unit & Integration testing](docs/maven_unit_test.md)
+- #### [SonarQube: Code quality](docs/code_quality.md)
 
-[Read more ...](docs/web_app.md)
+## Continous Integration
+- #### [Jenkins](docs/continuous_integration.md)
 
-## Back-end
+## Containerization
+- #### [Docker, What is it?](docs/docker.md):
+  - [for back-end](docs/docker_back_end.md)
+  - [for front-end](docs/docker_back_end.md)
+- #### [Docker Compose](docs/docker_compose.md)
 
-### Redis Architecture
+## Monitoring containers
+- #### [ELK/Kibana](docs/monitoring_containers.md)
 
-[Read more ...](docs/redis_architecture.md)
+## Secure Kubernetes Cluster
+- #### [Kubernetes, What is it?:](docs/kubernetes.md) 
+  - ##### From Docker Compose to Kubernetes: From a single host to multi-hosts: From Dev to Prod
+  
+- #### Installation
+  - ##### [for Resilience: auto-healing containers, no failover ](docs/replication.md)
 
-### Kubernetes Architecture
-
-[Read more ...](docs/kubernetes_architecture.md)
-
-
-# Source Control Management (With Git)
-
-[Read more ...](docs/source_control_management.md)
-
-
-# Build Automation
-
-### Maven
-
-[Build](docs/build_automation.md)
-
-[Unit & Integration testing](docs/maven_unit_test.md)
-
-### Sonar
-
-[Code quality](docs/code_quality.md)
-
-
-
-# Continous Integration
-
-### Jenkins
-
-[Read more ...](docs/continuous_integration.md)
+- #### Scalable: increasing throughput with: (docs/scalability.md)
+  - ##### [Web-app pods](docs/scalability_web-app.md)
+  - ##### [Redis pods](docs/scalability_redis.md)
 
 
-# Containerization
-
-### Docker
-
-[What is Docker ? ...](docs/docker.md)
-
-[Docker for back-end ...](docs/docker_back_end.md)
-
-[Docker for front-end ...](docs/docker_back_end.md)
-
-
-
-### Docker Compose
-[Read more ...](docs/docker_compose.md)
-
-
-# Monitoring containers  (With Sonar/Kibana)
-
-[Read more ...](docs/monitoring_containers.md)
-
-# From a single host to multi-hosts (From Docker Compose to Kubernetes)
-
-[Read more ...](docs/kubernetes.md)
-
-
-# Replication: no failover  (With secure Kubernetes cluster)
-
-[Read more ...](docs/replication.md)
-
-# Scalability: increasing throughput (With Kubernetes pods)
-
-[Read more ...](docs/scalability.md)
+## Automated Deployment
+- #### Ansible
+- #### AWS: Terraform

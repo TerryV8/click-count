@@ -1,40 +1,38 @@
-# Replication (With Kubernetes)
+# Kubernetes: Installation for resilience of the back-end and front-end
 
-We created a Kubernetes cluster of 3 nodes running on Centos 7.
+Here, we are going to create a Kubernetes cluster of 3 nodes running on Centos 7.
 The installation uses a tool called kubeadm which is part of Kubernetes.
-
 This process works with local VMs, physical servers and/or cloud servers. 
-It is simple enough that you can easily integrate its use into your own automation (Terraform, Ansible).
 
-kubeadm assumes you have a set of machines (virtual or real) that are up and running. It is designed to be part of a large provisioning system - or just for easy manual provisioning. kubeadm is a great choice where you have your own infrastructure (e.g. bare metal), or where you have an existing orchestration system (e.g. Ansible) that you have to integrate with.
+On premise, it assumes you have a set of machines (virtual or real) that are up and running. kubeadm is a great choice where you have your own infrastructure (e.g. bare metal), or where you have an existing orchestration system (e.g. Ansible) that you have to integrate with.
 
-If you are not constrained, there are some other tools built to give you complete clusters:
-
-- On GCE, Google Container Engine gives you one-click Kubernetes clusters
-- On AWS, kops makes cluster installation and management easy (and supports high availability)
+If you are not constrained by the Cloud choice, there are some other tools built to give you complete clusters:
+  _ On GCE, Google Container Engine gives you one-click Kubernetes clusters
+  _ On AWS, KOPS makes cluster installation and management easy
 
 
-### Prerequisites
+- ## Prerequisites
 One or more machines running Ubuntu 16.04+, CentOS 7 or HypriotOS v1.0.1+
 1GB or more of RAM per machine (any less will leave little room for your apps)
 Full network connectivity between all machines in the cluster (public or private network is fine)
 
-### Objectives
-Install a secure Kubernetes cluster on your machines
-Install a pod network on the cluster so that application components (pods) can talk to each other
-Install a sample microservices application (a socks shop) on the cluster
+- ## Objectives
+Install:
+_ a secure Kubernetes cluster on your machines
+_ a pod network on the cluster so that application components (pods) can talk to each other
+_ a sample microservices application (a socks shop) on the cluster
 
 
-# Setting up
-## (1/4) Installing kubelet and kubeadm on your hosts
-You will install the following packages on all the machines:
+# Setting up the Kubernetes cluster
+- ## (1/4) Installing kubelet and kubeadm on your hosts
+You are going to install the following packages on all the machines:
 
-- docker: the container runtime, which Kubernetes depends on. v1.11.2 is recommended, but v1.10.3 and v1.12.1 are known to work as well.
-- kubelet: the most core component of Kubernetes. It runs on all of the machines in your cluster and does things like starting pods and containers.
-- kubectl: the command to control the cluster once it’s running. You will only need this on the master, but it can be useful to have on the other nodes as well.
-- kubeadm: the command to bootstrap the cluster.
+_ docker: the container runtime, which Kubernetes depends on. v1.11.2 is recommended, but v1.10.3 and v1.12.1 are known to work as well.
+_ kubelet: the most core component of Kubernetes. It runs on all of the machines in your cluster and does things like starting pods and containers.
+_ kubectl: the command to control the cluster once it’s running. You will only need this on the master, but it can be useful to have on the other nodes as well.
+_ kubeadm: the command to bootstrap the cluster.
 
-Edit /etc/yum.repos.d/kubernetes.repo:
+To configure the yum repo with Kubernetes, edit /etc/yum.repos.d/kubernetes.repo:
 ```console
 [kubernetes]
 name=Kubernetes
@@ -46,19 +44,19 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cl
 exclude=kube*
 ```
 
+Back to the terminal, launch those commands:
 ```console
 sudo setenforce 0
+sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 sudo yum install -y kubelet-1.11.3 kubeadm-1.11.3 kubectl-1.11.3 --disableexcludes=kubernetes
 sudo systemctl enable kubelet && sudo systemctl start kubelet
 ```
 
 The kubelet is now restarting every few seconds, as it waits in a crashloop for kubeadm to tell it what to do.
-
-Disabling SELinux by running setenforce 0 is required in order to allow containers to access the host filesystem, which is required by pod networks for example. You have to do this until kubelet can handle SELinux better.
-
+Disabling SELinux by running setenforce 0 is required in order to allow containers to access the host filesystem, which is required by pod networks for example. You must do this until kubelet can handle SELinux better.
 
 
-Now, configure the bridge network
+### Now, let's configure the bridge network
 
 Edit /etc/sysctl.d/k8s.conf:
 ```console
@@ -66,28 +64,28 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 ```
 
-Launch the command to apply the change:
+To apply the change, launch :
 ```console
 sysctl --system
 ```
 
-First, make sure the swap is disabled:
+Then, make sure the swap is disabled:
 ```console
 sudo swapoff -a
 ```
 
-Add this line to /etc/systemd/system/kubelet.service.d/10-kubeadm.conf:
+Also, add this line to /etc/systemd/system/kubelet.service.d/10-kubeadm.conf:
 ```console
 Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"
 ```
 
-Restart the kubelet service and docker service:
+Finally, restart the kubelet service and docker service:
 ```console
 systemctl restart docker && systemctl restart kubelet.service && systemctl daemon-reload
 ```
 
 
-## (2/4) Initializing your master
+- ## (2/4) Initializing the master of the Kubernetes cluster
 
 The master is the machine where the “control plane” components run, including etcd (the cluster database) and the API server (which the kubectl CLI communicates with). All of these components run in pods started by kubelet.
 
@@ -96,10 +94,9 @@ To initialize the master of the Kubernetes cluster, pick one of the machines you
 kubeadm init --pod-network-cidr=10.244.0.0/16 --kubernetes-version=v1.11.3
 ```
 
-This will download and install the cluster database and “control plane” components. This may take several minutes.
+This will install the cluster database and “control plane” components. This will autodetect the network interface to advertise the master on as the interface with the default gateway. If you want to use a different interface, specify --api-advertise-addresses=<ip-address> argument to kubeadm init.
 
-Note: this will autodetect the network interface to advertise the master on as the interface with the default gateway. If you want to use a different interface, specify --api-advertise-addresses=<ip-address> argument to kubeadm init.
-
+### The Kubernetes cluster is secure
 
 When initializing the master of the Kubernetes cluster, the output should look like :
 ```console
@@ -156,85 +153,82 @@ I1127 17:36:44.053993   23515 kernel_validator.go:96] Validating kernel config
 Your Kubernetes master has initialized successfully!
 ```
 
-As we can see, we set up a "secure (TLS)" Kubernetes cluster. We generated certificate and key (ca, apiserver, apiserver-kubelet-client, front-proxy-ca,  front-proxy-client, etcd, ...)
+Above as we just saw, we set up a "secure (TLS)" Kubernetes cluster. We generated certificate and key (ca, apiserver, apiserver-kubelet-client, front-proxy-ca,  front-proxy-client, etcd, ...). The key is used for mutual authentication between the master and the joining nodes.
 
-The key is used for mutual authentication between the master and the joining nodes.
+Also, it told us that:
+1. The port 6443 and 10250 are not opened: 
 
+> [WARNING Firewalld]: firewalld is active, please ensure ports [6443 10250] are open or your cluster may not function correctly
 
-The output also tells you that:
-- You should deploy a pod network to the cluster:
+So, we should launch those commands
 ```console
-You should now deploy a pod network to the cluster.
-Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
-  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+sudo firewall-cmd --zone=public --add-port=6443/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=10250/tcp --permanent
 ```
 
-- You can join any number of machines by running the following on each node
-as root:
+2. we can join any number of machines by running the following on each node as root:
 ```console
   kubeadm join 10.211.55.4:6443 --token co7yxb.gw7vfym8a0i4p05f --discovery-token-ca-cert-hash sha256:0e55d97ccc592def02237a424dca82d64fa383c63908af6161b2720177e58994
 ```
 
-
-
-
-To start using the cluster, you need to run the following as a regular user:
+Now, to start using the Kubernetes cluster, we need to run the following as a regular user:
+First, check the repo $HOME/.kube/config is not existed, if so, delete it.
 ```console
+rm -rf $HOME/.kube
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```  
 
-## (3/4) Installing a pod network
+- ## (3/4) Installing a pod network, so that application components (pods) can talk to each other
 
-You must install a pod network add-on so that your pods can communicate with each other.
-
-It is necessary to do this before you try to deploy any applications to your cluster, and before kube-dns will start up. Note also that kubeadm only supports CNI based networks and therefore kubenet based networks will not work.
-
-Several projects provide Kubernetes pod networks using CNI, some of which also support Network Policy. See the add-ons page for a complete list of available network add-ons.
-
-You can install a pod network add-on with the following command:
-kubectl apply -f <add-on.yaml>
+It is necessary to do this before you try to deploy any applications to your cluster, and before kube-dns will start up. Note also that kubeadm only supports CNI based networks and therefore kubenet based networks will not work. Several projects provide Kubernetes pod networks using CNI, some of which also support Network Policy. 
 
 If you are on another architecture than amd64, you should use the flannel overlay network 
-
-NOTE: You can install only one pod network per cluster.
-
-Once a pod network has been installed, you can confirm that it is working by checking that the kube-dns pod is Running in the output of kubectl get pods --all-namespaces.
-
-And once the kube-dns pod is up and running, you can continue by joining your nodes.
-
-In order to set up the network properly, we are going to launch  Flannel:
+We can install only one pod network per cluster.
+So launch Flannel: 
 ```console
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
 ```
 
+Why Flannel ?
 
-What is Flannel ?:
-
-If you want to use flannel as the pod network, specify --pod-network-cidr=10.244.0.0/16 if you’re using the daemonset manifest below. However, please note that this is not required for any other networks besides Flannel.
-
-Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes.
+- If you want to use flannel as the pod network, specify --pod-network-cidr=10.244.0.0/16 if you’re using the daemonset manifest below. Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes.
 Flannel runs a small, single binary agent called flanneld on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space. Flannel uses either the Kubernetes API or etcd directly to store the network configuration, the allocated subnets, and any auxiliary data (such as the host's public IP). Packets are forwarded using one of several backend mechanisms including VXLAN and various cloud integrations.
 
-Platforms like Kubernetes assume that each container (pod) has a unique, routable IP inside the cluster. The advantage of this model is that it removes the port mapping complexities that come from sharing a single host IP.
+- Platforms like Kubernetes assume that each container (pod) has a unique, routable IP inside the cluster. The advantage of this model is that it removes the port mapping complexities that come from sharing a single host IP.
 
-Flannel is responsible for providing a layer 3 IPv4 network between multiple nodes in a cluster. Flannel does not control how containers are networked to the host, only how the traffic is transported between hosts. However, flannel does provide a CNI plugin for Kubernetes and a guidance on integrating with Docker.
+- Flannel is responsible for providing a layer 3 IPv4 network between multiple nodes in a cluster. Flannel does not control how containers are networked to the host, only how the traffic is transported between hosts. However, flannel does provide a CNI plugin for Kubernetes and a guidance on integrating with Docker.
 
-Flannel is focused on networking. For network policy, other projects such as Calico can be used.
+- Flannel is focused on networking. For network policy, other projects such as Calico can be used.
 
+Once a pod network has been installed, you can confirm that it is working by checking that the kube-dns pod is Running in the output of:
+```console
+kubectl get pods --all-namespaces
+```
 
+The output will look similar to this:
+```console
+NAMESPACE     NAME                                          READY     STATUS    RESTARTS   AGE
+kube-system   coredns-78fcdf6894-8w2jb                      1/1       Running   2          8h
+kube-system   coredns-78fcdf6894-k6m7x                      1/1       Running   2          8h
+kube-system   etcd-centos-linux.shared                      1/1       Running   2          8h
+kube-system   kube-apiserver-centos-linux.shared            1/1       Running   2          8h
+kube-system   kube-controller-manager-centos-linux.shared   1/1       Running   2          8h
+kube-system   kube-flannel-ds-c825r                         1/1       Running   2          8h
+kube-system   kube-proxy-gb85v                              1/1       Running   2          8h
+kube-system   kube-scheduler-centos-linux.shared            1/1       Running   2          8h
+```
 
+- ## (4/4) Joining the other nodes
 
-
-## (4/4) Joining your nodes
+Once the kube-dns pod is up and running, you can continue by joining your other nodes.
 
 The nodes are where your workloads (containers and pods, etc) run. 
 If you want to add any new machines as nodes to your cluster, for each machine: SSH to that machine, become root (e.g. sudo su -) and run the command that was output by kubeadm init:
 ```console
   kubeadm join 10.211.55.4:6443 --token co7yxb.gw7vfym8a0i4p05f --discovery-token-ca-cert-hash sha256:0e55d97ccc592def02237a424dca82d64fa383c63908af6161b2720177e58994
 ```
-
 
 > Note: If Kubeadm join getting error getsockopt: "no route to host" with the follow messages:
 
@@ -246,8 +240,7 @@ If you want to add any new machines as nodes to your cluster, for each machine: 
 [discovery] Created cluster-info discovery client, requesting info from "https://199.230.107.137:6443"
 [discovery] Failed to request cluster info, will try again: Get https://10.211.55.4:6443/api/v1/namespaces/kube-public/configmaps/cluster-info: dial tcp 10.211.55.4:6443: getsockopt: no route to host
 ```
-
-whereas  I can ping the master, as well as ssh from the node to the master. 
+whereas I can ping the master, as well as ssh from the node to the master. 
 
 The issue is that you have a firewall running on your master node that are blocking incoming traffic from slave nodes
 - First solution: Open the 2 specific host ports on the master node.
@@ -262,11 +255,15 @@ systemctl disable firewalld
 systemctl stop firewalld
 ```
 
+Edit /proc/sys/net/ipv4/ip_forward:
+```console
+1
+```
+
 After running those commands on your master, now go back to the node and attempt to join again.
 That should resolve your issue.
 
-
-A few seconds later, you should notice that running 
+To check it, run this command: 
 ```console
 kubectl get nodes
 ```
