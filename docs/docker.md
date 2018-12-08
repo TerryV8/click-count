@@ -162,16 +162,6 @@ sudo systemctl restart network
 ```
 
 
-# Running Redis in a Docker Container
-
-The official Redis image contains the command EXPOSE 6379 (the default Redis port) which makes it automatically available to any linked containers.
-To run a Redis instance in a Docker container named my-redis-container, use the command:
-
-```console
-sudo docker run --name my-redis-container -d redis 
-```
-
-
 # Connect to a Redis Container From a Remote Server
 If you wish to connect to a Docker container running Redis from a remote server, you can use Docker's port forwarding to access the container with the host server's IP address or domain name.
 
