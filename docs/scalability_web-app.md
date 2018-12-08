@@ -35,7 +35,7 @@ docker run --name web-app -p 8080:8080 -d --link=redis terryv8/web-app
 
 ## 3. Upload the container image to the registry
 
-To do it:
+To upload it:
 ```console
 docker login
 ```
@@ -54,7 +54,9 @@ We do this in this section:
 
 
 
-Deploy our app to the cluster
+## 5. Deploy our app to the cluster
+
+
 Expose our app to the Internet
 Scale up our deployment
 Deploy a new version of our app
