@@ -30,11 +30,30 @@ We can run the container locally if we want to
 for testing
 
 ```console
-docker run --rm -p 8081:8080 terryv8/web-app
+docker run --name web-app -p 8080:8080 -d --link=redis terryv8/web-app
 ```
 
-Upload the image to the registry
-Create a container cluster
+## 3. Upload the container image to the registry
+
+To do it:
+```console
+docker login
+```
+
+Don't forget to push 
+
+
+## 4. Create a container cluster
+
+Our cluster consists of a pool of VM instances running Kubernetes, the open source cluster orchestration system. 
+Once you have created the Kubernetes cluster, you let Kubernetes manage the applications’ lifecycle.
+
+We do this in this section:
+  - [Kubernetes: Installation for Resilience: auto-healing containers, no failover ](docs/replication.md)
+
+
+
+
 Deploy our app to the cluster
 Expose our app to the Internet
 Scale up our deployment
