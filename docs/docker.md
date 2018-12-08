@@ -2,16 +2,16 @@
 
 The short list of benefits includes:
 
-- faster development process
-- handy application encapsulation
-- the same behaviour on local machine / dev / staging / production servers
-- distribute the whole app inclusing the "server" in a ready-to-run state
-- easy and clear monitoring
-- easy to scale. Automation to provision
-- better than Virtual Machine (VM)
+_ faster development process
+_ handy application encapsulation
+_ the same behaviour on local machine / dev / staging / production servers
+_ distribute the whole app inclusing the "server" in a ready-to-run state
+_ easy and clear monitoring
+_ easy to scale. Automation to provision
+_ better than Virtual Machine (VM)
 
 
-### Faster development process
+- ### Faster development process
 There is no need to install 3rd-party apps like PostgreSQL, Redis, or Elasticsearch on the system — you can run them in containers.
 
 Docker also gives you the ability to run different versions of same application simultaneously. For example, say you need to do some manual data migration from an older version of Postgres to a newer version. You can have such a situation in microservice architecture when you want to create a new microservice with a new version of the 3rd-party software.
@@ -20,7 +20,7 @@ It could be quite complex to keep two different versions of the same app on one 
 
 
 
-### Handy application encapsulation
+- ### Handy application encapsulation
 
 With Docker you can easily deploy a web application along with it’s dependencies, environment variables, and configuration settings - everything you need to recreate your environment quickly and efficiently.
 
@@ -35,18 +35,18 @@ With the right approach to building Docker images, your application will use the
 
 
 
-### Easy and clear monitoring
+- ### Easy and clear monitoring
 
 Out of the box, you have a unified way to read log files from all running containers. You don’t need to remember all the specific paths where your app and its dependencies store log files, and write custom hooks to handle this. 
 You can integrate an external logging driver and monitor your app log files in one place.
 
 
 
-### Easy to scale
+- ### Easy to scale
 
 A correctly wrapped application will cover most of the Twelve Factors. By design, Docker forces you follow its core principles, such as configuration over environment variables, and communication over TCP/UDP ports. And if you’ve done your application right, it will be ready for scaling not only in Docker.
 
-### Better than Virtual Machine (VM)
+- ### Better than Virtual Machine (VM)
 
 Even if Virtual Machine is a virtualization tools that helps us to spin up new production servers when we need to
 compare to traditional architecture.
