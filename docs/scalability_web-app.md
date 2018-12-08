@@ -35,12 +35,19 @@ docker run --name web-app -p 8080:8080 -d --link=redis terryv8/web-app
 
 ## 3. Upload the container image to the registry
 
-To upload it:
+Docker Hub is the place where open Docker images are stored.
+
+Log into the Docker Hub from the command line
 ```console
 docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username (thierrylamvo): 
 ```
 
-Don't forget to push 
+Push your image to the repository you created
+```console
+docker push terryv8/web-app
+```
 
 
 ## 4. Create a container cluster
