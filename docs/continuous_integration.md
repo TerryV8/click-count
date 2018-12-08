@@ -104,7 +104,7 @@ select your project >> Configure >> Build Triggers >>
 ![workflow](https://files.realpython.com/media/steps.91fb3b3eef5a.jpg)
 
 
-# How to run Jenkins under a different user in Linux [Redhat]
+## How to run Jenkins under a different user in Linux [Redhat]
 When I wanted to change the Jenkins user I first checked /etc/init.d/jenkins script.  There I found two important variables $JENKINS_CONFIG(=/etc/sysconfig/jenkins) and $JENKINS_USER. So if you want, you can change the JENKINS_USER variable in the /etc/init.d/jenkins file; but it is not the correct way to do.
 
 To change the jenkins user, open the /etc/sysconfig/jenkins (in debian this file is created in /etc/default) and change the JENKINS_USER to whatever you want. Make sure that user exists in the system (you can check the user in the /etc/passwd file ).
@@ -117,7 +117,7 @@ Then restarted the Jenkins jenkins and check the user has changed using a ps com
 /etc/init.d/jenkins restart
 ps -ef | grep jenkins
 
-# Automatically trigerring builds as soon as commit to git (OPTIONAL)
+## Automatically trigerring builds as soon as commit to git (OPTIONAL)
 
 For my project, I haven't set up the automatic triger yet.
 Below I am going to give you the idea on how to configure it.
