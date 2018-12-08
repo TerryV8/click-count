@@ -207,7 +207,7 @@ Once a pod network has been installed, you can confirm that it is working by che
 kubectl get pods --all-namespaces
 ```
 
-The outpout look like this:
+The output will look similar to this:
 ```console
 NAMESPACE     NAME                                          READY     STATUS    RESTARTS   AGE
 kube-system   coredns-78fcdf6894-8w2jb                      1/1       Running   2          8h
@@ -220,7 +220,7 @@ kube-system   kube-proxy-gb85v                              1/1       Running   
 kube-system   kube-scheduler-centos-linux.shared            1/1       Running   2          8h
 ```
 
-- ## (4/4) Joining your nodes
+- ## (4/4) Joining the other nodes
 
 Once the kube-dns pod is up and running, you can continue by joining your other nodes.
 
@@ -229,7 +229,6 @@ If you want to add any new machines as nodes to your cluster, for each machine: 
 ```console
   kubeadm join 10.211.55.4:6443 --token co7yxb.gw7vfym8a0i4p05f --discovery-token-ca-cert-hash sha256:0e55d97ccc592def02237a424dca82d64fa383c63908af6161b2720177e58994
 ```
-
 
 > Note: If Kubeadm join getting error getsockopt: "no route to host" with the follow messages:
 
@@ -241,7 +240,6 @@ If you want to add any new machines as nodes to your cluster, for each machine: 
 [discovery] Created cluster-info discovery client, requesting info from "https://199.230.107.137:6443"
 [discovery] Failed to request cluster info, will try again: Get https://10.211.55.4:6443/api/v1/namespaces/kube-public/configmaps/cluster-info: dial tcp 10.211.55.4:6443: getsockopt: no route to host
 ```
-
 whereas I can ping the master, as well as ssh from the node to the master. 
 
 The issue is that you have a firewall running on your master node that are blocking incoming traffic from slave nodes
@@ -257,11 +255,15 @@ systemctl disable firewalld
 systemctl stop firewalld
 ```
 
+Edit /proc/sys/net/ipv4/ip_forward:
+```console
+1
+```
+
 After running those commands on your master, now go back to the node and attempt to join again.
 That should resolve your issue.
 
-
-A few seconds later, you should notice that running 
+To check it, run this command: 
 ```console
 kubectl get nodes
 ```
