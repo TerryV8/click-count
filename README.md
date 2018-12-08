@@ -39,8 +39,8 @@ in order to ensure the sustainability of the solution.
 
 ## Containerization
 - #### [Docker, What is it?](docs/docker.md):
-  - [for back-end](docs/docker_back_end.md)
-  - [for front-end](docs/docker_back_end.md)
+  - [for back-end](docs/docker_back-end.md)
+  - [for front-end](docs/docker_front-end.md)
 - #### [Docker Compose](docs/docker_compose.md)
 
 ## Monitoring containers
