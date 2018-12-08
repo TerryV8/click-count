@@ -1,4 +1,20 @@
-# Scalalibity (With Kubernetes)
+# Scalable: increasing throughput: Deploying the containerized web application
+
+We are going to package the web application in a Docker container image, and run that container image on the Kubernetes cluster as a load-balancer set of replicas that can scale to the needs of our users.
+
+# Objective
+To package and deploy our application on Kubernetes cluster, we must:
+1. Package the application the app in Docker image
+2. Run the container locally on our machine
+3. Upload the image to the registry
+4. Create a container cluster
+5. Deploy our app to the cluster
+6. Expose our app to the Internet
+7. Scale up our deployment
+8. Deploy a new version of our app
+
+
+
 
 ## We create our pods
 
