@@ -135,31 +135,8 @@ vi Dockerfile
 ```
 
 
-Build a docker image using the dockerfile
-```console
-docker build -t TerryV8/click-count .
-```
 
-To have a runnable image with -p to specify the port mapping between the port of my host and the port inside my container,
- -d for a detached mode.
- ```console
- docker run -p 8080:8080 -d TerryV8/clickcount
- ```
- 
-If you got the warning message after the "docker run":
-```console
-WARNING: IPv4 forwarding is disabled. Networking will not work.
-```
 
-Edit /etc/sysctl.d/enable-ip-forward.conf:
-```console
-net.ipv4.ip_forward=1
-```
-
-Then restart the network service:
-```console
-sudo systemctl restart network
-```
 
 
 # Connect to a Redis Container From a Remote Server
