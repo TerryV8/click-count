@@ -1,5 +1,7 @@
 # Continuous Integration (CI)
 
+### How it works ?
+
 Continuous integration is the practice of frequently merging code changes.
 But frequent merges cause difficulties:
 - What if the code doesn't compile after a merge
@@ -7,13 +9,12 @@ But frequent merges cause difficulties:
 It would be a lof of work to check these things on every merge
 The solution is to automate this process.
 
-### How it works ?
 We use a CI server which executes a build that automatically prepares/compiles the code and runs automated tests.
 Usually, the CI server automatically detects code changes in source control and run the build whenever there is a change
 If something is wrong, the build fails. The team can get immediate feedback if their change broke something. It can take in form of emails.
 Merging frequently throughout the day and getting quick feedback means that if you broke something, you broke it with your changes within the last couple hours. This is much easier to identify/fix than if you broke something with your changes from a week ago! For that, we will be using Jenkins as our CI server.
 
-## Setting up CI server
+### Setting up CI Infrastructure-As-Code
 
 To set up Jenkins:
 ```console
@@ -26,7 +27,7 @@ sudo systemctl enable jenkins
 sudo systemctl start jenkins
 ```
 
-Go to <your server address>:8080 in a browser,
+Go to the Jenkins web UI, <your server address>:8080 in a browser,
 eg. http://10.211.55.4:8080/
 
 On the home page, you got this message:
@@ -44,33 +45,14 @@ password: jenkins
 
 In the case, there is an error, type the url <your server address>:8080/restart
   
- 
-### Create a Jenkins Project
-Jenkins projects are at the core of doing any kind of automation in Jenkins. 
-A Jenkins project is the configuration which controls what a piece of Jenkins automation does and when it executes.
 
-We will demonstrate how to set up a freestyle project that pulls application source code from GitHub and executes build automation against it. 
+### Creating a Pipeline-As-A-Code Job in Jenkins
 
-Go your Jenkins homepage,
-click on "New Item"
-Enter the name for the jenkins project
-Then choose "Freestyle project" as a project type
-Now I am ready to set up my project to pull the source code from git.
-From the source code management, select Git and paste the url from gitHub. I don't need to set up any crudential because this git repository is publicly readable.
+We are going to use Jenkins Pipeline as a code plugin to create our Jenkins job. The cool part of using this plugin is that our entire Jenkins job configuration can be created, updated and version controlled along with the rest of our source code. Along with that, we will be using the power of docker to set up our entire CI infrastructure out of thin air!
 
-Now, I go ahead and implementing my build step. Click on add build step
-When I finish, click on "Build now"
+##### Let’s see what a “very” high-level view of our Continuous Integration (CI) Pipeline using Jenkins looks like:
 
-If I click on console output, I can watch the console output from the build himself
-and see that CI is currently in the process of running
-
-This is the output expected in the console:
-```console
-
-```
-
-
-# Jenkins pipelines
+![jenkins_docker_pipeline](https://code-maze.com/wp-content/uploads/2018/07/HighLevelFlow.png)
 
 A jenkins pipeline is an automated process built on these tools. It takes source code through a "pipeline" from the source code creation all the way to production deployment.
 
@@ -80,32 +62,71 @@ When creating the Jenkins project, chosse the "pipeline" or "Multibranch pipelin
 
 Pipelines has a domain-specific-language(DSL) that is used to define the pipeline logic
 
+##### Writing a Jenkins File
+
 There are 2 styles of Pipeline syntax you can choose:
 - either scripted - a bit more like procedural code
 - either declarative - syntax describes the pipeline logic
 
 
-On Github, create a new item pipepline
-select your project >> Configure >> Build Triggers >> 
+Here is what our Jenkinsfile looks like:
+```console
+pipeline {
+    agent any
+    tools { 
+        maven 'Maven 3.5.4'
+        jdk 'java-1.8.0-openjdk'
+    }
+    stages{
+        stage ('Build - Maven') {
+            steps{
+                echo "Building - Maven..."
+                sh 'cd /apps/click-count && mvn package'
+                
+            }
+        }
+        stage ('Test'){
+            steps{
+                echo "Testing..."
+                sh 'cd /apps/click-count && mvn package'
+
+            }
+        }
+        stage('Build - Docker image'){
+            steps{
+                echo "Building - Docker image..."
+                sh 'cd /apps && docker build --no-cache -t terryv8/web-app .'
+            }
+        }
+
+        stage ('Deploy'){
+            steps{
+                echo 'Deploying...'
+            }
+        }
+        stage ('End'){
+            steps{
+                //dir ('/var/lib/jenkins/workspace/pipeline-demo')
+                echo 'End...'
+            }
+        }   
+    }
+}
+```
 
 
-# workflow
+Once you finished writing the Jenkinsfile, back to the main page of the project and click on "Build now"
 
-1. Code locally on a feature branch
-2. Open a pull request on Github against the master branch
-3. Run automated tests against the Docker container
-4. If the tests pass, manually merge the pull request into master
-5. Once merged, the automated tests run again
-6. If the second round of tests pass, a build is created on Docker Hub
-7. Once the build is created, it’s then automatically (err, automagically) deployed to production
+![jenkins_docker_pipeline_build_now](https://code-maze.com/wp-content/uploads/2018/07/InProgress.png)
 
+This is the output expected in the console:
+```console
+
+```
 
 
-![workflow](https://files.realpython.com/media/steps.91fb3b3eef5a.jpg)
 
-
-## How to run Jenkins under a different user in Linux [Redhat]
-When I wanted to change the Jenkins user I first checked /etc/init.d/jenkins script.  There I found two important variables $JENKINS_CONFIG(=/etc/sysconfig/jenkins) and $JENKINS_USER. So if you want, you can change the JENKINS_USER variable in the /etc/init.d/jenkins file; but it is not the correct way to do.
+## What if you need to run Jenkins under a different user in Linux
 
 To change the jenkins user, open the /etc/sysconfig/jenkins (in debian this file is created in /etc/default) and change the JENKINS_USER to whatever you want. Make sure that user exists in the system (you can check the user in the /etc/passwd file ).
 $JENKINS_USER="manula"
@@ -126,11 +147,11 @@ Some teams have a scheduled builds that runs one a week, one a day, twice a day.
 Jenkins can respond by automatically running the build to implement any changes. We can configure Jenkins to automatically create and manage webhooks in GitHub. So we must give jenkins access to an API token that allows to access the gitHub API.
 
 Configurin webhooks in Jenkins is realatively easy. We need to:
-- Create an access token in GitHub that has permission to read and create webhooks
-- Add a GitHub server in Jenkins for GitHub.com
-- Create a jenkins credential with the token and configure the GitHub server configuration to use it
-- Check "Manage Hooks" for the GitHub server configuration
-- In the project configuration, under "Build triggers", select "GitHub hook trigger for GITScm polling"
+_ Create an access token in GitHub that has permission to read and create webhooks
+_ Add a GitHub server in Jenkins for GitHub.com
+_ Create a jenkins credential with the token and configure the GitHub server configuration to use it
+_ Check "Manage Hooks" for the GitHub server configuration
+_ In the project configuration, under "Build triggers", select "GitHub hook trigger for GITScm polling"
 
 - #### On GitHub
 click Settings >> Developer settings >> Personal access tokens >> Generate new token
@@ -145,7 +166,7 @@ Then Credential: GitHubKey, check "Manage hooks", click on "test connection"
 I ve just set up my Jenkins server to be able to authenticate with GitHub.
 
 Click on the project >> Configure. 
-- In the section "Source Code Management" >> Git >> Repository URL: https://github.com/TerryV8/cicd-pipeline-train-schedule-jenkins
-- In the section  "Build triggers", select "Github hook trigger for GITScm polling"
+_ In the section "Source Code Management" >> Git >> Repository URL: https://github.com/TerryV8/cicd-pipeline-train-schedule-jenkins
+_ In the section  "Build triggers", select "Github hook trigger for GITScm polling"
 
 
