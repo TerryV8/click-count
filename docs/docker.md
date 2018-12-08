@@ -3,11 +3,17 @@
 The short list of benefits includes:
 
 _ faster development process
+
 _ handy application encapsulation
+
 _ the same behaviour on local machine / dev / staging / production servers
+
 _ distribute the whole app inclusing the "server" in a ready-to-run state
+
 _ easy and clear monitoring
+
 _ easy to scale. Automation to provision
+
 _ better than Virtual Machine (VM)
 
 
