@@ -41,7 +41,7 @@ in order to ensure the sustainability of the solution.
 - #### [Docker, What is it?](docs/docker.md):
   - [for back-end](docs/docker_back-end.md)
   - [for front-end](docs/docker_front-end.md)
-- #### [Establishing networking connection between back-end and front-end Docker container](docs/docker_networking.md)  
+- #### [Establishing network Docker connection between back-end & front-end](docs/docker_networking.md)  
 - #### [Docker Compose](docs/docker_compose.md)
 
 ## Monitoring containers
