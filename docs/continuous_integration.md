@@ -1,6 +1,6 @@
 # Continuous Integration (CI)
 
-### How it works ?
+### What is it ?
 
 Continuous integration is the practice of frequently merging code changes.
 But frequent merges cause difficulties:
