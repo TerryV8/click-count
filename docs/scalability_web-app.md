@@ -20,8 +20,8 @@ To build a Docker image, you need to have an application and a Dockerfile.
 The application is packaged as a Docker image, using the Dockerfile that contains instructions on how the image is built. 
 
 We did it in the section
-_ [Jenkins](docs/continuous_integration.md)
-_ [Docker, for front-end](docs/docker_front-end.md)
+- [Jenkins](docs/continuous_integration.md)
+- [Docker, for front-end](docs/docker_front-end.md)
 
 
 ## 2.Run the container locally on our machine
