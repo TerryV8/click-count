@@ -2,9 +2,8 @@
 
 To build a new docker image using a dockerfile in the current repository:
 ```console
-docker build -t thierrylamvo/web-app .
+docker build --no-cache -t thierrylamvo/web-app .
 ```
-
 
 # DOCKER RUN
 
