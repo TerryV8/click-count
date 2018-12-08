@@ -207,6 +207,19 @@ Once a pod network has been installed, you can confirm that it is working by che
 kubectl get pods --all-namespaces
 ```
 
+The outpout look like this:
+```console
+NAMESPACE     NAME                                          READY     STATUS    RESTARTS   AGE
+kube-system   coredns-78fcdf6894-8w2jb                      1/1       Running   2          8h
+kube-system   coredns-78fcdf6894-k6m7x                      1/1       Running   2          8h
+kube-system   etcd-centos-linux.shared                      1/1       Running   2          8h
+kube-system   kube-apiserver-centos-linux.shared            1/1       Running   2          8h
+kube-system   kube-controller-manager-centos-linux.shared   1/1       Running   2          8h
+kube-system   kube-flannel-ds-c825r                         1/1       Running   2          8h
+kube-system   kube-proxy-gb85v                              1/1       Running   2          8h
+kube-system   kube-scheduler-centos-linux.shared            1/1       Running   2          8h
+```
+
 - ## (4/4) Joining your nodes
 
 Once the kube-dns pod is up and running, you can continue by joining your other nodes.
