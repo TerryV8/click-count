@@ -125,20 +125,8 @@ This is the output expected in the console:
 ```
 
 
-
-## What if you need to run Jenkins under a different user in Linux
-
-To change the jenkins user, open the /etc/sysconfig/jenkins (in debian this file is created in /etc/default) and change the JENKINS_USER to whatever you want. Make sure that user exists in the system (you can check the user in the /etc/passwd file ).
-$JENKINS_USER="manula"
-Then change the ownership of the Jenkins home, Jenkins webroot and logs.
-chown -R manula:manula /var/lib/jenkins 
-chown -R manula:manula /var/cache/jenkins
-chown -R manula:manula /var/log/jenkins
-Then restarted the Jenkins jenkins and check the user has changed using a ps command 
-/etc/init.d/jenkins restart
-ps -ef | grep jenkins
-
-## Automatically trigerring builds as soon as commit to git (OPTIONAL)
+## OPTIONAL: 
+## Automatically trigerring builds as soon as commit to git
 
 For my project, I haven't set up the automatic triger yet.
 Below I am going to give you the idea on how to configure it.
@@ -169,4 +157,18 @@ Click on the project >> Configure.
 _ In the section "Source Code Management" >> Git >> Repository URL: https://github.com/TerryV8/cicd-pipeline-train-schedule-jenkins
 _ In the section  "Build triggers", select "Github hook trigger for GITScm polling"
 
+
+
+
+## What if you need to run Jenkins under a different user in Linux
+
+To change the jenkins user, open the /etc/sysconfig/jenkins (in debian this file is created in /etc/default) and change the JENKINS_USER to whatever you want. Make sure that user exists in the system (you can check the user in the /etc/passwd file ).
+$JENKINS_USER="manula"
+Then change the ownership of the Jenkins home, Jenkins webroot and logs.
+chown -R manula:manula /var/lib/jenkins 
+chown -R manula:manula /var/cache/jenkins
+chown -R manula:manula /var/log/jenkins
+Then restarted the Jenkins jenkins and check the user has changed using a ps command 
+/etc/init.d/jenkins restart
+ps -ef | grep jenkins
 
