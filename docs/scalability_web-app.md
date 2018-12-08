@@ -24,7 +24,7 @@ We did it in the section
 - [Docker, for front-end](docs/docker_front-end.md)
 
 
-## 2.Run the container locally on our machine
+## 2. Run the container locally on our machine
 
 We can run the container locally if we want to
 for testing
@@ -52,9 +52,31 @@ We do this in this section:
   - [Kubernetes: Installation for Resilience: auto-healing containers, no failover ](docs/replication.md)
 
 
-
-
 ## 5. Deploy our app to the cluster
+
+To communicate with the Kubernetes cluster, you typically do this by using the kubectl command-line tool.
+
+Kubernetes represents applications as Pods, which are units that represent a container (or group of tightly-coupled containers). 
+
+The kubectl run command below causes Kubernetes to create a Deployment named web-app on your cluster. The Deployment manages multiple copies of your application, called replicas, and schedules them to run on the individual nodes in your cluster. In this case, the Deployment will be running only one Pod of your application.
+
+Run the following command to deploy your application, listening on port 8080:
+```console
+kubectl run web-app --image=terryv8/web-app --port 8080
+```
+
+To see the Pod created by the Deployment, run the following command:
+```console
+kubectl get pods
+```
+
+Output
+```console
+
+```
+
+
+
 
 
 Expose our app to the Internet
