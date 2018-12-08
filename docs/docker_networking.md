@@ -43,7 +43,7 @@ redis 10.0.3.32:6379> exit # allows us to leave the redis client
 
 
 
-# Link network Docker connection between back-end & front-end
+# Use Link network Docker connection option
 
 Running only:
 ```console
