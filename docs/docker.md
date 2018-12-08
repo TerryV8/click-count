@@ -134,65 +134,6 @@ cd <your git repository>
 vi Dockerfile
 ```
 
-
-
-
-
-
-# Connect to a Redis Container From a Remote Server
-If you wish to connect to a Docker container running Redis from a remote server, you can use Docker's port forwarding to access the container with the host server's IP address or domain name.
-
-To use Docker's port forwarding for Redis, add the flag -p [host port]:6379 to the docker run command.
-
-For example, to set up port forwarding so that you can connect to the container using port 7001, the docker run command is:
-```console
-sudo docker run --name my-redis-container -p 7001:6379 -d redis
-```
-
-You can then switch to another server and access the my-redis-container container with the command:
-```console
-sudo redis-cli -h [host IP or domain name] -p 7001
-```
-
-For example, if the host server running the Redis container is IP address 192.168.0.1, you can access the Redis container from any server with the command:
-```console
-sudo redis-cli -h 192.168.0.1 -p 7001
-```
-
-
-# Test 1
-Connect to the container with the redis-cli.
-
-
-```console
-docker ps  # grab the new container id
-docker inspect <container_id>    # grab the ipaddress of the container
-redis-cli -h <ipaddress> -p 6379
-redis 10.0.3.32:6379> set docker awesome
-OK
-redis 10.0.3.32:6379> get docker
-"awesome"
-redis 10.0.3.32:6379> exit
-```
-
-# Test 2
-Connect to the host os with the redis-cli.
-
-
-```console
-docker ps  # grab the new container id
-docker port <container_id> 6379  # grab the external port
-ifconfig   # grab the host ip address
-redis-cli -h <host ipaddress> -p <external port>
-redis 192.168.0.1:49153> set docker awesome
-OK
-redis 192.168.0.1:49153> get docker
-"awesome"
-redis 192.168.0.1:49153> exit
-```
-
-
-
 # Install Docker on a Jenkins server
  
  Install and configure the user right to be able to access it.
