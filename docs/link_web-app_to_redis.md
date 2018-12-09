@@ -61,6 +61,6 @@ We can access to the app from the HAProxy and interact with the Redis Database:
 We can access to the app from the slave node 1 and interact with the Redis Database:
 ![web_app_from_slave1](/images/web_app_10_211_55_5.png)
 
-We can access to the app from the slave node 1 and interact with the Redis Database:
+We can access to the app from the slave node 2 and interact with the Redis Database:
 ![web_app_from_slave2](/images/web_app_10_211_55_6.png)
 
