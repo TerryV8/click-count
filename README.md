@@ -55,8 +55,8 @@ in order to ensure the sustainability of the solution.
   - ##### [for Resilience: auto-healing containers, no failover ](docs/replication.md)
 
 - #### Scalable: increasing throughput with: (docs/scalability.md)
-  - ##### [Web-app pods](docs/scalability_web-app.md)
-  - ##### [Redis pods](docs/scalability_redis.md)
+  - ##### [Web-app pods in front-end](docs/scalability_web-app.md)
+  - ##### [Redis pods in back-end](docs/scalability_redis.md)
 
 
 ## Automated Deployment
