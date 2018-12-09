@@ -352,6 +352,7 @@ you can open your browser at the address:
 
 - either http://10.211.55.6:30808/clickCount/ (slave node 1)
 - or either http://10.211.55.7:30808/clickCount/ (slave node 2)
+
 It works.
 
 
