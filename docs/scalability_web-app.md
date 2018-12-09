@@ -59,7 +59,7 @@ We do this in this section:
   - => [Kubernetes: Installation for Resilience: auto-healing containers, no failover ](docs/replication.md)
 
 
-## 5. Deploy our app to the cluster
+## 5. Deploy our app to the cluster with Kubernetes pods
 
 To communicate with the Kubernetes cluster, you typically do this by using the kubectl command-line tool.
 
@@ -67,14 +67,37 @@ Kubernetes represents applications as Pods, which are units that represent a con
 
 The kubectl run command below causes Kubernetes to create a Deployment named web-app on your cluster. The Deployment manages multiple copies of your application, called replicas, and schedules them to run on the individual nodes in your cluster. In this case, the Deployment will be running only one Pod of your application.
 
-> You could simplily run the following command to deploy your application, listening on port 8080:
+> A possible approach, but not recommanded way to deploy our application, listening on port 8080 is to launch this command:
 > ```console
 > kubectl run web-app --image=thierrylamvo/web-app --port 8080
 > ```
 
-However, a better
+However, a better approach is to Edit pod-web-app.yml :
+```consoleapiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod-demo
+  labels:
+    app: nginx-demo
+spec:
+  containers:
+    - image: nginx:latest
+      name: nginx-demo
+      ports:
+      - containerPort: 80
+      imagePullPolicy: Always
+```
 
 To see the Pod created by the Deployment, run the following command:
+```console
+kubectl get pods
+```
+Then launch the command as a root user, :
+```console
+kubectl create -f pod-web-app.yml
+```
+
+Check the pod is launching by:
 ```console
 kubectl get pods
 ```
@@ -82,21 +105,59 @@ kubectl get pods
 Output
 ```console
 NAME                           READY     STATUS    RESTARTS   AGE
-web-app-74b8d58f96-4qhdr       1/1       Running   0          6m
+web-app                        1/1       Running   0          23s
 ```
 
 
-## 6. Expose our app to the Internet
+## 6. Expose our app to the Internet with Kubernetes services
 
-By default, the containers you run are not accessible from the Internet, because they do not have external IP addresses. You must explicitly expose your application to traffic from the Internet, run the following command:
+By default, the containers you run are not accessible from the Internet, because they do not have external IP addresses. You must explicitly expose your application to traffic from the Internet
+
+> A possible approach, but not recommanded way to expose your application to traffic from the Internet, listening on port 8080 is to launch this command:
+> ```console
+> kubectl expose deployment web-app --type=LoadBalancer --port 80 --target-port 8080
+> ```
+> The kubectl expose command above creates a Service resource, which provides networking and IP support to your application's Pods. If you were on a cloud such as AWS, GKE, it will create an external IP and a Load Balancer (subject to billing) for your application.
+> The --port flag specifies the port number configured on the Load Balancer, and the --target-port flag specifies the port number that is used by the Pod created by the kubectl run command from the previous step.
+
+
+However, a better approach is to Edit service-web-app.yml :
 ```console
-kubectl expose deployment web-app --type=LoadBalancer --port 80 --target-port 8080
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-app
+spec:
+  selector:
+    app: web-app
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+  type: NodePort
+```
+
+Then launch the command as a root user, :
+```console
+kubectl create -f service-web-app.yml
+```
+
+Check the pod is launching by:
+```console
+kubectl get services
+```
+
+Output
+```console
+NAME           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+web-app        NodePort    10.106.248.3    <none>        8080:30255/TCP   8s
 ```
 
 
 
+## 7. Scale up our deployment
 
-Scale up our deployment
+
 Deploy a new version of our app
 
 ## We create our pods
