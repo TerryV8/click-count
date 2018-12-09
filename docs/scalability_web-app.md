@@ -340,8 +340,15 @@ Events:
   Normal  Started    9m    kubelet, centos-linux-slave-2.shared  Started container
 ```
 
-As you can see from the ouput above,
+As you can see based on the described from the ouput above,
 our pods where well distributed equally on the slave nodes of Kubernetes cluster.
+
+To check also,
+you can open your browser at the address:
+- http://10.211.55.6:30808/clickCount/ (slave node 1)
+- and http://10.211.55.7:30808/clickCount/ (slave node 1)
+and see that it works.
+
 
 # Load Balancing
 If you go the url of one of the slave nodes,
