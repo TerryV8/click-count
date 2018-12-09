@@ -224,7 +224,7 @@ web-app-64d996d646-5nbqz       1/1       Running   0          4m
 web-app-64d996d646-ndnnw       1/1       Running   0          4m
 ```
 
-To check the IP address of the nodes where the pods where deployed;
+To check the IP address of the nodes where the pods where deployed:
 ```console
 kubectl describe pods web-app-64d996d646-5nbqz
 ```
