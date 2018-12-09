@@ -193,6 +193,10 @@ spec:
       labels:
         app: web-app
     spec:
+      hostAliases:
+      - ip: "10.211.55.4"
+        hostnames:
+        - "redis"
       containers:
         - image: thierrylamvo/web-app
           name: web-app
