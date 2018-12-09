@@ -362,13 +362,15 @@ you will see that you are able to use the service
 Kubernetes's rolling update mechanism ensures that your application remains up and available even as the system replaces instances of your old container image with your new one across all the running replicas.
 
 You can create an image for the v2 version of your application by building the same source code and tagging it as v2.
-
+```console
 docker build -t thierrylamvo/web-app:v2 .
+```
 Then push the image to the Google Container Registry:
 
+```console
 docker push thierrylamvo/web-app:v2
+```
 Now, apply a rolling update to the existing deployment with an image update:
-
 ```console
 kubectl set image deployment web-app web-app=thierrylamvo/web-app:v2
 ```
