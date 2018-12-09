@@ -11,9 +11,9 @@ Since we have on 3 local VMs.
 Below is our network server. There are 2 web servers running our Web App and listening on port 30808 
 and one HAProxy server:
 
-_ Web App Server 1:  10.211.55.5
-_ Web App Server 2:  10.211.55.6
-_ HAProxy Server:    10.211.55.4
+- Web App Server 1:  10.211.55.5
+- Web App Server 2:  10.211.55.6
+- HAProxy Server:    10.211.55.4
   
 Now install HAProxy with the following command:
 ```console
