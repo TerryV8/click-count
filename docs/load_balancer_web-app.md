@@ -8,14 +8,14 @@ and is used in the OpsWorks product from Amazon Web Services.
 
 # Types of Load Balancing
 
-## No Load Balancing
+- ## No Load Balancing
 A simple web application environment with no load balancing might look like the following:
 
 ![web_app_No_Load_Balancing](https://assets.digitalocean.com/articles/HAProxy/web_server.png)
 
 In this example, the user connects directly to your web server, at yourdomain.com and there is no load balancing. If your single web server goes down, the user will no longer be able to access your web server. Additionally, if many users are trying to access your server simultaneously and it is unable to handle the load, they may have a slow experience or they may not be able to connect at all.
 
-## Layer 4 Load Balancing
+- ## Layer 4 Load Balancing
 
 The simplest way to load balance network traffic to multiple servers is to use layer 4 (transport layer) load balancing. Load balancing this way will forward user traffic based on IP range and port (i.e. if a request comes in for http://yourdomain.com/anything, the traffic will be forwarded to the backend that handles all the requests for yourdomain.com on port 80). For more details on layer 4, check out the TCP subsection of our Introduction to Networking.
 
@@ -65,7 +65,7 @@ The default_backend backendwebappclickcount specifies that all other traffic wil
 Now, any incoming requests to the HAProxy node at IP address 10.211.55.4 will be forwarded to an internally networked node with an IP address of either 10.211.55.5 or 10.211.55.6, also it maps port 8080 to port 30808. These backend nodes will serve the HTTP requests. If at any time either of these nodes fails the health check, they will not be used to serve any requests until they pass the test.
 
 
-# High availability
+# High availability HAProxy
 
 Even better,
 but since we only have 3 local VMs, we don't provide here High availability of Load Balancer. However, it would be easy to do it.
