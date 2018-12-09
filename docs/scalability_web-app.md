@@ -153,8 +153,8 @@ kubectl get services
 
 Output
 ```console
-NAME           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-web-app        NodePort    10.106.248.3    <none>        8080:30255/TCP   8s
+NAME           TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+web-app        NodePort    10.109.242.242   <none>        8080:30808/TCP   22m
 ```
 
 Usually, on a cloud, EXTERNAL-IP will be generated automatically. Since we're on local VM, we will need to do some extra tasks to expose to the external world.
@@ -201,7 +201,6 @@ spec:
           imagePullPolicy: Always
 ```
 
-
 Then launch the command as a root user, :
 ```console
 kubectl create -f deployment-web-app.yml
@@ -213,8 +212,248 @@ NAME          DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 web-app       2         2         2            2           36s
 ```
 
+Now, you can check that your app is well deployed on the other nodes of the Kubernetes cluster:
+```console
+kubectl get pods   # allows us to check the pods running
+```
 
-Deploy a new version of our app
+Output
+```console
+NAME                           READY     STATUS    RESTARTS   AGE
+web-app-64d996d646-5nbqz       1/1       Running   0          4m
+web-app-64d996d646-ndnnw       1/1       Running   0          4m
+```
+
+To check the IP address of the nodes where the pods where deployed;
+```console
+kubectl describe pods web-app-64d996d646-5nbqz
+```
+
+OUTPUT
+```console
+Name:               web-app-64d996d646-5nbqz
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               centos-linux-slave-1.shared/10.211.55.5
+Start Time:         Sun, 09 Dec 2018 16:36:16 +0100
+Labels:             app=web-app
+                    pod-template-hash=2085528202
+Annotations:        <none>
+Status:             Running
+IP:                 10.244.1.55
+Controlled By:      ReplicaSet/web-app-64d996d646
+Containers:
+  web-app:
+    Container ID:   docker://05c2463f2192fc54999198179d040d6b9d948d314d31ef205c686bd264115777
+    Image:          thierrylamvo/web-app
+    Image ID:       docker-pullable://docker.io/thierrylamvo/web-app@sha256:56c508daa62fdf12d728fe6d78c6f1730ddce10ead06284acbeb867ddca6759c
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Sun, 09 Dec 2018 16:36:19 +0100
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-bjn4p (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-bjn4p:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-bjn4p
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From                                  Message
+  ----    ------     ----  ----                                  -------
+  Normal  Scheduled  6m    default-scheduler                     Successfully assigned default/web-app-64d996d646-5nbqz to centos-linux-slave-1.shared
+  Normal  Pulling    6m    kubelet, centos-linux-slave-1.shared  pulling image "thierrylamvo/web-app"
+  Normal  Pulled     6m    kubelet, centos-linux-slave-1.shared  Successfully pulled image "thierrylamvo/web-app"
+  Normal  Created    6m    kubelet, centos-linux-slave-1.shared  Created container
+  Normal  Started    6m    kubelet, centos-linux-slave-1.shared  Started container
+[thierry@centos-linux tutorial]$ 
+[thierry@centos-linux tutorial]$ 
+[thierry@centos-linux tutorial]$ 
+[thierry@centos-linux tutorial]$ 
+[thierry@centos-linux tutorial]$ kubectl describe pods web-app-64d996d646-5nbqz
+Name:               web-app-64d996d646-5nbqz
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               centos-linux-slave-1.shared/10.211.55.5
+Start Time:         Sun, 09 Dec 2018 16:36:16 +0100
+Labels:             app=web-app
+                    pod-template-hash=2085528202
+Annotations:        <none>
+Status:             Running
+IP:                 10.244.1.55
+Controlled By:      ReplicaSet/web-app-64d996d646
+Containers:
+  web-app:
+    Container ID:   docker://05c2463f2192fc54999198179d040d6b9d948d314d31ef205c686bd264115777
+    Image:          thierrylamvo/web-app
+    Image ID:       docker-pullable://docker.io/thierrylamvo/web-app@sha256:56c508daa62fdf12d728fe6d78c6f1730ddce10ead06284acbeb867ddca6759c
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Sun, 09 Dec 2018 16:36:19 +0100
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-bjn4p (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-bjn4p:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-bjn4p
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From                                  Message
+  ----    ------     ----  ----                                  -------
+  Normal  Scheduled  6m    default-scheduler                     Successfully assigned default/web-app-64d996d646-5nbqz to centos-linux-slave-1.shared
+  Normal  Pulling    6m    kubelet, centos-linux-slave-1.shared  pulling image "thierrylamvo/web-app"
+  Normal  Pulled     6m    kubelet, centos-linux-slave-1.shared  Successfully pulled image "thierrylamvo/web-app"
+  Normal  Created    6m    kubelet, centos-linux-slave-1.shared  Created container
+  Normal  Started    6m    kubelet, centos-linux-slave-1.shared  Started container
+[thierry@centos-linux tutorial]$ kubectl describe pods web-app-64d996d646-5nbqz
+Name:               web-app-64d996d646-5nbqz
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               centos-linux-slave-1.shared/10.211.55.5
+Start Time:         Sun, 09 Dec 2018 16:36:16 +0100
+Labels:             app=web-app
+                    pod-template-hash=2085528202
+Annotations:        <none>
+Status:             Running
+IP:                 10.244.1.55
+Controlled By:      ReplicaSet/web-app-64d996d646
+Containers:
+  web-app:
+    Container ID:   docker://05c2463f2192fc54999198179d040d6b9d948d314d31ef205c686bd264115777
+    Image:          thierrylamvo/web-app
+    Image ID:       docker-pullable://docker.io/thierrylamvo/web-app@sha256:56c508daa62fdf12d728fe6d78c6f1730ddce10ead06284acbeb867ddca6759c
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Sun, 09 Dec 2018 16:36:19 +0100
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-bjn4p (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-bjn4p:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-bjn4p
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From                                  Message
+  ----    ------     ----  ----                                  -------
+  Normal  Scheduled  6m    default-scheduler                     Successfully assigned default/web-app-64d996d646-5nbqz to centos-linux-slave-1.shared
+  Normal  Pulling    6m    kubelet, centos-linux-slave-1.shared  pulling image "thierrylamvo/web-app"
+  Normal  Pulled     6m    kubelet, centos-linux-slave-1.shared  Successfully pulled image "thierrylamvo/web-app"
+  Normal  Created    6m    kubelet, centos-linux-slave-1.shared  Created container
+  Normal  Started    6m    kubelet, centos-linux-slave-1.shared  Started container
+```
+
+To check the IP address of the second node where the pods where deployed;
+```console
+kubectl describe pods web-app-64d996d646-ndnnw
+```
+
+OUTPUT
+```console
+Name:               web-app-64d996d646-ndnnw
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               centos-linux-slave-2.shared/10.211.55.6
+Start Time:         Sun, 09 Dec 2018 16:36:16 +0100
+Labels:             app=web-app
+                    pod-template-hash=2085528202
+Annotations:        <none>
+Status:             Running
+IP:                 10.244.2.38
+Controlled By:      ReplicaSet/web-app-64d996d646
+Containers:
+  web-app:
+    Container ID:   docker://35c67ac9b152f44268575996868b152de87ba2444efc3e77e2a40d75e41a9b4f
+    Image:          thierrylamvo/web-app
+    Image ID:       docker-pullable://docker.io/thierrylamvo/web-app@sha256:56c508daa62fdf12d728fe6d78c6f1730ddce10ead06284acbeb867ddca6759c
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Sun, 09 Dec 2018 16:36:19 +0100
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-bjn4p (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-bjn4p:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-bjn4p
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From                                  Message
+  ----    ------     ----  ----                                  -------
+  Normal  Scheduled  9m    default-scheduler                     Successfully assigned default/web-app-64d996d646-ndnnw to centos-linux-slave-2.shared
+  Normal  Pulling    9m    kubelet, centos-linux-slave-2.shared  pulling image "thierrylamvo/web-app"
+  Normal  Pulled     9m    kubelet, centos-linux-slave-2.shared  Successfully pulled image "thierrylamvo/web-app"
+  Normal  Created    9m    kubelet, centos-linux-slave-2.shared  Created container
+  Normal  Started    9m    kubelet, centos-linux-slave-2.shared  Started container
+```
+
+As you can see from the ouput above,
+our pods where well distributed equally on the slave nodes of Kubernetes cluster.
+
+# Load Balancing
+If you go the url of one of the slave nodes,
+for example 10.211.55.5:32334,
+you will see that you are able to use the service
+
+
+## 8. Deploy a new version of our app
 
 
 
