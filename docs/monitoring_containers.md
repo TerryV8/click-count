@@ -14,7 +14,7 @@ Some typical uses of a DaemonSet are:
 - running a logs collection daemon on every node, such as fluentd or logstash.
 - running a node monitoring daemon on every node, such as Prometheus Node Exporter, collectd, Dynatrace OneAgent, Datadog agent, New Relic agent, Ganglia gmond or Instana agent.
 
-Once the DaemonSets extension is enabled, create a manifest daemonSet-datadog-agent.yaml using the following manifest to deploy the Datadog Agent.
+Once the DaemonSets extension is enabled, create a manifest daemonSet-datadog-agent.yml using the following manifest to deploy the Datadog Agent.
 ```console
 apiVersion: extensions/v1beta1
 kind: DaemonSet
@@ -79,9 +79,9 @@ spec:
         - hostPath:
             path: /sys/fs/cgroup
           name: cgroups
-    ```      
+```      
     
 Launch:
 ```console
-kubectl create -f daemonSet-datadog-agent.yaml
+kubectl create -f daemonSet-datadog-agent.yml
 ```
