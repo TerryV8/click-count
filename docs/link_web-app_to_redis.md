@@ -1,7 +1,7 @@
 
 The basic configuration in the /etc/hosts in a docker instance of a pod:
 would look like this:
-[etc_hosts_in_a_container_in_a_pods.png](/images/etc_hosts_in_pods.png)
+![etc_hosts_in_a_container_in_a_pods.png](/images/etc_hosts_in_pods.png)
 
 Since we need that this docker instance need to communicate with the redis server,
 we will map the redis server with the HAProxy, which will forward the traffic to the master od the redis cluster.
@@ -10,7 +10,7 @@ So, ideally, we would append this to the /etc/hosts in a docker instance of a po
 ```console
 redis 10.211.55.4
 ```
-where 10.211.55.4 is the HAProxy ip.
+where 10.211.55.4 is the HAProxy IP.
 
 However, a better approach to automate is to edit the deployment file of Kubernetes, deployment-web-app.yml :
 ```console
