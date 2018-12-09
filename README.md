@@ -49,10 +49,10 @@ in order to ensure the sustainability of the solution.
 
 ## Secure Kubernetes Cluster
 - #### [Kubernetes, What is it?:](docs/kubernetes.md) 
-  - ##### From Docker Compose to Kubernetes: From a single host to multi-hosts: From Dev to Prod
+  - From Docker Compose to Kubernetes: From a single host to multi-hosts: From Dev to Prod
   
 - #### Installation
-  - ##### [for Resilience: auto-healing containers, no failover ](docs/replication.md)
+  - [for Resilience: auto-healing containers, no failover ](docs/replication.md)
 
 - #### Scalable: increasing throughput:
   - [in front-end, with Web-app pods ](docs/scalability_web-app.md)
