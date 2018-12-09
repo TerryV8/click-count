@@ -74,7 +74,7 @@ The layer 4 and 7 load balancing setups described before both use a load balance
 
 A high availability (HA) setup is an infrastructure without a single point of failure. It prevents a single server failure from being a downtime event by adding redundancy to every layer of your architecture. A load balancer facilitates redundancy for the backend layer (web/app servers), but for a true high availability setup, you need to have redundant load balancers as well.
 
-[load_balancer_High_availability](https://assets.digitalocean.com/articles/high_availability/ha-diagram-animated.gif)
+[load_balancer_High_availability](/images/load_balancer_high_availability.png)
 
 In this example, you have multiple load balancers (one active and one or more passive) behind a static IP address that can be remapped from one server to another. When a user accesses your website, the request goes through the external IP address to the active load balancer. If that load balancer fails, your failover mechanism will detect it and automatically reassign the IP address to one of the passive servers. There are a number of different ways to implement an active/passive HA setup. To learn more, read this section of How To Use Floating IPs.
 
