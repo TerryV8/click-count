@@ -59,7 +59,7 @@ in order to ensure the sustainability of the solution.
   - [in back-end, with Redis pods](docs/scalability_redis.md)
 
 ## Monitoring containers of Kubernetes Cluster
-- #### [with Promotheus / Grafana](docs/monitoring_containers.md) TODO
+- #### [with Promotheus / Grafana](docs/monitoring_containers.md) = TODO
 
 ## Automated Deployment
 - #### Ansible
