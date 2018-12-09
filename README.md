@@ -57,6 +57,7 @@ in order to ensure the sustainability of the solution.
 - #### Scalable: increasing throughput:
   - [in front-end, with Web-app pods ](docs/scalability_web-app.md)
   - [in front-end, with HAProxy as a load balancer to distribute the incoming traffic ](docs/load_balancer_web-app.md)
+  - [Link front-end to back-end](docs/link_front_end_to_back_end.md)
   - [in back-end, with Redis pods](docs/scalability_redis.md)
 
 
