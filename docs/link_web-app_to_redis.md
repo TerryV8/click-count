@@ -1,7 +1,6 @@
 
 The basic configuration in the /etc/hosts in a docker instance of a pod:
 would look like this:
-![etc_hosts_in_a_container_in_a_pods.png](/images/etc_hosts_in_pods.png| width=48)
 <img src="/images/etc_hosts_in_pods.png" width="50%">
 
 
