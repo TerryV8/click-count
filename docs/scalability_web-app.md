@@ -205,6 +205,19 @@ spec:
           imagePullPolicy: Always
 ```
 
+We especially added those lines
+which will append the /etc/hosts on each pod
+to map the redis server ip with the ip 10.211.55.4, which is fixed.
+```console
+      hostAliases:
+      - ip: "10.211.55.4"
+        hostnames:
+        - "redis"
+```
+
+
+
+
 Then launch the command as a root user, :
 ```console
 kubectl create -f deployment-web-app.yml
