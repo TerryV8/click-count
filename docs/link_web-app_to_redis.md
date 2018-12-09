@@ -56,11 +56,11 @@ We especially added those lines which will append the /etc/hosts on each pod to 
 # The Output
 
 We can access to the app from the HAProxy and interact with the Redis Database:
-![web_app_from_HAProxy](web_app_10_211_55_4.png)
+![web_app_from_HAProxy](/images/web_app_10_211_55_4.png)
 
 We can access to the app from the slave node 1 and interact with the Redis Database:
-![web_app_from_slave1](web_app_10_211_55_5.png)
+![web_app_from_slave1](/images/web_app_10_211_55_5.png)
 
 We can access to the app from the slave node 1 and interact with the Redis Database:
-![web_app_from_slave2](web_app_10_211_55_6.png)
+![web_app_from_slave2](/images/web_app_10_211_55_6.png)
 
