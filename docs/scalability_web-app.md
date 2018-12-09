@@ -20,8 +20,8 @@ To build a Docker image, you need to have an application and a Dockerfile.
 The application is packaged as a Docker image, using the Dockerfile that contains instructions on how the image is built. 
 
 We did it in the section
-- [Jenkins](docs/continuous_integration.md)
-- [Docker, for front-end](docs/docker_front-end.md)
+- => [Jenkins](docs/continuous_integration.md)
+- => [Docker, for front-end](docs/docker_front-end.md)
 
 
 ## 2. Run the container locally on our machine
@@ -56,7 +56,7 @@ Our cluster consists of a pool of VM instances running Kubernetes, the open sour
 Once you have created the Kubernetes cluster, you let Kubernetes manage the applications’ lifecycle.
 
 We do this in this section:
-  - [Kubernetes: Installation for Resilience: auto-healing containers, no failover ](docs/replication.md)
+  - => [Kubernetes: Installation for Resilience: auto-healing containers, no failover ](docs/replication.md)
 
 
 ## 5. Deploy our app to the cluster
