@@ -1,7 +1,7 @@
 
 The basic configuration in the /etc/hosts in a docker instance of a pod:
 would look like this:
-![etc_hosts_in_a_container_in_a_pods.png](/images/etc_hosts_in_pods.png?v=4&s=100)
+![etc_hosts_in_a_container_in_a_pods.png](/images/etc_hosts_in_pods.png| width=48)
 
 Since we need that this docker instance need to communicate with the redis server,
 we will map the redis server with the HAProxy, which will forward the traffic to the master od the redis cluster.
