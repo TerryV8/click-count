@@ -44,6 +44,7 @@ backend backendwebappclickcount
 This configures a frontend named haproxywebappclickcount, which handles all incoming traffic on port 8080.
 The default_backend backendwebappclickcount specifies that all other traffic will be forwarded to backendwebappclickcount and maps to the port 30808
 
+Now, any incoming requests to the HAProxy node at IP address 10.211.55.4 will be forwarded to an internally networked node with an IP address of either 10.211.55.5 or 10.211.55.6, also it maps port 8080 to port 30808. These backend nodes will serve the HTTP requests. If at any time either of these nodes fails the health check, they will not be used to serve any requests until they pass the test.
 
 
 
