@@ -1,6 +1,6 @@
 
 
-### Using Kubernetes, we decided to go for a Redis Master-Slaves architecture
+# Using Kubernetes, we decided to go for a Redis Master-Slaves architecture
 
 There is a master and there are replicas. The master pushes data to replicas. Replicas don’t talk between themselves.
 Replicas are Read-Only.
@@ -14,3 +14,10 @@ Replicas are Read-Only.
 - Cons:
   - Write performance is bounded by the master
   - The replicas are not used as write node, only read node. 
+
+# Deployment file of Kubernetes cluster
+
+Edit deployment-redis.yml:
+```console
+
+```
