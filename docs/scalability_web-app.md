@@ -30,7 +30,7 @@ We can run the container locally if we want to
 for testing
 
 ```console
-docker run --name web-app -p 8080:8080 -d --link=redis terryv8/web-app
+docker run --name web-app -p 8080:8080 -d --link=redis thierrylamvo/web-app
 ```
 
 ## 3. Upload the container image to the registry
@@ -46,7 +46,7 @@ Username (thierrylamvo):
 
 Push your image to the repository you created
 ```console
-docker push terryv8/web-app
+docker push thierrylamvo/web-app
 ```
 
 
@@ -69,7 +69,7 @@ The kubectl run command below causes Kubernetes to create a Deployment named web
 
 Run the following command to deploy your application, listening on port 8080:
 ```console
-kubectl run web-app --image=terryv8/web-app --port 8080
+kubectl run web-app --image=thierrylamvo/web-app --port 8080
 ```
 
 To see the Pod created by the Deployment, run the following command:
@@ -79,14 +79,21 @@ kubectl get pods
 
 Output
 ```console
+NAME                           READY     STATUS    RESTARTS   AGE
+web-app-74b8d58f96-4qhdr       1/1       Running   0          6m
+```
 
+
+## 6. Expose our app to the Internet
+
+By default, the containers you run are not accessible from the Internet, because they do not have external IP addresses. You must explicitly expose your application to traffic from the Internet, run the following command:
+```console
+kubectl expose deployment web-app --type=LoadBalancer --port 80 --target-port 8080
 ```
 
 
 
 
-
-Expose our app to the Internet
 Scale up our deployment
 Deploy a new version of our app
 
