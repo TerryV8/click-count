@@ -44,8 +44,6 @@ in order to ensure the sustainability of the solution.
 - #### [Link network Docker connection between back-end & front-end](docs/docker_networking.md)  
 - #### [Docker Compose](docs/docker_compose.md)
 
-## Monitoring containers
-- #### [ELK/Kibana](docs/monitoring_containers.md)
 
 ## Secure Kubernetes Cluster
 - #### [Kubernetes, What is it?:](docs/kubernetes.md) 
@@ -60,6 +58,8 @@ in order to ensure the sustainability of the solution.
   - [network link between web-app, front-end & redis, back-end](docs/link_web-app_to_redis.md)
   - [in back-end, with Redis pods](docs/scalability_redis.md)
 
+## Monitoring containers of Kubernetes Cluster
+- #### [with DataDog](docs/monitoring_containers.md)
 
 ## Automated Deployment
 - #### Ansible
