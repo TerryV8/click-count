@@ -56,8 +56,7 @@ We especially added those lines which will append the /etc/hosts on each pod to 
 # The Output
 
 
-Having brought the HAProxy,
-We can reach our web-app from:
+Having brought the HAProxy, we can reach our web-app from:
 - The ha proxy: http://10.211.55.4:8080/clickCount
 - the slave node 1: http://10.211.55.5:30808/clickCount/
 - the slave node 2: http://10.211.55.6:30808/clickCount/
