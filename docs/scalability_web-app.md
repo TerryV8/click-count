@@ -67,10 +67,12 @@ Kubernetes represents applications as Pods, which are units that represent a con
 
 The kubectl run command below causes Kubernetes to create a Deployment named web-app on your cluster. The Deployment manages multiple copies of your application, called replicas, and schedules them to run on the individual nodes in your cluster. In this case, the Deployment will be running only one Pod of your application.
 
-Run the following command to deploy your application, listening on port 8080:
-```console
-kubectl run web-app --image=thierrylamvo/web-app --port 8080
-```
+> You could simplily run the following command to deploy your application, listening on port 8080:
+> ```console
+> kubectl run web-app --image=thierrylamvo/web-app --port 8080
+> ```
+
+However, a better
 
 To see the Pod created by the Deployment, run the following command:
 ```console
