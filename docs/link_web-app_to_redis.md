@@ -5,8 +5,8 @@ would look like this:
 
 
 
-Since we need that this docker instance need to communicate with the redis server,
-we will map the redis server with the HAProxy, which will forward the traffic to the master od the redis cluster.
+Since we need that this docker instance to communicate with the redis server,
+we will map the redis server ip with the HAProxy ip, which will forward the traffic to the master od the redis cluster.
 
 So, ideally, we would append this to the /etc/hosts in a docker instance of a pod:
 ```console
