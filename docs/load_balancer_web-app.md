@@ -74,7 +74,6 @@ The layer 4 and 7 load balancing setups described before both use a load balance
 
 A high availability (HA) setup is an infrastructure without a single point of failure. It prevents a single server failure from being a downtime event by adding redundancy to every layer of your architecture. A load balancer facilitates redundancy for the backend layer (web/app servers), but for a true high availability setup, you need to have redundant load balancers as well.
 
-![load_balancer_High_availability](/images/load_balancer_high_availability.png)
 ![load_balancer_High_availability](https://assets.digitalocean.com/articles/high_availability/ha-diagram-animated.gif)
 
 
