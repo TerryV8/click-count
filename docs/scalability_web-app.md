@@ -76,13 +76,13 @@ However, a better approach is to Edit pod-web-app.yml :
 ```consoleapiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-pod-demo
+  name: web-app
   labels:
-    app: nginx-demo
+    app: web-app
 spec:
   containers:
-    - image: nginx:latest
-      name: nginx-demo
+    - image: thierrylamvo/web-app
+      name: web-app
       ports:
       - containerPort: 80
       imagePullPolicy: Always
@@ -134,8 +134,12 @@ spec:
   - protocol: TCP
     port: 8080
     targetPort: 8080
+    NodePort: 30808
   type: NodePort
 ```
+
+Keep in mind that NodePort must be set to a number in the flag-configured range range 30000-32767. Otherwise, kubernetes throws an error. This NodePort range can be changed using the flag --service-node-port-range passed to kube-apiserver per https://kubernetes.io/docs/reference/generated/kube-apiserver/:
+
 
 Then launch the command as a root user, :
 ```console
@@ -153,12 +157,71 @@ NAME           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
 web-app        NodePort    10.106.248.3    <none>        8080:30255/TCP   8s
 ```
 
+Usually, on a cloud, EXTERNAL-IP will be generated automatically. Since we're on local VM, we will need to do some extra tasks to expose to the external world.
+
+Once you've determined the external IP address for your application, copy the IP address. Point your browser to this external IP URL (eg. http://203.0.113.0) to see that your application will be accessible.
 
 
-## 7. Scale up our deployment
+
+## 7. Scale up our deployment with Kubernetes deployment
+
+To manage the increasing throughput on our web-app service, we need to scale up.
+In the opposite, to reduce the cost because of decreasing throughput on our web-app service, we need to scale down.
+
+Thus, now, we are going to learn how to scale up, by adding more replicas to our web-app's Deployment resource by using the kubectl scale command. To add two additional replicas to your Deployment (for a total of three), run the following command:
+
+> A possible approach, but not recommanded way to scale up our application is to launch this command:
+> ```console
+> kubectl scale deployment hello-web --replicas=3
+> ```
+
+However, a better approach is to Edit deployment-web-app.yml :
+```console
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: web-app
+  labels:
+    app: web-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      labels:
+        app: web-app
+    spec:
+      containers:
+        - image: thierrylamvo/web-app
+          name: web-app
+          ports:
+          - containerPort: 80
+          imagePullPolicy: Always
+```
+
+
+Then launch the command as a root user, :
+```console
+kubectl create -f deployment-web-app.yml
+```
+
+Check the pod is launching by:
+```console
+NAME          DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+web-app       2         2         2            2           36s
+```
 
 
 Deploy a new version of our app
+
+
+
+
+
+TO DELETE
+
 
 ## We create our pods
 
