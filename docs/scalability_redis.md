@@ -15,9 +15,55 @@ Replicas are Read-Only.
   - Write performance is bounded by the master
   - The replicas are not used as write node, only read node. 
 
-# Deployment file of Kubernetes cluster
 
-Edit deployment-redis.yml:
+# Step 1: Set up a Redis master
+
+The guestbook application uses Redis to store its data. It writes its data to a Redis master instance and reads data from multiple Redis worker (slave) instances. The first step is to deploy a Redis master.
+
+Use the manifest file named redis-master-deployment to deploy the Redis master. This manifest file specifies a Deployment controller that runs a single replica Redis master Pod:
+
+
+Edit deployment-master-redis.yml:
+```console
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: redis-master
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: master
+        tier: backend
+    spec:
+      containers:
+      - name: master
+        image: k8s.gcr.io/redis:e2e  # or just image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 6379
+```
+
+Run the following command to deploy the Redis master:
+```console
+kubectl create -f redis-master-deployment.yaml
+```
+
+Verify that the Redis master Pod is running kubectl get pods:
+```console
+kubectl get pods
+```
+
+Output:
 ```console
 
 ```
+
+
+
+
