@@ -57,7 +57,7 @@ in order to ensure the sustainability of the solution.
     - [with Web-app pods ](docs/scalability_web-app.md)
     - [with HAProxy as a load balancer to distribute the incoming traffic ](docs/load_balancer_web-app.md)
   - [network link between web-app, front-end & redis, back-end](docs/link_web-app_to_redis.md)
-  - in back end, Redis architecture, Master-Slaves:
+  - in back end, Master-Slaves Redis architecture:
     - [with a Master pod](docs/scalability_redis.md)
     - [with Slave pods](docs/scalability_redis_slaves.md)
 
