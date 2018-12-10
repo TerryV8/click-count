@@ -57,8 +57,9 @@ in order to ensure the sustainability of the solution.
     - [with Web-app pods ](docs/scalability_web-app.md)
     - [with HAProxy as a load balancer to distribute the incoming traffic ](docs/load_balancer_web-app.md)
   - [network link between web-app, front-end & redis, back-end](docs/link_web-app_to_redis.md)
-  - in back end:
-    - [with Redis pods](docs/scalability_redis.md)
+  - in back end, Redis architecture, Master-Slaves:
+    - [with a Redis Master pod](docs/scalability_redis.md)
+    - [with Redis Slave pods](docs/scalability_redis.md)
 
 ## Monitoring containers of Kubernetes Cluster
 - #### [with Promotheus / Grafana](docs/monitoring_containers.md) = TODO
