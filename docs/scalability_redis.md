@@ -199,3 +199,6 @@ Output:
 NAME           TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
 redis-master   ClusterIP   10.109.236.233   <none>        6379/TCP         18s
 ```
+
+This manifest file creates a Service named redis-master with a set of labels that match the labels previously defined, so the Service routes network traffic to the Redis master Pod.
+
