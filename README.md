@@ -61,9 +61,6 @@ in order to ensure the sustainability of the solution.
     - [with a Master pod](docs/scalability_redis.md)
     - [with Slave pods](docs/scalability_redis_slaves.md)
 
-## Monitoring containers of Kubernetes Cluster
-- #### [with Promotheus / Grafana](docs/monitoring_containers.md) = TODO
-
 ## Automated Deployment
 - #### Ansible
 - #### AWS: Terraform
