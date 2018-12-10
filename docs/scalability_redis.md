@@ -183,3 +183,19 @@ spec:
     role: master
     tier: backend
 ```
+
+Apply the Redis Master Service from the following redis-master-service.yaml file:
+```console
+kubectl apply -f service-redis-master.yml
+```
+
+Query the list of Services to verify that the Redis Master Service is running:
+```console
+kubectl get service
+```
+
+Output:
+```console
+NAME           TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+redis-master   ClusterIP   10.109.236.233   <none>        6379/TCP         18s
+```
