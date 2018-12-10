@@ -46,10 +46,10 @@ exclude=kube*
 
 Back to the terminal, launch those commands:
 ```console
-	sudo setenforce 0
-	sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
-	sudo yum install -y kubelet-1.11.3 kubeadm-1.11.3 kubectl-1.11.3 --disableexcludes=kubernetes
-	sudo systemctl enable kubelet && sudo systemctl start kubelet
+sudo setenforce 0
+sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+sudo yum install -y kubelet-1.11.3 kubeadm-1.11.3 kubectl-1.11.3 --disableexcludes=kubernetes
+sudo systemctl enable kubelet && sudo systemctl start kubelet
 ```
 
 The kubelet is now restarting every few seconds, as it waits in a crashloop for kubeadm to tell it what to do.
