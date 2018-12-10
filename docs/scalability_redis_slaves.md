@@ -98,7 +98,7 @@ spec:
 
 Apply the Redis Slave Service from the following service-redis-slaves.yml file:
 ```console
-  kubectl apply -f service-redis-slaves.yml
+kubectl apply -f service-redis-slaves.yml
 ```
 
 Query the list of Services to verify that the Redis slave service is running:
