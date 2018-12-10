@@ -54,7 +54,7 @@ Run the following command to deploy the Redis master:
 kubectl create -f deployment-redis-master.yml
 ```
 
-Verify that the Redis master Pod is running kubectl get pods:
+Verify that the Redis master Pod is running:
 ```console
 kubectl get pods
 ```
