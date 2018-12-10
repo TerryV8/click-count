@@ -172,7 +172,7 @@ Thus, now, we are going to learn how to scale up, by adding more replicas to our
 
 > A possible approach, but not recommanded way to scale up our application is to launch this command:
 > ```console
-> kubectl scale deployment hello-web --replicas=3
+> kubectl scale deployment web-app --replicas=3
 > ```
 
 However, a better approach is to Edit deployment-web-app.yml :
