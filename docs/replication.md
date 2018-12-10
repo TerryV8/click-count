@@ -66,7 +66,7 @@ net.bridge.bridge-nf-call-iptables = 1
 
 To apply the change, launch :
 ```console
-sysctl --system
+sudo sysctl --system
 ```
 
 Then, make sure the swap is disabled:
