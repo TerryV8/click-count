@@ -61,9 +61,71 @@ kubectl get pods
 
 Output:
 ```console
-
+redis-master-6b464554c8-7p85c   1/1       Running   0          10m
 ```
 
+Let's describe the redis master pod, named redis-master-6b464554c8-7p85c:
+```console
+kubectl describe pods redis-master-6b464554c8-7p85c
+```
+
+Output:
+```console
+Name:               redis-master-6b464554c8-7p85c
+Namespace:          default
+Priority:           0
+PriorityClassName:  <none>
+Node:               centos-linux-slave-1.shared/10.211.55.5
+Start Time:         Mon, 10 Dec 2018 14:30:58 +0100
+Labels:             app=redis
+                    pod-template-hash=2602011074
+                    role=master
+                    tier=backend
+Annotations:        <none>
+Status:             Running
+IP:                 10.244.1.67
+Controlled By:      ReplicaSet/redis-master-6b464554c8
+Containers:
+  master:
+    Container ID:   docker://64b9e06513ade707cbcbb9f56dfdb863e37a5058fa943b4e596dcc942c4fd727
+    Image:          k8s.gcr.io/redis:e2e
+    Image ID:       docker-pullable://k8s.gcr.io/redis@sha256:f066bcf26497fbc55b9bf0769cb13a35c0afa2aa42e737cc46b7fb04b23a2f25
+    Port:           6379/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 10 Dec 2018 14:31:43 +0100
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:        100m
+      memory:     100Mi
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-bjn4p (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-bjn4p:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-bjn4p
+    Optional:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From                                  Message
+  ----    ------     ----  ----                                  -------
+  Normal  Scheduled  11m   default-scheduler                     Successfully assigned default/redis-master-6b464554c8-7p85c to centos-linux-slave-1.shared
+  Normal  Pulling    11m   kubelet, centos-linux-slave-1.shared  pulling image "k8s.gcr.io/redis:e2e"
+  Normal  Pulled     10m   kubelet, centos-linux-slave-1.shared  Successfully pulled image "k8s.gcr.io/redis:e2e"
+  Normal  Created    10m   kubelet, centos-linux-slave-1.shared  Created container
+  Normal  Started    10m   kubelet, centos-linux-slave-1.shared  Started container
+```
 
 
 
