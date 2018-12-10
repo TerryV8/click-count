@@ -23,7 +23,7 @@ The guestbook application uses Redis to store its data. It writes its data to a 
 Use the manifest file named redis-master-deployment to deploy the Redis master. This manifest file specifies a Deployment controller that runs a single replica Redis master Pod:
 
 
-Edit deployment-master-redis.yml:
+Edit deployment-redis-master.yml:
 ```console
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -51,7 +51,7 @@ spec:
 
 Run the following command to deploy the Redis master:
 ```console
-kubectl create -f redis-master-deployment.yaml
+kubectl create -f deployment-redis-master.yaml
 ```
 
 Verify that the Redis master Pod is running kubectl get pods:
