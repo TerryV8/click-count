@@ -4,9 +4,6 @@ Although the Redis master is a single pod,
 you can make it highly available to meet traffic demands and failovers 
 by adding replica Redis slaves.
 
-Since we have just 3 local Virtual Machines,
-we reduce to replicas to 1.
-At least, 2 is usually recommanded, for more resilience.
 
 Edit deployment-redis-slaves.yml:
 ```console
@@ -22,7 +19,7 @@ spec:
       app: redis
       role: slave
       tier: backend
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -52,3 +49,31 @@ spec:
         ports:
         - containerPort: 6379
 ```
+
+Apply the Redis Slave Deployment from the deployment-redis-slaves.yml file:
+```console
+kubectl apply -f deployment-redis-slaves.yml
+```
+
+Query the list of Pods to verify that the Redis Slave Pods are running:
+```console
+kubectl get pods
+```
+
+Output:
+```console
+NAME                        READY STATUS     RESTARTS   AGE
+redis-slave-75856fbd-87zl4	1/1	  Running    0          2m
+redis-slave-75856fbd-z69c5	1/1	  Running    0          2m
+
+```
+
+Let's describe the redis slave pod, named redis-slave-75856fbd-7jn77:
+```console
+kubectl describe pods redis-slave-75856fbd-z69c5
+```
+
+Output
+
+
+
