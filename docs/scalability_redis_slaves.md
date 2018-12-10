@@ -73,7 +73,37 @@ Let's describe the redis slave pod, named redis-slave-75856fbd-7jn77:
 kubectl describe pods redis-slave-75856fbd-z69c5
 ```
 
-Output
+# Creating the Redis Slave Service
 
+The guestbook application needs to communicate to Redis slaves to read data. To make the Redis slaves discoverable, you need to set up a Service. A Service provides transparent load balancing to a set of Pods.
+
+Edit service-redis-slaves.yml:
+```console
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-slave
+  labels:
+    app: redis
+    role: slave
+    tier: backend
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: redis
+    role: slave
+    tier: backend
+```
+
+Apply the Redis Slave Service from the following service-redis-slaves.yml file:
+```console
+  kubectl apply -f service-redis-slaves.yml
+```
+
+Query the list of Services to verify that the Redis slave service is running:
+```console
+kubectl get services
+```
 
 
