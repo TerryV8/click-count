@@ -277,7 +277,10 @@ centos-linux-slave-2.shared   Ready     <none>    21m       v1.11.3
 centos-linux.shared           Ready     master    22h       v1.11.3
 ```
 
-# To clean up Kubernetes Cluster
+
+# Astuce
+
+## To clean up Kubernetes Cluster
 
 ```console
 kubeadm reset
@@ -291,3 +294,9 @@ ifconfig flannel.1 down
 ifconfig docker0 down
 ```
 
+## To describe kube-system pods
+
+Example on the pod coredns-78fcdf6894-29fwp
+```console
+kubectl describe pods coredns-78fcdf6894-29fwp -n kube-system
+```
