@@ -25,10 +25,11 @@ aws --version
 Generate the key to access the servers
 ```console
 ssh-keygen
-Enter file in which to save the key: /root/.ssh/kryptonite
-ssh-agent bash  # allows to forwarding the key
-ssh-add ~/.ssh/kryptonite  # add to that agent
-ssh-add -l  # to check it is there
+    Enter file in which to save the key: /root/.ssh/kryptonite
+    ssh-agent bash  # allows to forwarding the key
+    ssh-add ~/.ssh/kryptonite  # add to that agent
+    ssh-add -l  # to check it is there
+```
 
 Modify the ansible configuration file, /etc/ansible/ansible.cfg
 and we uncommented host_key_checking, 
@@ -60,13 +61,13 @@ Register a domain name if need it
 Add the IAM console credentials to our local server, so Terraform can do its job.
 ```console
 aws configure --profile profile_terransible  # to create a new profile
-AWS Access Key Id:  # Fill with the user credential AWS provided online 
-AWS Secret Access Key:  
-Default region name: eu-west-3  # for Paris Region, France
+    AWS Access Key Id:  # Fill with the user credential AWS provided online 
+    AWS Secret Access Key:  
+    Default region name: eu-west-3  # for Paris Region, France
 aws ec2 describe-instances --profile profile_terransible
-{
-    "Reservations": []
-}
+    {
+        "Reservations": []
+    }
 
 ```
 
