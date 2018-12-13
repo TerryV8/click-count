@@ -1,6 +1,6 @@
 # Deploy to AWS
 
-## Setup 
+## Local Setup 
 
 Install the necessary requirement
 ```console
@@ -74,11 +74,12 @@ aws ec2 describe-instances --profile profile_terransible
 DNS is an AWS item, which is not able to be configured through Terraform, but relevant for Terraform
 
 - DNS, with Route 53:
-Register a domain name if need it
+Route 53 / Register a domain.
 
-Let get information we need for our domain.
-Let s create a reusable-delegation-set. It allows us to set up any number of domainnames that you wish but we keep the same name server that way we can run this script with any domain name that you want and you always be able to create a hosted zone.
-Edit terraform/route53 and save the result of this command in this file: 
+
+Let's get information we need for our domain.
+Let's create a reusable-delegation-set. It allows us to set up any number of domain names that we wish, but we keep the same name server. That way we can work with any domain name that we want and we are always able to create hosted zones.
+Open terraform/route53 and save the result of this command in this file: 
 ```console
 aws route53 create-reusable-delegation-set --caller-reference 1224 --profile profile_terransible
     {
@@ -95,7 +96,7 @@ aws route53 create-reusable-delegation-set --caller-reference 1224 --profile pro
         }
     }
 ```
-Add those information to the Route 53 console/ registered domains. Click on your domain name (eg. mydomainname.com)
+Add those information to the Route 53 console / Registered domains. Click on your domain name (eg. mydomainname.com)
 => Click on "Add or edit name servers". Fill the nameservers that you just generated. Then click update. Then any hosted zones will use those nameservers. Click on Hosted zones to check
 
 
