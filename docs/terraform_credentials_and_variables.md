@@ -92,7 +92,10 @@ EOF
 
 ```
 
-
+```console
+terraform init
+terraform plan
+```
 
 
 
