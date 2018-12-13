@@ -13,7 +13,7 @@ and s3update.yml which allows dev instances to send the code to the S3 bucket.
 Edit main.tf:
 ```console
 provider "aws" {
-  region = "${var.aws_region}"
+  region  = "${var.aws_region}"
   profile = "${var.aws_profile}"
 }
 ```
@@ -29,6 +29,37 @@ Edit terraform.tfvars:
 aws_profile = "profile_terransible"
 aws_region = "eu-west-3"
 ```
+
+```console
+terraform init
+terraform plan
+```
+
+Edit main.tf:
+```console
+provider "aws" {
+  region  = "${var.aws_region}"
+  profile = "${var.aws_profile}"
+}
+
+#------- IAM --------
+
+#s3_access
+
+resource "aws_iam_instance_profile" "s3_access_profile" {
+  name = "s3_access"
+  role = "${aws_iam_role.s3_access_role.name}"
+}  
+
+resource = "aws_iam_role_policy" "s#_access_policy" {
+  name = "s3_access_policy"
+  role = "{aws_iam_role.s3_access_role.id}"
+}
+
+```
+
+
+
 
 
 
