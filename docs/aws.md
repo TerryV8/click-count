@@ -43,11 +43,10 @@ Create your own directory
 mkdir terransible
 ```
 
-## IAM and DNS Setup, 
+## IAM Setup
 
-IAM and DNS are AWS items, which are not able to be configured through Terraform.
+IAM is an AWS item, which is not able to be configured through Terraform, but relevant for Terraform
 
-- IAM:
 First, we give terraform, the permission that needs to provision all resources
 Go to IAM console / Users / Add user 
 => Fill User name = terransible, Access type = Programmatic access
@@ -55,8 +54,7 @@ Go to IAM console / Users / Add user
 => Next review / Create User
 => Download .csv  # make sure to download the credencial
 
-- DNS, with Route 53:
-Register a domain name if need it
+
 
 Add the IAM console credentials to our local server, so Terraform can do its job.
 ```console
@@ -70,6 +68,37 @@ aws ec2 describe-instances --profile profile_terransible
     }
 
 ```
+
+## DNS Setup
+
+DNS is an AWS item, which is not able to be configured through Terraform, but relevant for Terraform
+
+- DNS, with Route 53:
+Register a domain name if need it
+
+Let get information we need for our domain.
+Let s create a reusable-delegation-set. It allows us to set up any number of domainnames that you wish but we keep the same name server that way we can run this script with any domain name that you want and you always be able to create a hosted zone.
+Edit terraform/route53 and save the result of this command in this file: 
+```console
+aws route53 create-reusable-delegation-set --caller-reference 1224 --profile profile_terransible
+    {
+        "Location": "https://route53.amazonaws.com/2013-04-01/delegationset/N3NYEMYGEUSBJ6", 
+        "DelegationSet": {
+            "NameServers": [
+                "ns-1671.awsdns-16.co.uk", 
+                "ns-79.awsdns-09.com", 
+                "ns-1052.awsdns-03.org", 
+                "ns-587.awsdns-09.net"
+            ], 
+            "CallerReference": "1224", 
+            "Id": "/delegationset/N3NYEMYGEUSBJ6"
+        }
+    }
+```
+Add those information to the Route 53 console/ registered domains. Click on your domain name (eg. mydomainname.com)
+=> Click on "Add or edit name servers". Fill the nameservers that you just generated. Then click update. Then any hosted zones will use those nameservers. Click on Hosted zones to check
+
+
 
 
 
