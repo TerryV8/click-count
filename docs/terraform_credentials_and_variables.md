@@ -30,9 +30,25 @@ aws_profile = "profile_terransible"
 aws_region = "eu-west-3"
 ```
 
+Check everything is ok with:
 ```console
 terraform init
+    Initializing provider plugins...
+
+    The following providers do not have any version constraints in configuration,
+    so the latest version was installed.
+
+    To prevent automatic upgrades to new major versions that may contain breaking
+    changes, it is recommended to add version = "..." constraints to the
+    corresponding provider blocks in configuration, with the constraint strings
+    suggested below.
+
+    * provider.aws: version = "~> 1.51"
+
+    Terraform has been successfully initialized!
+    
 terraform plan
+
 ```
 
 Edit main.tf:
