@@ -29,3 +29,16 @@ Enter file in which to save the key: /root/.ssh/kryptonite
 ssh-agent bash  # allows to forwarding the key
 ssh-add ~/.ssh/kryptonite  # add to that agent
 ssh-add -l  # to check it is there
+
+Modify the ansible configuration file, /etc/ansible/ansible.cfg
+and we uncommented host_key_checking, 
+which will prevent another error with aws when we try to access our server for the first time
+```console
+host_key_checking = False 
+```
+
+Create your own directory
+```console
+mkdir terransible
+```
+
