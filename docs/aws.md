@@ -57,9 +57,18 @@ Go to IAM console / Users / Add user
 - DNS, with Route 53:
 Register a domain name if need it
 
-Add the IAM console credentials to our local server, so Terraform can do its job:
+Add the IAM console credentials to our local server, so Terraform can do its job.
+```console
+aws configure --profile profile_terransible  # to create a new profile
+AWS Access Key Id:  # Fill with the user credential AWS provided online 
+AWS Secret Access Key:  
+Default region name: eu-west-3  # for Paris Region, France
+aws ec2 describe-instances --profile profile_terransible
+{
+    "Reservations": []
+}
 
-
+```
 
 
 
