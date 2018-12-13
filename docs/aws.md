@@ -55,7 +55,7 @@ Go to IAM console / Users / Add user
 => Download .csv  # make sure to download the credencial
 
 - DNS, with Route 53:
-Add a domain name if need it
+Register a domain name if need it
 
 Add the IAM console credentials to our local server, so Terraform can do its job:
 
