@@ -1,5 +1,7 @@
 # Deploy to AWS
 
+## Setup 
+
 Install the necessary requirement
 ```console
 python --version   # version 2.7 at least
