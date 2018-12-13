@@ -42,3 +42,24 @@ Create your own directory
 mkdir terransible
 ```
 
+## IAM and DNS Setup, 
+
+IAM and DNS are AWS items, which are not able to be configured through Terraform.
+
+- IAM:
+First, we give terraform, the permission that needs to provision all resources
+Go to IAM console / Users / Add user 
+=> Fill User name = terransible, Access type = Programmatic access
+=> Next permissions / Attach existing policies directly => Check AdministratorAccess
+=> Next review / Create User
+=> Download .csv  # make sure to download the credencial
+
+- DNS, with Route 53:
+Add a domain name if need it
+
+Add the IAM console credentials to our local server, so Terraform can do its job:
+
+
+
+
+
