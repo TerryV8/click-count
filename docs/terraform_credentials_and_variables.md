@@ -51,9 +51,43 @@ resource "aws_iam_instance_profile" "s3_access_profile" {
   role = "${aws_iam_role.s3_access_role.name}"
 }  
 
-resource = "aws_iam_role_policy" "s#_access_policy" {
+resource = "aws_iam_role_policy" "s3_access_policy" {
   name = "s3_access_policy"
   role = "{aws_iam_role.s3_access_role.id}"
+  
+  policy = <<EOF
+{
+  "version":"2018-10-17"
+  "statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": "*"
+    }
+  ]
+}  
+EOF
+}
+
+resource "aws_iam_role" "s3_access_role" {
+  name = "s3_access_role"
+  
+  assume_role_policy = <<EOF
+{  
+  "version": "2012-10-17"
+  "Statement": [
+    {
+      "Action": "sts:assumeRole",
+      "Principal": {
+        "Service": "ec2.amazon.com"
+      }
+    },
+    "Effect": "Allow",
+    "Sid": ""
+    } 
+  ]
+}
+EOF
 }
 
 ```
