@@ -62,5 +62,7 @@ in order to ensure the sustainability of the solution.
     - [with Slave pods](docs/scalability_redis_slaves.md)
 
 ## Automated Deployment
-- #### Ansible
+
 - #### AWS: Terraform
+  - IAM, DNS
+- #### Ansible
