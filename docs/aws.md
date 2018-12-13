@@ -11,7 +11,7 @@ unzip terraform_0.11.10_linux_amd64.zip -d /opt/terraform
 PATH=$PATH:/opt/terraform
 terraform --version
 yum install ansible
-
+ansible --version
 ```
 
 Create an AWS client to communicate with AWS
