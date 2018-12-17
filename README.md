@@ -63,7 +63,8 @@ in order to ensure the sustainability of the solution.
 
 ## Automated Deployment
 
-- #### [Terraform used to deploy infrastructure on AWS, a cloud provider](docs/terraform.md)
+- #### Terraform
+  - [for deploying infrastructure on a cloud provider, AWS](docs/terraform.md)
   - [VPC](docs/terraform_vpc.md)
   - IAM, DNS
 - #### Ansible
