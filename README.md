@@ -63,6 +63,7 @@ in order to ensure the sustainability of the solution.
 
 ## Automated Deployment
 
-- #### AWS: Terraform
+- #### Terraform
+  - How to deploy on AWS ?
   - IAM, DNS
 - #### Ansible
