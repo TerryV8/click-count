@@ -65,7 +65,7 @@ in order to ensure the sustainability of the solution.
 
 - #### Terraform
   - [What is it?](docs/terraform_setup.md)
-  - [Variables for your cloud, AWS infrastructure](docs/terraform_variables.md)
+  - [with Variables for your cloud, AWS infrastructure](docs/terraform_variables.md)
   - [with VPC](docs/terraform_vpc.md)
   - [with a Public Subnet](docs/terraform_public_subnet.md)
   
