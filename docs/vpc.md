@@ -82,3 +82,5 @@ Edit terraform.tfvars:
 access_key = "foo"
 secret_key = "bar"
 ```
+It is a best practice not to upload this file to your source control system. For git users, make sure to include terraform.tfvars in the .gitignore file.
+
