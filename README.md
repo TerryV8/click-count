@@ -64,8 +64,8 @@ in order to ensure the sustainability of the solution.
 ## Automated Deployment
 
 - #### Terraform
-  - [for Deploying infrastructure on AWS (a cloud provider)](docs/terraform_setup.md)
-  - [Variables](docs/terraform_variables.md)
+  - [What is it?](docs/terraform_setup.md)
+  - [Variables for your cloud, AWS infrastructure](docs/terraform_variables.md)
   - [VPC](docs/terraform_vpc.md)
   - [IAM, DNS](docs/terraform_iam_dns.md)
 - #### Ansible
