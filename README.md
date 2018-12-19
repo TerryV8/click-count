@@ -66,5 +66,5 @@ in order to ensure the sustainability of the solution.
 - #### Terraform
   - [for Deploying infrastructure on AWS, a cloud provider](docs/terraform_setup.md)
   - [VPC](docs/terraform_vpc.md)
-  - IAM, DNS
+  - [IAM, DNS](docs/terraform_iam_dns.md)
 - #### Ansible
