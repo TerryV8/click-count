@@ -68,3 +68,17 @@ use the `terraform show` command.
 
 State path: terraform.tfstate
 ```
+
+The above command will save the state of your infrastructure to the terraform.tfstate file. This file will be updated each time you run terraform apply. You can inspect the current state of your infrastructure by running terraform show.
+
+You can verify the VPC has been created by visiting the VPC page on AWS console.
+
+Variables can also be entered using command arguments by specifying -var 'var=VALUE’. For example: terraform plan -var 'access_key=foo' -var 'secret_key=bar'.
+
+However, terraform apply will not save your input values (access and secret keys). You'll be required to provide them for each update. To avoid inputting values for each update, create a terraform.tfvars variables file with your access and secret keys (replace foo and bar with your values):
+
+Edit terraform.tfvars:
+```console
+access_key = "foo"
+secret_key = "bar"
+```
