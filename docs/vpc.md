@@ -1,4 +1,4 @@
-# Create the first terraform resource, VPC
+# Create the first terraform resource: VPC
 
 Edit aws-vpc.tf:
 ```console
