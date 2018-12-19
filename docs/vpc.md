@@ -32,7 +32,7 @@ will create the VPC by prompting you to to input AWS access and secret keys.
 
 For default values, hitting <return> will assign default values, defined in the variables.tf file.
 
-Ouput:
+OUTPUT:
 ```console
 var.access_key
   AWS access key
