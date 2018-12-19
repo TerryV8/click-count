@@ -66,6 +66,8 @@ in order to ensure the sustainability of the solution.
 - #### Terraform
   - [What is it?](docs/terraform_setup.md)
   - [Variables for your cloud, AWS infrastructure](docs/terraform_variables.md)
-  - [VPC](docs/terraform_vpc.md)
+  - [First resource VPC](docs/terraform_vpc.md)
+  - [Adding the Public Subnet](docs/terraform_public_subnet.md)
+  
   - [IAM, DNS](docs/terraform_iam_dns.md)
 - #### Ansible
