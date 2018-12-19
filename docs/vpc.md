@@ -24,7 +24,7 @@ The resource block defines the resource being created. The above example creates
 
 Parameters accept string values that can be interpolated when wrapped with ${}. In the aws provider block specifying ${var.access_key} for access key will read the value from the user provided for variable access_key.
 
-Running
+Launch:
 ```console
 terraform apply
 ```
