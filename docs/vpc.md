@@ -73,6 +73,7 @@ The above command will save the state of your infrastructure to the terraform.tf
 
 You can verify the VPC has been created by visiting the VPC page on AWS console.
 
+# Save access and secret keys in terraform.tfvars
 Variables can also be entered using command arguments by specifying -var 'var=VALUE’. For example: terraform plan -var 'access_key=foo' -var 'secret_key=bar'.
 
 However, terraform apply will not save your input values (access and secret keys). You'll be required to provide them for each update. To avoid inputting values for each update, create a terraform.tfvars variables file with your access and secret keys (replace foo and bar with your values):
