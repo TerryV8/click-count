@@ -12,7 +12,7 @@ resource "aws_internet_gateway" "default"  {
   vpc_id = "${aws_vpc.default.id}"
 }
 
-//Public subnet 
+// Public subnet 
 resource "aws_subnet" "public" {
   vpc_id = "${aws_vpc_default.id}"
   cidr_block = "${var.public_subnet_cidr}"
