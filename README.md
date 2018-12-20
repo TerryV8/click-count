@@ -64,10 +64,10 @@ in order to ensure the sustainability of the solution.
 ## Automated Deployment
 
 - #### Terraform
-  - [What is it?](docs/terraform_setup.md)
-  - [with Variables for your cloud, AWS infrastructure](docs/terraform_variables.md)
-  - [with VPC](docs/terraform_vpc.md)
-  - [with a Public Subnet](docs/terraform_public_subnet.md)
+   - [What is it?](docs/terraform_setup.md)
+   - [with Variables for your cloud, AWS infrastructure](docs/terraform_variables.md)
+   - [with VPC](docs/terraform_vpc.md)
+   - [with a Public Subnet](docs/terraform_public_subnet.md)
   
-  - [IAM, DNS](docs/terraform_iam_dns.md)
+   - [IAM, DNS](docs/terraform_iam_dns.md)
 - #### Ansible
