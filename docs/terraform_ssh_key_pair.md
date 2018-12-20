@@ -13,5 +13,7 @@ Create a new file key-pairs.tf with the below configuration and register the new
 ```console
 resource "aws_key_pair" "deployer"  {
   key_name = "deployer-key"
+  public_key = "${file(\"ssh/insecure-deployer.pub\")}"
+
 }
 ```
