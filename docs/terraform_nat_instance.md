@@ -7,6 +7,8 @@ The nat security group allows SSH and VPN traffic from the internet
 
 Edit nat-server.tf:
 ```console
+resource "aws_instance" "nat"  {
 
+}
 
 ```
