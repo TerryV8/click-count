@@ -69,5 +69,6 @@ in order to ensure the sustainability of the solution.
   - [with VPC](docs/terraform_vpc.md)
   - [with a Public Subnet](docs/terraform_public_subnet.md)
   - [with Security Groups](docs/terraform_security_groups.md)
+  - [with Ssh Key Pair](docs/terraform_ssh_key_pair.md)
   - [IAM, DNS](docs/terraform_iam_dns.md)
 - #### Ansible
