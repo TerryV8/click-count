@@ -68,5 +68,6 @@ in order to ensure the sustainability of the solution.
   - [with Variables for your cloud, AWS infrastructure](docs/terraform_variables.md)
   - [with VPC](docs/terraform_vpc.md)
   - [with a Public Subnet](docs/terraform_public_subnet.md)
+  - [with a Security Groups](docs/terraform_security_groups.md)
   - [IAM, DNS](docs/terraform_iam_dns.md)
 - #### Ansible
