@@ -64,14 +64,14 @@ in order to ensure the sustainability of the solution.
 ## Automated Deployment
 
 - #### Terraform
-  - [What is it?](docs/terraform_setup.md)
-  - [with Variables for your cloud, AWS infrastructure](docs/terraform_variables.md)
-  - [with VPC](docs/terraform_vpc.md)
-  - [with a Public subnet](docs/terraform_public_subnet.md)
-  - [with Security groups](docs/terraform_security_groups.md)
-  - [with Ssh key pair](docs/terraform_ssh_key_pair.md)
-  - [with a Nat instance](docs/terraform_nat_instance.md)
-  - [with a Private subnet and routes](docs/terraform_private_subnet_and_routes.md)
+    - [What is it?](docs/terraform_setup.md)
+    - [with Variables for your cloud, AWS infrastructure](docs/terraform_variables.md)
+    - [with VPC](docs/terraform_vpc.md)
+    - [with a Public subnet](docs/terraform_public_subnet.md)
+    - [with Security groups](docs/terraform_security_groups.md)
+    - [with Ssh key pair](docs/terraform_ssh_key_pair.md)
+    - [with a Nat instance](docs/terraform_nat_instance.md)
+    - [with a Private subnet and routes](docs/terraform_private_subnet_and_routes.md)
   
-  - [IAM, DNS](docs/terraform_iam_dns.md)
+    - [IAM, DNS](docs/terraform_iam_dns.md)
 - #### Ansible
