@@ -14,7 +14,12 @@ vaariable "secret_key" {
 
 variable "region"  {
   description = "AWS region to host your network"
-  default = "us-west-1"
+  default = "eu-west-3"
+}
+
+variable "availability_zone" {
+  description = "AWS availability zone in zone a"
+  default = "eu-west-3a"
 }
 
 variable "vpc_cidr" {
