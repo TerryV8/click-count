@@ -83,6 +83,7 @@ Let's create a reusable-delegation-set. It allows us to set up any number of dom
 Open terraform/route53 and save the result of this command in this file: 
 ```console
 aws route53 create-reusable-delegation-set --caller-reference 1224 --profile profile_terransible
+
     {
         "Location": "https://route53.amazonaws.com/2013-04-01/delegationset/N3NYEMYGEUSBJ6", 
         "DelegationSet": {
