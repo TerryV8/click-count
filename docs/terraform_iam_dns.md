@@ -65,6 +65,7 @@ aws configure --profile profile_terransible  # to create a new profile
 Check the settings:
 ```console
 aws ec2 describe-instances --profile profile_terransible
+
     {
         "Reservations": []
     }
