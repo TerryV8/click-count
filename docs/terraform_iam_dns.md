@@ -1,4 +1,4 @@
-# What we are going to build
+# 1. What we are going to build
 
 We are going to build a private network on AWS
 and establish a secure way to access network resources, using a trusted VPN.
@@ -21,7 +21,7 @@ and provide your workstation secure access to network resources.
 
 
 
-## 1. Local Setup 
+# 2. Local Setup 
 
 Install the requirements:
 ```console
@@ -64,7 +64,7 @@ Create your own directory
 mkdir terransible
 ```
 
-## 2. On AWS, setup IAM
+# 3. On AWS, setup IAM
 
 IAM is an AWS item, which is not able to be configured through Terraform
 
@@ -89,7 +89,7 @@ aws ec2 describe-instances --profile profile_terransible
 
 ```
 
-## 3, On AWS, setup DNS
+# 4, On AWS, setup DNS
 
 DNS is an AWS item, which is not able to be configured through Terraform
 
