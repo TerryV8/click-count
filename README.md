@@ -72,6 +72,7 @@ in order to ensure the sustainability of the solution.
     - [with Ssh key pair](docs/terraform_ssh_key_pair.md)
     - [with a Nat instance](docs/terraform_nat_instance.md)
     - [with a Private subnet and routes](docs/terraform_private_subnet_and_routes.md)
+    - [with a Load Balancer and adding Application servers](docs/terraform_load_balancer.md)
   
     - [IAM, DNS](docs/terraform_iam_dns.md)
 - #### Ansible
