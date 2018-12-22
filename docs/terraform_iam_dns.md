@@ -23,22 +23,25 @@ and provide your workstation secure access to network resources.
 
 # 2. Local Setup 
 
-Install the requirements:
+On your local machine, install:
+- terraform 
+- ansible
+- AWS client to communicate with AWS cloud
+and the AWS client to connect to AWS
 ```console
 python --version   # version 2.7 at least
 yum update
 yum install python-pip
+
 curl -O https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip
 mkdir /opt/terraform
 unzip terraform_0.11.10_linux_amd64.zip -d /opt/terraform
 PATH=$PATH:/opt/terraform
 terraform --version
+
 yum install ansible
 ansible --version
-```
 
-Install an AWS client to communicate with AWS cloud
-```console
 pip install awscli
 aws --version
 ```
