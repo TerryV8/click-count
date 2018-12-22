@@ -77,7 +77,7 @@ aws ec2 describe-instances --profile profile_terransible
     
 ```
 
-# 4, On AWS, setup DNS for our hosted zone
+# 4, On AWS, setup DNS for our domain name
 
 After registering a domain name through "Route 53 DNS" on AWS Web UI, we need to set up a hosted zone
 with Name servers (NS) that it will belong to. 
