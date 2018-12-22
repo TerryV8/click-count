@@ -1,4 +1,4 @@
-# Choose the AWS provider and create our first terraform resource: VPC
+# Choose AWS as a provider and create our 1st terraform resource: VPC
 
 Edit aws-vpc.tf:
 ```console
