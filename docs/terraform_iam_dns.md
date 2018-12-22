@@ -107,8 +107,8 @@ aws route53 create-reusable-delegation-set --caller-reference 1224 --profile pro
 ```
 
 On AWS Web UI / Route 53 console / Registered domains / Domain name,
-- Add those NameServers generated below ("ns-1671.awsdns-16.co.uk", "ns-79.awsdns-09.com","ns-1052.awsdns-03.org", "ns-587.awsdns-09.net")
-- By Clicking on "Add or edit name servers". 
+- => Add those NameServers generated below ("ns-1671.awsdns-16.co.uk", "ns-79.awsdns-09.com","ns-1052.awsdns-03.org", "ns-587.awsdns-09.net")
+- => By Clicking on "Add or edit name servers". 
 
 Thus, any of our domain name, and hosted zones will use those nameservers. 
 
