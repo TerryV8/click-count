@@ -46,13 +46,15 @@ IAM is an AWS feature, that can only be configured through the AWS Web UI. IAM i
 On AWS Web UI:
 - Go to IAM console / Users / Add user 
 - => Fill User name = terransible, Access type = Programmatic access
-- => Click on Next permissions / Attach existing policies directly => Check AdministratorAccess
+- => Click on Next permissions / Attach existing policies directly => Check AdministratorAccess to attach the AdministratorAccess policy
 - => Click on Next review / Create User
 - => Download the credential .csv file # make sure to download the credencial
 
 Thanks the credential .csv file,
 we can retrieve the information on "AWS Access Key Id" and "AWS Secret Access Key"
-that we can give to Terraform settings on our local machine:
+that we can give to Terraform settings on our local machine.
+
+In our case, we are going to create a new profile named "profile_terransible"
 
 ```console
 aws configure --profile profile_terransible  # to create a new profile
@@ -62,25 +64,30 @@ aws configure --profile profile_terransible  # to create a new profile
     Default region name: eu-west-3  # for Paris Region, France
 ```
 
-Check the settings:
+To check that the client can now communicate with the AWS cloud, let us run this command
 ```console
 aws ec2 describe-instances --profile profile_terransible
 
+     ...
     {
-        "Reservations": []
+        "Reservations": [...]
+        
     }
+    ...
+    
 ```
 
-# 4, On AWS, setup DNS
+# 4, On AWS, setup DNS for our hosted zone
 
-Route 53 DNS is an AWS feature, that can only be configured through the AWS Web UI. 
+After registering a domain name through "Route 53 DNS" on AWS Web UI, we need to set up a hosted zone
+with Name servers (NS) that it will belong to. 
 
-Click on Route 53 / Register a domain.
- 
+On our local machine, by typying the command "aws route 53 reusable-delegation-set", 
+we can retrieve the name servers (NS) automatically configured for us.
+The advantage is that it will allow us to set up any number of domain names that we wish, 
+and still keep the same name servers (NS).
 
-Let's get information we need for our domain.
-Let's create a reusable-delegation-set. It allows us to set up any number of domain names that we wish, but we keep the same name server. That way we can work with any domain name that we want and we are always able to create hosted zones.
-Open terraform/route53 and save the result of this command in this file: 
+
 ```console
 aws route53 create-reusable-delegation-set --caller-reference 1224 --profile profile_terransible
 
@@ -98,8 +105,12 @@ aws route53 create-reusable-delegation-set --caller-reference 1224 --profile pro
         }
     }
 ```
-Add those information to the Route 53 console / Registered domains. Click on your domain name (eg. mydomainname.com)
-=> Click on "Add or edit name servers". Fill the nameservers that you just generated. Then click update. Then any hosted zones will use those nameservers. Click on Hosted zones to check
+
+On AWS Web UI / Route 53 console / Registered domains / Domain name,
+- Add those NameServers generated below ("ns-1671.awsdns-16.co.uk", "ns-79.awsdns-09.com","ns-1052.awsdns-03.org", "ns-587.awsdns-09.net")
+- By Clicking on "Add or edit name servers". 
+
+Thus, any of our domain name, and hosted zones will use those nameservers. 
 
 
 
