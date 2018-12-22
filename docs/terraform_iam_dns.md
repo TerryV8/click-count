@@ -1,6 +1,6 @@
 # 1. What we are going to build
 
-To summarize, we are going to build the below components:
+Here, we are going to build the below components:
 - VPC
 - Internet Gateway for public subnet
 - Public subetn for routing instances
@@ -39,12 +39,11 @@ aws --version
 ```
 
 
-
 # 3. On AWS, setup IAM
 
-IAM is an AWS item, which is not able to be configured through Terraform
+IAM is an AWS feature, that can only be configured through the AWS console. IAM is going to give in our case, to terraform, the permission access to provision resources. 
 
-We are going to give terraform, the permission that needs to provision resources
+On AWS
 Thus, go to IAM console / Users / Add user 
 => Fill User name = terransible, Access type = Programmatic access
 => Next permissions / Attach existing policies directly => Check AdministratorAccess
