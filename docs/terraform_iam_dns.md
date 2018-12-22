@@ -76,7 +76,7 @@ aws ec2 describe-instances --profile profile_terransible
 Route 53 DNS is an AWS feature, that can only be configured through the AWS Web UI. 
 
 Click on Route 53 / Register a domain.
-
+ 
 
 Let's get information we need for our domain.
 Let's create a reusable-delegation-set. It allows us to set up any number of domain names that we wish, but we keep the same name server. That way we can work with any domain name that we want and we are always able to create hosted zones.
