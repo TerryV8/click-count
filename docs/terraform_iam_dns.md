@@ -1,8 +1,29 @@
-# Deploy to AWS
+# What we are going to build
 
-## Local Setup 
+We are going to build a private network on AWS
+and establish a secure way to access network resources, using a trusted VPN.
 
-Install the necessary requirement
+We will build a Virtual Private Network (VPC) on AWS.
+Instances in the private subnet cannot directly access the internet, making them an ideal for hosting critical resources such as application and our "Redis" database servers.
+
+Instances in the private subnet rely on a Network Address Translation (NAT) server, running on the public subnet for internet connectivity. All instances in the public subnet can transmit inbound and outbound traffic to and from the internet.
+
+To summarize, we will be building the below components:
+- VPC
+- Internet Gateway for public subnet
+- Public subetn for routing instances
+- Private subnet for internal resources
+- Routing tables for public and private subnets
+- NAT/VPN server to route outbound traffic from your instances in private network
+and provide your workstation secure access to network resources.
+- Application servers running nginx docker container in a private subnet
+- Load balanvers in the public subnet to manage and route web traffic to app servers
+
+
+
+# 1. Local Setup 
+
+Install the requirements:
 ```console
 python --version   # version 2.7 at least
 yum update
@@ -16,13 +37,13 @@ yum install ansible
 ansible --version
 ```
 
-Create an AWS client to communicate with AWS
+Install an AWS client to communicate with AWS cloud
 ```console
 pip install awscli
 aws --version
 ```
 
-Generate the key to access the servers
+Generate the public/private key to securely access to the cloud servers
 ```console
 ssh-keygen
     Enter file in which to save the key: /root/.ssh/kryptonite
@@ -32,8 +53,8 @@ ssh-keygen
 ```
 
 Modify the ansible configuration file, /etc/ansible/ansible.cfg
-and we uncommented host_key_checking, 
-which will prevent another error with aws when we try to access our server for the first time
+by uncommented/putting host_key_checking = False
+which will prevent errors with aws when we try to access our server for the first time
 ```console
 host_key_checking = False 
 ```
@@ -43,17 +64,16 @@ Create your own directory
 mkdir terransible
 ```
 
-## IAM Setup
+# 2. On AWS, steupt IAM
 
-IAM is an AWS item, which is not able to be configured through Terraform, but relevant for Terraform
+IAM is an AWS item, which is not able to be configured through Terraform
 
-First, we give terraform, the permission that needs to provision all resources
-Go to IAM console / Users / Add user 
+We are going to give terraform, the permission that needs to provision resources
+Thus, go to IAM console / Users / Add user 
 => Fill User name = terransible, Access type = Programmatic access
 => Next permissions / Attach existing policies directly => Check AdministratorAccess
 => Next review / Create User
 => Download .csv  # make sure to download the credencial
-
 
 
 Add the IAM console credentials to our local server, so Terraform can do its job.
@@ -71,7 +91,7 @@ aws ec2 describe-instances --profile profile_terransible
 
 ## DNS Setup
 
-DNS is an AWS item, which is not able to be configured through Terraform, but relevant for Terraform
+DNS is an AWS item, which is not able to be configured through Terraform
 
 - DNS, with Route 53:
 Route 53 / Register a domain.
