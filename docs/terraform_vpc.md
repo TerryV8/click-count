@@ -26,7 +26,7 @@ Parameters accept string values that can be interpreted when wrapped with ${}. S
 
 Launch:
 ```console
-tarraform plan
+terraform plan
 terraform apply
 ```
 will create the VPC 
