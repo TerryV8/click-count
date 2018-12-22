@@ -73,10 +73,9 @@ aws ec2 describe-instances --profile profile_terransible
 
 # 4, On AWS, setup DNS
 
-DNS is an AWS item, which is not able to be configured through Terraform
+Route 53 DNS is an AWS feature, that can only be configured through the AWS Web UI. 
 
-- DNS, with Route 53:
-Route 53 / Register a domain.
+Click on Route 53 / Register a domain.
 
 
 Let's get information we need for our domain.
