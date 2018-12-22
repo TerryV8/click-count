@@ -37,3 +37,8 @@ resource "aws_instance" "nat"  {
 }
 
 ```
+
+In order for the NAT instance to route traffic, iptables needs to be configured with a rule in the nat table for IP Masquerade. We also need to install Docker, download the OpenVPN container and generate server configuration.
+
+
+
