@@ -21,7 +21,7 @@ and provide your workstation secure access to network resources.
 
 
 
-# 1. Local Setup 
+## 1. Local Setup 
 
 Install the requirements:
 ```console
@@ -64,7 +64,7 @@ Create your own directory
 mkdir terransible
 ```
 
-# 2. On AWS, setup IAM
+## 2. On AWS, setup IAM
 
 IAM is an AWS item, which is not able to be configured through Terraform
 
