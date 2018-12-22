@@ -64,7 +64,7 @@ Create your own directory
 mkdir terransible
 ```
 
-# 2. On AWS, steupt IAM
+# 2. On AWS, setup IAM
 
 IAM is an AWS item, which is not able to be configured through Terraform
 
@@ -89,7 +89,7 @@ aws ec2 describe-instances --profile profile_terransible
 
 ```
 
-## DNS Setup
+## 3, On AWS, setup DNS
 
 DNS is an AWS item, which is not able to be configured through Terraform
 
