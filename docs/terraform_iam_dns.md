@@ -41,14 +41,14 @@ aws --version
 
 # 3. On AWS, setup IAM
 
-IAM is an AWS feature, that can only be configured through the AWS console. IAM is going to give in our case, to terraform, the permission access to provision resources. 
+IAM is an AWS feature, that can only be configured through the AWS Web UI. IAM is going to give in our case, to terraform, the permission access to provision resources. 
 
-On AWS
-Thus, go to IAM console / Users / Add user 
-=> Fill User name = terransible, Access type = Programmatic access
-=> Next permissions / Attach existing policies directly => Check AdministratorAccess
-=> Next review / Create User
-=> Download .csv  # make sure to download the credencial
+On AWS Web UI:
+- Go to IAM console / Users / Add user 
+- => Fill User name = terransible, Access type = Programmatic access
+- => Next permissions / Attach existing policies directly => Check AdministratorAccess
+- => Next review / Create User
+- => Download .csv  # make sure to download the credencial
 
 
 Add the IAM console credentials to our local server, so Terraform can do its job.
