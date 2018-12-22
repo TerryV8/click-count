@@ -46,27 +46,7 @@ pip install awscli
 aws --version
 ```
 
-#Generate the public/private key to securely access from our local machine to the AWS cloud servers
-#```console
-#ssh-keygen
 
-#    Enter file in which to save the key: /root/.ssh/kryptonite
-#    ssh-agent bash  # allows to forwarding the key
-#    ssh-add ~/.ssh/kryptonite  # add to that agent
-#    ssh-add -l  # to check it is there
-#```
-
-#Modify the ansible configuration file, /etc/ansible/ansible.cfg
-#by uncommented/putting host_key_checking = False
-#which will prevent errors with aws when we try to access our server for the first time
-#```console
-#host_key_checking = False 
-#```
-
-#Create your own directory
-#```console
-#mkdir terransible
-#```
 
 # 3. On AWS, setup IAM
 
@@ -125,5 +105,26 @@ Add those information to the Route 53 console / Registered domains. Click on you
 
 
 
+# EXTRA
+Generate the public/private key to securely access from our local machine to the AWS cloud servers
+```console
+ssh-keygen
 
+    Enter file in which to save the key: /root/.ssh/kryptonite
+    ssh-agent bash  # allows to forwarding the key
+    ssh-add ~/.ssh/kryptonite  # add to that agent
+    ssh-add -l  # to check it is there
+```
+
+Modify the ansible configuration file, /etc/ansible/ansible.cfg
+by uncommented/putting host_key_checking = False
+which will prevent errors with aws when we try to access our server for the first time
+```console
+host_key_checking = False 
+```
+
+Create your own directory
+```console
+mkdir terransible
+```
 
