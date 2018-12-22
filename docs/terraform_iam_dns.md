@@ -46,22 +46,28 @@ IAM is an AWS feature, that can only be configured through the AWS Web UI. IAM i
 On AWS Web UI:
 - Go to IAM console / Users / Add user 
 - => Fill User name = terransible, Access type = Programmatic access
-- => Next permissions / Attach existing policies directly => Check AdministratorAccess
-- => Next review / Create User
-- => Download .csv  # make sure to download the credencial
+- => Click on Next permissions / Attach existing policies directly => Check AdministratorAccess
+- => Click on Next review / Create User
+- => Download the credential .csv file # make sure to download the credencial
 
+Thanks the credential .csv file,
+we can retrieve the information on "AWS Access Key Id" and "AWS Secret Access Key"
+that we can give to Terraform settings on our local machine:
 
-Add the IAM console credentials to our local server, so Terraform can do its job.
 ```console
 aws configure --profile profile_terransible  # to create a new profile
-    AWS Access Key Id:  # Fill with the user credential AWS provided online 
-    AWS Secret Access Key:  
+
+    AWS Access Key Id: xxxxx # Fill with the AWS Access Key Id provided by credential .csv file,
+    AWS Secret Access Key: xxxxx  # Fill with the AWS Secret Access Key provided by credential .csv file,
     Default region name: eu-west-3  # for Paris Region, France
+```
+
+Check the settings:
+```console
 aws ec2 describe-instances --profile profile_terransible
     {
         "Reservations": []
     }
-
 ```
 
 # 4, On AWS, setup DNS
