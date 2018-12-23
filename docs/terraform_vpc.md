@@ -1,7 +1,12 @@
-# Choose AWS as a provider
-# and create our first terraform resource: VPC
+# Choose AWS as a provider and create VPC
 
-Edit aws-vpc.tf:
+
+Edit aws-vpc.tf file, which does following tasks:
+- Set up the provider for AWS
+- Create a VPC
+- Set the options for internal VPC DNS resolution
+
+
 ```console
 provider "aws" {
   access_key = "${var.access_key}"
