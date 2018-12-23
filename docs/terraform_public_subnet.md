@@ -12,17 +12,30 @@ resource "aws_internet_gateway" "default"  {
   vpc_id = "${aws_vpc.default.id}"
 }
 
-// Public subnet 
+// Public subnet-1
 resource "aws_subnet" "public" {
   vpc_id = "${aws_vpc_default.id}"
-  cidr_block = "${var.public_subnet_cidr}"
-  availability_zone = "us-west-1a"
+  cidr_block = "${var.public_subnet_cidr[0]}"
+  availability_zone = "${var.availability_zone[0]}
   map_public_ip_on_launch  = true
   depends_on  = ["aws_internet_gateway_default"]
   tags  {
-    Name = "public"
+    Name = "clickcount-public-2"
   }
 }
+
+// Public subnet-2 
+resource "aws_subnet" "public" {
+  vpc_id = "${aws_vpc_default.id}"
+  cidr_block = "${var.public_subnet_cidr[1]}"
+  availability_zone = "${var.availability_zone[1]}
+  map_public_ip_on_launch  = true
+  depends_on  = ["aws_internet_gateway_default"]
+  tags  {
+    Name = "clickcount-public-2"
+  }
+}
+
 
 // Routing table for public subnet
 resource "aws_route_table" "public"  {
