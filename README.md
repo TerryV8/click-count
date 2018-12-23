@@ -68,7 +68,7 @@ in order to ensure the sustainability of the solution.
     - [with Local setup and IAM, DNS setups on AWS, cloud infrastructure](docs/terraform_iam_dns.md)
     - [with Variables](docs/terraform_variables.md)
     - [with VPC](docs/terraform_vpc.md)
-    - [with a Public subnet](docs/terraform_public_subnet.md)
+    - [with an Internet Gateway, Public subnet](docs/terraform_public_subnet.md)
     - [with Security groups](docs/terraform_security_groups.md)
     - [with Ssh key pair](docs/terraform_ssh_key_pair.md)
     - [with a Nat instance](docs/terraform_nat_instance.md)
