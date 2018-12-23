@@ -74,5 +74,6 @@ in order to ensure the sustainability of the solution.
     - [with a Nat instance](docs/terraform_nat_instance.md)
     - [with a Private subnet and routes](docs/terraform_private_subnet_and_routes.md)
     - [with a Load Balancer and adding Application servers](docs/terraform_load_balancer.md)
+    - [with S3 bucket](docs/terraform_s3.md)
   
 - #### Ansible
