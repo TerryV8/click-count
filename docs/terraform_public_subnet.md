@@ -1,4 +1,4 @@
-# Adding the Public Subnet
+# Adding the Internet gateway, Public Subnet
 
 Let us now add:
 - a public subnet with the IP range 10.128.0.0/24 
