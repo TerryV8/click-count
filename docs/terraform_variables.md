@@ -19,7 +19,7 @@ variable "region"  {
 
 variable "availability_zone" {
   description = "AWS availability zone in zone a"
-  default = "eu-west-3a"
+  default = ["eu-west-3a","eu-west-3b"]
 }
 
 variable "vpc_cidr" {
