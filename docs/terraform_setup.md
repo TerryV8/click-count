@@ -14,6 +14,14 @@ modified and destroyed to reach the desired state.
 
 You can then choose to ‘apply’ this plan, which will create actual resources.
 
+
+# Our case with AWS
+
+Here, Terraform provisiones a full AWS infrastructure from the ground using Terraform. 
+
+To achieve this simple task, we will try to create a production-ready environment in AWS using Terraform automation which will require us to set up a VPC, Network Gateway, subnets, routes, security groups, EC2 machines with Redis installed inside the private network, and the web app in the public subnet.
+
+
 ## Setup
 
 You can install terraform using Homebrew on a Mac: 
