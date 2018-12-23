@@ -20,7 +20,7 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch  = true
   depends_on  = ["aws_internet_gateway_default"]
   tags  {
-    Name = "clickcount-public-2"
+    Name = "clickcount-public-1"
   }
 }
 
