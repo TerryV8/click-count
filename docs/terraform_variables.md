@@ -39,5 +39,4 @@ variable "private_subnet_cidr" {
 }
 ```
 
-The variable block defines a single input variable that your configuration will require to provision your infrastructure. The description parameter is used to describe what the variable is for and the default parameter gives it a default value. Our example requires that you provide access_key and secret_key variables and optionally provide region, region will otherwise default to us-west-1 when not provided.
 
