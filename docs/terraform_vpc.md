@@ -29,16 +29,14 @@ resource "aws_vpc" "default" {
 
 ```
 
-Launch:
+Launching:
 ```console
 terraform plan
 terraform apply
 ```
 will create the VPC 
-by prompting you to to input AWS access and secret keys. 
-
-
-For default values, hitting <return> will assign default values, defined in the variables.tf file.
+by prompting you to input AWS access and secret keys. 
+Hitting <return> will assign default values, defined in the variables.tf file.
 
 OUTPUT:
 ```console
@@ -79,7 +77,7 @@ State path: terraform.tfstate
 
 The above command will save the state of your infrastructure to the terraform.tfstate file.
 This file will be updated each time you run that above command.
-You can inspect the current state of your infrastructure by running:
+You can inspect the current state of your infrastructure at any moment by running:
 ```console
 "terraform show".
 ```
