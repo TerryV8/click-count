@@ -1,4 +1,4 @@
-# Choose AWS as a provider and create VPC
+# Choose AWS as a provider and create a VPC
 
 
 Edit aws-vpc.tf file, which does following tasks:
