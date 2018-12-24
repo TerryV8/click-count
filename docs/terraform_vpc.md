@@ -2,10 +2,13 @@
 
 
 Edit aws-vpc.tf file, which does following tasks:
-- #### Set up the provider for AWS. 
+- #### Set up the provider for AWS: 
 Actually, it defines the configuration for the choosen cloud provider. Terraform has support for various other providers aw well like Google Compute Cloud, DigitalOcean, and Heroku. 
-- Create a VPC. 
-- Set the options for internal VPC DNS resolution
+Parameters accept string values that can be interpreted when wrapped with ${}. Specifying ${var.access_key} will read the value provided for the variable access_key.
+- #### Create a VPC:
+Actually, it will create a VPC with a CIDR block of 10.128.0.0/16 and attaches a Name tag clickcount-vpc. 
+- #### Set the options for internal VPC DNS resolution:
+Actually, we set enable_dns_hostnames = true, which will help for dns resolution.
 
 
 ```console
@@ -25,12 +28,6 @@ resource "aws_vpc" "default" {
 }
 
 ```
-
-The provider block defines the configuration for the choosen cloud provider, which is aws in our case. Terraform has support for various other providers like Google Compute Cloud, DigitalOcean, and Heroku. 
-
-The resource block defines the resource being created. The above example creates a VPC with a CIDR block of 10.0.0.0/16 and attaches a Name tag clickcount-vpc. 
-
-Parameters accept string values that can be interpreted when wrapped with ${}. Specifying ${var.access_key} will read the value provided for the variable access_key.
 
 Launch:
 ```console
