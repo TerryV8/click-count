@@ -2,8 +2,9 @@
 
 
 Edit aws-vpc.tf file, which does following tasks:
-- Set up the provider for AWS. Actually, it defines the configuration for the choosen cloud provider. Terraform has support for various other providers aw well like Google Compute Cloud, DigitalOcean, and Heroku. 
-- Create a VPC
+- # Set up the provider for AWS. 
+Actually, it defines the configuration for the choosen cloud provider. Terraform has support for various other providers aw well like Google Compute Cloud, DigitalOcean, and Heroku. 
+- Create a VPC. 
 - Set the options for internal VPC DNS resolution
 
 
