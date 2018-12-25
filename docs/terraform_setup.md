@@ -3,9 +3,7 @@
 Terraform is an infrastructure automation tool created by Hashicorp. 
 It is a tool used for building, changing, versioning and destroying infrastructure and its resources such as compute instances, storage, networking, load balancers DNS etc.
 
-It defines your infrastructure as code and it is cloud-agnostic. 
-In some terms, you describe the desired state of your resources infrastructure in a configuration file and Terraform manages
-to create it, modified or destroyed to reach the desired state.
+It defines your infrastructure as code and it is cloud-agnostic. Terraform allows you to define the infrastructure for as simple as a server to a complete data center through configuration scripts written in HCL, from which it creates an execution plan depicting what it will do to achieve the desired state, and afterwards executes it to construct the create it, modified or destroyed to reach the desired state of the infrastructure. 
 
 # Our case with AWS
 
