@@ -57,7 +57,7 @@ that we can give to Terraform settings on our local machine.
 In our case, we are going to create a new profile named "profile_terransible"
 
 ```console
-aws configure --profile profile_terransible
+aws configure --profile terransible
 
     AWS Access Key Id: xxxxx # Fill with the AWS Access Key Id provided by credential .csv file,
     AWS Secret Access Key: xxxxx  # Fill with the AWS Secret Access Key provided by credential .csv file,
@@ -66,14 +66,216 @@ aws configure --profile profile_terransible
 
 To check that the client can now communicate with the AWS cloud, let us run this command
 ```console
-aws ec2 describe-instances --profile profile_terransible
+aws ec2 describe-instances --profile terransible
 
-     ...
-    {
-        "Reservations": [...]
-        
-    }
-    ...
+{
+    "Reservations": [
+        {
+            "Instances": [
+                {
+                    "Monitoring": {
+                        "State": "disabled"
+                    }, 
+                    "PublicDnsName": "", 
+                    "StateReason": {
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown", 
+                        "Code": "Client.UserInitiatedShutdown"
+                    }, 
+                    "State": {
+                        "Code": 80, 
+                        "Name": "stopped"
+                    }, 
+                    "EbsOptimized": false, 
+                    "LaunchTime": "2018-06-26T06:30:26.000Z", 
+                    "PrivateIpAddress": "172.31.32.87", 
+                    "ProductCodes": [], 
+                    "VpcId": "vpc-a7dfb7ce", 
+                    "StateTransitionReason": "User initiated (2018-06-26 07:19:42 GMT)", 
+                    "InstanceId": "i-0cf00149b1602ae8a", 
+                    "EnaSupport": true, 
+                    "ImageId": "ami-969c2deb", 
+                    "PrivateDnsName": "ip-172-31-32-87.eu-west-3.compute.internal", 
+                    "KeyName": "2018 June 2 AWS keyPair", 
+                    "SecurityGroups": [
+                        {
+                            "GroupName": "WebDMZ", 
+                            "GroupId": "sg-891fe4e1"
+                        }
+                    ], 
+                    "ClientToken": "", 
+                    "SubnetId": "subnet-aa1cdce7", 
+                    "InstanceType": "t2.nano", 
+                    "NetworkInterfaces": [
+                        {
+                            "Status": "in-use", 
+                            "MacAddress": "0e:eb:f9:3c:df:a8", 
+                            "SourceDestCheck": true, 
+                            "VpcId": "vpc-a7dfb7ce", 
+                            "Description": "", 
+                            "NetworkInterfaceId": "eni-3517b11e", 
+                            "PrivateIpAddresses": [
+                                {
+                                    "PrivateDnsName": "ip-172-31-32-87.eu-west-3.compute.internal", 
+                                    "Primary": true, 
+                                    "PrivateIpAddress": "172.31.32.87"
+                                }
+                            ], 
+                            "PrivateDnsName": "ip-172-31-32-87.eu-west-3.compute.internal", 
+                            "Attachment": {
+                                "Status": "attached", 
+                                "DeviceIndex": 0, 
+                                "DeleteOnTermination": true, 
+                                "AttachmentId": "eni-attach-940804f7", 
+                                "AttachTime": "2018-06-26T06:30:26.000Z"
+                            }, 
+                            "Groups": [
+                                {
+                                    "GroupName": "WebDMZ", 
+                                    "GroupId": "sg-891fe4e1"
+                                }
+                            ], 
+                            "Ipv6Addresses": [], 
+                            "OwnerId": "412508216422", 
+                            "SubnetId": "subnet-aa1cdce7", 
+                            "PrivateIpAddress": "172.31.32.87"
+                        }
+                    ], 
+                    "SourceDestCheck": true, 
+                    "Placement": {
+                        "Tenancy": "default", 
+                        "GroupName": "", 
+                        "AvailabilityZone": "eu-west-3c"
+                    }, 
+                    "Hypervisor": "xen", 
+                    "BlockDeviceMappings": [], 
+                    "Architecture": "x86_64", 
+                    "RootDeviceType": "ebs", 
+                    "IamInstanceProfile": {
+                        "Id": "AIPAIZPZYDYHVSCK6H32O", 
+                        "Arn": "arn:aws:iam::412508216422:instance-profile/AllowsEC2ToCallDynamoDB"
+                    }, 
+                    "RootDeviceName": "/dev/xvda", 
+                    "VirtualizationType": "hvm", 
+                    "AmiLaunchIndex": 0
+                }
+            ], 
+            "ReservationId": "r-0f0b1fc8d9a37dae4", 
+            "Groups": [], 
+            "OwnerId": "412508216422"
+        }, 
+        {
+            "Instances": [
+                {
+                    "Monitoring": {
+                        "State": "enabled"
+                    }, 
+                    "PublicDnsName": "ec2-52-47-52-153.eu-west-3.compute.amazonaws.com", 
+                    "StateReason": {
+                        "Message": "Client.UserInitiatedShutdown: User initiated shutdown", 
+                        "Code": "Client.UserInitiatedShutdown"
+                    }, 
+                    "State": {
+                        "Code": 80, 
+                        "Name": "stopped"
+                    }, 
+                    "EbsOptimized": false, 
+                    "LaunchTime": "2018-06-17T15:49:45.000Z", 
+                    "PublicIpAddress": "52.47.52.153", 
+                    "PrivateIpAddress": "172.31.37.59", 
+                    "ProductCodes": [], 
+                    "VpcId": "vpc-a7dfb7ce", 
+                    "StateTransitionReason": "User initiated (2018-06-17 17:05:39 GMT)", 
+                    "InstanceId": "i-0812ec1235e4bfc54", 
+                    "EnaSupport": true, 
+                    "ImageId": "ami-969c2deb", 
+                    "PrivateDnsName": "ip-172-31-37-59.eu-west-3.compute.internal", 
+                    "KeyName": "2018 June 2 AWS keyPair", 
+                    "SecurityGroups": [
+                        {
+                            "GroupName": "Security group 2018 June 2 ", 
+                            "GroupId": "sg-cb4dafa3"
+                        }
+                    ], 
+                    "ClientToken": "", 
+                    "SubnetId": "subnet-aa1cdce7", 
+                    "InstanceType": "t2.micro", 
+                    "NetworkInterfaces": [
+                        {
+                            "Status": "in-use", 
+                            "MacAddress": "0e:df:1e:18:d6:9e", 
+                            "SourceDestCheck": true, 
+                            "VpcId": "vpc-a7dfb7ce", 
+                            "Description": "", 
+                            "NetworkInterfaceId": "eni-b0bd6c9b", 
+                            "PrivateIpAddresses": [
+                                {
+                                    "PrivateDnsName": "ip-172-31-37-59.eu-west-3.compute.internal", 
+                                    "PrivateIpAddress": "172.31.37.59", 
+                                    "Primary": true, 
+                                    "Association": {
+                                        "PublicIp": "52.47.52.153", 
+                                        "PublicDnsName": "ec2-52-47-52-153.eu-west-3.compute.amazonaws.com", 
+                                        "IpOwnerId": "412508216422"
+                                    }
+                                }
+                            ], 
+                            "PrivateDnsName": "ip-172-31-37-59.eu-west-3.compute.internal", 
+                            "Attachment": {
+                                "Status": "attached", 
+                                "DeviceIndex": 0, 
+                                "DeleteOnTermination": true, 
+                                "AttachmentId": "eni-attach-c1b984a2", 
+                                "AttachTime": "2018-06-02T18:51:28.000Z"
+                            }, 
+                            "Groups": [
+                                {
+                                    "GroupName": "Security group 2018 June 2 ", 
+                                    "GroupId": "sg-cb4dafa3"
+                                }
+                            ], 
+                            "Ipv6Addresses": [], 
+                            "OwnerId": "412508216422", 
+                            "PrivateIpAddress": "172.31.37.59", 
+                            "SubnetId": "subnet-aa1cdce7", 
+                            "Association": {
+                                "PublicIp": "52.47.52.153", 
+                                "PublicDnsName": "ec2-52-47-52-153.eu-west-3.compute.amazonaws.com", 
+                                "IpOwnerId": "412508216422"
+                            }
+                        }
+                    ], 
+                    "SourceDestCheck": true, 
+                    "Placement": {
+                        "Tenancy": "default", 
+                        "GroupName": "", 
+                        "AvailabilityZone": "eu-west-3c"
+                    }, 
+                    "Hypervisor": "xen", 
+                    "BlockDeviceMappings": [], 
+                    "Architecture": "x86_64", 
+                    "RootDeviceType": "ebs", 
+                    "IamInstanceProfile": {
+                        "Id": "AIPAINTMCRGAIJ2X6GJS2", 
+                        "Arn": "arn:aws:iam::412508216422:instance-profile/S3-Admin-Access"
+                    }, 
+                    "RootDeviceName": "/dev/xvda", 
+                    "VirtualizationType": "hvm", 
+                    "Tags": [
+                        {
+                            "Value": "Server for Django 2018 June 2", 
+                            "Key": "Goal"
+                        }
+                    ], 
+                    "AmiLaunchIndex": 0
+                }
+            ], 
+            "ReservationId": "r-003c6a6a7ed87065f", 
+            "Groups": [], 
+            "OwnerId": "412508216422"
+        }
+    ]
+}
+
     
 ```
 
