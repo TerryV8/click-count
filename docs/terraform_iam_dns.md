@@ -67,7 +67,10 @@ aws configure --profile terransible
 To check that the client can now communicate with the AWS cloud, let us run this command
 ```console
 aws ec2 describe-instances --profile terransible
+```
 
+OUTPUT:
+```console
 {
     "Reservations": [
         {
@@ -274,9 +277,7 @@ aws ec2 describe-instances --profile terransible
             "OwnerId": "412508216422"
         }
     ]
-}
-
-    
+}    
 ```
 
 # 4. On AWS, setup DNS for our domain name
