@@ -1,13 +1,9 @@
 # Terraform 
 
-Terraform is an Infra provisioning tool which is cloud-agnostic. 
-It is created by Hashicorp. 
+Terraform is an infrastructure automation tool created by Hashicorp. 
+It is a tool used for building, changing, versioning and destroying infrastructure and its resources such as compute instances, storage, networking, load balancers DNS etc.
 
-Terraform defines your infrastructure as code. 
-Its simple powerful syntax to describe infrastructure components 
-allows you to build complex, version controlled, 
-collaborative, heterogeneous and disposable systems with a very high productivity.
-
+It defines your infrastructure as code and it is cloud-agnostic. 
 In some terms, “terraforming” begins with you describing the desired state of your infrastructure in a configuration file.
 You then generate an execution ‘plan’ which describes various resources that will be created, 
 modified and destroyed to reach the desired state.
