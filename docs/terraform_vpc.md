@@ -56,7 +56,7 @@ var.secret_key
 ...
 
 aws_vpc.default: Creating...
-  cidr_block:                "" => "10.0.0.0/16"
+  cidr_block:                "" => "10.123.0.0/16"
   default_network_acl_id:    "" => "<computed>"
   default_security_group_id: "" => "<computed>"
   enable_dns_hostnames:      "" => "1"
