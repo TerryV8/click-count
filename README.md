@@ -64,7 +64,7 @@ in order to ensure the sustainability of the solution.
 ## Automated Deployment
 
 - #### [Terraform, What is it?](docs/terraform_setup.md)
-    - [with Local setup & AWS, cloud infrastructure setup: IAM, DNS](docs/terraform_iam_dns.md)
+    - [with Local setup & cloud infrastructure AWS setup: IAM, DNS](docs/terraform_iam_dns.md)
     - [with Variables](docs/terraform_variables.md)
     - [with VPC](docs/terraform_vpc.md)
     - [with an Internet Gateway, Public subnet](docs/terraform_public_subnet.md)
