@@ -57,7 +57,7 @@ that we can give to Terraform settings on our local machine.
 In our case, we are going to create a new profile named "profile_terransible"
 
 ```console
-aws configure --profile profile_terransible  # to create a new profile
+aws configure --profile profile_terransible
 
     AWS Access Key Id: xxxxx # Fill with the AWS Access Key Id provided by credential .csv file,
     AWS Secret Access Key: xxxxx  # Fill with the AWS Secret Access Key provided by credential .csv file,
