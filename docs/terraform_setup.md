@@ -14,7 +14,7 @@ In our case we are going to create a production-ready environment in AWS using T
 
 ## Setup
 
-You can install terraform using Homebrew on a Mac: 
+You can install terraform using Homebrew on a Mac. Then verify, terraform is well installed.
 ```console
 brew update && brew install terraform.
 
