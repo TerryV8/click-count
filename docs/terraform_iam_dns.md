@@ -3,7 +3,7 @@
 Here, we are going to build the below components:
 - VPC
 - Internet Gateway for public subnet
-- Public subetn for routing instances
+- Public subnet for routing instances
 - Private subnet for internal resources
 - Routing tables for public and private subnets
 - NAT/VPN server to route outbound traffic from your instances in private network
