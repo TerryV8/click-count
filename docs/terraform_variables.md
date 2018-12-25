@@ -1,9 +1,8 @@
 # Variables for your Infrastructure
 
-Configurations can be defined in any file with a .tf extension using terraform syntax. 
-The variables.tf file defines all the variables that tune your infrastructure.
+The infrastructure managed by Terraform is defined in .tf files, which are written in HashiCorp Configuration Language (HCL). 
 
-Edit variables.tf:
+Edit the variables.tf file which defines all the variables that tune your infrastructure:
 ```console
 variable "access_key" {
   description = "AWS access key"
