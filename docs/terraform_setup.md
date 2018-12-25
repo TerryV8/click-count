@@ -4,18 +4,14 @@ Terraform is an infrastructure automation tool created by Hashicorp.
 It is a tool used for building, changing, versioning and destroying infrastructure and its resources such as compute instances, storage, networking, load balancers DNS etc.
 
 It defines your infrastructure as code and it is cloud-agnostic. 
-In some terms, “terraforming” begins with you describing the desired state of your infrastructure in a configuration file.
-You then generate an execution ‘plan’ which describes various resources that will be created, 
-modified and destroyed to reach the desired state.
-
-You can then choose to ‘apply’ this plan, which will create actual resources.
-
+In some terms, you describe the desired state of your resources infrastructure in a configuration file and Terraform manages
+to create it, modified or destroyed to reach the desired state.
 
 # Our case with AWS
 
 Here, Terraform provisiones a full AWS infrastructure from the ground using Terraform. 
 
-To achieve this simple task, we will try to create a production-ready environment in AWS using Terraform automation which will require us to set up a VPC, Network Gateway, subnets, routes, security groups, EC2 machines with Redis installed inside the private network, and the web app in the public subnet.
+In our case we are going to create a production-ready environment in AWS using Terraform automation which will require us to set up a VPC, Network Gateway, subnets, routes, security groups, EC2 machines with Redis installed inside the private network, and the web app in the public subnet.
 
 
 ## Setup
@@ -23,7 +19,10 @@ To achieve this simple task, we will try to create a production-ready environmen
 You can install terraform using Homebrew on a Mac: 
 ```console
 brew update && brew install terraform.
+
+
 terraform
+
     usage: terraform [--version] [--help] <command> [<args>]
 
     Available commands are:
