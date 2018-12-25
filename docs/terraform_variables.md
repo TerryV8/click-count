@@ -4,13 +4,13 @@ The infrastructure managed by Terraform is defined in .tf files, which are writt
 
 Edit the variables.tf file which defines all the variables that tune your infrastructure:
 ```console
-#variable "access_key" {
-#  description = "AWS access key"
-#}
+variable "aws_access_key" {
+  description = "AWS access key"
+}
 
-#vaariable "secret_key" {
-#  description = "AWS secret access key
-#}
+vaariable "aws_secret_key" {
+  description = "AWS secret key"
+}
 
 variable "region"  {
   description = "AWS region to host your network"
