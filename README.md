@@ -76,4 +76,4 @@ in order to ensure the sustainability of the solution.
     - [with a Load Balancer and adding Application servers](docs/terraform_load_balancer.md)
     - [with S3 bucket](docs/terraform_s3.md)
   
-- #### Ansible
+- #### [Ansible](docs/ansible.md)
