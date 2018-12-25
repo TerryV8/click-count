@@ -11,6 +11,7 @@ Actually, it will create a VPC with a CIDR block of 10.128.0.0/16 and attaches a
 Actually, we set enable_dns_hostnames = true, which will help for dns resolution.
 
 
+Edit vpc_creation.tf:
 ```console
 provider "aws" {
 #  access_key = "${var.access_key}"
