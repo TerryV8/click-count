@@ -280,7 +280,7 @@ OUTPUT:
 }    
 ```
 
-# 4. On AWS, setup DNS for our domain name
+# 4. On AWS, setup DNS for our domain name (OPTIONAL)
 
 After registering a domain name through "Route 53 DNS" on AWS Web UI, we need to set up a hosted zone
 with Name servers (NS) that it will belong to. 
