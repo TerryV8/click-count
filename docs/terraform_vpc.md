@@ -30,7 +30,7 @@ resource "aws_vpc" "default" {
 
 ```
 
-Launching:
+To create the AWS infrastructure:
 ```console
 terraform plan
 terraform apply
