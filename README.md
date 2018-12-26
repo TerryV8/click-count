@@ -72,7 +72,7 @@ in order to ensure the sustainability of the solution.
       - [with VPC](docs/terraform_vpc.md)
       - [with a Public subnet for the front](docs/terraform_public_subnet.md)
       - [with a Private subnet for the back](docs/terraform_private_subnet.md)
-      - [with an Internet Gateway and a route table for routing](docs/terraform_routing.md)
+      - [with an Internet gateway and a Route table for routing](docs/terraform_routing.md)
 
     - Firewall:    
       - [with Security groups](docs/terraform_security_groups.md)
