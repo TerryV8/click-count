@@ -86,7 +86,7 @@ The above command will save the state of your infrastructure to the terraform.tf
 This file will be updated each time you run that above command.
 You can inspect the current state of your infrastructure at any moment by running:
 ```console
-"terraform show".
+terraform show
 ```
 
 Finally, you can verify the VPC has been created by visiting the VPC page on AWS WEB UI console.
