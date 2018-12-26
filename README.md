@@ -64,15 +64,21 @@ in order to ensure the sustainability of the solution.
 ## Automated Deployment
 
 - #### [Terraform, What is it?](docs/terraform_setup.md)
-    - [with Local setup & cloud infrastructure AWS setup: IAM, DNS](docs/terraform_iam_dns.md)
-    - [with Variables](docs/terraform_variables.md)
-    - [with VPC](docs/terraform_vpc.md)
-    - [with an Internet Gateway, Public subnet](docs/terraform_public_subnet.md)
-    - [with Security groups](docs/terraform_security_groups.md)
-    - [with Ssh key pair](docs/terraform_ssh_key_pair.md)
-    - [with a Nat instance](docs/terraform_nat_instance.md)
-    - [with a Private subnet and routes](docs/terraform_private_subnet_and_routes.md)
-    - [with a Load Balancer and adding Application servers](docs/terraform_load_balancer.md)
-    - [with S3 bucket](docs/terraform_s3.md)
-  
+    - Presets:
+      - [with Local setup & cloud infrastructure AWS setup: IAM, DNS](docs/terraform_iam_dns.md)
+      - [with Variables](docs/terraform_variables.md)
+    - Network:
+      - [with VPC](docs/terraform_vpc.md)
+      - [with an Internet Gateway, Public subnet](docs/terraform_public_subnet.md)
+      - [with a Private subnet and routes](docs/terraform_private_subnet_and_routes.md)
+    - Firewall:    
+      - [with Security groups](docs/terraform_security_groups.md)
+      - [with Ssh key pair](docs/terraform_ssh_key_pair.md)
+    - Servers:
+      - [with a Nat instance](docs/terraform_nat_instance.md)
+      - [with a Load Balancer and adding Application servers](docs/terraform_load_balancer.md)
+      - [with S3 bucket](docs/terraform_s3.md)
+    - DNS
+      - [Route53]()
+
 - #### [Ansible](docs/ansible.md)
