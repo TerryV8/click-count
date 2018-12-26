@@ -23,7 +23,6 @@ Destination           Target                    Status      Propagated
 10.123.0.0/16         local                     active      No	
 0.0.0.0/0             igw-0a16112bf05f1795c     active      No
 ```
-shows us that the destination 10.123.0.0/16 will be routed to the local (IP range of VPC)
-and the other will be forward to the internet gateway
+shows us that if the IP target is in the IP range 10.123.0.0/16, so it will be routed to the local (corresponding to the IP range of VPC), otherwise, it will be forward to the internet gateway
 
 
