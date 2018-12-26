@@ -1,9 +1,10 @@
-# Adding the Internet gateway, Public Subnet
+# Public subnet for the front
 
-Let us now add:
-- a public subnet with the IP range 10.128.0.0/24 
-- and attach an Internet Gateway 
-- and routing table. 
+We are going to add some public subnet consisted of 3 front subnets of IP ranges:
+- 10.128.0.0/24 
+- 10.128.1.0/24 
+- 10.128.2.0/24 
+
 
 Edit public-subnet.tf:
 ```console
