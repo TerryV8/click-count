@@ -64,6 +64,7 @@ in order to ensure the sustainability of the solution.
 ## Automated Deployment
 
 - #### [Terraform, What is it?](docs/terraform_setup.md)
+    - [What we are going to build](docs/terraform_build.md)
     - Presets:
       - [with Local setup & cloud infrastructure AWS credential setup: IAM](docs/terraform_iam.md)
       - [with Variables](docs/terraform_variables.md)
