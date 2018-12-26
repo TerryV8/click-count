@@ -6,10 +6,12 @@ Edit the variables.tf file which defines all the variables that tune your infras
 ```console
 variable "aws_access_key" {
   description = "AWS access key"
+  default = "xxxxxxxxxxx"
 }
 
 vaariable "aws_secret_key" {
   description = "AWS secret key"
+  default = "xxxxxxxxxxx"
 }
 
 variable "region"  {
@@ -37,5 +39,8 @@ variable "private_subnet_cidr" {
   default = "10.123.10.0/24"
 }
 ```
+
+Below, you must replace the default ("xxxxxxxxxxx") aws_access_key and aws_secret_key with the generated ones provided when you created the IAM user.
+
 
 
