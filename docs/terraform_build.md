@@ -15,6 +15,8 @@ The build of the infrastructure through Terraform will be done in 5 steps:
 - DNS: Route53
 
 
+# Brouillon
+
 - NAT/VPN server to route outbound traffic from your instances in private network
 and provide your workstation secure access to network resources. Instances in the private subnet rely on a Network Address Translation (NAT) server, running on the public subnet for internet connectivity. All instances in the public subnet can transmit inbound and outbound traffic to and from the internet.
 - Application servers running nginx docker container in a private subnet
