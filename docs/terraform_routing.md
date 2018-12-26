@@ -53,7 +53,10 @@ subnet-087ae93f59621ee06 | clickcount-public-subnet-b     10.123.1.0/24     -
 subnet-01969ad91ff8bb397 | clickcount-public-subnet-c     10.123.2.0/24     -
 subnet-049f1386b41459f9e | clickcount-public-subnet-a     10.123.0.0/24     -
 
-The following subnets have not been explicitly associated with any route tables and are therefore associated with the main route table:
+
+The following subnets have not been explicitly associated with any route tables
+and are therefore associated with the main route table:
+
 Subnet ID                                                 IPv4 CIDR         IPv6 CIDR
 subnet-04f95aa7f60498180 | clickcount-private-subnet-c    10.123.12.0/24    -
 subnet-09c9101ac3986ca06 | clickcount-private-subnet-b    10.123.11.0/24    -
