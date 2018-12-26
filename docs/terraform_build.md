@@ -1,4 +1,4 @@
-# What we are going to build as "Infrastructure as Code"
+# What we plan to build from "Infrastructure as Code"
 
 The build of the infrastructure through Terraform will be done in 5 steps:
 - Presets: Variables et Credentials
