@@ -4,15 +4,25 @@ The build of the infrastructure through Terraform will be done in 5 steps:
 - Presets: Variables et Credentials
 - Network:
   - VPC (or Virtual Private Cloud): It provides an isolated section of AWS cloud in which you can launch AWS resources in a virtual network that you have defined 
-  - Public subnet for routing instances
-  - Internet Gateway in public subnet
-  - Private subnet for internal resources
-- Firewall: Security Groups
+  - Subnet:
+    The VPC is split into subnets (or subnetworks) having specific routing:
+    - Public subnet for routing instances outside world
+    - Internet Gateway in public subnet
+    - Private subnet for internal resources
+  - AZ (or Availability Zone): AWS is available on several geographical areas (North America, ireland, Germany, ...). Each geographical areas is split into at least 2 Availability zones (AZ). Then, each Availability zones has one or more datacenters. Spread our resources on multiple AZ allows us a better availabilty rate of services.
+- Firewall: Security Groups, which is a set of rules of opening network flows (opening ssh flow from a particular IP address, opening HTTP from all internet)
 - Servers: 
   - EC2 of Application servers running docker of glashfish servers
-  - ELB in the public subnet to route web traffic to application servers 
-  - EC2 of Redis for storage
+  - ELB in the public subnet to allow to manage the flow load by routing web traffic to specific application servers
+  - EC2 of Redis for database storage. 
 - DNS: Route53
+
+# In practice
+
+Our infrastructure will have 3 layers:
+- Layer with 1 Load-Balancer
+- Layer with 3 web front spread over AZ
+- Layer with 3 Redis database for the data persistence
 
 
 # Brouillon
