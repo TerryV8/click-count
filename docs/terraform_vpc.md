@@ -43,7 +43,6 @@ terraform apply
 //Hitting <return> will assign default values, defined in the variables.tf file.
 
 //OUTPUT:
-//```console
 //var.access_key
 
 //  AWS access key
@@ -58,6 +57,7 @@ terraform apply
 
 //...
 
+```console
 aws_vpc.default: Creating...
   cidr_block:                "" => "10.123.0.0/16"
   default_network_acl_id:    "" => "<computed>"
