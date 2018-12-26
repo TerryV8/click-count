@@ -3,7 +3,7 @@
 The build of the infrastructure through Terraform will be done in 5 steps:
 - Presets: Variables et Credentials
 - Network:
-  - VPC (or Virtual Private Cloud): It provides an isolated section of AWS cloud in which you can launch AWS resources in a virtual network that you define 
+  - VPC (or Virtual Private Cloud): It provides an isolated section of AWS cloud in which you can launch AWS resources in a virtual network that you have defined 
   - Public subnet for routing instances
   - Internet Gateway in public subnet
   - Private subnet for internal resources
