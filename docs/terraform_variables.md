@@ -19,11 +19,6 @@ variable "region"  {
   default = "eu-west-3"
 }
 
-variable "availability_zone" {
-  description = "AWS availability zone in zone a"
-  default = ["eu-west-3a","eu-west-3b"]
-}
-
 variable "vpc_cidr" {
   description = "CIDR for VPC"
   default = "10.123.0.0/16"
@@ -31,7 +26,7 @@ variable "vpc_cidr" {
 
 variable "public_subnet_cidr" {
   description = "CIDR for public subnet"
-  default = ["10.123.0.0/24","10.123.1.0/24"]
+  default = ["10.123.0.0/24","10.123.1.0/24","10.123.2.0/24"]
 }
 
 variable "private_subnet_cidr" {
