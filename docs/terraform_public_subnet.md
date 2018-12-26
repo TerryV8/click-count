@@ -4,6 +4,7 @@ We are going to add some public subnet consisted of 3 front subnets of IP ranges
 - 10.128.0.0/24 
 - 10.128.1.0/24 
 - 10.128.2.0/24 
+Each subnet will be in 1 distinct availability zone (AZ).
 
 
 Edit public-subnet.tf:
