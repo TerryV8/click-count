@@ -1,4 +1,4 @@
-# Route table for routing and Internet gateway for Internet
+# Route table for routing and Internet gateway for internet
 
 Let us edit routing.tf:
 ```console
