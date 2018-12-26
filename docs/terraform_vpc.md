@@ -30,30 +30,33 @@ resource "aws_vpc" "default" {
 
 ```
 
-To create the AWS infrastructure:
+To see what Terraform will do:
 ```console
 terraform plan
+```
+
+To bring up the infrastructure we’ll run:
+```console
 terraform apply
 ```
-will create the VPC 
-by prompting you to input AWS access and secret keys. 
-Hitting <return> will assign default values, defined in the variables.tf file.
+//by prompting you to input AWS access and secret keys. 
+//Hitting <return> will assign default values, defined in the variables.tf file.
 
-OUTPUT:
-```console
-var.access_key
+//OUTPUT:
+//```console
+//var.access_key
 
-  AWS access key
-  Enter a value: foo
+//  AWS access key
+//  Enter a value: foo
 
-...
+//...
 
-var.secret_key
+//var.secret_key
 
-  AWS secret access key
-  Enter a value: bar
+//  AWS secret access key
+//  Enter a value: bar
 
-...
+//...
 
 aws_vpc.default: Creating...
   cidr_block:                "" => "10.123.0.0/16"
