@@ -39,7 +39,7 @@ aws --version
 ```
 
 
-# 3. On AWS, setup IAM
+# 3. On AWS, setup credential IAM
 
 IAM is an AWS feature, that can only be configured through the AWS Web UI. IAM is going to give in our case, to terraform, the permission access to provision resources. 
 
