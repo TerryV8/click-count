@@ -79,6 +79,6 @@ in order to ensure the sustainability of the solution.
       - [with a Load Balancer and adding Application servers](docs/terraform_load_balancer.md)
       - [with S3 bucket](docs/terraform_s3.md)
     - DNS
-      - [Route53](terraform_dns.md)
+      - [with DNS Route53](terraform_dns.md)
 
 - #### [Ansible](docs/ansible.md)
