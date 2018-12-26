@@ -24,6 +24,8 @@ Our infrastructure will have 3 layers:
 - Layer with 3 web front spread over AZ
 - Layer with 3 Redis database for the data persistence
 
+![in practice 3 layers](https://images.ctfassets.net/95wnqgvmhlea/27OOMHHFpaEUssc4GcEamq/3438f8c802e5faba3a5e244a843d1afb/architecture_skynet.png?fm=png)
+
 
 # Brouillon
 
