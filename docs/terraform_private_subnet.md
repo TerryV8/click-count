@@ -9,38 +9,35 @@ We are going to add some private subnet consisted of 3 back subnets of IP ranges
 Each subnet will be in 1 distinct availability zone (AZ).
 
 
-
-
-
-
-
-
 Let us edit private-subnet.tf:
 ```console
-resource "aws_subnet" "private-a"
+resource "aws_subnet" "private-a" {
   vpc_id = "${aws_vpc.default.id}"
   cidr_block = "${var.private_subnet_cidr[0]}"
   availability_zone = "${var.region}a"
   tags {
     Name = "clickcount-private-subnet-a"
   }
+}
   
-resource "aws_subnet" "private-b"
+resource "aws_subnet" "private-b" {
   vpc_id = "${aws_vpc.default.id}"
   cidr_block = "${var.private_subnet_cidr[1]}"
   availability_zone = "${var.region}b"
   tags {
     Name = "clickcount-private-subnet-b"
   }
+}
   
-resource "aws_subnet" "private-c"
+resource "aws_subnet" "private-c" {
   vpc_id = "${aws_vpc.default.id}"
   cidr_block = "${var.private_subnet_cidr[2]}"
   availability_zone = "${var.region}c"
   tags {
     Name = "clickcount-private-subnet-c"
   }
-  
+}
+
 ```
 
 
