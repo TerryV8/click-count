@@ -33,9 +33,11 @@ resource "aws_route_table_association" "public-c" {
 ```
 
 
-When we go on the AWS Web UI Console,
+# When we go on the AWS Web UI Console,
+
 and check the newly route table "route-to-gw":
-Under Routes tab, we get:
+
+- Under Routes tab, we get:
 ```console
 Destination           Target                    Status      Propagated
 10.123.0.0/16         local                     active      No	
@@ -46,7 +48,7 @@ shows us that:
 - otherwise, it will be forward to the internet gateway
 
 
-Under Subnet associations tab, we get:
+- Under Subnet associations tab, we get:
 ```console
 Subnet ID                                                 IPv4 CIDR         IPv6 CIDR
 subnet-087ae93f59621ee06 | clickcount-public-subnet-b     10.123.1.0/24     -
