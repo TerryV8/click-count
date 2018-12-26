@@ -20,8 +20,8 @@ When we go on the AWS Web UI Console,
 and check the newly route table "route-to-gw":
 ```console
 Destination           Target                    Status      Propagated
-10.123.0.0/16         local	                    active      No	
-0.0.0.0/0             igw-0a16112bf05f1795c	    active    No
+10.123.0.0/16         local                     active      No	
+0.0.0.0/0             igw-0a16112bf05f1795c     active      No
 ```
 shows us that the destination 10.123.0.0/16 will be routed to the local (IP range of VPC)
 and the other will be forward to the internet gateway
