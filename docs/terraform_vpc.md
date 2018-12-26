@@ -42,9 +42,12 @@ terraform apply
 //by prompting you to input AWS access and secret keys. 
 //Hitting <return> will assign default values, defined in the variables.tf file.
 
-//OUTPUT:
-//var.access_key
+OUTPUT:
 
+
+
+
+//var.access_key
 //  AWS access key
 //  Enter a value: foo
 
