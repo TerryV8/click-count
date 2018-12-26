@@ -70,8 +70,10 @@ in order to ensure the sustainability of the solution.
       - [with Variables](docs/terraform_variables.md)
     - Network:
       - [with VPC](docs/terraform_vpc.md)
-      - [with an Internet Gateway, Public subnet](docs/terraform_public_subnet.md)
-      - [with a Private subnet and routes](docs/terraform_private_subnet_and_routes.md)
+      - [with a Public subnet for the front](docs/terraform_public_subnet.md)
+      - [with a Private subnet for the back](docs/terraform_private_subnet.md)
+      - [with an Internet Gateway](docs/terraform_routing.md)
+
     - Firewall:    
       - [with Security groups](docs/terraform_security_groups.md)
       - [with Ssh key pair](docs/terraform_ssh_key_pair.md)
