@@ -65,7 +65,7 @@ in order to ensure the sustainability of the solution.
 
 - #### [Terraform, What is it?](docs/terraform_setup.md)
     - Presets:
-      - [with Local setup & cloud infrastructure AWS setup: IAM, DNS](docs/terraform_iam_dns.md)
+      - [with Local setup & cloud infrastructure AWS credential setup: IAM](docs/terraform_iam.md)
       - [with Variables](docs/terraform_variables.md)
     - Network:
       - [with VPC](docs/terraform_vpc.md)
