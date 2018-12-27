@@ -12,7 +12,7 @@ resource "aws_security_group"  "sg_internet_to_LB"  {
   description = "allowing incoming HTTPS from Internet to the Load Balancer"
   vpc_id = "${aws_vpc.default.id}"
   tags {
-    Name = clickcount-sg-internet-to-LB
+    Name = "clickcount-sg-internet-to-LB"
   }
   
   ingress {
