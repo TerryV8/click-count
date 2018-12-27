@@ -2,7 +2,7 @@
 
 The infrastructure managed by Terraform is defined in .tf files, which are written in HashiCorp Configuration Language (HCL). 
 
-Edit the variables.tf file which defines all the variables that tune your infrastructure:
+Edit the variables.tf file which defines all the variables that tune your infrastructure. It contains environment specific configuration like region name, CIDR blocks, and AWS credentials:
 ```console
 variable "aws_access_key" {
   description = "AWS access key"
