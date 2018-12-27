@@ -20,7 +20,7 @@ resource aws_security_group "sg_LB_to_WebApps" {
   
   }
   tags {
-    Name = clickcount-sg_LB_to_WebApps
+    Name = "clickcount-sg_LB_to_WebApps"
   }
 }
 ```
