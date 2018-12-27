@@ -75,7 +75,7 @@ in order to ensure the sustainability of the solution.
       - [with a Route table for routing and Internet gateway for internet](docs/terraform_routing.md)
 
     - Firewall:  
-      - [with Security groups](docs/terraform_security_groups.md)
+      - [with Security groups:](docs/terraform_security_groups.md)
         - [for the front](docs/terraform_security_groups_front.md)
         - [for the load balancer](docs/terraform_security_groups_load_balancer.md)
         - [for the back](docs/terraform_security_groups_back.md)
