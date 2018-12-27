@@ -68,6 +68,7 @@ in order to ensure the sustainability of the solution.
     - Presets:
       - [with Local setup & cloud infrastructure AWS credential setup: IAM](docs/terraform_iam.md)
       - [with Variables](docs/terraform_variables.md)
+      
     - Network:
       - [with VPC](docs/terraform_vpc.md)
       - [with a Public subnet for the front](docs/terraform_public_subnet.md)
@@ -80,6 +81,7 @@ in order to ensure the sustainability of the solution.
         - [the layer front](docs/terraform_security_groups_front.md)
         - [the layer back](docs/terraform_security_groups_back.md)
       - [with Ssh key pair](docs/terraform_ssh_key_pair.md)
+      
     - Servers:
       - [with a Load Balancer](docs/terraform_servers_load_balancer.md)
       - [with 3 EC2 for the front](docs/terraform_servers_front.md)
