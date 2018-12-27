@@ -8,5 +8,17 @@ For the front, we are going to build our infrastructure based on this assumption
 
 Edit security_groups_front.tf:
 ```console
+resource aws_security_group "sg_LB_to_WebApps" {
+  name = "sg_LB_to_WebApps"
+  description = "allowing incoming HTTP from the Load Balancer to the Web Apps"
+  
+  ingress {
+    from_port = 80
+    to_port = 80
+    protocol = "tcp"
+    
+  
+  }
 
+}
 ```
