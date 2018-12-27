@@ -12,8 +12,8 @@ The build of the infrastructure through Terraform will be done in 5 steps:
   - AZ (or Availability Zone): AWS is available on several geographical areas (North America, ireland, Germany, ...). Each geographical areas is split into at least 2 Availability zones (AZ). Then, each Availability zones has one or more datacenters. Spread our resources on multiple AZ allows us a better availabilty rate of services.
 - Firewall: Security Groups, which is a set of rules of opening network flows (opening ssh flow from a particular IP address, opening HTTP from all internet)
 - Servers: 
-  - EC2 of Application servers running docker of glashfish servers
   - ELB in the public subnet to allow to manage the flow load by routing web traffic to specific application servers
+  - EC2 of Application servers running docker of glashfish servers
   - EC2 of Redis for database storage. 
 - DNS: Route53
 
