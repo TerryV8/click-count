@@ -75,10 +75,10 @@ in order to ensure the sustainability of the solution.
       - [with a Route table for routing and Internet gateway for internet](docs/terraform_routing.md)
 
     - Firewall:  
-      - [with Security groups:](docs/terraform_security_groups.md)
-        - [for the layer load balancer](docs/terraform_security_groups_load_balancer.md)
-        - [for the layer front](docs/terraform_security_groups_front.md)
-        - [for the layer back](docs/terraform_security_groups_back.md)
+      - [with Security groups for the:](docs/terraform_security_groups.md)
+        - [layer load balancer](docs/terraform_security_groups_load_balancer.md)
+        - [layer front](docs/terraform_security_groups_front.md)
+        - [layer back](docs/terraform_security_groups_back.md)
       - [with Ssh key pair](docs/terraform_ssh_key_pair.md)
     - Servers:
       - [with a Nat instance](docs/terraform_nat_instance.md)
