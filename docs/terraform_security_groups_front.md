@@ -36,7 +36,7 @@ resource aws_security_group "sg_ssh_and_ping" {
   ingress {
     from_port = 22
     to_port = 22
-    protocol = "ssh"
+    protocol = "tcp"
     cidr_blocks = ["176.151.42.54/32"]
   }
   
