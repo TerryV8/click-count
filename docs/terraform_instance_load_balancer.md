@@ -1,4 +1,4 @@
-# 1 Load Balancer
+# 1 instance Load Balancer
 
 The ELB in the public subnet allows us to manage distributing incoming web traffic across the group of the web application servers that it is targeted.
 
