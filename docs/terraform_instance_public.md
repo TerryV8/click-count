@@ -21,7 +21,7 @@ resource "aws_instance" "instance_public_a" {
     Name = "instance_public_a"
   }
   
-  block_device {
+  ebs_block_device {
     device_name = "/dev/sda"
     volume_type = "gp2"
     volume_size = "300"
@@ -42,7 +42,7 @@ resource "aws_instance" "instance_public_b" {
     Name = "instance_public_b"
   }
   
-  block_device {
+  ebs_block_device {
     device_name = "/dev/sda"
     volume_type = "gp2"
     volume_size = "300"
@@ -63,7 +63,7 @@ resource "aws_instance" "instance_public_c" {
     Name = "instance_public_c"
   }
   
-  block_device {
+  ebs_block_device {
     device_name = "/dev/sda"
     volume_type = "gp2"
     volume_size = "300"
