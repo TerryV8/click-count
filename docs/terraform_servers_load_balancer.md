@@ -5,6 +5,7 @@ The ELB in the public subnet allows us to manage distributing incoming web traff
 We will use our security group allowing incoming HTTPS from Internet to the Load Balancer.
 
 Edit servers_load_balancer.tf:
+```console
 resource "aws_elb" "servers_LB" {
   name = "servers_LB"
   listener {
@@ -13,8 +14,9 @@ resource "aws_elb" "servers_LB" {
     instance_port = 80
     instance_protocol = "http"  
   }
-  
+  subnets = ["${aws_subnet.public-a.id}", "${aws_subnet.public-b.id}", "${aws_subnet.public-c.id}"]
   
 
 }
-
+```
+  
