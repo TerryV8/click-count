@@ -2,7 +2,8 @@
 
 The ELB in the public subnet allows us to manage distributing incoming web traffic across the group of the web application servers that it is targeted.
 
-We will use our security group allowing incoming HTTPS from Internet to the Load Balancer.
+We will use our security group allowing incoming HTTP from Internet to the Load Balancer, which then forward HTTP traffic on the port 80.
+
 
 Edit servers_load_balancer.tf:
 ```console
