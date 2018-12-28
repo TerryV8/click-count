@@ -5,10 +5,10 @@ The ELB in the public subnet allows us to manage distributing incoming web traff
 We will use our security group allowing incoming HTTP from Internet to the Load Balancer, which then forward HTTP traffic on the port 80.
 
 
-Edit servers_load_balancer.tf:
+Edit instance_load_balancer.tf:
 ```console
 resource "aws_elb" "instance_LB" {
-  name = "instance_LB"
+  name = "instance-LB"
 
   listener {
     lb_port = 80
