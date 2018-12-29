@@ -32,13 +32,14 @@ The "Redis cluster mode disabled" is not easier or more complicated to configure
 
 
 To create a single shard primary with 2 read replica:
+
 Edit instance_private.tf:
 ```console
-resource "aws_elasticache_replication_group" "rg_Redis"  {
+resource "aws_elasticache_replication_group" "rg_redis"  {
   automatic_failover_enabled = true
   availability_zones = ["${var.region}a","${var.region}b","${var.region}c"]
   replication_group_id = "rg_Redis_1"
-  replication_group_description = “replication_group for Redis which is configured with a single shard primary with 2 read replicas”
+  replication_group_description = "replication_group for Redis which is configured with a single shard primary with 2 read replicas"
   node_type = "cache.t2.small"
   number_cache_clusters = 3
   parameter_group_name = "default.redis3.2"
@@ -52,8 +53,8 @@ resource "aws_elasticache_replication_group" "rg_Redis"  {
 resource "aws_elasticache_cluster" "replica" {
   count = 2
 
-  cluster_id = rg_Redis_1-${count.index}
-  replication_group_id = "${aws_elasticache_replication_group.rg_Redis.id}"
+  cluster_id = "rg_Redis_1-${count.index}"
+  replication_group_id = "${aws_elasticache_replication_group.rg_redis.id}"
 
 }
 
