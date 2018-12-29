@@ -18,9 +18,7 @@ Comparing Redis (cluster mode disabled) and Redis (cluster mode enabled) Cluster
 Feature |	Redis (cluster mode disabled)|	Redis (cluster mode enabled)
 --- | --- | ---
 Modifiable |	Yes. Supports adding and deleting replica nodes, and scaling up node type.	| Limited. For more information, see Upgrading Engine Versions and Scaling Redis (cluster mode enabled) Clusters.
---- | --- | ---
 Data Partitioning	| No |	Yes
---- | --- | ---
 
 Shards |	1	| 1 to 90
 Read replicas	| 0 to 5. Important. If you have no replicas and the node fails, you experience total data loss.
