@@ -44,6 +44,17 @@ resource "aws_elasticache_replication_group" "rg_Redis"  {
   parameter_group_name = "default.redis3.2"
   port = 6379
   
+  lifecycle {
+    ignore_changes = ["number_cache_clusters"]
+  }
+}
+
+resource "aws_elasticache_cluster" "replica" {
+  count = 2
+
+  cluster_id = rg_Redis_1-${count.index}
+  replication_group_id = "${aws_elasticache_replication_group.rg_Redis.id}"
+
 }
 
 
@@ -134,6 +145,8 @@ resource “aws_elasticache_replication_group” “redis_rg”  {
         num_node_groups = 2
     }
 }
+
+
 ```
 
 
