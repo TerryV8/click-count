@@ -26,7 +26,8 @@ Snapshots (Backups)	| Yes, creating a single .rdb file.	| Yes, creating a unique
 Restore	| Yes, using a single .rdb file from a Redis (cluster mode disabled) cluster. |	Yes, using .rdb files from either a Redis (cluster mode disabled) or a Redis (cluster mode enabled) cluster.
 
 
-# Based on our use case of click-count, we are going to choose the Redis (cluster mode disabled) Architecture which is more appropriate
+# Based on our use case of click-count application,
+# we are going to choose the Redis (cluster mode disabled) Architecture which is more appropriate
 
 The Redis (cluster mode disabled) is not easier or more complicated to configure compare to Redis cluster mode enabled)
 
