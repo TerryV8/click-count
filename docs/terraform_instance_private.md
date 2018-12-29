@@ -6,7 +6,7 @@ Beginning with Redis version 3.2, you have the ability to create one of two dist
 
 
 
-[cluster_mode_disabled](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-NodeGroups.png)
+![cluster_mode_disabled](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-NodeGroups.png)
 
 
 
