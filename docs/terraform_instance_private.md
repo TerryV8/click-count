@@ -39,7 +39,7 @@ resource "aws_elasticache_replication_group" "rg_Redis"  {
   availability_zones = ["${var.region}a","${var.region}b","${var.region}c"]
   replication_group_id = "rg_Redis_1"
   replication_group_description = “replication_group for Redis which is configured with a single shard primary with 2 read replicas”
-  node_type = "cache.m4.large"
+  node_type = "cache.t2.small"
   number_cache_clusters = 3
   parameter_group_name = "default.redis3.2"
   port = 6379
