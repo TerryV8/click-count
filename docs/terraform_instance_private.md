@@ -38,7 +38,7 @@ Edit instance_private.tf:
 resource "aws_elasticache_replication_group" "rg_redis"  {
   automatic_failover_enabled = true
   availability_zones = ["${var.region}a","${var.region}b","${var.region}c"]
-  replication_group_id = "rg_redis_1"
+  replication_group_id = "rg-redis-1"
   replication_group_descriptioin = "replication_group for redis which is configured with a single shard primary with 2 read replicas"
   node_type = "cache.t2.small"
   number_cache_clusters = 3
@@ -53,7 +53,7 @@ resource "aws_elasticache_replication_group" "rg_redis"  {
 resource "aws_elasticache_cluster" "replica" {
   count = 2
 
-  cluster_id = "rg_redis_1-${count.index}"
+  cluster_id = "rg-redis-1-${count.index}"
   replication_group_id = "${aws_elasticache_replication_group.rg_redis.id}"
 
 }
