@@ -119,7 +119,7 @@ ElastiCache Dashboard/Redis:
  
 
 Cluster Name | Mode | Shards | Nodes | Node Type | Status | Encryption in-transit | Encryption at-rest
----          | ---  | ---    | ---  | ---      | ---      | ---                  | ---
+--- | --- | --- | --- | --- | --- | --- | ---
 rg-redis | Redis | 1 | 3 nodes | cache.m5.xlarge | available | No | No
 ```
 
