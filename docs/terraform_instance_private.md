@@ -121,6 +121,35 @@ Cluster Name | Mode | Shards | Nodes | Node Type | Status | Encryption in-transi
 rg-redis | Redis | 1 | 3 nodes | cache.m5.xlarge | available | No | No
 
 
+On description:
+NameThe identifier for the cluster	rg-redis
+StatusThe status of this Cluster	available
+Creation TimeThe time (UTC) when the cluster was created	December 30, 2018 at 10:32:13 AM UTC+1
+Configuration EndpointThe configuration endpoint of the cluster	-
+Primary EndpointPrimary endpoint of the cluster	rg-redis.feg1ds.ng.0001.euw3.cache.amazonaws.com:6379
+Node typeThe type of the Node in your cluster	cache.m5.xlarge
+EngineEngine on the cluster	Redis
+Engine Version CompatibilityVersion compatibility of the engine that will be run on your nodes	5.0.0
+Availability ZonesThe Availability Zone(s) in which you would prefer to deploy your Cluster	eu-west-3b, eu-west-3a, eu-west-3c
+ShardsThe number of Shards in a Redis Cluster	1
+Number of NodesThe number of Nodes in the cluster	3 nodes
+Notification ARNThe Amazon Resource Number (ARN) of the SNS topic for which you receive notifications related to the Cluster	Disabled
+Subnet GroupThe Subnet Group of the Cluster	default
+Security Group(s)If the nodes are not in VPC, these are the names of the Security Groups. If the nodes are in a VPC, these are the IDs of the VPC security groups	
+Parameter GroupThe parameter group of the Cluster	default.redis5.0 (in-sync)
+Backup Retention PeriodThe number of days for which automated backups are retained.	Disabled
+Backup WindowThe daily time range during which automated backups are initiated if automated backups are enabled.	Disabled
+Maintenance WindowThe weekly time range (in UTC) during which system maintenance can occur.	fri:03:30-fri:04:30
+Encryption in-transitStatus of enabling encryption of data on-the-wire	No
+Encryption at-restStatus of enabling encryption for data stored on disk	No
+Redis AuthStatus of Redis Auth which is an authentication mechanism for Redis Server	No
+
+On Nodes details:
+Node Name | Status | Current Role | Port | Endpoint | Parameter Group Status | Zone | Created on
+rg-redis-001 | available | primary | 6379 | rg-redis-001.feg1ds.0001.euw3.cache.amazonaws.com | in-sync | eu-west-3b | December 30, 2018 at 10:32:13 AM UTC+1
+rg-redis-002 | available | replica | 6379 | rg-redis-002.feg1ds.0001.euw3.cache.amazonaws.com | in-sync | eu-west-3a | December 30, 2018 at 10:32:13 AM UTC+1
+rg-redis-003 | available | replica | 6379 | rg-redis-003.feg1ds.0001.euw3.cache.amazonaws.com | in-sync | eu-west-3c | December 30, 2018 at 10:32:13 AM UTC+1
+
 
 
 # AWS_elasticache_cluster Redis Terraform module for the back
