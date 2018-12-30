@@ -38,8 +38,14 @@ resource "aws_subnet" "private-c" {
   }
 }
 
+resource "aws_elasticache_subnet_group" "sg-elasticache-redis"
+{
+  name = "sg-elasticache-redis"
+  subnet_ids = ["${aws_subnet.private-a.id}","${aws_subnet.private-b.id}","${aws_subnet.private-c.id}"]  
+}
 ```
 
+We added the aws_elasticache_subnet_group since we are going to use later the aws_elasticache_replication_group module for creating Redis database.
 
 
 
