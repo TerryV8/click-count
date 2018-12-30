@@ -44,6 +44,12 @@ resource "aws_elasticache_replication_group" "rg_redis"  {
   number_cache_clusters = 3
   parameter_group_name = "default.redis5.0"
   port = 6379
+  subnet_group_name = "${aws_elasticache_subnet_group.sg-elasticache-redis.name}"
+
+
+  depends_on = ["aws_subnet.private-a","aws_subnet.private-b","aws_subnet.private-c"]
+
+
 }
 ```
 
