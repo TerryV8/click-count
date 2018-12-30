@@ -146,6 +146,7 @@ Redis AuthStatus of Redis Auth which is an authentication mechanism for Redis Se
 
 On Nodes details:
 Node Name | Status | Current Role | Port | Endpoint | Parameter Group Status | Zone | Created on
+--- | --- | --- | --- | --- | --- | --- | ---
 rg-redis-001 | available | primary | 6379 | rg-redis-001.feg1ds.0001.euw3.cache.amazonaws.com | in-sync | eu-west-3b | December 30, 2018 at 10:32:13 AM UTC+1
 rg-redis-002 | available | replica | 6379 | rg-redis-002.feg1ds.0001.euw3.cache.amazonaws.com | in-sync | eu-west-3a | December 30, 2018 at 10:32:13 AM UTC+1
 rg-redis-003 | available | replica | 6379 | rg-redis-003.feg1ds.0001.euw3.cache.amazonaws.com | in-sync | eu-west-3c | December 30, 2018 at 10:32:13 AM UTC+1
