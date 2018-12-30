@@ -44,21 +44,7 @@ resource "aws_elasticache_replication_group" "rg_redis"  {
   number_cache_clusters = 3
   parameter_group_name = "default.redis5.0"
   port = 6379
-  
-  lifecycle {
-    ignore_changes = ["number_cache_clusters"]
-  }
 }
-
-resource "aws_elasticache_cluster" "replica" {
-  count = 2
-
-  cluster_id = "rg-redis-1-${count.index}"
-  replication_group_id = "${aws_elasticache_replication_group.rg_redis.id}"
-
-}
-
-
 ```
 
 
@@ -119,6 +105,22 @@ In a cache cluster, administrators can decide whether to propagate invalidation 
 
 
 
+# On AWS WEB UI CONSOLE
+
+After:
+```console
+terraform apply
+```
+
+On AWS WEB UI CONSOLE:
+ElastiCache Dashboard/Redis:
+```console
+	
+ 
+
+Cluster Name | Mode | Shards | Nodes | Node Type | Status | Encryption in-transit | Encryption at-rest
+rg-redis | Redis | 1 | 3 nodes | cache.m5.xlarge | available | No | No
+```
 
 
 
