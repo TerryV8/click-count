@@ -59,7 +59,8 @@ resource aws_security_group "sg_ssh_and_ping" {
 
 
 Temporary add the lines in security_groups_front.tf to download/update all required initial packages.
-Then remove those added lines later when everything is done:
+Then when you download all, go to the AWS WEB UI Console and delete it manually. 
+It will allow to restrict the secutiry on those instances:
 ```console
 resource "aws_security_group" "allow_all" {
   name = "allow all"
