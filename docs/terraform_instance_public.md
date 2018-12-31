@@ -71,7 +71,18 @@ resource "aws_instance" "instance_public_c" {
   }
 }
 
+```
 
 
+Temporary modify the lines in instance_public.tf to download/update all required initial packages.
+Then put back the modified lines as initially later when everything is done.
+Replace:
+```console
+  security_groups = ["${aws_security_group.sg_LB_to_WebApps.id}", "${aws_security_group.sg_ssh_and_ping.id}"]
 
 ```
+by:
+```console
+  security_groups = ["${aws_security_group.sg_LB_to_WebApps.id}", "${aws_security_group.sg_ssh_and_ping.id}", "${aws_security_group.sg_allow_all.id}"]
+```
+
