@@ -94,3 +94,5 @@ in order to ensure the sustainability of the solution.
       - [with DNS Route53](docs/terraform_dns.md)
 
 - #### [Ansible](docs/ansible.md)
+    - [with playbook 1](docs/ansible_playbook.md)
+
