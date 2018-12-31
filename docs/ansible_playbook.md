@@ -6,14 +6,15 @@
 Edit ansible_setup.yml
 ```console
 ---
-- hosts: alll
+- hosts: all
   name: Setup everything
-  gather_facts: true
+  gather_facts: false
+  remote_user: ec2-user
   sudo: yes
-  become_user: ec2-user
-  
+
   tasks:
-    - command: cat /etc/motd
+    - command: echo "Thierry"
+
 
         
         
