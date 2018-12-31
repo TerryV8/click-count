@@ -19,7 +19,7 @@ variable "aws_secret_key" {
 
 variable "public_key_directory_path"  {
   description = "The path of the SSH directory where it is stored the public/private key."
-  default = ""
+  default = "/root/.ssh"
 }
 
 
