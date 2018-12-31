@@ -40,6 +40,23 @@ ec2-35-180-28-196.eu-west-3.compute.amazonaws.com
 ec2-35-180-227-12.eu-west-3.compute.amazonaws.com
 ```
 
+I usually copy and move the default one so I can reference it later:
+```console
+sudo mv /etc/ansible/ansible.cfg /etc/ansible/ansible.cfg.orig
+```
+
+
+Edit /etc/ansible/ansible.cfg by replacing 
+```console
+#private_key_file = /path/to/file
+```
+to:
+```console
+private_key_file = /root/.ssh/clickcount-auth
+```
+
+
+
 # Basic: Running Commands
 
 Once we have an inventory configured, we can start running Tasks against the defined servers.
