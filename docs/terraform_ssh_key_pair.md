@@ -17,3 +17,10 @@ resource "aws_key_pair" "auth"  {
   public_key = "${file(var.public_key_path)}"
 }
 ```
+
+Then when the instances are all created 
+by the command "Terraform apply", you can ssh to them.
+For example, if I want to ssh to the server ec2-35-180-202-55.eu-west-3.compute.amazonaws.com:
+```console
+ssh ec2-user@ec2-35-180-202-55.eu-west-3.compute.amazonaws.com -i /root/.ssh/clickcount-auth
+```
