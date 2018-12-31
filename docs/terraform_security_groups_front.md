@@ -56,3 +56,33 @@ resource aws_security_group "sg_ssh_and_ping" {
 
 
 - The public subnet is accessible and all traffic (0.0.0.0/0) is routed directly to the Internet gateway
+
+
+Temporary add the lines in security_groups_front.tf to download/update all required initial packages.
+Then remove those added lines later when everything is done:
+```console
+resource "aws_security_group" "allow_all" {
+  name = "allow all"
+  description = "Allow all inbound traffic"
+  vpc_id = "${aws_vpc.default.id}"
+
+  ingress {
+    from_port = 0
+    to_port = 65535
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "allow_all"
+  }
+}
+```
+
