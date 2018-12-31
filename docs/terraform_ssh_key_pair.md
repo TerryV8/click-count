@@ -14,6 +14,6 @@ Edit key-pairs.tf:
 ```console
 resource "aws_key_pair" "auth"  {
   key_name = "clickcount-auth"
-  public_key = "${file(var.public_key_path)}"
+  public_key = "${file(var.public_key_directory_path)}/clickcount-auth"
 }
 ```
