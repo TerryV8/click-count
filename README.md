@@ -75,12 +75,12 @@ in order to ensure the sustainability of the solution.
       - [with a Private subnet for the back](docs/terraform_private_subnet.md)
       - [with a Route table for routing and Internet gateway for internet](docs/terraform_routing.md)
 
-    - Firewall:  
+    - Security:  
       - [with Security groups for:](docs/terraform_security_groups.md)
         - [the layer load balancer](docs/terraform_security_groups_load_balancer.md)
         - [the layer front](docs/terraform_security_groups_front.md)
         - [the layer back](docs/terraform_security_groups_back.md)
-      - [with Ssh key pair](docs/terraform_ssh_key_pair.md)
+      - [with AWS Ssh key pair](docs/terraform_ssh_key_pair.md)
       
     - Servers:
       - [with 1 Load Balancer](docs/terraform_instance_load_balancer.md)
