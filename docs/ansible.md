@@ -27,10 +27,25 @@ I usually copy and move the default one so I can reference it later:
 sudo mv /etc/ansible/hosts /etc/ansible/hosts.orig
 ```
 
+Check the available EC2 instance on AWS WEB UI Console
+and attribute the 3 EC2 instances to 1 controller and 2 workers
+
+Edit /etc/ansible/hosts to something similar to below:
+```console
+[kubernetes_controller]
+ec2-35-180-172-87.eu-west-3.compute.amazonaws.com
+
+[kubernetes_worker]
+ec2-35-180-28-196.eu-west-3.compute.amazonaws.com
+ec2-35-180-227-12.eu-west-3.compute.amazonaws.com
+```
+
 # Basic: Running Commands
 
 Once we have an inventory configured, we can start running Tasks against the defined servers.
 
 ```console
-ansible -m ping hosts --private-key=/root/.ssh/click-count -u ec2-user
+ansible -m ping all -i /etc/ansible/hosts --private-key=/root/.ssh/clickcount-auth -u ec2-user
 ```
+
+
