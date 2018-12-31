@@ -12,10 +12,16 @@ variable "aws_access_key" {
   default = "xxxxxxxxxxx"
 }
 
-vaariable "aws_secret_key" {
+variable "aws_secret_key" {
   description = "AWS secret key"
   default = "xxxxxxxxxxx"
 }
+
+variable "public_key_directory_path"  {
+  description = "The path of the SSH directory where it is stored the public/private key."
+  default = ""
+}
+
 
 variable "region"  {
   description = "AWS region to host your network"
