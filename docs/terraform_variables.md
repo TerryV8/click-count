@@ -22,6 +22,11 @@ variable "public_key_path"  {
   default = "/root/.ssh/clickcount-auth.pub"
 }
 
+variable "ipv4_local"  {
+  description = "ipv4 address of the local machine"
+  default = "217.163.58.239/32"
+}
+
 
 variable "region"  {
   description = "AWS region to host your network"
