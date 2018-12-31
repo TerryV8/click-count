@@ -17,9 +17,9 @@ variable "aws_secret_key" {
   default = "xxxxxxxxxxx"
 }
 
-variable "public_key_directory_path"  {
-  description = "The path of the SSH directory where it is stored the public/private key."
-  default = "/root/.ssh"
+variable "public_key_path"  {
+  description = "The path of the public SSH key"
+  default = "/root/.ssh/clickcount-auth.pub"
 }
 
 
