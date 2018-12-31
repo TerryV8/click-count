@@ -37,14 +37,14 @@ resource aws_security_group "sg_ssh_and_ping" {
     from_port = 22
     to_port = 22
     protocol = "tcp"
-    cidr_blocks = ["176.151.42.54/32"]
+    cidr_blocks = ["${var.ipv4_local}"]
   }
   
   ingress {
     from_port = -1
     to_port = -1
     protocol = "icmp"
-    cidr_blocks = ["176.151.42.54/32"]
+    cidr_blocks = ["${var.ipv4_local}"]
   }
   
   tags {
