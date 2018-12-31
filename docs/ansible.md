@@ -1,5 +1,28 @@
 # Ansible
 
-Configuration Management vs Orchestration
-Chef, Puppet & Ansible are all configuration management tools and are designed to install and manage softwares on existing servers. Terraform & CloudFormation are orchestration tools and are designed to provision the servers themselves, leaving the job to configure these servers to some other tools. Orchestration is the process of combining multiple automation tasks to create an instance or IP etc. While most of the configuration management tools can do some degree of orchestration and vice-versa, they lack the depth & breadth of specialized tools like Terraform.
-With Docker, however configuration management has become less complex and simple to manage in itself as you can create docker images with pre-installed softwares. All you need after creating the docker image is a server to run it. That is where Terraform can be a better fit than a configuration management tool like Chef or Puppet or Ansible.
+## Orchestration (Terraform) vs Configuration Management (Ansible)
+
+Although Terraform & CloudFormation are orchestration tools and are designed to provision the servers themselves,
+Ansible is a configuration management and provisioning tool, similar to Chef, Puppet or Salt. It is designed to install and manage softwares on existing servers 
+
+So, we use Terraform to provision infrastructure resources, 
+then pass the baton to Ansible, to install and configure software components.
+
+## Ansible characteristics
+
+Ansible uses these facts to check state and see if it needs to change anything in order to get the desired outcome. This makes it safe to run Ansible Tasks against a server over and over again.
+
+## Install
+
+Of course we need to start by installing Ansible. Tasks can be run off of any machine Ansible is installed on.
+
+This means there's usually a "central" server running Ansible commands, although there's nothing particularly special about what server Ansible is installed on. Ansible is "agentless" - there's no central agent(s) running. We can even run Ansible from any server; I often run Tasks from my laptop.
+
+### Managing Servers
+
+Ansible has a default inventory file used to define which servers it will be managing. After installation, there's an example one you can reference at /etc/ansible/hosts.
+
+I usually copy and move the default one so I can reference it later:
+```console
+sudo mv /etc/ansible/hosts /etc/ansible/hosts.orig
+```
