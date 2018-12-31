@@ -17,6 +17,21 @@ resource "aws_instance" "instance_public_a" {
   security_groups = ["${aws_security_group.sg_LB_to_WebApps.id}", "${aws_security_group.sg_ssh_and_ping.id}"]
   associate_public_ip_address = true
   
+  provisioner "remote-exec" {
+    connection {
+      type = "ssh"
+      user = "ec2-user"
+      timeout = "120s"
+      private_key = "${file("/root/.ssh/clickcount-auth")}"
+    }
+
+    inline = [
+      "sudo yum -y update",
+      "sudo yum -y install telnet"
+    ]
+  }
+
+  
   tags {
     Name = "instance_public_a"
   }
@@ -37,6 +52,20 @@ resource "aws_instance" "instance_public_b" {
   subnet_id = "${aws_subnet.public-b.id}"
   security_groups = ["${aws_security_group.sg_LB_to_WebApps.id}", "${aws_security_group.sg_ssh_and_ping.id}"]
   associate_public_ip_address = true
+
+  provisioner "remote-exec" {
+    connection {
+      type = "ssh"
+      user = "ec2-user"
+      timeout = "120s"
+      private_key = "${file("/root/.ssh/clickcount-auth")}"
+    }
+
+    inline = [
+      "sudo yum -y update",
+      "sudo yum -y install telnet"
+    ]
+  }
   
   tags {
     Name = "instance_public_b"
@@ -58,6 +87,20 @@ resource "aws_instance" "instance_public_c" {
   subnet_id = "${aws_subnet.public-c.id}"
   security_groups = ["${aws_security_group.sg_LB_to_WebApps.id}", "${aws_security_group.sg_ssh_and_ping.id}"]
   associate_public_ip_address = true
+
+  provisioner "remote-exec" {
+    connection {
+      type = "ssh"
+      user = "ec2-user"
+      timeout = "120s"
+      private_key = "${file("/root/.ssh/clickcount-auth")}"
+    }
+
+    inline = [
+      "sudo yum -y update",
+      "sudo yum -y install telnet"
+    ]
+  }
   
   tags {
     Name = "instance_public_c"
