@@ -26,3 +26,11 @@ I usually copy and move the default one so I can reference it later:
 ```console
 sudo mv /etc/ansible/hosts /etc/ansible/hosts.orig
 ```
+
+# Basic: Running Commands
+
+Once we have an inventory configured, we can start running Tasks against the defined servers.
+
+```console
+ansible -m ping hosts --private-key=/root/.ssh/click-count -u ec2-user
+```
