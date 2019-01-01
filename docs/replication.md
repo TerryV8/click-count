@@ -87,14 +87,14 @@ systemctl restart docker && systemctl restart kubelet.service && systemctl daemo
 
 - ## (2/4) Only on master node: Initializing the master of the Kubernetes cluster
 
-The master is the machine where the “control panel” components run, including etcd (the cluster database) and the API server (which the kubectl CLI communicates with). All of these components run in pods started by kubelet.
+The master is the machine where the “control plane” components run, including etcd (the cluster database) and the API server (which the kubectl CLI communicates with). All of these components run in pods started by kubelet.
 
 To initialize the master of the Kubernetes cluster, pick one of the machines you previously installed kubelet and kubeadm on, and run:
 ```console
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --kubernetes-version=v1.11.3
 ```
 
-This will install the cluster database and “control plane” components. This will autodetect the network interface to advertise the master on as the interface with the default gateway. If you want to use a different interface, specify --api-advertise-addresses=<ip-address> argument to kubeadm init.
+This will install the cluster database and “control plane” components. This will autodetect the network interface to advertise the master on as the interface with the default gateway. If you want to use a different interface, specify --api-advertise-addresses=*ip-address* argument to kubeadm init.
 
 ### The Kubernetes cluster is secure
 
