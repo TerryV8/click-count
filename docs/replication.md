@@ -27,10 +27,10 @@ _ a sample microservices application (a socks shop) on the cluster
 - ## (1/4) Installing kubelet and kubeadm on your hosts
 You are going to install the following packages on all the machines:
 
-- _ docker: the container runtime, which Kubernetes depends on. v1.11.2 is recommended, but v1.10.3 and v1.12.1 are known to work as well.
-- _ kubelet: the most core component of Kubernetes. It runs on all of the machines in your cluster and does things like starting pods and containers.
-- _ kubectl: the command to control the cluster once it’s running. You will only need this on the master, but it can be useful to have on the other nodes as well.
-- _ kubeadm: the command to bootstrap the cluster.
+- => docker: the container runtime, which Kubernetes depends on. v1.11.2 is recommended, but v1.10.3 and v1.12.1 are known to work as well.
+- => kubelet: the most core component of Kubernetes. It runs on all of the machines in your cluster and does things like starting pods and containers.
+- => kubectl: the command to control the cluster once it’s running. You will only need this on the master, but it can be useful to have on the other nodes as well.
+- => kubeadm: the command to bootstrap the cluster.
 
 To configure the yum repo with Kubernetes, edit /etc/yum.repos.d/kubernetes.repo:
 ```console
