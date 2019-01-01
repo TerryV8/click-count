@@ -98,7 +98,7 @@ This will install the cluster database and “control plane” components. This 
 
 ### The Kubernetes cluster is secure
 
-When initializing the master of the Kubernetes cluster, the output should look like :
+OUTPUT:
 ```console
 [init] using Kubernetes version: v1.11.3
 [preflight] running pre-flight checks
