@@ -87,3 +87,16 @@ resource "aws_security_group" "allow_all" {
 }
 ```
 
+```console
+resource "aws_security_group" "controller-apiserver" {
+  name = "controller-apiserver"
+  description = "controller-apiserver for Kubernetes"
+  vpc_id = "${aws_vpc.default.id}"
+
+  type        = "ingress"
+  protocol    = "tcp"
+  from_port   = 6443
+  to_port     = 6443
+  cidr_blocks = ["0.0.0.0/0"]
+}
+```
