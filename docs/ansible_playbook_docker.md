@@ -13,34 +13,21 @@ Edit ansible_setup_docker.yml
   become: yes
 
   tasks:
-    - name: "Installing Docker Prerequisite packages"
+    - name: "Installing Docker Prerequisite packages 1/2"
       yum:
         name: ['yum-utils', 'device-mapper-persistent-data', 'lvm2']
         state: latest
 
-    - name: "Installing another Docker Prerequisite package: container-selinux-2.9"
-      command: "yum -y install ftp://bo.mirror.garr.it/1/slc/centos/7.1.1503/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm"
-      register: command_result
-      failed_when: command_result.rc!=0 and ("Nothing to do" not in command_result.stderr)
-
-    - name: "Configuring docker-ce repo"
-      get_url:
-        url: https://download.docker.com/linux/centos/docker-ce.repo
-        dest: /etc/yum.repos.d/docker-ce.repo
-        mode: 0644
-
-    - name: "Installing Docker latest version"
+    - name: "Installing Docker (version 17.03)"
       yum:
-        name: docker-ce
-        state: latest
+        name:
+          - https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-selinux-17.03.2.ce-1.el7.centos.noarch.rpm
+          - https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-17.03.2.ce-1.el7.centos.x86_64.rpm
+        state: present
 
     - name: "Starting and Enabling Docker service"
       service:
         name: docker
         state: started
         enabled: yes
-```
-
-
-    
 ```
