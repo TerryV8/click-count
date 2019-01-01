@@ -24,7 +24,7 @@ _ a sample microservices application (a socks shop) on the cluster
 
 
 # Setting up the Kubernetes cluster
-- ## (1/4) Installing kubelet and kubeadm on your hosts
+- ## (1/4) On all nodes: Installing kubelet and kubeadm on your hosts
 You are going to install the following packages on all the machines:
 
 - => docker: the container runtime, which Kubernetes depends on. v1.11.2 is recommended, but v1.10.3 and v1.12.1 are known to work as well.
@@ -85,7 +85,7 @@ systemctl restart docker && systemctl restart kubelet.service && systemctl daemo
 ```
 
 
-- ## (2/4) Initializing the master of the Kubernetes cluster
+- ## (2/4) Only on master node: Initializing the master of the Kubernetes cluster
 
 The master is the machine where the “control plane” components run, including etcd (the cluster database) and the API server (which the kubectl CLI communicates with). All of these components run in pods started by kubelet.
 
@@ -220,7 +220,7 @@ kube-system   kube-proxy-gb85v                              1/1       Running   
 kube-system   kube-scheduler-centos-linux.shared            1/1       Running   2          8h
 ```
 
-- ## (4/4) Joining the other nodes
+- ## (4/4) Only on worker nodes: Joining the other nodes
 
 Once the kube-dns pod is up and running, you can continue by joining your other nodes.
 
