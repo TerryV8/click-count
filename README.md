@@ -95,4 +95,6 @@ in order to ensure the sustainability of the solution.
 
 - #### [Ansible](docs/ansible.md)
     - [with playbook for setting up Docker](docs/ansible_playbook_docker.md)
+    - [with playbook for setting up Kubernetes](docs/ansible_playbook_kubernetes.md)
+    - [with playbook for setting up Kubernetes Controller](docs/ansible_playbook_kubernetes_controller.md)
 
