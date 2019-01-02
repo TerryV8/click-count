@@ -177,7 +177,7 @@ Thus, now, we are going to learn how to scale up, by adding more replicas to our
 
 However, a better approach is to Edit deployment-web-app.yml :
 ```console
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-app
