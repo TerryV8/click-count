@@ -39,6 +39,14 @@ $ pip install awscli --upgrade --user
 Use the AWS CLI update-kubeconfig command to create or update your kubeconfig for your cluster:
 By default, the resulting configuration file is created at the default kubeconfig path (.kube/config) in your home directory or merged with an existing kubeconfig at that location. You can specify another path with the --kubeconfig option.
 
-test-EKS-cluster-2
 
+Using test-EKS-cluster-2, the name of the cluster that we created on AWS WEB UI Console:
+```console
+aws eks update-kubeconfig --name test-EKS-cluster-2
+```
+
+OUTPUT:
+```console
+Added new context arn:aws:eks:eu-west-1:412508216422:cluster/test-EKS-cluster-2 to /root/.kube/config
+```
 
