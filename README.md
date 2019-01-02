@@ -98,3 +98,10 @@ in order to ensure the sustainability of the solution.
     - [with playbook for setting up Kubernetes](docs/ansible_playbook_kubernetes.md)
     - [with playbook for setting up Kubernetes Controller](docs/ansible_playbook_kubernetes_controller.md)
 
+
+## Automated Kubernetes Deployment with EKS provided by AWS
+
+  - #### [EKS](docs/eks.md)
+      - [Setup EKS](docs/eks_setup.md)
+
+
