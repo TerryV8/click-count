@@ -94,10 +94,6 @@ Finally, restart the kubelet service and docker service:
 sudo systemctl restart docker && sudo systemctl restart kubelet.service && sudo systemctl daemon-reload
 ```
 
-Install Flannel network:
-```console
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-```
 
 - ## (2/4) Only on master node: Initializing the master of the Kubernetes cluster
 
@@ -194,6 +190,11 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```  
+
+Install Flannel network:
+```console
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+```
 
 - ## (3/4) Installing a pod network, so that application components (pods) can talk to each other
 
