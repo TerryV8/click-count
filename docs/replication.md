@@ -81,7 +81,7 @@ Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"
 
 Finally, restart the kubelet service and docker service:
 ```console
-systemctl restart docker && systemctl restart kubelet.service && systemctl daemon-reload
+sudo systemctl restart docker && sudo systemctl restart kubelet.service && sudo systemctl daemon-reload
 ```
 
 
