@@ -80,6 +80,15 @@ Also, add this line to /etc/systemd/system/kubelet.service.d/10-kubeadm.conf:
 Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"
 ```
 
+Install docker
+```console
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install -y http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.68-1.el7.noarch.rpm
+sudo yum install -y docker-ce-18.06.1.ce-3.el7
+
+```
+
+
 Finally, restart the kubelet service and docker service:
 ```console
 sudo systemctl restart docker && sudo systemctl restart kubelet.service && sudo systemctl daemon-reload
