@@ -75,6 +75,7 @@ The kubectl run command below causes Kubernetes to create a Deployment named web
 However, a better approach is to Edit pod-web-app.yml :
 ```consoleapiVersion: v1
 kind: Pod
+apiVersion: v1
 metadata:
   name: web-app
   labels:
