@@ -206,6 +206,7 @@ spec:
           imagePullPolicy: Always
 ```
 
+Be careful, make sure to change the hostAliases accordingly. (eg. in AWS, the ip will be: "")
 We especially added those lines
 which will append the /etc/hosts on each pod
 to map the redis server ip with the ip 10.211.55.4, which is fixed.
