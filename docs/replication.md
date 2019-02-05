@@ -196,7 +196,7 @@ Install Flannel network:
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
 
-- ## (3/4) Installing a pod network, so that application components (pods) can talk to each other
+- ## (3/4) Only on master node: Installing a pod network, so that application components (pods) can talk to each other
 
 It is necessary to do this before you try to deploy any applications to your cluster, and before kube-dns will start up. Note also that kubeadm only supports CNI based networks and therefore kubenet based networks will not work. Several projects provide Kubernetes pod networks using CNI, some of which also support Network Policy. 
 
