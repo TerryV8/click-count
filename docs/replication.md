@@ -191,10 +191,6 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```  
 
-Install Flannel network:
-```console
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-```
 
 - ## (3/4) Only on master node: Installing a pod network, so that application components (pods) can talk to each other
 
@@ -202,12 +198,14 @@ It is necessary to do this before you try to deploy any applications to your clu
 
 If you are on another architecture than amd64, you should use the flannel overlay network 
 We can install only one pod network per cluster.
-So launch Flannel: 
+
+So let's install Flannel network:
 ```console
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
 ```
 
-Why Flannel ?
+Why choose Flannel ?
 
 - If you want to use flannel as the pod network, specify --pod-network-cidr=10.244.0.0/16 if you’re using the daemonset manifest below. Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes.
 Flannel runs a small, single binary agent called flanneld on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space. Flannel uses either the Kubernetes API or etcd directly to store the network configuration, the allocated subnets, and any auxiliary data (such as the host's public IP). Packets are forwarded using one of several backend mechanisms including VXLAN and various cloud integrations.
