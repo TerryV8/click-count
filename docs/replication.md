@@ -49,6 +49,7 @@ Back to the terminal, launch those commands:
 sudo setenforce 0
 sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 sudo yum install -y kubelet-1.11.3 kubeadm-1.11.3 kubectl-1.11.3 --disableexcludes=kubernetes
+sudo yum install kubelet-1.13.1-0 kubeadm-1.13.1-0 kubectl-1.13.1-0 --disableexcludes=kubernetes
 sudo systemctl enable kubelet && sudo systemctl start kubelet
 ```
 
@@ -92,6 +93,7 @@ The master is the machine where the “control plane” components run, includin
 To initialize the master of the Kubernetes cluster, pick one of the machines you previously installed kubelet and kubeadm on, and run:
 ```console
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --kubernetes-version=v1.11.3
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --kubernetes-version=v1.13.1
 ```
 
 This will install the cluster database and “control plane” components. This will autodetect the network interface to advertise the master on as the interface with the default gateway. If you want to use a different interface, specify --api-advertise-addresses=*ip-address* argument to kubeadm init.
