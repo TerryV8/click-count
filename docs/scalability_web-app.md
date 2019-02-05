@@ -135,7 +135,7 @@ spec:
   - protocol: TCP
     port: 8080
     targetPort: 8080
-    NodePort: 30808
+    nodePort: 30808
   type: NodePort
 ```
 
