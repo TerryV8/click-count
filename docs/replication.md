@@ -94,6 +94,10 @@ Finally, restart the kubelet service and docker service:
 sudo systemctl restart docker && sudo systemctl restart kubelet.service && sudo systemctl daemon-reload
 ```
 
+Install Flannel network:
+```console
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+```
 
 - ## (2/4) Only on master node: Initializing the master of the Kubernetes cluster
 
