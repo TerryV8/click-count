@@ -8,8 +8,9 @@ docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
 ```
 
 You can now login your local Sonar server on http://localhost:9000/ with the admin user and the admin password.
-Genera the yourkey token (eg. token_sonar: 6590b072344f241ddf649121349593e15f09a0d1)
-Click on: Create your first project.
+Generate the "your key token" (eg. token_sonar: 6590b072344f241ddf649121349593e15f09a0d1)
+
+Click on: "Create your first project"
 
 This will allow you to create an access token which you batch job can use to update the project.
 
