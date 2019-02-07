@@ -350,13 +350,13 @@ A lot of Docker images (versions of images) are created on top of Alpine Linux �
 
 I recommend that you use images based on Alpine for third-party services, such as Redis, Postgres, etc. For your app images, use images based on buildpack – it will be easy to debug inside the container, and you’ll have a lot of pre-installed system-wide requirements.
 
-Only you can decide which base image to use, but you can get the maximum benefit by using one basic image for all images, because in this case the cache will be used more effectively.
+Only you can decide which base image to use, but you can get the maximum benefit by using one basic image for all images because in this case the cache will be used more effectively.
   
 
 Volume — can be described as a shared folder. Volumes are initialized when a container is created. Volumes are designed to persist data, independent of the container’s lifecycle. So, be careful with volumes. You should remember what data is in volumes. Because volumes are persistent and don’t die with the containers, the next container will use data from the volume created by the previous container.
 
 # Build and Run
-With one simple command we can build the image and run the container.
+With one simple command, we can build the image and run the container.
 Start the application from the current directory:
 ```console
 docker-compose up --build
@@ -394,7 +394,7 @@ fitterhappierdocker_web_1       python app.py                 Up      0.0.0.0:80
 Both processes are running in a different container, connected via Docker Compose!
 
 
-# Why link docker containers ?
+# Why link docker containers?
 
 You should be running a single process per docker container, this means your application code (say nodejs) and your database (say postgres) need to be running in their own containers. Potentially on different servers if you have a swarm or cluster of hosts.
 Therefore connecting two containers together in docker is essential. So how do you do it?
@@ -436,10 +436,14 @@ If you have an existing container, then run docker network connect my-network my
 Let's test it out by creating two connected containers, drop in to their shells and do some pinging.
 
 # In terminal 1
+```console
 $ docker run --rm -it --net=my-network --name container1 centos bash
+```
 
 # In terminal 2
+```console
 $ docker run --rm -it --net=my-network --name container2 centos bash
+```
 
 Why networks and not links or compose
 The other things I have seen people say on twitter is to use links (largely deprecated now) or compose (the utter wrong tool for the job).
@@ -454,9 +458,12 @@ Another benefit here is that ports between the containers are opened. So if you 
 Let's open a third terminal window and add a memcached instance to our network.
 
 # In terminal 3
+```console
 $ docker run --rm --net my-network --name memcached memcached
+```
 
 # In terminal 1 or 2
+```console
 [root@acefce27fa79 /]# yum install telnet
 [root@acefce27fa79 /]# telnet memcached 11211
 Trying 172.18.0.4...
@@ -464,6 +471,7 @@ Connected to memcached.
 Escape character is '^]'.
 flush_all
 OK
+```
 
 Here we can see we were able to add a new container to the network and immediately access it, and its ports, without any reconfiguration of the containers already on the network.
 
