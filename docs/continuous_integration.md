@@ -126,15 +126,15 @@ This is the output expected in the console:
 
 
 ## OPTIONAL: 
-## Automatically trigerring builds as soon as commit to git
+## Automatically triggering builds as soon as commit to git
 
 For my project, I haven't set up the automatic triger yet.
 Below I am going to give you the idea on how to configure it.
 
-Some teams have a scheduled builds that runs one a week, one a day, twice a day. However, the most efficient and immediate way is to have a trigger. We are going to use Webhooks which is event notifications made from one application to another over http. In jenkins, we can use webhooks to have Github notify Jenkins as soon as the code in GitHub changes.
-Jenkins can respond by automatically running the build to implement any changes. We can configure Jenkins to automatically create and manage webhooks in GitHub. So we must give jenkins access to an API token that allows to access the gitHub API.
+Some teams have a scheduled build that runs one a week, one a day, twice a day. However, the most efficient and immediate way is to have a trigger. We are going to use Webhooks which is event notifications made from one application to another over HTTP. In jenkins, we can use webhooks to have Github notify Jenkins as soon as the code in GitHub changes.
+Jenkins can respond by automatically running the build to implement any changes. We can configure Jenkins to automatically create and manage webhooks in GitHub. So we must give jenkins access to an API token that allows accessing the GitHub API.
 
-Configuring webhooks in Jenkins is realatively easy. We need to:
+Configuring webhooks in Jenkins is relatively easy. We need to:
 _ Create an access token in GitHub that has permission to read and create webhooks
 _ Add a GitHub server in Jenkins for GitHub.com
 _ Create a jenkins credential with the token and configure the GitHub server configuration to use it
@@ -151,7 +151,7 @@ In the section GitHub, select Git server, name: GitHub, Credentials: Add jenkins
 Select Kind: Secret text, Secret: "Enter the api key of GitHub", ID: github_key, Description: GitHubKey
 Then Credential: GitHubKey, check "Manage hooks", click on "test connection"
 
-I ve just set up my Jenkins server to be able to authenticate with GitHub.
+I've just set up my Jenkins server to be able to authenticate with GitHub.
 
 Click on the project >> Configure. 
 _ In the section "Source Code Management" >> Git >> Repository URL: https://github.com/TerryV8/cicd-pipeline-train-schedule-jenkins
@@ -162,7 +162,7 @@ _ In the section  "Build triggers", select "Github hook trigger for GITScm polli
 
 ## What if you need to run Jenkins under a different user in Linux
 
-To change the jenkins user, open the /etc/sysconfig/jenkins (in debian this file is created in /etc/default) and change the JENKINS_USER to whatever you want. Make sure that user exists in the system (you can check the user in the /etc/passwd file ).
+To change the jenkins user, open the /etc/sysconfig/jenkins (in Debian, this file is created in /etc/default) and change the JENKINS_USER to whatever you want. Make sure that user exists in the system (you can check the user in the /etc/passwd file ).
 ```console
 $JENKINS_USER="manula"
 Then change the ownership of the Jenkins home, Jenkins webroot and logs.
