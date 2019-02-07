@@ -4,7 +4,7 @@ Here, we are going to create a Kubernetes cluster of 3 nodes running on Centos 7
 The installation uses a tool called kubeadm which is part of Kubernetes.
 This process works with local VMs, physical servers and/or cloud servers. 
 
-On premise, it assumes you have a set of machines (virtual or real) that are up and running. kubeadm is a great choice where you have your own infrastructure (e.g. bare metal), or where you have an existing orchestration system (e.g. Ansible) that you have to integrate with.
+On-premise, it assumes you have a set of machines (virtual or real) that are up and running. kubeadm is a great choice where you have your own infrastructure (e.g. bare metal), or where you have an existing orchestration system (e.g. Ansible) that you have to integrate with.
 
 If you are not constrained by the Cloud choice, there are some other tools built to give you complete clusters:
   _ On GCE, Google Container Engine gives you one-click Kubernetes clusters
@@ -166,7 +166,7 @@ Your Kubernetes master has initialized successfully!
 
 Above as we just saw, we set up a "secure (TLS)" Kubernetes cluster. We generated certificate and key (ca, apiserver, apiserver-kubelet-client, front-proxy-ca,  front-proxy-client, etcd, ...). The key is used for mutual authentication between the master and the joining nodes.
 
-Also, it told us that:
+Also, it told us:
 1. The port 6443 and 10250 are not opened: 
 
 > [WARNING Firewalld]: firewalld is active, please ensure ports [6443 10250] are open or your cluster may not function correctly
@@ -183,7 +183,7 @@ sudo firewall-cmd --zone=public --add-port=10250/tcp --permanent
 ```
 
 Now, to start using the Kubernetes cluster, we need to run the following as a regular user:
-First, check the repo $HOME/.kube/config is not existed, if so, delete it.
+First, check the repo $HOME/.kube/config is not existed if so, delete it.
 ```console
 rm -rf $HOME/.kube
 mkdir -p $HOME/.kube
