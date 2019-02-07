@@ -39,11 +39,11 @@ Please copy the password from either location and paste it below.
 ```
 Follow the instruction, with the default setting
 
-You can use as adminstrator account:
+You can use as administrator account:
 Username: jenkins
 password: jenkins
 
-In the case, there is an error, type the url <your server address>:8080/restart
+In the case, there is an error, type the url your_server_address:8080/restart
   
 
 ## Creating a Pipeline-As-A-Code Job in Jenkins
@@ -57,10 +57,10 @@ We are going to use Jenkins Pipeline as a code plugin to create our Jenkins job.
 A jenkins pipeline is an automated process built on these tools. It takes source code through a "pipeline" from the source code creation all the way to production deployment.
 
 Pipelines adhere to the best practice of infrastructure as code. Therefore, a pipeline is implemented in a file that is kept in source control along with the rest of the application code. This file is called a Jenkinsfile.
-To create a pipeline, simply create a file called Jenkinsfile and add it to you source control repo.
-When creating the Jenkins project, chosse the "pipeline" or "Multibranch pipeline" project type.
+To create a pipeline, simply create a file called Jenkinsfile and add it to your source control repo.
+When creating the Jenkins project, choose the "pipeline" or "Multibranch pipeline" project type.
 
-Pipelines has a domain-specific-language(DSL) that is used to define the pipeline logic
+Pipeline has a domain-specific-language(DSL) that is used to define the pipeline logic
 
 ##### Writing a Jenkins File
 
