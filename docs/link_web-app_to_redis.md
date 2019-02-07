@@ -1,4 +1,4 @@
-# Map the Redis IP to HAProxy IP, which is going to forward the incomming traffic
+# Map the Redis IP to HAProxy IP, which is going to forward the incoming traffic
 
 The basic configuration in the /etc/hosts in a docker instance of a pod:
 would look like this:
