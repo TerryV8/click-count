@@ -1,7 +1,9 @@
 # Source Control Management
 
-Source Control Management est un important composant dans la pipeline d'integration continue et de deploiement continu.
-C'est une part importante au quotidien du workflow des developpeurs:
+Source Control Management is an important component in our continuous integration and continous deployment pipeline.
+
+It is an huge part of the software development workflow in daily basis:
+- Each coding evoluated by th
 - Tout code evolue par les developpeurs sera trackes dans le Source Control Management
 - Les developpeurs utiliseront le Source Control Management pour tracquer leur changement separement (via des branches) et puis les merger ensemble.
 
