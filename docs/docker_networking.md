@@ -1,4 +1,4 @@
-# Establishing connection between Back-end end Front end
+# Establishing the connection between Back-end end Front end
 
 ### After launching our Redis docker container
 
