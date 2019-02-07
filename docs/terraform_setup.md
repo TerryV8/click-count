@@ -7,9 +7,9 @@ It defines your infrastructure as code and it is cloud-agnostic. Terraform allow
 
 # Our case with AWS
 
-Here, Terraform provisiones a full AWS infrastructure from the ground using Terraform. 
+Here, Terraform provisions a full AWS infrastructure from the ground using Terraform. 
 
-In our case we are going to create a production-ready environment in AWS using Terraform automation which will require us to set up a VPC, Network Gateway, subnets, routes, security groups, EC2 machines with Redis installed inside the private network, and the web app in the public subnet.
+In our case, we are going to create a production-ready environment in AWS using Terraform automation which will require us to set up a VPC, Network Gateway, subnets, routes, security groups, EC2 machines with Redis installed inside the private network, and the web app in the public subnet.
 
 
 ## Setup
