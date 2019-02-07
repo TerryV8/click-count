@@ -183,7 +183,7 @@ sudo firewall-cmd --zone=public --add-port=10250/tcp --permanent
 ```
 
 Now, to start using the Kubernetes cluster, we need to run the following as a regular user:
-First, check the repo $HOME/.kube/config is not existed if so, delete it.
+First, check the repo $HOME/.kube/config has not existed if so, delete it.
 ```console
 rm -rf $HOME/.kube
 mkdir -p $HOME/.kube
@@ -205,14 +205,14 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documen
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
 ```
 
-Why choose Flannel ?
+Why choose Flannel?
 
 - If you want to use flannel as the pod network, specify --pod-network-cidr=10.244.0.0/16 if you’re using the daemonset manifest below. Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes.
 Flannel runs a small, single binary agent called flanneld on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space. Flannel uses either the Kubernetes API or etcd directly to store the network configuration, the allocated subnets, and any auxiliary data (such as the host's public IP). Packets are forwarded using one of several backend mechanisms including VXLAN and various cloud integrations.
 
 - Platforms like Kubernetes assume that each container (pod) has a unique, routable IP inside the cluster. The advantage of this model is that it removes the port mapping complexities that come from sharing a single host IP.
 
-- Flannel is responsible for providing a layer 3 IPv4 network between multiple nodes in a cluster. Flannel does not control how containers are networked to the host, only how the traffic is transported between hosts. However, flannel does provide a CNI plugin for Kubernetes and a guidance on integrating with Docker.
+- Flannel is responsible for providing a layer 3 IPv4 network between multiple nodes in a cluster. Flannel does not control how containers are networked to the host, only how the traffic is transported between hosts. However, flannel does provide a CNI plugin for Kubernetes and guidance on integrating with Docker.
 
 - Flannel is focused on networking. For network policy, other projects such as Calico can be used.
 
@@ -256,7 +256,7 @@ If you want to add any new machines as nodes to your cluster, for each machine: 
 ```
 whereas I can ping the master, as well as ssh from the node to the master. 
 
-The issue is that you have a firewall running on your master node that are blocking incoming traffic from slave nodes
+The issue is that you have a firewall running on your master node that is blocking incoming traffic from slave nodes
 - First solution: Open the 2 specific host ports on the master node.
 ```console
 sudo firewall-cmd --zone=public --add-port=6443/tcp --permanent
