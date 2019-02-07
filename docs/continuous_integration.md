@@ -27,7 +27,7 @@ sudo systemctl enable jenkins
 sudo systemctl start jenkins
 ```
 
-Go to the Jenkins web UI, "<your server address>":8080 in a browser,
+Go to the Jenkins web UI, your_server_address:8080 in a browser,
 eg. http://10.211.55.4:8080/
 
 On the home page, you got this message:
