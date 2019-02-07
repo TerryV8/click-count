@@ -125,7 +125,7 @@ This is the output expected in the console:
 ```
 
 
-## OPTIONAL: 
+## LATER IMPROVEMENT: 
 ## Automatically triggering builds as soon as commit to git
 
 For my project, I haven't set up the automatic triger yet.
