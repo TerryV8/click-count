@@ -6,9 +6,9 @@ _ faster development process
 
 _ handy application encapsulation
 
-_ the same behaviour on local machine / dev / staging / production servers
+_ the same behavior on local machine / dev / staging / production servers
 
-_ distribute the whole app inclusing the "server" in a ready-to-run state
+_ distribute the whole app including the "server" in a ready-to-run state
 
 _ easy and clear monitoring
 
@@ -20,7 +20,7 @@ _ better than Virtual Machine (VM)
 - ### Faster development process
 There is no need to install 3rd-party apps like PostgreSQL, Redis, or Elasticsearch on the system — you can run them in containers.
 
-Docker also gives you the ability to run different versions of same application simultaneously. For example, say you need to do some manual data migration from an older version of Postgres to a newer version. You can have such a situation in microservice architecture when you want to create a new microservice with a new version of the 3rd-party software.
+Docker also gives you the ability to run different versions of the same application simultaneously. For example, say you need to do some manual data migration from an older version of Postgres to a newer version. You can have such a situation in microservice architecture when you want to create a new microservice with a new version of the 3rd-party software.
 
 It could be quite complex to keep two different versions of the same app on one host OS. In this case, Docker containers could be a perfect solution — you receive isolated environments for your applications and 3rd-parties.
 
@@ -28,13 +28,13 @@ It could be quite complex to keep two different versions of the same app on one 
 
 - ### Handy application encapsulation
 
-With Docker you can easily deploy a web application along with it’s dependencies, environment variables, and configuration settings - everything you need to recreate your environment quickly and efficiently.
+With Docker, you can easily deploy a web application along with its dependencies, environment variables, and configuration settings - everything you need to recreate your environment quickly and efficiently.
 
 You can deliver your application in one piece. Most programming languages, frameworks, and all operating systems have their own packaging managers. And even if your application can be packed with its native package manager, it could be hard to create a port for another system.
 
 Docker gives you a unified image format to distribute your applications across different host systems and cloud services. You can deliver your application in one piece with all the required dependencies (included in an image) ready to run.
 
-Same behaviour on local machine / dev / staging / production servers
+The same behavior on local machine / dev / staging / production servers
 Docker can’t guarantee 100% dev / staging / production parity, because there is always the human factor. But it reduces to almost zero the probability of error caused by different versions of operating systems, system-dependencies, and so forth.
 
 With the right approach to building Docker images, your application will use the same base image with the same OS version and the required dependencies.
@@ -54,19 +54,19 @@ A correctly wrapped application will cover most of the Twelve Factors. By design
 
 - ### Better than Virtual Machine (VM)
 
-Even if Virtual Machine is a virtualization tools that helps us to spin up new production servers when we need to
+Even if Virtual Machine is a virtualization tool that helps us to spin up new production servers when we need to
 compare to traditional architecture.
 
-Virtual Machine are nowadays:
+Virtual Machine is nowadays:
 - slower
 - using a lot of resources
 - not portable
 - not offering that the code is deployed in the same way on all the VM
-compare to the containarization offered by Docker
+compare to the containerization offered by Docker
 
 What if we have something like a kind of VM, but faster, smaller and easier to work with than a VM. That's what Docker offered. We could package the code and the system-level configuration (entire OS, and simulations of all the hardware) in a lightweight package that can stand up quickly and run almost anywhere.
 
-It is lightweight, because container has only what the app needs in order to run. Moreover, orchestration becomes much easier with container thanks to its lightweight.
+It is lightweight because the container has only what the app needs in order to run. Moreover, orchestration becomes much easier with container thanks to its lightweight.
 
 
 
@@ -85,7 +85,7 @@ sudo systemctl enable docker
 ```
 
 In production, run the container with the restart policy,
-docker eill actually take care of making sure that the container is always running
+docker will actually take care of making sure that the container is always running
 if the application inside the container crashes, docker will automatically recreate the container.
 If the server itself restart or if the docker service restart, docker will make sure that it stands up that container again.
 As long as we explicitly don't stop the container, docker makes that the container is always running.
@@ -113,7 +113,7 @@ docker run -d <docker username>/<image-name>
 docker ps
 ```
 
-Once you "docker build" an image, you can "docker push" it to registry.
+Once you "docker build" an image, you can "docker push" it to the registry.
 Then you can "docker run" that image from anywhere that is set up to access that registry.
 You can maintain your own private registries or you can use the official cloud registry, Docker Hub (hub.docker.com)
 To authenticate with Docker Hub:
@@ -125,13 +125,13 @@ docker push
 
 # Dockerfile
 
-The Dockerfile defines the docker images that will be built. It consists of a series of instructions for produing the image:
+The Dockerfile defines the docker images that will be built. It consists of a series of instructions for producing the image:
 - FROM, sets the parent image that I want to build the image from
 - WORKDIR, sets the current working directory inside the container image for other commands where the source will be put at
-- COPY, copies files from the host into the container image, eg. copy all the source code that is in folder that I cloned from my github and then i am going to copy into the current directory inside the image
+- COPY, copies files from the host into the container image, eg. copy all the source code that is in the folder that I cloned from my GitHub and then I am going to copy into the current directory inside the image
 - RUN, executes a command within the container image
 - EXPOSE, tells docker that the application in the container listens on a particular ports
-- CMD, sets the command that is executed by the container when it is run. Whenever I run a container based on that image, it is going to the run the command inside the working directory
+- CMD, sets the command that is executed by the container when it is run. Whenever I run a container based on that image, it is going to run the command inside the working directory
 
 
 ```console
@@ -212,7 +212,7 @@ Execute inside the container:
 docker exec -it my-app-redis bash
 ```
 
-So what does linking the containers actually do? You’ve learned that a link allows a source container to provide information about itself to a recipient container. In our example, the recipient, web, can access information about the source db. To do this, Docker creates a secure tunnel between the containers that doesn’t need to expose any ports externally on the container; when we started the db container we did not use either the -P or -p flags. That’s a big benefit of linking: we don’t need to expose the source container, here the PostgreSQL database, to the network.
+So what does linking the containers actually do? You’ve learned that a link allows a source container to provide information about itself to a recipient container. In our example, the recipient, web, can access information about the source db. To do this, Docker creates a secure tunnel between the containers that don’t need to expose any ports externally on the container; when we started the db container we did not use either the -P or -p flags. That’s a big benefit of linking: we don’t need to expose the source container, here the PostgreSQL database, to the network.
 
 Docker exposes connectivity information for the source container to the recipient container in two ways:
 - Environment variables,
@@ -221,7 +221,7 @@ Docker exposes connectivity information for the source container to the recipien
 
 
 
-In this part, we shall take a look at how to link Docker Containers. By linking containers, you provide a secure channel via which Docker containers can communicate to each other.
+In this part, we shall take a look at how to link Docker Containers. By linking containers, you provide a secure channel via which Docker containers can communicate with each other.
 
 Think of a sample web application. You might have a Web Server and a Database Server. When we talk about linking Docker Containers, what we are talking about here is the following:
 
@@ -229,14 +229,14 @@ We can launch one Docker container that will be running the Database Server.
 We will launch the second Docker container (Web Server) with a link flag to the container launched in Step 1. This way, it will be able to talk to the Database Server via the link name.
 This is a generic and portable way of linking the containers together rather than via the networking port that we saw earlier in the series. Keep in mind that this chapter covers Linking Containers via the — link flag. A new tool Docker Compose is the recommended way moving forward but for this tutorial, I will cover the — link flag only and leave it to the reader to look at Docker Compose.
 
-Let us begin first by launching the popular NoSQL Data Structure Server Redis. Like other software, Redis too has its official Docker image available in the Docker Hub.
+Let us begin first by launching the popular NoSQL Data Structure Server Redis. Like other software, Redis has its official Docker image available in the Docker Hub as well.
 
 First, let us pull down the Redis image via the following command:
 
 ```console
 $ docker pull redis
 ```
-Next, let us launch a Redis container (named redis1) in detached mode as follows:
+Next, let us launch a Redis container (named redis1) in the detached mode  as follows:
 
 ```console
 $ docker run -d --name redis1 redis
@@ -251,16 +251,16 @@ CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
 ```
 Notice that it has started on port 6379.
 
-Now, let us run a another container, a busybox container as shown below:
+Now, let us run another container, a busybox container as shown below:
 
 ```console
 $ docker run -it --link redis1:redis --name redisclient1 busybox
 ```
-Notice the — link flag. The value provided to the — link flag is sourcecontainername:containeraliasname. We have chosen the value redis1 in the sourcecontainername since that was the name that was given to our first container that we launched earlier. The containeraliasname has been selected as redis and it could be any name of your choice.
+Notice the — link flag. The value provided to the — link flag is sourcecontainername:containeraliasname. We have chosen the value redis1 in the sourcecontainername since that was the name that was given to the first container that we launched earlier. The containeraliasname has been selected as redis and it could be any name of your choice.
 
 The above launch of container (redisclient1) will lead you to the shell prompt.
 
-Now, what has this launch done for you. Let us observe first what entry has got added in the /etc/hosts file of the redisclient1 container:
+Now, what has this launch done for you? Let us observe first what entry has got added in the /etc/hosts file of the redisclient1 container:
 
 ```console
 / # cat /etc/hosts
@@ -276,7 +276,7 @@ ff02::2 ip6-allrouters
 ```
 Notice an entry at the end, where the container redis1 has got associated with the redis name.
 
-Now, if you do a ping by the host name i.e. alias name (redis) — it will work:
+Now, if you do a ping by the hostname i.e. alias name (redis) — it will work:
 
 ```console
 / # ping redis
@@ -304,7 +304,7 @@ REDIS_PORT_6379_TCP_PROTO='tcp'
 ```
 You can see that various environment variables were auto-created for you to help reach out to the redis1 server from the redisclient1.
 
-Sounds good? Now , let us get a bit more adventurous.
+Sounds good? Now, let us get a bit more adventurous.
 
 Exit the redis1 container and come back to the terminal.
 
@@ -323,8 +323,10 @@ PING redis (172.17.0.21): 48 data bytes
 Next thing is to launch the redis client (redis-cli) and connect to our redis server (running in another container and to which we have linked) as given below:
 
 # redis-cli -h redis
+```console
 redis:6379>
-You can see that we have been able to successfully able to connect to the redis server via the alias name that we specified in the — link flag while launching the container. Ofcourse if we were running the Redis server on another port (other than the standard 6379) we could have provided the -p parameter to the redis-cli command and used the value of the environment variable over here (REDIS_PORT_6379_TCP_PORT). Hope you are getting the magic!
+```
+You can see that we have been able to successfully able to connect to the redis server via the alias name that we specified in the — link flag while launching the container. Of course if we were running the Redis server on another port (other than the standard 6379) we could have provided the -p parameter to the redis-cli command and used the value of the environment variable over here (REDIS_PORT_6379_TCP_PORT). Hope you are getting the magic!
 
 Now, let us execute some standard Redis commands:
 
