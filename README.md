@@ -22,7 +22,7 @@ in order to ensure the sustainability of the solution.
 [Read more ...](docs/enonce.md)
 
 # My solution, below:
-## Finally, what we successfully managed to deliver
+## Finally, what we successfully managed to deliver as a solution
 - #### [We build a Web-App Kubernetes with Redis Architecture on AWS provider](docs/final_result.md)
 
 ## Let's design the architecture
