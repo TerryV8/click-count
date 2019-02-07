@@ -18,7 +18,7 @@ Replicas are Read-Only.
 
 # Step 1: Set up a Redis master
 
-The guestbook application uses Redis to store its data. It writes its data to a Redis master instance and reads data from multiple Redis worker (slave) instances. The first step is to deploy a Redis master.
+The guestbook application uses Redis to store its data. It writes its data to a Redis master instance and reads data from multiple Redis workers (slave) instances. The first step is to deploy a Redis master.
 
 Use the manifest file named redis-master-deployment to deploy the Redis master. This manifest file specifies a Deployment controller that runs a single replica Redis master Pod:
 
@@ -161,7 +161,7 @@ Output:
 
 # Creating the Redis Master Service
 
-The guestbook applications needs to communicate to the Redis master to write its data. You need to apply a Service to proxy the traffic to the Redis master Pod. A Service defines a policy to access the Pods.
+The guestbook applications need to communicate with the Redis master to write its data. You need to apply a Service to proxy the traffic to the Redis master Pod. A Service defines a policy to access the Pods.
 
 
 Edit service-redis-master.yml:
