@@ -36,7 +36,7 @@ On AWS Web UI:
 - => Fill User name = terransible, Access type = Programmatic access
 - => Click on Next permissions / Attach existing policies directly => Check AdministratorAccess to attach the AdministratorAccess policy
 - => Click on Next review / Create User
-- => Download the credential .csv file # make sure to download the credencial
+- => Download the credential .csv file # make sure to download the credential
 
 Thanks the credential .csv file,
 we can retrieve the information on "AWS Access Key Id" and "AWS Secret Access Key"
