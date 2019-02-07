@@ -1,16 +1,16 @@
 # Build Automation
 
-Build Automation est l'automatisation des taches necessaires pour processer et preparer le code source au deploiement en production. C'est un important composant de l'integration continue.
+Build Automation is the automation of the tasks required to process and prepare the source code for deployment in production. It is an important component of continuous integration.
 
-Ceci inclus:
-- la compilation
-- la gestion des dependences. S'il y a des parties tiers ou des librairies qui ont besoin d'etre present pour compiler, ou tester le code. Ils vont etre inclus dans le meme package.
-- l'execution des tests d'automatisations. Il s'assure que des tests sont executes et s'ils echouent, cela fait echouer le build
-- le packagage de l'application pour le deploiement
+This includes:
+- the compilation
+- the dependency management. If there are third parties or libraries that need to be present to compile, or test the code, they will be included in the same package.
+- the execution of automation tests. It makes sure that tests are executed and if they fail, it makes fail the build
+- the packaging of the application for deployment
 
-J'ai utilise Maven comme outil d'automatisation de build.
+I used Maven as a build automation tool.
 
-Installer Gradle:
+Let's install Gradle:
 ```bash
 cd ~/
 wget -O ~/gradle-4.7-bin.zip https://services.gradle.org/distributions/gradles-4.7-bin.zip
@@ -20,17 +20,17 @@ sudo unzip -f /opt/gradle ~/gradle-4.7-bin.zip
 sudo vi /etc/profile.d/gradle.sh
 ```
 
-Mettre le texte dans gradle.sh:
+Put the text in the gradle.sh:
 ```bash
 export PATH=$PATH:/opt/gradle/gradle-4.7/bin
 ```
 
-Puis mettre les permissions sur gradle.sh:
+Then, put the permissions on gradle.sh:
 ```bash
 sudo chmod 755 /etc/profile.d/gradle.sh
 ```
 
-Puis, apres s'etre deconnecte et reconnecte:
+After being connected and reconnected, apres s'etre deconnecte et reconnecte:
 ```bash
 gradle --version
 ```
