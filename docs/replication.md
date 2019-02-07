@@ -1,4 +1,4 @@
-# Kubernetes: Installation for resilience of the back-end and front-end
+# Kubernetes: Installation for the resilience of the back-end and front-end
 
 Here, we are going to create a Kubernetes cluster of 3 nodes running on Centos 7.
 The installation uses a tool called kubeadm which is part of Kubernetes.
