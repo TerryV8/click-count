@@ -10,7 +10,7 @@ I like the quotation of Sandi Metz:
 We should write unit tests – which are critical to ensuring long-term quality and correctness.
  
 
-## To provide Unit tests to our project, add these dependecies in the pom.xml:
+## To provide Unit tests to our project, add these dependencies in the pom.xml:
 ```console
 <dependencies>
 ...
@@ -40,10 +40,10 @@ We should write unit tests – which are critical to ensuring long-term quality 
 ```
 
  
-Unit testing provides numerous benefits amongs :
+Unit testing provides numerous benefits among :
  
 ### 1. Makes the Process Agile
-When you add more and more features, you sometimes need to change old design and code. However, changing already-tested code is both risky and costly. If we have unit tests in place, then we can proceed for refactoring confidently.
+When you add more and more features, you sometimes need to change old design and code. However, changing the already-tested  code is both risky and costly. If we have unit tests in place, then we can proceed for refactoring confidently.
 
 In other words, unit tests facilitate safe refactoring. 
 
@@ -77,7 +77,7 @@ Since the bugs are found early, unit testing helps reduce the cost of bug fixes.
 Even if unit testing is the practice of testing small pieces of code, typically individual functions, alone and isolated. If your test uses some external resource, like the network or a database, it’s not a unit test.
 It would more likely be an Integration test.
 
-As the name suggests, in integration testing the idea is to test how parts of the system work together – the integration of the parts. Integration tests are similar to unit tests, but there’s one big difference: while unit tests are isolated from other components, integration tests are not. As a result, when validating integration test results, you could for example validate a database related test by querying the database to check the database state is correct.
+As the name suggests, in integration testing the idea is to test how parts of the system work together – the integration of the parts. Integration tests are similar to unit tests, but there’s one big difference: while unit tests are isolated from other components, integration tests are not. As a result, when validating integration test results, you could, for example, validate a database related test by querying the database to check the database state is correct.
 
 
 
