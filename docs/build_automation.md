@@ -4,8 +4,8 @@ Build Automation is the automation of the tasks required to process and prepare 
 
 This includes:
 - the compilation
-- the dependency management. If there are third parties or libraries that need to be present to compile, or test the code, they will be included in the same package.
-- the execution of automation tests. It makes sure that tests are executed and if they fail, it makes fail the build
+- the dependency management: If there are third parties or libraries that need to be present to compile, or test the code, they will be included in the same package.
+- the execution of automation tests: It makes sure that tests are executed and if they fail, it makes fail the build
 - the packaging of the application for deployment
 
 I used Maven as a build automation tool.
@@ -30,12 +30,12 @@ Then, put the permissions on gradle.sh:
 sudo chmod 755 /etc/profile.d/gradle.sh
 ```
 
-After being connected and reconnected, apres s'etre deconnecte et reconnecte:
+After being connected and reconnected:
 ```bash
 gradle --version
 ```
 
-Enfin la commande utilisee pour installer et lancer le wrapper Gradle
+Finally, to install and launch the Gradle wrapper:
 ```bash
 cd ~/
 mkdir my-project
@@ -44,22 +44,22 @@ gradle wrapper
 ./gradlew build
 ```
 
-Gradle buils consiste en un ensemble de tasks:
-Quand tu lances gradle build appelle un ensemble de tasks que tu veux executer
+Gradle builds are made of a set of tasks.
+When you launch "gradle build", it calls a set of tasks that you want to execute:
 ```bash
 ./gradlew sayHello
 ```
 
 
-This is a simple train schedule app written using nodejs. It is intended to be used as a sample application for a series of hands-on learning activities.
-
-Running the app
-It is not necessary to run this app locally in order to complete the learning activities, but if you wish to do so you will need a local installation of npm. Begin by installing the npm dependencies with:
-
+To running the app, let's begin by installing the npm dependencies with:
+```console
 npm install
+```
 Then, you can run the app with:
 
+```console
 npm start
+```
 Once it is running, you can access it in a browser at http://localhost:3000
 
 
@@ -74,7 +74,7 @@ There are multiple types of automated tests:
 - Smoke test / Sanity tests - these are high-level integration tests that verify basic, large-scale things like whethere or not the application runs, whether application endpoints return http 500 errors, etc
 
 
-
+```console
 Index page
 GET / 200 23.23.ms
   renders successfully
@@ -87,9 +87,10 @@ GET /trains 200 4.32 ms - 02931
   
   BUILD SUCCESSFUL in 2sdf
   3 actinable tasks: 1 executed, 2 up-to-date
+```
 
 What Maven does ?
-Compilation of Source Code
-Running Tests (unit tests and functional tests)
-Packaging the results into JAR’s,WAR’s,RPM’s,etc..
-Upload the packages to remote repo’s (Nexus,Artifactory)
+- Compilation of Source Code
+- Running Tests (unit tests and functional tests)
+- Packaging the results into JAR’s,WAR’s,RPM’s,etc..
+- Upload the packages to remote repo’s (Nexus,Artifactory)
