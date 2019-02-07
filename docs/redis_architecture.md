@@ -1,6 +1,6 @@
 # Redis Architecture
 
-## Avantages of Redis
+## Advantages of Redis
 
 Redis is a key-value store which allows data to be stored and accessed at lightning fast speeds.
 Redis holds its database entirely in the memory, using the disk only for persistence.
@@ -25,7 +25,7 @@ represents a different trade off where very high write and read speed is achieve
 with the limitation of data sets that can't be larger than the memory. 
 
 
-## Based on the use case, choose the correct Redis architecture
+## Based on the use case, let's choose the correct Redis architecture
 
 There are four main topologies of Redis, and each one has and uses different and incompatible features. Therefore, you need to understand all the trade-offs before choosing one.
 
