@@ -21,8 +21,7 @@ To analyse a Maven project use the following command:
 mvn sonar:sonar   -Dsonar.host.url=http://localhost:9000   -Dsonar.login=yourkey
 ```
 
-Create HTML reports
-Your can generate HTML reports in the preview analysis mode.
+To create HTML reports, you can generate HTML reports in the preview analysis mode.
 ```console
 mvn sonar:sonar -Dsonar.analysis.mode=preview -Dsonar.issuesReport.html.enable=true
 ```
