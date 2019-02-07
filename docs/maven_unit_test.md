@@ -10,7 +10,7 @@ I like the quotation of Sandi Metz:
 We should write unit tests – which are critical to ensuring long-term quality and correctness.
  
 
-# To provide Unit tests to our project, add these dependecies in the pom.xml:
+## To provide Unit tests to our project, add these dependecies in the pom.xml:
 ```console
 <dependencies>
 ...
