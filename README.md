@@ -23,7 +23,7 @@ in order to ensure the sustainability of the solution.
 
 # My solution, below:
 ## Finally, what I successfully managed to deliver as a solution
-- #### [A Front Web-App on Kubernetes cluster with a Redis Architecture on AWS cloud provider](docs/final_result.md)
+- ### [Front JavaEE GlashFish Web-App running on a Kubernetes cluster with a Redis Architecture on AWS cloud provider](docs/final_result.md)
 
 ## Let's design the architecture
 - #### [Redis Architecture (Back-end)](docs/redis_architecture.md)
