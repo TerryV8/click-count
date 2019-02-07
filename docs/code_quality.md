@@ -1,6 +1,6 @@
 # SonarQube (formerly Sonar)
 
-SonarQube (formerly Sonar) is an open source platform for continuous inspection of code quality. It provides a server component with a bug dashboard which allows to view and analyse reported problems in your source code.
+SonarQube (formerly Sonar) is an open source platform for continuous inspection of code quality. It provides a server component with a bug dashboard which allows to view and analyze reported problems in your source code.
 
 Running SonarQube via Docker is as simple as the following command.
 ```console
@@ -14,9 +14,9 @@ Click on: "Create your first project"
 
 This will allow you to create an access token which you batch job can use to update the project.
 
-### Analyse a Maven project
+### analyze a Maven project
 
-To analyse a Maven project use the following command:
+To analyze a Maven project, uses the following command:
 ```console
 mvn sonar:sonar   -Dsonar.host.url=http://localhost:9000   -Dsonar.login=yourkey
 ```
