@@ -4,9 +4,10 @@ Unit testing is just a specialized form of automated testing
 
 My goal is to have unit tests that verify all the main functionality of an app. It doesn’t prevent all bugs, but it does verify that the core of my app will always work. I can push changes with confidence. No more worrying about angry calls and emails!
 
-“Imagine being able to make any change you want in your code and know that you did not break something.” ~ Sandi Metz
+I like the quotation of Sandi Metz:
+“Imagine being able to make any change you want in your code and know that you did not break something.”
 
-Write unit tests – which are critical to ensuring long-term quality and correctness.
+We should write unit tests – which are critical to ensuring long-term quality and correctness.
  
 
 To provide Unit tests to our project, add these dependecies in the pom.xml:
@@ -80,6 +81,3 @@ As the name suggests, in integration testing the idea is to test how parts of th
 
 
 
-
- 
-# database inserting 
