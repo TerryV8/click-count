@@ -21,7 +21,7 @@ The simplest way to load balance network traffic to multiple servers is to use l
 
 ![web_app_Load_Balancing_type4](https://assets.digitalocean.com/articles/HAProxy/layer_4_load_balancing.png)
 
-The user accesses the load balancer, which forwards the user's request to the web-backend group of backend servers. Whichever backend server is selected will respond directly to the user's request. Generally, all of the servers in the web-backend should be serving identical content--otherwise the user might receive inconsistent content. Note that both web servers connect to the same database server.
+The user accesses the load balancer, which forwards the user's request to the web-backend group of backend servers. Whichever backend server is selected will respond directly to the user's request. Generally, all of the servers in the web-backend should be serving identical content--otherwise, the user might receive inconsistent content. Note that both web servers connect to the same database server.
 
 
 # Install HAProxy 
@@ -38,11 +38,11 @@ Now install HAProxy with the following command:
 yum install haproxy
 ```
 
-Modify the configuraion file of haproxy, /etc/haproxy/haproxy.cfg as per our requirement
+Modify the configuration file of haproxy, /etc/haproxy/haproxy.cfg as per our requirement
 When you configure load balancing using HAProxy, there are two types of nodes which need to be defined: frontend and backend. 
 The frontend is the node by which HAProxy listens for connections. Backend nodes are those by which HAProxy can forward requests. A third node type, the stats node, can be used to monitor the load balancer and the other two nodes.
 
-Append those lines to /etc/haproxy/haproxy.cfg
+Append these lines to /etc/haproxy/haproxy.cfg
 ```console
 #---------------------------------------------------------------------
 # clickCount - Homework
