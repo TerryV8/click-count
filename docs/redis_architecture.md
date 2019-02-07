@@ -20,8 +20,8 @@ cases such as caching, messaging-queues (Redis natively supports
 Publish/Subscribe), any short-lived data in your application, such as web
 application sessions, web page hit counts, etc.
 
-Redis is an in-memory database but persistent on disk database, hence it
-represents a different trade off where very high write and read speed is achieved
+Redis is an in-memory database but persistent on-disk database, hence it
+represents a different trade-off where very high write and read speed is achieved
 with the limitation of data sets that can't be larger than the memory. 
 
 
@@ -57,10 +57,10 @@ Replicas are Read-Only and will tell you so if you try to do a SET on them (or a
   - It’s a Disaster Recovery Plan (DRP) with Master/Stand-By
 - Cons:
   - Write performance is bounded by the master
-  - The replicas are not used to their full potential. They can not be use as write node, only read node. In order to achieve high write availability, you need manual operations (changing the master Redis manually and restarting the clients)
+  - The replicas are not used to their full potential. They cannot be used as write node, only read node. In order to achieve high write availability, you need manual operations (changing the master Redis manually and restarting the clients)
   
 
-If you are a little to medium-sized organization and it’s your first Redis deployment, this may be the best trade-off for you.
+If you are a little to a medium-sized organization and it’s your first Redis deployment, this may be the best trade-off for you.
 
 ### Redis Sentinel
 
@@ -72,7 +72,7 @@ There are two problems with "standalone Redis": Resilience, and Scaling.
 
 How about we only solve one?
 Redis-sentinel is the solution to resilience, and it’s quite brilliant. It’s a monitoring system on a Redis replicated system (so, a master and N replicas) which aims to answer two questions:
-- Who is the manager in charge in this cluster? (the current master)
+- Who is the manager in charge of this cluster? (the current master)
 - Oh damn! We lost contact with the current master, who will take its place?
 
 Actually, it also takes care of reconfiguring the Redis instances on the fly so that the newly promoted master actually knows it can accept Write operations.
@@ -87,13 +87,13 @@ You are smart, so you most likely have 3 machines, each hosting both a Redis ins
 
 - Pros:
   - Redis-Sentinel is builtin in the Redis binary so it’s easy to setup
-  - Good trade-off in complexity
+  - A good trade-off in complexity
   - Very stable. One of the few no-hassle distributed systems
   - Automatic resilience
   - It doesn’t eat your RAM or CPU
 
 - Cons:
-  - Still a big step up compared to Redis or even Redis replicated alone
+  - Still, a big step up compared to Redis or even Redis replicated alone
   - The client MUST support Redis-Sentinel. Half the magic is in the client
   - Doesn’t solve scale issues
   - You may need to configure your firewall to open the flow between the Sentinels
@@ -101,7 +101,7 @@ You are smart, so you most likely have 3 machines, each hosting both a Redis ins
 
 # Redis Multi-master architecture
 
-Multi-master Redis architecture aims to help large deployments, when you need both: 
+Multi-master Redis architecture aims to help large deployments when you need both: 
 - resilience
 - scaling (up to 1000 nodes).
 
@@ -122,7 +122,7 @@ In practice, if you have a Write-heavy workload, keep 2 replicas per master and 
 - Pros:
   - It scales
   - It heals
-  - It’s bundled in the redis binary
+  - It’s bundled in the Redis binary
 
 - Cons:
   - You need at least 6 nodes
