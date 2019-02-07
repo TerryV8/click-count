@@ -64,14 +64,14 @@ Once it is running, you can access it in a browser at http://localhost:3000
 
 
 ## Automated testing
-- Automated testing is the automated execution of tests that verify the quality and stability of code
-- Automated tests are usually code themselves, so they are code that is written to test other code
+- Automated testing is the automated execution of tests that verify the quality and stability of the code
+- Automated tests are usually coded themselves, so they are code that is written to test other code
 - Automated tests are often run as part of the build process and are executed using build tools like maven.
 
 There are multiple types of automated tests:
-- Unit Tests focus on testing small pieces of code in isolation. Usulayy a single method or function
+- Unit Tests focus on testing small pieces of code in isolation. Usually a single method or function
 - Integrations Tests tests larger portions of an application that are integrated with each other
-- Smoke test / Sanity tests - these are high-level integration tests that verify basic, large-scale things like whethere or not the application runs, whether application endpoints return http 500 errors, etc
+- Smoke test / Sanity tests - these are high-level integration tests that verify basic, large-scale things like whether or not the application runs, whether application endpoints return HTTP 500 errors, etc
 
 
 ```console
@@ -89,7 +89,7 @@ GET /trains 200 4.32 ms - 02931
   3 actinable tasks: 1 executed, 2 up-to-date
 ```
 
-What Maven does ?
+What Maven does?
 - Compilation of Source Code
 - Running Tests (unit tests and functional tests)
 - Packaging the results into JAR’s, WAR’s, RPM’s, etc ...
