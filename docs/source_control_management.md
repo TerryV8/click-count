@@ -3,8 +3,8 @@
 Source Control Management is an important component in our continuous integration and continous deployment pipeline.
 
 It is an huge part of the software development workflow in daily basis:
-- Each coding evoluated by th
-- Tout code evolue par les developpeurs sera trackes dans le Source Control Management
+- Any code evolves by the developers can be tracked in Source Control Management.
+- The developers will use the Source Control Management to track their changed separately (via their branches) and merge them all
 - Les developpeurs utiliseront le Source Control Management pour tracquer leur changement separement (via des branches) et puis les merger ensemble.
 
 Toutes part d'automatisations qui a besoin d'interagir avec le code source utilisera le Source Control Management
