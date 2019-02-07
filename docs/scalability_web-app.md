@@ -93,7 +93,7 @@ To see the Pod created by the Deployment, run the following command:
 ```console
 kubectl get pods
 ```
-Then launch the command as a root user, :
+Then launch the command as a root user:
 ```console
 kubectl create -f pod-web-app.yml
 ```
@@ -139,7 +139,7 @@ spec:
   type: NodePort
 ```
 
-Keep in mind that NodePort must be set to a number in the flag-configured range range 30000-32767. Otherwise, kubernetes throws an error. This NodePort range can be changed using the flag --service-node-port-range passed to kube-apiserver per https://kubernetes.io/docs/reference/generated/kube-apiserver/:
+Keep in mind that NodePort must be set to a number in the flag-configured range 30000-32767. Otherwise, kubernetes throws an error. This NodePort range can be changed using the flag --service-node-port-range passed to kube-apiserver per https://kubernetes.io/docs/reference/generated/kube-apiserver/:
 
 
 Then launch the command as a root user, :
@@ -169,7 +169,7 @@ Once you've determined the external IP address for your application, copy the IP
 To manage the increasing throughput on our web-app service, we need to scale up.
 In the opposite, to reduce the cost because of decreasing throughput on our web-app service, we need to scale down.
 
-Thus, now, we are going to learn how to scale up, by adding more replicas to our web-app's Deployment resource by using the kubectl scale command. To add two additional replicas to your Deployment (for a total of three), run the following command:
+Thus, now, we are going to learn how to scale up, by adding more replicas to our web-app's deployment resource by using the kubectl scale command. To add two additional replicas to your Deployment (for a total of three), run the following command:
 
 > A possible approach, but not recommanded way to scale up our application is to launch this command:
 > ```console
@@ -220,7 +220,7 @@ to map the redis server ip with the ip 10.211.55.4, which is fixed.
 
 
 
-Then launch the command as a root user, :
+Then launch the command as a root user:
 ```console
 kubectl create -f deployment-web-app.yml
 ```
@@ -243,7 +243,7 @@ web-app-64d996d646-5nbqz       1/1       Running   0          4m
 web-app-64d996d646-ndnnw       1/1       Running   0          4m
 ```
 
-To check the IP address of the nodes where the pods where deployed:
+To check the IP address of the nodes where the pods were deployed:
 ```console
 kubectl describe pods web-app-64d996d646-5nbqz
 ```
@@ -359,7 +359,7 @@ Events:
   Normal  Started    9m    kubelet, centos-linux-slave-2.shared  Started container
 ```
 
-As you can see based on the described from the ouput above,
+As you can see based on the described from the output above,
 our pods where well distributed equally on the slave nodes of Kubernetes cluster.
 
 To check also,
@@ -373,7 +373,7 @@ It works.
 
 # Load Balancing
 If you go the url of one of the slave nodes,
-for example 10.211.55.5:32334,
+for example, 10.211.55.5:32334,
 you will see that you are able to use the service
 
 
