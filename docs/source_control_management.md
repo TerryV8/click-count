@@ -13,7 +13,7 @@ Any automation parts which needs to interact with the source code will use the S
 Specially, I used Git and Github to manage the source code and the versioning.
 
 Some Git commands:
-- To create a new branch
+- To create a new branch:
 ```console
 $ git checkout -b new_feature
 ```
