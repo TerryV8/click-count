@@ -1,12 +1,12 @@
 # Continuous Integration (CI)
 
-### What is it ?
+### What is it?
 
 Continuous integration is the practice of frequently merging code changes.
 But frequent merges cause difficulties:
 - What if the code doesn't compile after a merge
-- What if someone brokes something
-It would be a lof of work to check these things on every merge.
+- What if someone breaks something
+It would be a lot of work to check these things on every merge.
 The solution is to automate this process.
 
 We use a CI server which executes a build that automatically prepares/compiles the code and runs automated tests.
@@ -27,7 +27,7 @@ sudo systemctl enable jenkins
 sudo systemctl start jenkins
 ```
 
-Go to the Jenkins web UI, <your server address>:8080 in a browser,
+Go to the Jenkins web UI, "<your server address>":8080 in a browser,
 eg. http://10.211.55.4:8080/
 
 On the home page, you got this message:
