@@ -2,7 +2,7 @@
 
 # Before you start
 
-- Make sure you are using IntelliJ IDEA ULTIMATE Edition.
+- Make sure you are using IntelliJ IDEA Ultimate Edition.
 - Install the Java SE Development Kit (JDK), version 1.8 or later, see Download Oracle JDK.
 - Download the GlassFish application server, version 3.0.1 or later, see Download GlassFish.
 - Make sure a web browser is available on your computer.
@@ -48,7 +48,7 @@ An artifact configuration, i.e. a specification of the output to be generated fo
 An actual output generated according to such a specification (configuration).
 
 Let's have a look at this configuration.
-Open the Project Structure dialog by pressing ⌘; or choosing File | Project Structure on the main menu.
+Open the Project Structure dialog by pressing ⌘, or choosing File | Project Structure on the main menu.
 
 Under Project Structure / Project Settings / Artifacts.
 The available artifact configurations are shown in the central pane under icons general add svg and icons general remove svg. Currently there is only one configuration rest_glassfish_hello_world:war exploded, it is a decompressed web application archive (WAR), a directory structure that is ready for deployment onto a web server.
