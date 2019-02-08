@@ -1,4 +1,4 @@
-# Public subnet for the front
+# The public subnet for the front
 
 We are going to add some public subnet consisted of 3 front subnets of IP ranges:
 - 10.128.0.0/24 
