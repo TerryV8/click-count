@@ -35,9 +35,9 @@ resource "aws_route_table_association" "public-c" {
 
 # When we go on the AWS Web UI Console,
 
-and check the newly route table "route-to-gw":
+and check the new route table "route-to-gw":
 
-### Under Routes tab, we get:
+### Under the Routes tab, we get:
 ```console
 Destination           Target                    Status      Propagated
 10.123.0.0/16         local                     active      No	
