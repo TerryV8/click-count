@@ -1,4 +1,4 @@
-# Private subnet for the back
+# The private subnet for the back
 
 
 We are going to add some private subnet consisted of 3 back subnets of IP ranges:
@@ -98,9 +98,9 @@ resource "aws_route_table_association" "public" {
 
 ```
 
-Running terraform plan will generate an execution plan for you to verify before creating the actual resources. It is recommended that you always inspect the plan before running the apply command.
+Running a terraform plan will generate an execution plan for you to verify before creating the actual resources. It is recommended that you always inspect the plan before running the apply command.
 
-Resource dependencies are implicitly determined during the refresh phase (in planing and application phases). They can also be explicitly defined using the depends_on parameter. In the above configuration, the resource aws_subnet.public depends on aws_internet_gateway.default and will only be created after aws_internet_gateway.default is successfully created.
+Resource dependencies are implicitly determined during the refresh phase (in the planning and application phases). They can also be explicitly defined using the depends_on parameter. In the above configuration, the resource aws_subnet.public depends on aws_internet_gateway.default and will only be created after aws_internet_gateway.default is successfully created.
 
 Launch:
 ```console
