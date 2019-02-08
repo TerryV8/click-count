@@ -92,7 +92,7 @@ terraform show
 Finally, you can verify the VPC has been created by visiting the VPC page on AWS WEB UI console.
 
 
-# Recommandation for protecting access and secret keys from malicious attacks
+# Recommendation for protecting access and secret keys from malicious attacks
 
 Variables can either be entered using command arguments by specifying -var 'var=VALUE’. For example: terraform plan -var 'access_key=foo' -var 'secret_key=bar'.
 
