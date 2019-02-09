@@ -1,6 +1,6 @@
 # Authentification by AWS SSH Key Pair
 
-To login directly to the newly created instances, we can use the SSH key pair method.
+To log in directly to the newly created instances, we can use the SSH key pair method.
 
 Let us generate the new ssh key pair:
 ```console
