@@ -27,7 +27,7 @@ Our infrastructure will have 3 layers:
 ![in practice 3 layers](https://images.ctfassets.net/95wnqgvmhlea/27OOMHHFpaEUssc4GcEamq/3438f8c802e5faba3a5e244a843d1afb/architecture_skynet.png?fm=png)
 
 
-# Brouillon
+# Highlight some essential components:
 
 - NAT/VPN server to route outbound traffic from your instances in private network
 and provide your workstation secure access to network resources. Instances in the private subnet rely on a Network Address Translation (NAT) server, running on the public subnet for internet connectivity. All instances in the public subnet can transmit inbound and outbound traffic to and from the internet.
