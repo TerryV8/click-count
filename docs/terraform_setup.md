@@ -39,7 +39,7 @@ terraform
         version    Prints the Terraform version
 ```
 
-## Example when typing "terraform plan"
+# Example when typing "terraform plan" for some other project
 Running a terraform plan will generate an execution plan for you to verify before creating the actual resources. It is recommended that you always inspect the plan before running the "terraform apply" command.
 
 Launch:
