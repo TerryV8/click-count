@@ -1,7 +1,11 @@
 # The private subnet for the back
 
+Since we want to create a Redis database cluster in the back-end:
+- we will add 3 back subnets for providing the resilience, the self-healing, ...
+- we will add the aws_elasticache_subnet_group to be referenced later on the aws_elasticache_replication_group module
 
-We are going to add some private subnet consisted of 3 back subnets of IP ranges:
+
+Here are our 3 back subnets of IP ranges:
 - 10.128.10.0/24 
 - 10.128.11.0/24 
 - 10.128.12.0/24 
@@ -44,6 +48,4 @@ resource "aws_elasticache_subnet_group" "sg-elasticache-redis"
   subnet_ids = ["${aws_subnet.private-a.id}","${aws_subnet.private-b.id}","${aws_subnet.private-c.id}"]  
 }
 ```
-
-We add the aws_elasticache_subnet_group since we are going to use later the aws_elasticache_replication_group module for creating Redis database.
 
