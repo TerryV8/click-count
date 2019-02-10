@@ -10,3 +10,10 @@ We choose to use a Kubernetes Cluster of JavaEE GlashFist Web-App which allows u
 
 
 ## CI/CD pipeline
+
+We provide the best tool to create a CI/CD pipeline such as automation testing, ... :
+- ### Git
+- ### Maven Build
+- ### JUnit Unit & Integration testing
+- ### SonarQube
+- ### Jenkins
