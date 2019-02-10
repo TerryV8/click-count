@@ -1,4 +1,4 @@
-# Homework: Click Count application
+# 1. Homework: Click Count application
 
 - ## Context - Client needs & Technical environment
 
@@ -23,9 +23,10 @@ in order to ensure the sustainability of the solution.
 
 ---
 
-# Below: As a best solution, I have successfully managed to deliver: 
+# 2. As a best solution,  
 # A Front JavaEE GlashFish Web-App running on a Kubernetes cluster with a Redis Architecture on AWS cloud provider
 
+I summarized what I have successfully managed to deliver:
 ## As a architecture:
 
 I was concerned about the scalability, the resilience (replica) and the availability. Since then, I designed my architecture around those purposes. Especially, AWS and Kubernetes helps me to answer to that willing. 
