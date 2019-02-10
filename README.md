@@ -24,7 +24,8 @@ in order to ensure the sustainability of the solution.
 ---
 
 # My solution, below:
-# Finally, what I have successfully managed to deliver as a best solution: "A Front JavaEE GlashFish Web-App running on a Kubernetes cluster with a Redis Architecture on AWS cloud provider"
+# Finally, what I have successfully managed to deliver as a best solution: 
+# "A Front JavaEE GlashFish Web-App running on a Kubernetes cluster with a Redis Architecture on AWS cloud provider"
 
 ## As a architecture:
 
