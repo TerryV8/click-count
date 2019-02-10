@@ -3,6 +3,7 @@
 Docker Compose is an orchestration framework that handles the building and running of multiple services (via separate containers) using a simple .yml file. 
 It uses to link services together running in different containers.
 
+Let's install docker-compose:
 ```console
 pip install docker-compose
 ```
@@ -20,7 +21,8 @@ services:
     environment:
       - REDIS_HOST=redis
     ports:
-      - "8080:8080"
+#      - "8080:8080"
+      - "5000:5000"
   redis:
     image: redis
 #    volumes:
@@ -156,14 +158,14 @@ app_1    |  * Debugger is active!
 app_1    |  * Debugger pin code: 299-635-701  
 ```
 
-Current example will increment view counter in Redis. Open the following url in your web browser and check it.
+Current example will increment view counter in Redis. Open the following url as described in your web browser and check it.
 
 To see volumes run:
 ```console
 docker volume ls  
 ```
 
-Console output:
+OUTPUT:
 ```console
 DRIVER              VOLUME NAME  
 local               apptest_redis_data
@@ -172,24 +174,8 @@ local               apptest_redis_data
 
 
 
-
-
 Now let’s get web application up and running along with Redis:
-```console
-web:
-    build: web
-    volumes:
-        - web:/code
-    ports:
-        - "80:5000"
-    links:
-        - redis
-    command: python app.py
-redis:
-    image: redis:2.8.19
-    ports:
-        - "6379:6379"
-```
+
 Here we add the services that make up our stack:
 
 1. web: First, we build the image from the “web” directory and then mount that directory to the “code” directory within the Docker container. The Flask app is ran via the python app.py command. This exposes port 5000 on the container, which is forwarded to port 80 on the host environment.
