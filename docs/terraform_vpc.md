@@ -39,13 +39,12 @@ To bring up the infrastructure we’ll run:
 ```console
 terraform apply
 ```
+
+```console
 //by prompting you to input AWS access and secret keys. 
 //Hitting <return> will assign default values, defined in the variables.tf file.
 
 OUTPUT:
-
-
-
 
 //var.access_key
 //  AWS access key
@@ -59,6 +58,7 @@ OUTPUT:
 //  Enter a value: bar
 
 //...
+```
 
 ```console
 aws_vpc.default: Creating...
