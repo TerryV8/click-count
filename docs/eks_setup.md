@@ -16,7 +16,7 @@ yum install -y kubectl
 ```
 
 # To install aws-iam-authenticator for Amazon EKS
-and pply execute permissions to the binary:
+and authorize the execution permissions of the binary:
 
 ```console
 curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.11.5/2018-12-06/bin/linux/amd64/aws-iam-authenticator
