@@ -49,7 +49,7 @@ We use ansible as a tool of deployment of configurations
 
 ---
 
-# 3. Below, I provided in more details all the components that I was used:
+# 3. Below, I will provide in the details all the components that I was used:
 
 ## Let's design the architecture
 - #### [Redis Architecture (Back-end)](docs/redis_architecture.md)
