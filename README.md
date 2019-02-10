@@ -47,6 +47,7 @@ We use terraform as a tool of deployment of servers
 - #### Ansible
 We use ansible as a tool of deployment of configurations
 
+---
 
 # In details below, how I build it step by step:
 
