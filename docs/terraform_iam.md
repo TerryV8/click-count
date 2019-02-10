@@ -271,7 +271,7 @@ OUTPUT:
 
 
 # 3. SSH KEY TO SECURELY ACCESS FROM OUR LOCAL MACHINE TO THE AWS CLOUD SERVERS
-Let's Generate the public/private key to securely access from our local machine to the AWS cloud servers
+Let's generate the public/private key to securely access from our local machine to the AWS cloud servers
 ```console
 ssh-keygen
 
