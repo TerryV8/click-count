@@ -294,7 +294,7 @@ mkdir terransible
 ```
 
 
-### 1. The characteristics of the private network:
+# 4. The characteristics of the private network:
 
 I have establish a secure way to access network resources, using a trusted VPN.
 
