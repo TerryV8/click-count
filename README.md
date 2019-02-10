@@ -28,9 +28,9 @@ in order to ensure the sustainability of the solution.
 Let me summarize what I have successfully managed to deliver:
 ## As a architecture:
 
-I was concerned about the scalability, the resilience (replica) and the availability. Since then, I designed my architecture around those purposes, especially, AWS and Kubernetes helps me to that. 
+I was concerned about the scalability, the resilience (replica) and the availability. Since then, I designed my architecture around those willings, especially, AWS and Kubernetes helps me for that. 
 - #### Back End:
-We choose to let the redis cluster managed by AWS. Once the redis cluster on AWS is launched, with can access it through a endpoint (eg.)
+We choose to let the redis cluster managed by AWS. Once the redis cluster on AWS is launched, with can access it through a endpoint.
 
 - #### Front End:
 We choose to use a Kubernetes Cluster of JavaEE GlashFist Web-App. Firstly, we created our docker container with a custom JavaEE GlashFist Web Application.
@@ -49,8 +49,9 @@ We use ansible as a tool of deployment of configurations
 
 ---
 
-# In details below, how I build it step by step:
-
+# 3. Below, I provided in more details:
+- How I build them.
+- How I was started step by step from a basic architecture to my best solution architecture.
 
 ## Let's design the architecture
 - #### [Redis Architecture (Back-end)](docs/redis_architecture.md)
