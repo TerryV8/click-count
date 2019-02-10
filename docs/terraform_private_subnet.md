@@ -45,7 +45,7 @@ resource "aws_elasticache_subnet_group" "sg-elasticache-redis"
 }
 ```
 
-We added the aws_elasticache_subnet_group since we are going to use later the aws_elasticache_replication_group module for creating Redis database.
+We add the aws_elasticache_subnet_group since we are going to use later the aws_elasticache_replication_group module for creating Redis database.
 
 
 
