@@ -13,3 +13,13 @@ We choose to use a Kubernetes Cluster of JavaEE GlashFist Web-App which allows u
 
 We provide the best tool to create a CI/CD pipeline such as automation testing, ... :
 - #### Git, Maven Build, JUnit Unit & Integration testing, SonarQube, Jenkins
+
+## As a automation deployment
+- #### Terraform
+We use terraform as a tool of deployment of servers
+- #### Ansible
+We use ansible as a tool of deployment of configurations
+
+
+
+
