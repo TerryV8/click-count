@@ -28,7 +28,7 @@ in order to ensure the sustainability of the solution.
 
 ## As a architecture:
 
-I was concerned about the scalability, the resilience (replica) and the availability. Since then, I designed my architecture around that with AWS on public cloud and Kubernetes on on-premises wich provided me all those benefits. 
+I was concerned about the scalability, the resilience (replica) and the availability. Since then, I designed my architecture around those purposes. Especially, AWS and Kubernetes helps me to answer to that willing. 
 - #### Back End:
 We choose to let the redis cluster managed by AWS. Once the redis cluster on AWS is launched, with can access it through a endpoint (eg.)
 
