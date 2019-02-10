@@ -270,8 +270,8 @@ OUTPUT:
 
 
 
-# EXTRA
-Generate the public/private key to securely access from our local machine to the AWS cloud servers
+# 3. EXTRA: SSH KEY TO SECURELY ACCESS FROM OUR LOCAL MACHINE TO THE AWS CLOUD SERVERS
+Let's Generate the public/private key to securely access from our local machine to the AWS cloud servers
 ```console
 ssh-keygen
 
@@ -294,12 +294,10 @@ mkdir terransible
 ```
 
 
-### 1. What we are going to build
+### 1. The characteristics of the private network:
 
-We are going to build a private network on AWS
-and establish a secure way to access network resources, using a trusted VPN.
+I have establish a secure way to access network resources, using a trusted VPN.
 
-We will build a Virtual Private Network (VPC) on AWS.
-Instances in the private subnet cannot directly access the internet, making them an ideal for hosting critical resources such as application and our "Redis" database servers.
+I have built a Virtual Private Network (VPC) on AWS in wich instances in the private subnet cannot directly access the internet, making them an ideal for hosting critical resources such as application and our "Redis" database servers.
 
 
