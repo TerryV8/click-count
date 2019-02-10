@@ -1,11 +1,13 @@
-# DOCKER BUILD
+# DOCKER IN FRONT-END
+
+## DOCKER BUILD
 
 To build a new docker image using a dockerfile in the current repository:
 ```console
 docker build --no-cache -t thierrylamvo/web-app .
 ```
 
-# DOCKER RUN
+## DOCKER RUN
 
 To have a runnable image with -p to specify the port mapping between the port of my host and the port inside my container, -d for a detached mode
 and allowing network communication with redis container is:
