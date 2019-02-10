@@ -21,6 +21,8 @@ in order to ensure the sustainability of the solution.
 
 [Read more ...](docs/enonce.md)
 
+---
+
 # My solution, below:
 # Finally, what I have successfully managed to deliver as a solution:
 - ### [Front JavaEE GlashFish Web-App running on a Kubernetes cluster with a Redis Architecture on AWS cloud provider](docs/final_result.md)
