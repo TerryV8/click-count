@@ -1,5 +1,14 @@
 # Docker Compose
 
+Docker Compose is an orchestration framework that handles the building and running of multiple services (via separate containers) using a simple .yml file. 
+It uses to link services together running in different containers.
+
+```console
+pip install docker-compose
+```
+
+In this example, I am going to connect Python and Redis containers.
+
 ```console
 version: '2'
 services:
@@ -21,35 +30,6 @@ services:
 # volumes:
 #  redis_data:
 
-```
-
-Docker Compose is an orchestration framework that handles the building and running of multiple services (via separate containers) using a simple .yml file. 
-It uses to link services together running in different containers.
-
-```console
-pip install docker-compose
-```
-
-In this example, I am going to connect Python and Redis containers.
-
-```console
-version: '2'  
-services:  
-  app:
-    build:
-      context: ./app
-    depends_on:
-      - redis
-    environment:
-      - REDIS_HOST=redis
-    ports:
-      - "5000:5000"
-  redis:
-    image: redis:3.2-alpine
-    volumes:
-      - redis_data:/data
-volumes:  
-  redis_data:
 ```
 
 Go to examples/compose and execute the following command:
