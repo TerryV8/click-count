@@ -117,7 +117,7 @@ resource "aws_instance" "instance_public_c" {
 ```
 
 
-Temporary modify the lines in instance_public.tf to download/update all required initial packages.
+Temporarily modify the lines in instance_public.tf to download/update all required initial packages.
 Then when it is done, go to the AWS Console UI and delete it manually
 Replace:
 ```console
