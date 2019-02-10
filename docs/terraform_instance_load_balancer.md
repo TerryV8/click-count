@@ -1,8 +1,8 @@
 # 1 instance Load Balancer
 
-The ELB in the public subnet allows us to manage distributing incoming web traffic across the group of the web application servers that it is targeted.
+The ELB in the public subnet allows us to manage the distribution of the incoming web traffic across the group of the web application servers that it is targeted.
 
-We will use our security group allowing incoming HTTP from Internet to the Load Balancer, which then forward HTTP traffic on the port 80.
+We will use our security group allowing incoming HTTP from Internet to the Load Balancer, which then forwards HTTP traffic on the port 80.
 
 
 Edit instance_load_balancer.tf:
