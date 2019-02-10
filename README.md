@@ -23,17 +23,17 @@ in order to ensure the sustainability of the solution.
 
 ---
 
-# My solution, below:
-# Finally, what I have successfully managed to deliver as a best solution: 
-# "A Front JavaEE GlashFish Web-App running on a Kubernetes cluster with a Redis Architecture on AWS cloud provider"
+# Below: As a best solution, I have successfully managed to deliver: 
+# A Front JavaEE GlashFish Web-App running on a Kubernetes cluster with a Redis Architecture on AWS cloud provider
 
 ## As a architecture:
 
+I was concerned about the scalability, the resilience (replica) and the availability. Since then, I designed my architecture around that with AWS on public cloud and Kubernetes on on-premises wich provided me all those benefits. 
 - #### Back End:
-We choose to let the redis cluster managed by AWS with provided us all the quality of services such as the scalability, the resilience (replica) and the health. Once the redis cluster on AWS is launched, with can access it through a endpoint (eg.)
+We choose to let the redis cluster managed by AWS. Once the redis cluster on AWS is launched, with can access it through a endpoint (eg.)
 
 - #### Front End:
-We choose to use a Kubernetes Cluster of JavaEE GlashFist Web-App which allows us to manage the scalability and the resilience (replica) as well. Firstly, we created our docker container with a custom JavaEE GlashFist Web Application.
+We choose to use a Kubernetes Cluster of JavaEE GlashFist Web-App. Firstly, we created our docker container with a custom JavaEE GlashFist Web Application.
 
 
 ## As a CI/CD pipeline
