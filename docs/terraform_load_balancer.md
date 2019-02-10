@@ -1,14 +1,14 @@
-Let us add 2 app servers running nginx containers in the private subnet 
+Let us add 2 app servers running Nginx containers in the private subnet 
 and configure a load balancer in the public subnet
 
 The app servers are not accessible directly from the internet
-and can be accessed via the VPN. Since we haven't configured our VPN yet 
-to access the instances, we will provision the instances by boostrapping a cloud-init configuration file
+and can be accessed via the VPN. Since we haven't configured our VPN yet to
+access the instances, we will provide the instances by bootstrapping a cloud-init configuration file
 via the user_data resource parameter.
 
 The defacto multi-distribution package cloud-init handles early initialization of a cloud instance.
 
-Create the app.yml cloud config file under cloud-config directory with the below configuration:
+Create the app.yml cloud config file under the cloud-config directory with the below configuration:
 
 #cloud-config
 # Cloud config for application servers
