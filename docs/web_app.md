@@ -23,7 +23,7 @@ and specify the installation folder of the Java SE Development Kit (JDK) to use.
 
 # Add Framework support
 
-click right on "main"
+Click right on "main"
 and select Add Framework support
 and click right on "Java EE"
 and select "Java EE 7"
