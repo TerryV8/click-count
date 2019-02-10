@@ -10,11 +10,11 @@ then pass the baton to Ansible, to install and configure software components.
 
 ## Ansible characteristics
 
-Ansible uses these facts to check state and see if it needs to change anything in order to get the desired outcome. This makes it safe to run Ansible Tasks against a server over and over again.
+Ansible uses these facts to check the state and see if it needs to change anything in order to get the desired outcome. This makes it safe to run Ansible Tasks against a server over and over again.
 
 ## Install
 
-Of course we need to start by installing Ansible. Tasks can be run off of any machine Ansible is installed on.
+Of course, we need to start by installing Ansible. Tasks can be run off of any machine Ansible is installed on.
 
 This means there's usually a "central" server running Ansible commands, although there's nothing particularly special about what server Ansible is installed on. Ansible is "agentless" - there's no central agent(s) running. We can even run Ansible from any server; I often run Tasks from my laptop.
 
