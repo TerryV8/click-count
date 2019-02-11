@@ -3,7 +3,7 @@
 
 ## Let's choose the Redis architecture on AWS
 
-There are 2 types of replication Redis arhitecture:
+There are 2 types of replication Redis arhitecture. Let's summarize the differences:
 - cluster mode disabled. This cluster always has a single shard (API/CLI: node group) with up to 5 read replica nodes
 - cluster mode enabled. This cluster has up to 90 shards with 1 to 5 read replica nodes in each.
 
