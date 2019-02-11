@@ -120,7 +120,7 @@ We use ansible as a tool of deployment of configurations
       - [with S3 bucket](docs/terraform_s3.md) (No need anymore - Depreciated in our use case)
       
     - DNS
-      - [with DNS Route53](docs/terraform_dns.md)
+      - [with DNS Route53](docs/terraform_dns.md) (No need anymore - Depreciated in our use case)
 
 - #### [Ansible](docs/ansible.md)
     - [with playbook for setting up Docker](docs/ansible_playbook_docker.md)
