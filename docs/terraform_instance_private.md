@@ -1,7 +1,7 @@
 # Deploy Redis cluster architecture on the AWS cloud for the back-end
 # Through AWS_elasticache_cluster Redis Terraform module
 
-## Let's choose the Redis architecture on AWS
+## 1. Let's choose the Redis architecture on AWS
 
 There are 2 types of replication Redis arhitecture. Let's summarize the differences:
 - cluster mode disabled. This cluster always has a single shard (API/CLI: node group) with up to 5 read replica nodes
@@ -21,9 +21,9 @@ Snapshots (Backups)	| Yes, creating a single .rdb file.	| Yes, creating a unique
 Restore	| Yes, using a single .rdb file from a Redis (cluster mode disabled) cluster. |	Yes, using .rdb files from either a Redis (cluster mode disabled) or a Redis (cluster mode enabled) cluster.
 
 
-# Based on our use case of click-count application, we choose the Redis (cluster mode disabled) Architecture which is more appropriate
+## 2. Based on our use case of click-count Web application, we choose the Redis cluster mode disabled Architecture as the most appropriate.
 
-The "Redis cluster mode disabled" is not easier or more complicated to configure compare to "Redis cluster mode enabled", it just more appropriate for our click-count application use-case.
+The "Redis cluster mode disabled" is not easier or more complicated to configure compare to "Redis cluster mode enabled", it just more appropriate for our click-count application Web use-case.
 
 
 To create a single shard primary with 2 read replica:
@@ -47,7 +47,6 @@ resource "aws_elasticache_replication_group" "rg_redis"  {
 
 }
 ```
-
 
 
 You can configure multiple instances of Redis Web Cache to run as independent caches, with no interaction with one another. However, to increase the availability and scalability of your cache, you can configure multiple instances of Redis to run as members of a cache cluster. A cache cluster is a loosely coupled collection of cooperating Redis cache instances working together to provide a single logical cache. A cache cluster can consist of two or more members. The cache cluster members communicate with one another to request cacheable content that is cached by another cache cluster member and to detect when a cache cluster member fails.
