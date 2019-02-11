@@ -130,7 +130,7 @@ We use ansible as a tool of deployment of configurations
 
 ## Automated Kubernetes Deployment with EKS provided by AWS
 
-  - #### [EKS](docs/eks.md)
-      - [Setup EKS](docs/eks_setup.md)
+  - #### EKS
+      - [Setup EKS](docs/eks_setup.md) (No need anymore - Depreciated in our use case)
 
 
