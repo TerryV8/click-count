@@ -2,7 +2,7 @@
 
 For the back, we are going to build our infrastructure based on this assumption:
 
-1 security group allowing incoming Redis request flow from the Web Apps to Redis Database.
+- 1 security group allowing incoming Redis request flow from the Web Apps to Redis Database.
 It allows the Web Apps to connect and make requests to the Redis database.
 
 Edit security_groups_back.tf:
