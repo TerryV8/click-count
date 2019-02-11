@@ -26,16 +26,14 @@ Restore	| Yes, using a single .rdb file from a Redis (cluster mode disabled) clu
 The "Redis cluster mode disabled" is not easier or more complicated to configure compare to "Redis cluster mode enabled", it just more appropriate for our click-count application Web use-case.
 
 
-To create a single shard primary with 2 read replica:
-
-Edit instance_private.tf:
+To create Redis Cluster Mode Disabled, a single shard primary with 2 read replica, edit instance_private.tf:
 ```console
 resource "aws_elasticache_replication_group" "rg_redis"  {
   automatic_failover_enabled = true
   availability_zones = ["${var.region}a","${var.region}b","${var.region}c"]
   replication_group_id = "rg-redis"
-  replication_group_descriptioin = "replication_group for redis which is configured with a single shard primary with 2 read replicas"
-  node_type = "cache.m5.xlarge"
+  replication_group_description = "replication_group for redis which is configured with a single shard primary with 2 read replicas"
+  node_type = "cache.t2.micro"
   number_cache_clusters = 3
   parameter_group_name = "default.redis5.0"
   port = 6379
@@ -44,9 +42,24 @@ resource "aws_elasticache_replication_group" "rg_redis"  {
 
   depends_on = ["aws_subnet.private-a","aws_subnet.private-b","aws_subnet.private-c"]
 
-
-}
 ```
+
+The following arguments are used:
+- number_cache_clusters - (Required for Cluster Mode Disabled) The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications.
+- replication_group_id – (Required) The replication group identifier. This parameter is stored as a lowercase string.
+- replication_group_description – (Required) A user-created description for the replication group.
+- node_type - (Required) The compute and memory capacity of the nodes in the node group.
+- automatic_failover_enabled - (Optional) Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to false.
+
+- availability_zones - (Optional) A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
+- engine - (Optional) The name of the cache engine to be used for the clusters in this replication group. e.g. redis
+- parameter_group_name - (Optional) The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
+- port – (Optional) The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
+- subnet_group_name - (Optional) The name of the cache subnet group to be used for the replication group.
+- security_group_names - (Optional) A list of cache security group names to associate with this replication group.
+- security_group_ids - (Optional) One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+- cluster_mode - (Optional) Create a native redis cluster. automatic_failover_enabled must be set to true. Cluster Mode documented below. Only 1 cluster_mode block is allowed.
+
 
 You can configure multiple instances of Redis Web Cache to run as independent caches, with no interaction with one another. However, to increase the availability and scalability of your cache, you can configure multiple instances of Redis to run as members of a cache cluster. A cache cluster is a loosely coupled collection of cooperating Redis cache instances working together to provide a single logical cache. A cache cluster can consist of two or more members. The cache cluster members communicate with one another to request cacheable content that is cached by another cache cluster member and to detect when a cache cluster member fails.
 
@@ -151,52 +164,3 @@ rg-redis-002 | available | replica | 6379 | rg-redis-002.feg1ds.0001.euw3.cache.
 rg-redis-003 | available | replica | 6379 | rg-redis-003.feg1ds.0001.euw3.cache.amazonaws.com | in-sync | eu-west-3c | December 30, 2018 at 10:32:13 AM UTC+1
 
 
-
-# AWS_elasticache_cluster Redis Terraform module for the back
-
-Redis Cluster Mode Enabled.
-
-To create two shards with a primary and a single read replica each:
-
-Edit instance_private.tf:
-```console
-Redis Cluster Mode Enabled
-To create two shards with a primary and a single read replica each:
-resource “aws_elasticache_replication_group” “redis_rg”  {
-    replication_group_id = “rg1”
-    replication_group_description = “replication_group for Redis which is configured with 2 shards with  a primary and a single read replica each”
-    node_type = “cache.t2.small”
-    port = 6379
-    parameter_group_name = “default.redis3.2.cluster.on”
-    automatic_failover_enabled = true
-    engine = "redis"
-
-    cluster_mode  {
-        replicas_per_node_group = 1
-        num_node_groups = 2
-    }
-}
-
-
-```
-
-
-The following arguments are used:
-- replication_group_id – (Required) The replication group identifier. This parameter is stored as a lowercase string.
-- replication_group_description – (Required) A user-created description for the replication group.
-- node_type - (Required) The compute and memory capacity of the nodes in the node group.
-- automatic_failover_enabled - (Optional) Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If true, Multi-AZ is enabled for this replication group. If false, Multi-AZ is disabled for this replication group. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to false.
-
-- availability_zones - (Optional) A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
-- engine - (Optional) The name of the cache engine to be used for the clusters in this replication group. e.g. redis
-- parameter_group_name - (Optional) The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used.
-- port – (Optional) The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
-- subnet_group_name - (Optional) The name of the cache subnet group to be used for the replication group.
-- security_group_names - (Optional) A list of cache security group names to associate with this replication group.
-- security_group_ids - (Optional) One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
-- cluster_mode - (Optional) Create a native redis cluster. automatic_failover_enabled must be set to true. Cluster Mode documented below. Only 1 cluster_mode block is allowed.
-
-
-When cluster_mode is set. We use those arguments:
-- replicas_per_node_group - (Required) Specify the number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will force a new resource.
-- num_node_groups - (Required) Specify the number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
