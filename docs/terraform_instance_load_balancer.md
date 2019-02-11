@@ -34,7 +34,7 @@ resource "aws_elb" "instance_LB" {
   }
   
   instances = [
-    "${aws_instance.instance_public_a.id}",
+#    "${aws_instance.instance_public_a.id}",
     "${aws_instance.instance_public_b.id}",
     "${aws_instance.instance_public_c.id}",
   ]
