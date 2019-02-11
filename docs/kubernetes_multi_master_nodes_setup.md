@@ -1,6 +1,6 @@
 # Multi-Master Redis Cluster
 
-The solution that we provided until now, could be a good solution since we use multiple replicas.
+The solution that we provided until now, could be a good solution since we used multiple replicas.
 However, we could also consider the "Multi-Master Redis Cluster" that provides us a better solution for managing the failover behavior
 
 Here is some source:
