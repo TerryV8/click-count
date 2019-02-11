@@ -10,13 +10,6 @@ There are 2 types of replication Redis arhitecture:
 
 ![cluster_mode_disabled](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-NodeGroups.png)
 
-
-Redis (cluster mode disabled) and Redis (cluster mode enabled) clusters
-
-The following table summarizes important differences between Redis (cluster mode disabled) and Redis (cluster mode enabled) clusters.
-
-Comparing Redis (cluster mode disabled) and Redis (cluster mode enabled) Clusters
-
 Feature |	Redis (cluster mode disabled)|	Redis (cluster mode enabled)
 --- | --- | ---
 Modifiable |	Yes. Supports adding and deleting replica nodes, and scaling up node type.	| Limited. For more information, see Upgrading Engine Versions and Scaling Redis (cluster mode enabled) Clusters.
