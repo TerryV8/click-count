@@ -54,11 +54,11 @@ You can configure multiple instances of Redis Web Cache to run as independent ca
 ## 3. Benefits of Cache Clusters: 
 It provide the following benefits:
 
-- High availability
+### - High availability:
 
 With cache clusters,  Web Cache supports failure detection and failover of caches. If a Web cache fails, other members of the cache cluster detect the failure and take over ownership of the cacheable content of the failed cluster member.
 
-- Scalability and performance
+### - Scalability and performance:
 
 By distributing the site's content across multiple caches, more content can be cached and more client connections can be supported, expanding the capacity of your Web site.
 
@@ -68,7 +68,7 @@ Network bottlenecks often limit the number of requests that can be processed at 
 
 In a cache cluster, fewer requests are routed to the application Web server. Retrieving content from a cache (even if that request is routed to another cache in the cluster) is more efficient than materializing the content from the application Web server.
 
-- Reduced load on the application Web server
+### - Reduced load on the application Web server:
 
 In a cache cluster environment, popular objects are stored in more than one cache. If a cache fails, requested cacheable objects are likely to be stored in the cache of surviving cluster members. As a result, fewer requests for cacheable objects need to be routed to the application Web server even when a cache fails.
 
@@ -76,13 +76,13 @@ When a failed cache returns to operation, it has no objects cached. In a non-clu
 
 Cache clusters maximize system resource utilization. When each cache in a cache cluster resides on a separate node, more memory is available than for one cache on a single node. With more memory, Web App Cache can cache more content, resulting in fewer requests to the application Web server.
 
-- Improved data consistency
+### - Improved data consistency:
 
 Because Web App Cache uses one set of invalidation rules for all cache cluster members and because it makes it easy to propagate invalidation requests to all cache cluster members, the cached data is more likely to be consistent across all caches in a cluster.
 
 You can configure a cache cluster that does not support requests between cache cluster members, but allows propagating invalidation requests, as well as propagating configuration changes. See "Configuring Administration and Invalidation-Only Clusters" for more information.
 
-- Manageability
+### - Manageability:
 
 Cache clusters are easy to manage because they use one configuration for all cache cluster members. For example, you specify one set of caching rules and one set of invalidation rules. Web App Cache distributes those rules throughout the cluster by propagating the configuration to each cluster member.
 
