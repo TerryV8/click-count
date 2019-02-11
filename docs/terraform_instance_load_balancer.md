@@ -18,7 +18,7 @@ resource "aws_elb" "instance_LB" {
   }
 
   subnets = [
-    "${aws_subnet.public-a.id}",
+#    "${aws_subnet.public-a.id}",
     "${aws_subnet.public-b.id}",
     "${aws_subnet.public-c.id}"
   ]
