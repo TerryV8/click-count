@@ -24,7 +24,7 @@ resource aws_security_group "sg_LB_to_WebApps" {
 ```
 
 Also, we will make another assumption:
-- 1 security group allowing incoming SSH and ICMP from a specific IP to all instances
+- 1 security group allowing incoming SSH and ICMP from a specific IP (As a best protecting pratcice, var.ipv4_local defines your local address to protect your servers from any other undesirable threat connection) to all instances.
 
 Append security_groups_front.tf:
 ```console
