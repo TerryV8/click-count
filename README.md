@@ -127,7 +127,7 @@ We use ansible as a tool of deployment of configurations
     - [with playbook for setting up Kubernetes](docs/ansible_playbook_kubernetes.md)
     - [with playbook for setting up Kubernetes Controller](docs/ansible_playbook_kubernetes_controller.md)
 
-## Bonus: Alternative Kubernetes Setup
+## Bonus: Alternative Kubernetes Setup to explore for later
 - #### [Multi-Master Redis Cluster](docs/kubernetes_multi_master_nodes_setup.md)
 - #### [Automated Kubernetes Deployment with EKS / ECS provided by AWS](docs/eks_setup.md) (No need anymore - Depreciated in our use case)
 
