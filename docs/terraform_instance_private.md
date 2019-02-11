@@ -1,5 +1,5 @@
-# Deploy Redis cluster architecture on the AWS cloud
-# Through AWS_elasticache_cluster Redis Terraform module for the back
+# Deploy Redis cluster architecture on the AWS cloud for the back-end
+# Through AWS_elasticache_cluster Redis Terraform module
 
 ## Let's choose the Redis architecture on AWS
 
