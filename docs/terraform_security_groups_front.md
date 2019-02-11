@@ -86,3 +86,22 @@ resource "aws_security_group" "allow_all" {
   }
 }
 ```
+
+
+TO TEST:
+To allow inter communication inside the same public subnet 
+```console
+resource "aws_security_group" "allow-inter-communications-inside-public-subnet" {
+  name = "inter-local-communication-inside-public-subnet"
+  description = "allow inter communications between instances inside the same public subnet"
+  vpc_id = "${aws_vpc.default.id}"
+  ingress {
+    protocol    = "-1"
+    from_port   = 0
+    to_port     = 0
+#    cidr_blocks = "${var.public_subnet_cidr}"
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+}
+```
