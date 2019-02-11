@@ -3,10 +3,9 @@
 
 ## Let's choose the Redis architecture on AWS
 
-Replication: Redis (cluster mode disabled) vs. Redis (cluster mode enabled)
-
-Beginning with Redis version 3.2, you have the ability to create one of two distinct types of Redis clusters (API/CLI: replication groups). A Redis (cluster mode disabled) cluster always has a single shard (API/CLI: node group) with up to 5 read replica nodes. A Redis (cluster mode enabled) cluster has up to 90 shards with 1 to 5 read replica nodes in each.
-
+There are 2 types of replication Redis arhitecture:
+- cluster mode disabled. This cluster always has a single shard (API/CLI: node group) with up to 5 read replica nodes
+- cluster mode enabled. This cluster has up to 90 shards with 1 to 5 read replica nodes in each.
 
 
 ![cluster_mode_disabled](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/images/ElastiCache-NodeGroups.png)
