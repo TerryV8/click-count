@@ -23,7 +23,7 @@ in order to ensure the sustainability of the solution.
 
 ---
 
-# 2. My best solution: A Front JavaEE GlashFish Web-App running on a Kubernetes cluster with a Redis Architecture on AWS cloud provider
+# 2. My best solution: A Load Balancing Front JavaEE GlashFish Web-App running on a Kubernetes cluster with a Redis Architecture on AWS cloud provider
 
 Let me summarize what I have successfully managed to deliver:
 ## As a architecture:
