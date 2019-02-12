@@ -7,6 +7,47 @@ Edit ansible_playbook_kubernetes.yml:
 ```console
 ---
 - hosts: all
+  name: Pre-setup all
+  gather_facts: false
+  remote_user: ec2-user
+  become: yes
+
+  tasks:
+  - name: upgrade all packages
+    yum:
+      name: '*'
+      state: latest
+
+  - name: install the latest version of Apache
+    yum:
+      name: 
+        - telnet
+        - tc
+      state: latest   
+   
+   
+  - name: define the repo of Kubernetes
+    block:
+      - file:
+          path: /etc/yum.repos.d/kubernetes.repo
+          owner: ec2-user
+          group: ec2-user
+          mode: 0644  
+      - blockinfile:
+        path: /etc/ssh/sshd_config
+        block: |
+          name=Kubernetes
+          baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+          enabled=1
+          gpgcheck=0
+          repo_gpgcheck=0
+          gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+          exclude=kube*
+
+   
+```        
+```console
+- hosts: all
   name: Setup Docker
   gather_facts: false
   remote_user: ec2-user
