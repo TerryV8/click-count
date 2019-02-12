@@ -3,7 +3,7 @@
 The ELB in the public subnet allows us to manage 
 the distribution of the incoming web traffic across the group of the web application servers that it is targeted.
 
-1 security group allowing incoming HTTPS from Internet to the Load Balancer
+1 security group allowing incoming HTTP from Internet to the Load Balancer
 
 
 Edit security_groups_load_balancer.tf:
@@ -31,4 +31,3 @@ resource "aws_security_group"  "sg_internet_to_LB"  {
 ```
 
 The security group on load balancer below defined that the connections are allowed only on port 80 from outside.
-Means that t
