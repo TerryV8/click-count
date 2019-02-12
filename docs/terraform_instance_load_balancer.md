@@ -43,4 +43,6 @@ resource "aws_elb" "instance_LB" {
 }
 ```
 
+Then you can go to AWS, to get the endpoint load balancer. To attack one of the Redis Replicas Kubernetes type the
+"endpoint_address:30808/clickCount"
   
