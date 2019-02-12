@@ -44,5 +44,11 @@ resource "aws_elb" "instance_LB" {
 ```
 
 Then you can go to AWS UI Console to get the endpoint load balancer.
-In the internet navigator, you can attack one of the Redis Replicas Kubernetes by typing the "endpoint_address:30808/clickCount" (eg. )
-  
+In the internet navigator, you can attack one of the Redis Replicas Kubernetes by typing the "endpoint_address:30808/clickCount" (eg. instance-LB-582931323.eu-west-3.elb.amazonaws.com)
+
+Still, the load Balancer is in place on AWS thanks to terraform
+There is some extra steps to do on the AWS Console UI. So go to the AWS Console UI and click on
+and EC2/ Load Balancers / Instance /
+and Detach and reattach the instances to the ELB
+to make the Load Balancer working properly
+
