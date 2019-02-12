@@ -21,6 +21,7 @@ runcmd:
   
 
 Create the app-servers.tf:
+```console
 //App servers
 resource "aws_instance" "app" {
   count = 2
@@ -50,6 +51,7 @@ resource "aws_elb" "app" {
   instances ["${aws_instance.app.*.id}"]
 }
 
+```
 
 The count parameter indicates the number of identical resources to create. The ${count.index} interpolation in the name tag provides the current index.
 You can read more about using count in resources at terraform variable documentation.
