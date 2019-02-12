@@ -90,7 +90,7 @@ We use ansible as a tool of deployment of configurations
     - [with a Master pod](docs/scalability_redis.md)
     - [with Slave pods](docs/scalability_redis_slaves.md)
 
-## Automated Deployment
+## Automated Deployment of the Infrastructure with Terraform
 
 - #### [Terraform, What is it?](docs/terraform_setup.md)
     - [What we plan to build from Infrastructure as Code](docs/terraform_build.md)
@@ -121,7 +121,10 @@ We use ansible as a tool of deployment of configurations
     - DNS
       - [with DNS Route53](docs/terraform_dns.md) (No need anymore - Depreciated in our use case)
 
-- #### [Ansible](docs/ansible.md)
+
+## Automated Deployment of the Server Configurations with Ansible
+
+- #### [Ansible, What is it?](docs/ansible.md)
     - [with playbook for setting up Docker](docs/ansible_playbook_docker.md)
     - [with playbook for setting up Kubernetes](docs/ansible_playbook_kubernetes.md)
     - [with playbook for setting up Kubernetes Controller](docs/ansible_playbook_kubernetes_controller.md)
