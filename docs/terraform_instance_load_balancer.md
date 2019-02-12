@@ -41,43 +41,6 @@ resource "aws_elb" "instance_LB" {
     "${aws_instance.instance_public_c.id}",
   ]
 }
-
-
-
-
-
-resource "aws_elb" "instance_LB" {
-  name = "instance-LB"
-
-  listener {
-    lb_port = 80
-    lb_protocol = "http"
-    instance_port = 80
-    instance_protocol = "http"  
-  }
-
-  subnets = [
-#    "${aws_subnet.public-a.id}",
-    "${aws_subnet.public-b.id}",
-    "${aws_subnet.public-c.id}"
-  ]
-  
-  security_groups = ["${aws_security_group.sg_internet_to_LB.id}"]
-  
-  health_check {
-    healthy_threshold = 2
-    unhealthy_threshold = 5
-    timeout = 5
-    target = "TCP:80"
-    interval = 30
-  }
-  
-  instances = [
-#    "${aws_instance.instance_public_a.id}",
-    "${aws_instance.instance_public_b.id}",
-    "${aws_instance.instance_public_c.id}",
-  ]
-  
-}
 ```
+
   
