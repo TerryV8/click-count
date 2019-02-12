@@ -116,7 +116,6 @@ We use ansible as a tool of deployment of configurations
       - [with 3 EC2 for the front-end](docs/terraform_instance_public.md)
       - [with AWS_elasticache_cluster Redis Terraform module for the back-end](docs/terraform_instance_private.md)
       - [with a Nat instance](docs/terraform_nat_instance.md) (No need anymore - Depreciated in our use case)
-      - [with a Load Balancer and adding Application servers](docs/terraform_load_balancer.md)
       - [with S3 bucket](docs/terraform_s3.md) (No need anymore - Depreciated in our use case)
       
     - DNS
