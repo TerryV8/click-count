@@ -17,7 +17,7 @@ Edit ansible_playbook_pre_kubernetes.yml:
 ```console
 ---
 - hosts: all
-  name: Setup the pre-requirement of Kubernetes Cluster on all machine
+  name: Setup the pre-requirement of Kubernetes Cluster on all machines
   gather_facts: false
   remote_user: ec2-user
   become: yes
