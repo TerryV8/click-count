@@ -13,7 +13,7 @@ on_aws_public_ipv4_dns_of_machine_4
 
 ```
 
-Edit ansible_playbook_kubernetes.yml:
+Edit ansible_playbook_pre_kubernetes.yml:
 ```console
 ---
 - hosts: all
@@ -155,3 +155,11 @@ Edit ansible_playbook_kubernetes.yml:
       with_items:
         - docker
         - kubelet
+        
+       
+```
+
+Finally, launch:
+```console
+ansible-playbook ansible_playbook_pre_kubernetes.yml 
+```
