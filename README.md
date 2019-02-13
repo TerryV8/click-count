@@ -128,7 +128,7 @@ We use ansible as a tool of deployment of configurations
     - [with playbook for setting up Docker](docs/ansible_playbook_docker.md) (No need anymore - Depreciated in our use case)
     - [Play the playbook for setting up Kubernetes on Master & Workers nodes](docs/ansible_playbook_kubernetes.md)
     - [Then play the playbook for setting up Kubernetes on Master node](docs/ansible_playbook_kubernetes_controller.md)
-    - [Then play the playbook for setting up Kubernetes on Workers nodes](docs/ansible_playbook_kubernetes_workers.md)
+    - [Then play the playbook for setting up Kubernetes on Worker nodes](docs/ansible_playbook_kubernetes_workers.md)
 
 ## Bonus: Alternative Kubernetes Setup to think for later
 - #### [Multi-Master Redis Cluster](docs/kubernetes_multi_master_nodes_setup.md) (Alternative to consider for later)
