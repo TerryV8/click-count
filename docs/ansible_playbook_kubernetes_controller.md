@@ -40,3 +40,9 @@ Edit ansible_kubernetes_master.yml:
 ```
 
 In my case, I have a local folder named /apps/terransible/tmp/ - on my localhost in wich I will save the result of the kubeadm init command. It will help us to use that information for the workers nodes to join the Redis cluster.
+
+
+Launch the command:
+```console
+ansible-playbook ansible_kubernetes_master.yml
+```
