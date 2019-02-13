@@ -9,8 +9,11 @@ Edit ansible_kubernetes_master.yml:
 
   tasks:
     - name: Kubeadm init
-      command: "kubeadm init --pod-network-cidr=10.244.0.0/16 > /home/ec2-user/result_kubeadm_init"
+      command: "kubeadm init --pod-network-cidr=10.244.0.0/16"
       ignore_errors: yes
+      register: resulut_kubeadm_init
+
+    - local_action: "copy content='{{ resulut_kubeadm_init.stdout }}' dest=/apps/terransible/tmp/result_kubeadm_init.txt"
 
     - name: Create .kube directory
       file:
@@ -33,3 +36,5 @@ Edit ansible_kubernetes_master.yml:
       become_user: ec2-user
       command: "kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml"
 ```
+
+In my case, I have a local folder named /apps/terransible/tmp/ - on my localhost in wich I will save the result of the kubeadm init command. It will help us to use that information for the workers nodes to join the Redis cluster.
