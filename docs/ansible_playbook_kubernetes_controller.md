@@ -1,3 +1,5 @@
+# Then play the playbook for setting up Kubernetes on Master node
+
 Edit ansible_kubernetes_master.yml:
 
 ```console
