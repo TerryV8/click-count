@@ -3,15 +3,37 @@
 First edit the inventory through /etc/ansible/host
 according to the Public DNS (IPv4) for each servers found on the EC2 AWS UI Console,
 ```console
-[k8s_master]
-on_aws_public_ipv4_dns_of_machine_1_in_availability_zone_a
+[k8s-master]
+aws_public_ipv4_dns_of_master_1_in_availability_zone_a_
 
-[k8s_worker]
-on_aws_public_ipv4_dns_of_machine_2_in_availability_zone_a
-on_aws_public_ipv4_dns_of_machine_3_in_availability_zone_b
-on_aws_public_ipv4_dns_of_machine_4_in_availability_zone_c
+[k8s-worker]
+aws_public_ipv4_dns_of_worker_1_in_availability_zone_b
+aws_public_ipv4_dns_of_worker_2_in_availability_zone_c
 
+[k8s-master:vars]
+redis_aws_endpoint=10.123.11.229
 ```
+
+On terraform, the redis_aws_endpoint must be filled with the IP and not any alias
+So we need to retreive the IP from Redis ElastiCache Endpoint.
+
+Thus, to fill the redis_aws_endpoint with a IP,
+go to the AWS UI Console which allows you to get the Redis ElastiCache Endpoint
+(eg. rg-redis.feg1ds.ng.0001.euw3.cache.amazonaws.com:6379)
+
+Then, on your local terminal ping the Redis ElastiCache endpoint:
+```console
+ping rg-redis.feg1ds.ng.0001.euw3.cache.amazonaws.com
+```
+to get its IP
+
+OUTPUT:
+```console
+PING rg-redis-001.feg1ds.0001.euw3.cache.amazonaws.com (10.123.11.229) 56(84) bytes of data.
+```
+
+Now you can fill redis_aws_endpoint with its IP.
+
 
 Edit ansible_playbook_pre_kubernetes.yml:
 ```console
