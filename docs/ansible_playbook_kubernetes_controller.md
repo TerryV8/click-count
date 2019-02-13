@@ -3,7 +3,7 @@ Edit ansible_playbook_kubernetes_controller.yml:
 ```console
 
 ---
-- hosts: k8s_master
+- hosts: k8s-master
   remote_user: ec2-user
   become: yes
   gather_facts: no
@@ -32,6 +32,5 @@ Edit ansible_playbook_kubernetes_controller.yml:
     - name: Install Pod network - No need for root priviledge
       become: no
       become_user: ec2-user
-      command: "kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml"
-
+      command: "kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml"
 ```
