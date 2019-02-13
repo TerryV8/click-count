@@ -1,13 +1,16 @@
 # Playbook for setting up Kubernetes - on Master & Workers
 
-First edit the inventory through /etc/ansible/host:
+First edit the inventory through /etc/ansible/host
+according to the Public DNS (IPv4) for each servers found on the EC2 AWS UI Console,
 ```console
 [k8s_master]
-dns_name_of_machine_a_on_aws
+on_aws_public_ipv4_dns_of_machine_1
 
 [k8s_worker]
-dns_name_of_machine_b_on_aws
-dns_name_of_machine_c_on_aws
+on_aws_public_ipv4_dns_of_machine_2
+on_aws_public_ipv4_dns_of_machine_3
+on_aws_public_ipv4_dns_of_machine_4
+
 ```
 
 Edit ansible_playbook_kubernetes.yml:
