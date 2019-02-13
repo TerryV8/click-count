@@ -14,14 +14,13 @@ aws_public_ipv4_dns_of_worker_2_in_availability_zone_c
 redis_aws_endpoint=10.123.11.229
 ```
 
-On terraform, the redis_aws_endpoint must be filled with the IP and not any alias
-So we need to retreive the IP from Redis ElastiCache Endpoint.
+On terraform, the redis_aws_endpoint must be filled with the IP and not any alias.
 
-Thus, to fill the redis_aws_endpoint with a IP,
-go to the AWS UI Console which allows you to get the Redis ElastiCache Endpoint
+You can do it by
+going to the AWS UI Console which allows you to get the Redis ElastiCache Endpoint
 (eg. rg-redis.feg1ds.ng.0001.euw3.cache.amazonaws.com:6379)
 
-Then, on your local terminal ping the Redis ElastiCache endpoint:
+Then, on your local terminal, you can ping the Redis ElastiCache endpoint:
 ```console
 ping rg-redis.feg1ds.ng.0001.euw3.cache.amazonaws.com
 ```
@@ -32,8 +31,7 @@ OUTPUT:
 PING rg-redis-001.feg1ds.0001.euw3.cache.amazonaws.com (10.123.11.229) 56(84) bytes of data.
 ```
 
-Now you can fill redis_aws_endpoint with its IP.
-
+Now, fill redis_aws_endpoint with its IP in the /etc/ansible/hosts
 
 Edit ansible_playbook_pre_kubernetes.yml:
 ```console
