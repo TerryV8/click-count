@@ -125,7 +125,6 @@ We use ansible as a tool of deployment of configurations
 ## Automated Deployment of the Server Configurations with Ansible
 
 - #### [Ansible, What is it?](docs/ansible.md)
-    - [with playbook for setting up Docker](docs/ansible_playbook_docker.md) (No need anymore - Depreciated in our use case)
     - [Play the playbook for setting up Kubernetes on Master & Workers nodes](docs/ansible_playbook_kubernetes.md)
     - [Then play the playbook for setting up Kubernetes on Master node](docs/ansible_playbook_kubernetes_controller.md)
     - [Then play the playbook for setting up Kubernetes on Worker nodes](docs/ansible_playbook_kubernetes_workers.md)
