@@ -1,9 +1,16 @@
-Edit ansible_playbook_kubernetes.yml:
+# Playbook for setting up Kubernetes - on Master & Workers
 
+First edit the inventory through /etc/ansible/host:
 ```console
----
-# with playbook for setting up Docker
+[k8s_master]
+dns_name_of_machine_a_on_aws
 
+[k8s_worker]
+dns_name_of_machine_b_on_aws
+dns_name_of_machine_c_on_aws
+```
+
+Edit ansible_playbook_kubernetes.yml:
 ```console
 ---
 - hosts: all
