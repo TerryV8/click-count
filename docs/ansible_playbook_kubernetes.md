@@ -20,11 +20,11 @@ You can do it by
 going to the AWS UI Console which allows you to get the Redis ElastiCache Endpoint
 (eg. rg-redis.feg1ds.ng.0001.euw3.cache.amazonaws.com:6379)
 
-Then, on your local terminal, you can ping the Redis ElastiCache endpoint:
+Then, on your local terminal, you can ping the Redis ElastiCache endpoint to get its IP:
 ```console
 ping rg-redis.feg1ds.ng.0001.euw3.cache.amazonaws.com
 ```
-to get its IP
+
 
 OUTPUT:
 ```console
