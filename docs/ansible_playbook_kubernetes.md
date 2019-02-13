@@ -83,10 +83,19 @@ Edit ansible_playbook_pre_kubernetes.yml:
         - name: Apply the bridge network configuration"
           command: "sysctl --system"
 
+- 
+      command: "swapoff -a"
+
+    - name: "Disable swap through kubeadm configuration"
+    
     - name: Disable swap
       block:
-        - command: "swapoff -a"
-        - lineinfile:
+      
+        - name: Disable swap
+          command: "swapoff -a"
+          
+        - name: Disable swap through kubeadm configuration
+          lineinfile:
             path: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
             line: Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"
 
