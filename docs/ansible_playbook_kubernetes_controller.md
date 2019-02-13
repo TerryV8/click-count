@@ -9,7 +9,7 @@ Edit ansible_kubernetes_master.yml:
 
   tasks:
     - name: Kubeadm init
-      command: "kubeadm init --pod-network-cidr=10.244.0.0/16 > result_kubeadm_init"
+      command: "kubeadm init --pod-network-cidr=10.244.0.0/16 > /home/ec2-user/result_kubeadm_init"
       ignore_errors: yes
 
     - name: Create .kube directory
