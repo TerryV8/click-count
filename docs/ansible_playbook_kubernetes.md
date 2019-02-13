@@ -82,15 +82,9 @@ Edit ansible_playbook_pre_kubernetes.yml:
 
         - name: Apply the bridge network configuration"
           command: "sysctl --system"
-
-- 
-      command: "swapoff -a"
-
-    - name: "Disable swap through kubeadm configuration"
     
     - name: Disable swap
-      block:
-      
+      block:      
         - name: Disable swap
           command: "swapoff -a"
           
@@ -122,11 +116,7 @@ Edit ansible_playbook_pre_kubernetes.yml:
         - docker
         - kubelet
 
-
-
 ```
-
-
 
 
 ```console
