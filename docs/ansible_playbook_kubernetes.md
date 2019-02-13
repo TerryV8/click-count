@@ -18,7 +18,7 @@ Edit ansible_playbook_kubernetes.yml:
       name: '*'
       state: latest
 
-  - name: install the latest version of Apache
+  - name: install the latest version of telnet, tc
     yum:
       name: 
         - telnet
@@ -47,11 +47,11 @@ Edit ansible_playbook_kubernetes.yml:
    
 ```        
 ```console
-- hosts: all
-  name: Setup Docker
-  gather_facts: false
-  remote_user: ec2-user
-  become: yes
+#- hosts: all
+#  name: Setup Docker
+#  gather_facts: false
+#  remote_user: ec2-user
+#  become: yes
 
   tasks:
     - name: "Installing Docker Prerequisite packages 1/2"
@@ -72,11 +72,11 @@ Edit ansible_playbook_kubernetes.yml:
         state: started
         enabled: yes
 
-- hosts: all
-  name: Setup Kubernetes
-  gather_facts: false
-  remote_user: ec2-user
-  become: yes
+#- hosts: all
+#  name: Setup Kubernetes
+#  gather_facts: false
+#  remote_user: ec2-user
+#  become: yes
 
   tasks:
     - name: "Add Kubernetes repository"
