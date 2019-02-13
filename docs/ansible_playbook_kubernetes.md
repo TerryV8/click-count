@@ -4,12 +4,12 @@ First edit the inventory through /etc/ansible/host
 according to the Public DNS (IPv4) for each servers found on the EC2 AWS UI Console,
 ```console
 [k8s_master]
-on_aws_public_ipv4_dns_of_machine_1
+on_aws_public_ipv4_dns_of_machine_1_in_availability_zone_a
 
 [k8s_worker]
-on_aws_public_ipv4_dns_of_machine_2
-on_aws_public_ipv4_dns_of_machine_3
-on_aws_public_ipv4_dns_of_machine_4
+on_aws_public_ipv4_dns_of_machine_2_in_availability_zone_a
+on_aws_public_ipv4_dns_of_machine_3_in_availability_zone_b
+on_aws_public_ipv4_dns_of_machine_4_in_availability_zone_c
 
 ```
 
