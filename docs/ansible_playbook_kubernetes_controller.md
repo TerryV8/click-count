@@ -1,4 +1,4 @@
-Edit ansible_playbook_kubernetes_controller.yml:
+Edit ansible_kubernetes_master.yml:
 
 ```console
 
