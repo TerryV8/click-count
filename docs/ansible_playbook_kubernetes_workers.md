@@ -31,3 +31,21 @@ Launch:
 ```console
 ansible-playbook ansible_kubernetes_worker.yml 
 ```
+
+Now you can connect to the Kubernetes master nodes by typing on my local machine:
+```console
+ssh ec2-user@ec2-35-180-158-36.eu-west-3.compute.amazonaws.com -i /root/.ssh/clickcount-auth
+```
+
+Once I am connected to the remote Kubernetes master node, I can check that my Kubernetes Cluster is running by typing:
+```console
+kubectl get nodes
+```
+
+OUTPUT:
+```console
+NAME                                         STATUS   ROLES    AGE     VERSION
+ip-10-123-0-174.eu-west-3.compute.internal   Ready    master   11m     v1.13.3
+ip-10-123-1-164.eu-west-3.compute.internal   Ready    <none>   9m30s   v1.13.3
+ip-10-123-2-175.eu-west-3.compute.internal   Ready    <none>   9m30s   v1.13.3
+```
