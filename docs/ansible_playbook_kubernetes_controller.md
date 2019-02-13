@@ -1,7 +1,6 @@
 Edit ansible_kubernetes_master.yml:
 
 ```console
-
 ---
 - hosts: k8s-master
   remote_user: ec2-user
