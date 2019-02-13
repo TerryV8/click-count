@@ -1,4 +1,4 @@
-# Playbook for setting up Kubernetes - on Master & Workers
+# Play the Playbook for setting up Kubernetes - on Master & Workers
 
 First edit the inventory through /etc/ansible/host
 according to the Public DNS (IPv4) for each servers found on the EC2 AWS UI Console,
