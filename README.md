@@ -128,7 +128,5 @@ We use ansible as a tool of deployment of configurations
 - #### [Multi-Master Redis Cluster](docs/kubernetes_multi_master_nodes_setup.md) (Alternative to consider for later)
 - #### [Automated Kubernetes Deployment with EKS / ECS provided by AWS](docs/eks_setup.md) (Alternative to consider for later)
 
-# 5. Outside this GitHub project above
-
-[I have kept extra personal notes](docs/outside_project.md)
+Outside this GitHub project above, [I have kept extra personal notes](docs/outside_project.md)
 
