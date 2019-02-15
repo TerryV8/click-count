@@ -115,11 +115,6 @@ We use ansible as a tool of deployment of configurations
       - [with 1 Load Balancer](docs/terraform_instance_load_balancer.md)
       - [with 3 EC2 for the front-end](docs/terraform_instance_public.md): 1 master & 2 replicas
       - [with AWS_elasticache_cluster Redis Terraform module for the back-end](docs/terraform_instance_private.md)
-      - [with a Nat instance](docs/terraform_nat_instance.md) (No need anymore - Depreciated in our use case)
-      - [with S3 bucket](docs/terraform_s3.md) (No need anymore - Depreciated in our use case)
-      
-    - DNS
-      - [with DNS Route53](docs/terraform_dns.md) (No need anymore - Depreciated in our use case)
 
 
 ## Automated Deployment of the Server Configurations with Ansible
@@ -132,5 +127,10 @@ We use ansible as a tool of deployment of configurations
 ## Bonus: Alternative Kubernetes Setup to think for later
 - #### [Multi-Master Redis Cluster](docs/kubernetes_multi_master_nodes_setup.md) (Alternative to consider for later)
 - #### [Automated Kubernetes Deployment with EKS / ECS provided by AWS](docs/eks_setup.md) (Alternative to consider for later)
+
+## Bonus: Outside the project - No need anymore - Depreciated in our use case
+- ###### [with a Nat instance](docs/terraform_nat_instance.md) 
+- ###### [with S3 bucket](docs/terraform_s3.md)
+- ###### [with DNS Route53](docs/terraform_dns.md) 
 
 
