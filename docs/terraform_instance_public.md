@@ -115,8 +115,10 @@ resource "aws_instance" "instance_public_c" {
 }
 
 ```
-The "instance a" will be used as our Kubernetes master node
-The "instance b and instance c" will be used as our Kubernetes workers nodes
+The "instance a" will be used as our Kubernetes master node.
+
+The "instance b and instance c" will be used as our Kubernetes workers nodes.
+
 Later on, through Ansible, we will add the configurations for those Kubernetes nodes.
 
 
