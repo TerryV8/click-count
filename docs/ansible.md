@@ -32,7 +32,7 @@ and attribute the 3 EC2 instances to 1 controller and 2 workers
 
 Edit /etc/ansible/hosts to something similar to below:
 ```console
-[kubernetes_controller]
+[kubernetes_master]
 ec2-35-180-172-87.eu-west-3.compute.amazonaws.com
 
 [kubernetes_worker]
