@@ -124,11 +124,11 @@ We use ansible as a tool of deployment of configurations
     - [Then play the playbook for setting up Kubernetes on Master node](docs/ansible_playbook_kubernetes_controller.md)
     - [Then play the playbook for setting up Kubernetes on Worker nodes](docs/ansible_playbook_kubernetes_workers.md)
 
-## Bonus: Alternative Kubernetes Setup to think for later
+# 4. Bonus: Alternative Kubernetes Setup to think for later
 - #### [Multi-Master Redis Cluster](docs/kubernetes_multi_master_nodes_setup.md) (Alternative to consider for later)
 - #### [Automated Kubernetes Deployment with EKS / ECS provided by AWS](docs/eks_setup.md) (Alternative to consider for later)
 
-## Bonus: Outside the project - No need anymore - Depreciated in our use case
+## Some personal notes with is outside the project
 - ###### [with a Nat instance](docs/terraform_nat_instance.md) 
 - ###### [with S3 bucket](docs/terraform_s3.md)
 - ###### [with DNS Route53](docs/terraform_dns.md) 
