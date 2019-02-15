@@ -124,7 +124,8 @@ Later on, through Ansible, we will add the configurations for those Kubernetes n
 
 
 Temporarily modify the lines in instance_public.tf to download/update all required initial packages.
-Then when it is done, go to the AWS Console UI and delete it manually
+Then when it is done, go to the AWS Console UI and delete it manually.
+
 Replace:
 ```console
   security_groups = ["${aws_security_group.sg_LB_to_WebApps.id}", "${aws_security_group.sg_ssh_and_ping.id}"]
