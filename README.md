@@ -129,5 +129,5 @@ We use ansible as a tool of deployment of configurations
 - #### [Automated Kubernetes Deployment with EKS / ECS provided by AWS](docs/eks_setup.md) (Alternative to consider for later)
 
 # 5. Outside this GitHub project above
-- ###### [I keep extra personal notes](docs/outside_project.md)
+- ###### [I have kept extra personal notes](docs/outside_project.md)
 
